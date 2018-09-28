@@ -73,6 +73,14 @@ div.long_form label {
 	padding: .5em .5em;
 }
 
+div.draggable_element {
+    color: red;
+}
+
+div.drag_target {
+    color: blue;
+}
+
 textarea {
 	border: 2px inset;
 }
