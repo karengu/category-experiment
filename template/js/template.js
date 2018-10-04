@@ -244,47 +244,86 @@ function make_slides(f) {
   slides.drag_and_drop = slide({
     name: "drag_and_drop",
     start: function() {
-      var paper = new Raphael(document.getElementById('paper'), 700, 300);
+
+      exp.startExploration = Date.now();
+	  
+      var makePlatformPath = function(startX, startY) {
+        return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
+      }
+
+      var makeBlicketPath = function(startX, startY) {
+        return "M "+startX+","+startY+"m -20,0 l 20,-20 l 20,20 l -20,20 l -20,-20 m 20,20 l -7.5,-20 l 7.5,-20 l 7.5,20 l -7.5,20"
+      }
+
+      var makeBlicketPile = function(startX, startY, numberBlickets) {
+        for (i = 0; i < numberBlickets; i++) {
+          paper.path(makeBlicketPath(startX+100*Math.random()-50, startY+100*Math.random()-50)).attr({fill: "#ff0"});
+        }
+      }
+
+      var moveToGarbage = function(blicket) {
+        const finalX = 50*Math.random()-25+500
+        const finalY = 20*Math.random()-10
+        blicket.translate(finalX-blicket.odx,finalY-blicket.ody)
+      }
+
+      var paper = new Raphael(document.getElementById('paper'), 700, 500);
       exp.paper = paper;
-      var target = paper.rect(200, 0, 100, 100).attr("fill", "#f60404"); // testing stage
-      var targetLabel = paper.text(250, 50, "Testing Stage");
-      var source = paper.rect(0, 0, 150, 150).attr("fill", "#00FFFF"); // uncountable pile of items (infinite)
-      var sourceLabel = paper.text(75, 50, "Blickets");
-      var pickUp = paper.rect(0, 180, 50, 20).attr("fill", "#00FFFF"); // button to pick up item
-      var pickUpLabel = paper.text(25, 190, "Pick up");
-      var tri = paper.path("M0 0L0 20L25 10L0 0Z").attr("fill", "#ff0"); // item that peels off from source
-      var button = paper.rect(200, 150, 50, 20).attr("fill", "#7CFC00"); // test button
-      var buttonLabel = paper.text(225, 160, "Test");
-      var garbage = paper.rect(400, 0, 100, 100); // pile of items that has already been tested
-      var garbageLabel = paper.text(450, 50, "Tested Items");
-      var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
-      paper.customAttributes.pickedItemId = tri.id;
-      paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
+
+      // platforms: visible holders for objects of interest, testing, and garbage
+      var sourcePlatform = paper.path(makePlatformPath(0,150)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
+      var testingPlatform = paper.path(makePlatformPath(250, 150)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+      var garbagePlatform = paper.path(makePlatformPath(500, 150)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
+
+      // source: items of interest to be tested
+      makeBlicketPile(80,250,200);
+      var sourceLabel = paper.text(75, 330, "Blickets");
+      var pickUp = paper.rect(55, 180, 50, 20).attr("fill", "#4985e5"); // button to pick up item
+      var pickUpLabel = paper.text(80, 190, "Pick up").attr({"font-weight": "bold"});
+
+      // target: testing area
+      var targetLabel = paper.text(330, 50, "Testing Stage");
+      var button = paper.rect(305, 180, 50, 20).attr("fill", "#49e575"); // test button
+      var buttonLabel = paper.text(330, 190, "Test").attr({"font-weight": "bold"});
+
+      // garbage: items already tested
+      var garbageLabel = paper.text(580, 50, "Tested Items");
+      // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
+
+      // items of interest (single)
+      var blicket = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
+	
+      paper.customAttributes.pickedItemId = blicket.id;
+      // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
       paper.customAttributes.itemsTested = 0;
-      paper.customAttributes.logResultDepth = 200;
+      paper.customAttributes.logResultDepth = 250;
+	
       var onPickUp = function() {
         if (paper.customAttributes.pickedItemId) {
           console.log('You cannot pick up more than one item.')
         }
         else {
-          var newItem = paper.path("M0 0L0 20L25 10L0 0Z").attr("fill", "#ff0");
+            var newItem = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
           paper.customAttributes.pickedItemId = newItem.id;
           newItem.drag(move, start, up);
         }
       }
       var start = function () {
         this.odx = 0;
-        this.ody = 0;
+          this.ody = 0;
         this.animate({"fill-opacity": 0.2}, 500);
       };
-      var move = function (dx, dy) {
+	var move = function (dx, dy) {
         this.translate(dx - this.odx, dy - this.ody);
         this.odx = dx;
-        this.ody = dy;
+          this.ody = dy;
       };
       var up = function () {
-        this.animate({"fill-opacity": 1}, 500);
-        if (200 < this.odx <= 300 && 200 < this.ody <= 300) {
+          this.animate({"fill-opacity": 1}, 500);
+	  var bBox = this.getBBox();
+	  console.log(bBox.x, bBox.y);
+          if (250 < bBox.x && bBox.x <= 370 && 0 < bBox.y && bBox.y <= 100) {
+	      console.log('item moved to testing area')
           if (paper.customAttributes.testItem) {
             console.log('item already on testing stage');
 	    this.translate(-this.odx, -this.ody);
@@ -303,23 +342,25 @@ function make_slides(f) {
         }
         else {
             console.log('testing item', testItem);
-            paper.text(200, paper.customAttributes.logResultDepth, 'squeak!');
-            paper.customAttributes.logResultDepth += 20
-            testItem.translate(400 - testItem.odx, 0 - testItem.ody);
+            paper.text(330, paper.customAttributes.logResultDepth, 'squeak!').animate({opacity: 0}, 1000, function() {this.hide()});
+            // paper.customAttributes.logResultDepth += 20
+            // testItem.translate(500 - testItem.odx, 0 - testItem.ody);
+	    moveToGarbage(testItem);
 	    paper.customAttributes.testItem = null;
 	    paper.customAttributes.itemsTested ++;
-	    paper.getById(paper.customAttributes.itemsTestedCounterId).remove();
-	    var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
-	    paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
+	    // paper.getById(paper.customAttributes.itemsTestedCounterId).remove();
+	    // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
+	    // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         }
       }
       pickUp.click(onPickUp);
       button.click(onButtonClick);
-      tri.drag(move, start, up);
+      blicket.drag(move, start, up);
     },
     log_responses: function() {
       exp.data_trials.push({
-        itemsTested: exp.paper.customAttributes.itemsTested
+          itemsTested: exp.paper.customAttributes.itemsTested,
+	  timeExploring: (Date.now() - exp.startExploration)/60000
       })
     },
     button: function(e) {
@@ -380,7 +421,7 @@ function init() {
     };
   //blocks of the experiment:
     exp.structure=["i0",
-		   "instructions", "single_trial", "one_slider", "multi_slider", "vertical_sliders",
+		   //"instructions", "single_trial", "one_slider", "multi_slider", "vertical_sliders",
 		   'drag_and_drop', 'subj_info', 'thanks'];
 
   exp.data_trials = [];
