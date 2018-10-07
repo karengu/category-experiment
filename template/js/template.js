@@ -245,7 +245,10 @@ function make_slides(f) {
     name: "drag_and_drop",
     start: function() {
 
+      // TODO: look at Python scripts for parsing JSON data
+
       exp.startExploration = Date.now();
+      exp.events = {};
 	  
       var makePlatformPath = function(startX, startY) {
         return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
@@ -255,20 +258,23 @@ function make_slides(f) {
         return "M "+startX+","+startY+"m -20,0 l 20,-20 l 20,20 l -20,20 l -20,-20 m 20,20 l -7.5,-20 l 7.5,-20 l 7.5,20 l -7.5,20"
       }
 
-      var makeBlicketPile = function(startX, startY, numberBlickets) {
+      var makeBlicketPile = function(startX, startY, numberBlickets, blicketPile) {
         for (i = 0; i < numberBlickets; i++) {
-          paper.path(makeBlicketPath(startX+100*Math.random()-50, startY+100*Math.random()-50)).attr({fill: "#ff0"});
+          var newBlicket = paper.path(makeBlicketPath(startX+100*Math.random()-50, startY+100*Math.random()-50)).attr({fill: "#ff0"});
+          blicketPile.push(newBlicket);
         }
       }
 
-      var moveToGarbage = function(blicket) {
-        const finalX = 50*Math.random()-25+500
-        const finalY = 20*Math.random()-10
-        blicket.translate(finalX-blicket.odx,finalY-blicket.ody)
+      var moveToGarbage = function(blicket, x, y) {
+        const finalX = 50*Math.random()-25+550
+        const finalY = 20*Math.random()-10+80
+        blicket.translate(finalX-x,finalY-y)
       }
 
+      var squeak = new Audio('../_shared/audio/squeak.mp3');
+
       var paper = new Raphael(document.getElementById('paper'), 700, 500);
-      exp.paper = paper;
+	exp.paper = paper;
 
       // platforms: visible holders for objects of interest, testing, and garbage
       var sourcePlatform = paper.path(makePlatformPath(0,150)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
@@ -276,24 +282,30 @@ function make_slides(f) {
       var garbagePlatform = paper.path(makePlatformPath(500, 150)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
 
       // source: items of interest to be tested
-      makeBlicketPile(80,250,200);
+      var blicketPile = paper.set();
+      makeBlicketPile(80,250,200, blicketPile);
       var sourceLabel = paper.text(75, 330, "Blickets");
       var pickUp = paper.rect(55, 180, 50, 20).attr("fill", "#4985e5"); // button to pick up item
       var pickUpLabel = paper.text(80, 190, "Pick up").attr({"font-weight": "bold"});
-
+      var pickUpButton = paper.set();
+      pickUpButton.push(pickUp, pickUpLabel).attr({"cursor": "pointer"});
+	
       // target: testing area
       var targetLabel = paper.text(330, 50, "Testing Stage");
       var button = paper.rect(305, 180, 50, 20).attr("fill", "#49e575"); // test button
       var buttonLabel = paper.text(330, 190, "Test").attr({"font-weight": "bold"});
+      var testButton = paper.set();
+      testButton.push(button, buttonLabel).attr({"cursor": "pointer"});
+	
 
       // garbage: items already tested
       var garbageLabel = paper.text(580, 50, "Tested Items");
       // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
       // items of interest (single)
-      var blicket = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
+      //var blicket = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
 	
-      paper.customAttributes.pickedItemId = blicket.id;
+      //paper.customAttributes.pickedItemId = blicket.id;
       // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
       paper.customAttributes.itemsTested = 0;
       paper.customAttributes.logResultDepth = 250;
@@ -303,36 +315,47 @@ function make_slides(f) {
           console.log('You cannot pick up more than one item.')
         }
         else {
-            var newItem = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
+          var newItem = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
           paper.customAttributes.pickedItemId = newItem.id;
           newItem.drag(move, start, up);
+          blicketPile.forEach(function(blicket) {
+            blicket.attr({"fill": "#999937"});
+	  });
         }
       }
       var start = function () {
         this.odx = 0;
-          this.ody = 0;
+        this.ody = 0;
         this.animate({"fill-opacity": 0.2}, 500);
+        exp.events[Date.now()] = "pickUp";
       };
-	var move = function (dx, dy) {
+      var move = function (dx, dy) {
         this.translate(dx - this.odx, dy - this.ody);
         this.odx = dx;
-          this.ody = dy;
+        this.ody = dy;
       };
       var up = function () {
-          this.animate({"fill-opacity": 1}, 500);
-	  var bBox = this.getBBox();
-	  console.log(bBox.x, bBox.y);
-          if (250 < bBox.x && bBox.x <= 370 && 0 < bBox.y && bBox.y <= 100) {
-	      console.log('item moved to testing area')
+        this.animate({"fill-opacity": 1}, 500);
+        var bBox = this.getBBox();
+        if (260 < bBox.x && bBox.x <= 360 && 10 < bBox.y && bBox.y <= 90) {
+          console.log('item moved to testing area')
           if (paper.customAttributes.testItem) {
             console.log('item already on testing stage');
 	    this.translate(-this.odx, -this.ody);
+	    exp.events[Date.now()] = "dropTestOccupied";
           }
           else {
+            exp.events[Date.now()] = "dropTest";
             this.undrag();
-	    paper.customAttributes.testItem = this;
+            paper.customAttributes.testItem = this;
             paper.customAttributes.pickedItemId = null;
+	    blicketPile.forEach(function(blicket) {
+	      blicket.attr({"fill": "#ff0"});
+	    })
           }
+        }
+	else {
+          exp.events[Date.now()] = "dropLoc";
         }
       };
       var onButtonClick = function() {
@@ -341,26 +364,40 @@ function make_slides(f) {
           console.log('no item on testing stage');
         }
         else {
-            console.log('testing item', testItem);
-            paper.text(330, paper.customAttributes.logResultDepth, 'squeak!').animate({opacity: 0}, 1000, function() {this.hide()});
-            // paper.customAttributes.logResultDepth += 20
-            // testItem.translate(500 - testItem.odx, 0 - testItem.ody);
-	    moveToGarbage(testItem);
-	    paper.customAttributes.testItem = null;
-	    paper.customAttributes.itemsTested ++;
-	    // paper.getById(paper.customAttributes.itemsTestedCounterId).remove();
-	    // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
-	    // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
+          console.log('testing item', testItem);
+          //paper.text(330, paper.customAttributes.logResultDepth, 'squeak!').animate({opacity: 0}, 1000, function() {this.hide()});
+	  squeak.play();
+          var bBox = testItem.getBBox();
+          moveToGarbage(testItem, bBox.x, bBox.y);
+          paper.customAttributes.testItem = null;
+          paper.customAttributes.itemsTested ++;
+          // paper.getById(paper.customAttributes.itemsTestedCounterId).remove();
+          // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
+          // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
+          exp.events[Date.now()] = "testItem";
         }
       }
-      pickUp.click(onPickUp);
-      button.click(onButtonClick);
-      blicket.drag(move, start, up);
+      pickUpButton.click(onPickUp);
+      pickUpButton.mousedown(function() {
+        pickUp.animate({"fill": "#2d528e"});
+      });
+      pickUpButton.mouseup(function() {
+        pickUp.animate({"fill": "#4985e5"});
+      });
+      testButton.click(onButtonClick);
+      testButton.mousedown(function() {
+         button.animate({"fill":"#287f41"});
+      });
+      testButton.mouseup(function() {
+        button.animate({"fill": "#49e575"});
+      });
+      //blicket.drag(move, start, up);
     },
     log_responses: function() {
       exp.data_trials.push({
-          itemsTested: exp.paper.customAttributes.itemsTested,
-	  timeExploring: (Date.now() - exp.startExploration)/60000
+        itemsTested: exp.paper.customAttributes.itemsTested,
+        timeExploring: (Date.now() - exp.startExploration)/60000,
+        events: exp.events
       })
     },
     button: function(e) {
