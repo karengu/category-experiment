@@ -245,10 +245,8 @@ function make_slides(f) {
     name: "drag_and_drop",
     start: function() {
 
-      // TODO: look at Python scripts for parsing JSON data
-
       exp.startExploration = Date.now();
-      exp.events = {};
+      exp.events = [];
 	  
       var makePlatformPath = function(startX, startY) {
         return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
@@ -259,53 +257,62 @@ function make_slides(f) {
       }
 
       var makeBlicketPile = function(startX, startY, numberBlickets, blicketPile) {
+	paper.path("M "+startX+","+startY+"m -70,-25 l 60,-20 h 140 l -60,20, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"})
         for (i = 0; i < numberBlickets; i++) {
-          var newBlicket = paper.path(makeBlicketPath(startX+100*Math.random()-50, startY+100*Math.random()-50)).attr({fill: "#ff0"});
+          var newBlicket = paper.path(makeBlicketPath(startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: "#ff0"});
           blicketPile.push(newBlicket);
         }
+	paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
+	paper.path("M "+startX+","+startY+"m70,85 l 60,-20 v -110 l-60,20 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
       }
 
       var moveToGarbage = function(blicket, x, y) {
-        const finalX = 50*Math.random()-25+550
-        const finalY = 20*Math.random()-10+80
+        const finalX = 60*Math.random()-30+630
+        const finalY = 20*Math.random()-10+220
         blicket.translate(finalX-x,finalY-y)
+      }
+
+      var makeButton = function(startX, startY, color, buttonText) {
+	var button = paper.rect(startX -25, startY-10, 50, 20, 8).attr("fill", color);
+        var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold"});
+        var buttonSet = paper.set();
+	buttonSet.push(button, buttonLabel).attr({"cursor": "pointer"});
+	return ({button: button, buttonSet: buttonSet});
+      }
+
+      var makeTable = function() {
+	paper.path("M 100,140 v 200 A 20,10 0 0,0 120,340 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+	paper.path("M 780,140 v 200 A 20,10 0 0,0 800,340 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+	paper.path("M 0,320 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+	paper.path("M 0,320 v 200 A 20,10 0 0,0 20,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+	paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
       }
 
       var squeak = new Audio('../_shared/audio/squeak.mp3');
 
-      var paper = new Raphael(document.getElementById('paper'), 700, 500);
-	exp.paper = paper;
+      var paper = new Raphael(document.getElementById('paper'), 800, 500);
+      exp.paper = paper;
+      makeTable();
 
       // platforms: visible holders for objects of interest, testing, and garbage
-      var sourcePlatform = paper.path(makePlatformPath(0,150)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
-      var testingPlatform = paper.path(makePlatformPath(250, 150)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
-      var garbagePlatform = paper.path(makePlatformPath(500, 150)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
+      var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
+      var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+      var garbagePlatform = paper.path(makePlatformPath(570, 300)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
 
       // source: items of interest to be tested
       var blicketPile = paper.set();
-      makeBlicketPile(80,250,200, blicketPile);
-      var sourceLabel = paper.text(75, 330, "Blickets");
-      var pickUp = paper.rect(55, 180, 50, 20).attr("fill", "#4985e5"); // button to pick up item
-      var pickUpLabel = paper.text(80, 190, "Pick up").attr({"font-weight": "bold"});
-      var pickUpButton = paper.set();
-      pickUpButton.push(pickUp, pickUpLabel).attr({"cursor": "pointer"});
+      makeBlicketPile(370,100,200, blicketPile);
+      var sourceLabel = paper.text(400, 25, "Blickets");
+      var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
 	
       // target: testing area
-      var targetLabel = paper.text(330, 50, "Testing Stage");
-      var button = paper.rect(305, 180, 50, 20).attr("fill", "#49e575"); // test button
-      var buttonLabel = paper.text(330, 190, "Test").attr({"font-weight": "bold"});
-      var testButton = paper.set();
-      testButton.push(button, buttonLabel).attr({"cursor": "pointer"});
-	
+      var targetLabel = paper.text(400, 210, "Testing Stage");
+      var testButton = makeButton(400, 340, "#49e575", "Test");
 
       // garbage: items already tested
-      var garbageLabel = paper.text(580, 50, "Tested Items");
+      var garbageLabel = paper.text(650, 210, "Tested Items");
       // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
-      // items of interest (single)
-      //var blicket = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
-	
-      //paper.customAttributes.pickedItemId = blicket.id;
       // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
       paper.customAttributes.itemsTested = 0;
       paper.customAttributes.logResultDepth = 250;
@@ -315,7 +322,7 @@ function make_slides(f) {
           console.log('You cannot pick up more than one item.')
         }
         else {
-          var newItem = paper.path(makeBlicketPath(80,100)).attr("fill", "#ff0");
+          var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", "#ff0");
           paper.customAttributes.pickedItemId = newItem.id;
           newItem.drag(move, start, up);
           blicketPile.forEach(function(blicket) {
@@ -323,11 +330,11 @@ function make_slides(f) {
 	  });
         }
       }
-      var start = function () {
+      var start = function (x,y) {
         this.odx = 0;
         this.ody = 0;
         this.animate({"fill-opacity": 0.2}, 500);
-        exp.events[Date.now()] = "pickUp";
+        exp.events.push({event: "pickUp", time: Date.now()});
       };
       var move = function (dx, dy) {
         this.translate(dx - this.odx, dy - this.ody);
@@ -337,15 +344,32 @@ function make_slides(f) {
       var up = function () {
         this.animate({"fill-opacity": 1}, 500);
         var bBox = this.getBBox();
-        if (260 < bBox.x && bBox.x <= 360 && 10 < bBox.y && bBox.y <= 90) {
+        xTrans = 0;
+        yTrans = 0;
+        if (bBox.x < 0) {
+          xTrans=-bBox.x
+        }
+        if (bBox.y < 0) {
+          yTrans=-bBox.y
+        }
+        if (bBox.x > 760) {
+          xTrans=760-bBox.x
+        }
+        if (bBox.y > 460) {
+          yTrans=460-bBox.y
+        }
+        if (xTrans !== 0 || yTrans !== 0) {
+          this.translate(xTrans,yTrans);
+         }
+        if (340 < bBox.x && bBox.x <= 410 && 190 < bBox.y && bBox.y <= 240) {
           console.log('item moved to testing area')
           if (paper.customAttributes.testItem) {
             console.log('item already on testing stage');
 	    this.translate(-this.odx, -this.ody);
-	    exp.events[Date.now()] = "dropTestOccupied";
+	      exp.events.push({event: "dropTestOccupied", time: Date.now()});
           }
           else {
-            exp.events[Date.now()] = "dropTest";
+            exp.events.push({event: "dropTest", time: Date.now()});
             this.undrag();
             paper.customAttributes.testItem = this;
             paper.customAttributes.pickedItemId = null;
@@ -355,7 +379,7 @@ function make_slides(f) {
           }
         }
 	else {
-          exp.events[Date.now()] = "dropLoc";
+          exp.events.push({event: "dropLoc", time: Date.now()});
         }
       };
       var onButtonClick = function() {
@@ -365,33 +389,30 @@ function make_slides(f) {
         }
         else {
           console.log('testing item', testItem);
-          //paper.text(330, paper.customAttributes.logResultDepth, 'squeak!').animate({opacity: 0}, 1000, function() {this.hide()});
 	  squeak.play();
           var bBox = testItem.getBBox();
           moveToGarbage(testItem, bBox.x, bBox.y);
           paper.customAttributes.testItem = null;
           paper.customAttributes.itemsTested ++;
-          // paper.getById(paper.customAttributes.itemsTestedCounterId).remove();
           // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
           // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
           exp.events[Date.now()] = "testItem";
         }
       }
-      pickUpButton.click(onPickUp);
-      pickUpButton.mousedown(function() {
-        pickUp.animate({"fill": "#2d528e"});
+      pickUpButton.buttonSet.click(onPickUp);
+      pickUpButton.buttonSet.mousedown(function() {
+        pickUpButton.button.animate({"fill": "#2d528e"});
       });
-      pickUpButton.mouseup(function() {
-        pickUp.animate({"fill": "#4985e5"});
+      pickUpButton.buttonSet.mouseup(function() {
+        pickUpButton.button.animate({"fill": "#4985e5"});
       });
-      testButton.click(onButtonClick);
-      testButton.mousedown(function() {
-         button.animate({"fill":"#287f41"});
+      testButton.buttonSet.click(onButtonClick);
+      testButton.buttonSet.mousedown(function() {
+         testButton.button.animate({"fill":"#287f41"});
       });
-      testButton.mouseup(function() {
-        button.animate({"fill": "#49e575"});
+      testButton.buttonSet.mouseup(function() {
+        testButton.button.animate({"fill": "#49e575"});
       });
-      //blicket.drag(move, start, up);
     },
     log_responses: function() {
       exp.data_trials.push({
