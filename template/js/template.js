@@ -290,10 +290,9 @@ function make_slides(f) {
 
       var squeak = new Audio('../_shared/audio/squeak.mp3');
 
-      var paper = new Raphael(document.getElementById('paper'), 800, 500);
+      var paper = new Raphael(document.getElementById('paper'), 800, 600);
       exp.paper = paper;
-      makeTable();
-
+	makeTable();
       // platforms: visible holders for objects of interest, testing, and garbage
       var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
       var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
@@ -306,11 +305,11 @@ function make_slides(f) {
       var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
 	
       // target: testing area
-      var targetLabel = paper.text(400, 210, "Testing Stage");
+      var targetLabel = paper.text(370, 285, "Testing Stage");
       var testButton = makeButton(400, 340, "#49e575", "Test");
 
       // garbage: items already tested
-      var garbageLabel = paper.text(650, 210, "Tested Items");
+      var garbageLabel = paper.text(620, 285, "Tested Items");
       // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
       // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
@@ -366,7 +365,7 @@ function make_slides(f) {
           if (paper.customAttributes.testItem) {
             console.log('item already on testing stage');
 	    this.translate(-this.odx, -this.ody);
-	      exp.events.push({event: "dropTestOccupied", time: Date.now()});
+	    exp.events.push({event: "dropTestOccupied", time: Date.now()});
           }
           else {
             exp.events.push({event: "dropTest", time: Date.now()});
@@ -389,7 +388,17 @@ function make_slides(f) {
         }
         else {
           console.log('testing item', testItem);
-	  squeak.play();
+	    squeak.play();
+	    var alert = paper.set();
+	    alert.push(paper.rect(100,100,600,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+	    alert.push(paper.text(400,200, "Squeak!").attr({fill: "white","stroke-opacity":0}));
+	    alert.click(function() {
+	      alert.remove();
+	    });
+	    var fadeOut = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
+	    alert.forEach(function(elem) {
+	      elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOut.delay(500))})
+	    });
           var bBox = testItem.getBBox();
           moveToGarbage(testItem, bBox.x, bBox.y);
           paper.customAttributes.testItem = null;
@@ -479,7 +488,8 @@ function init() {
     };
   //blocks of the experiment:
     exp.structure=["i0",
-		   //"instructions", "single_trial", "one_slider", "multi_slider", "vertical_sliders",
+		   "instructions",
+		   //"single_trial", "one_slider", "multi_slider", "vertical_sliders",
 		   'drag_and_drop', 'subj_info', 'thanks'];
 
   exp.data_trials = [];
