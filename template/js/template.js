@@ -1,5 +1,5 @@
 function make_slides(f) {
-  var   slides = {};
+  var slides = {};
 
   slides.i0 = slide({
      name : "i0",
@@ -243,7 +243,10 @@ function make_slides(f) {
 
   slides.drag_and_drop = slide({
     name: "drag_and_drop",
-    start: function() {
+    present: [
+      {}
+    ],
+    present_handle: function(stim) {
 
       exp.startExploration = Date.now();
       exp.events = [];
@@ -290,9 +293,10 @@ function make_slides(f) {
 
       var squeak = new Audio('../_shared/audio/squeak.mp3');
 
-      var paper = new Raphael(document.getElementById('paper'), 800, 600);
+      var paper = new Raphael(document.getElementById('paper'), 800, 530);
       exp.paper = paper;
 	makeTable();
+	
       // platforms: visible holders for objects of interest, testing, and garbage
       var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
       var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
@@ -425,6 +429,7 @@ function make_slides(f) {
     },
     log_responses: function() {
       exp.data_trials.push({
+        trial_type: "drag_and_drop",
         itemsTested: exp.paper.customAttributes.itemsTested,
         timeExploring: (Date.now() - exp.startExploration)/60000,
         events: exp.events
@@ -432,7 +437,8 @@ function make_slides(f) {
     },
     button: function(e) {
       this.log_responses();
-      exp.go();
+      exp.paper.remove();
+      _stream.apply(this);
     }
   });
 
