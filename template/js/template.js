@@ -331,6 +331,7 @@ function make_slides(f) {
           blicketPile.forEach(function(blicket) {
             blicket.attr({"fill": "#999937"});
 	  });
+          exp.events.push({event: "newItem", time: Date.now()});
         }
       }
       var start = function (x,y) {
@@ -363,7 +364,11 @@ function make_slides(f) {
         }
         if (xTrans !== 0 || yTrans !== 0) {
           this.translate(xTrans,yTrans);
-         }
+        }
+        if (bBox.x < 700 && bBox.x > 550 && 190 < bBox.y && bBox.y <= 270) {
+          this.translate(-this.odx, -this.ody);
+          exp.events.push({event: "dropGarbagePrevented", time: Date.now()});
+        }
         if (340 < bBox.x && bBox.x <= 410 && 190 < bBox.y && bBox.y <= 240) {
           console.log('item moved to testing area')
           if (paper.customAttributes.testItem) {
