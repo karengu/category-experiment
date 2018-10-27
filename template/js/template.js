@@ -259,7 +259,10 @@ function make_slides(f) {
           type: "test",
 	  objectName: "Blickets",
 	  objectColor: "#ff0",
-	  testSequence: "111000011101110000110101100110011110001011110000001101010010011111001101101000111000111000001111010101101100011001110110011001101100010101110100110001011010001100110110000101110101101011010001101110000011001100101110011010101100011000110101",
+	  testSequence: {
+	      binSize: 8,
+	      proportionSuccess: .5
+	  },
 	  successfulTestResult: "squeak"
       }
     ],
@@ -273,12 +276,22 @@ function make_slides(f) {
       }
       else if (stim.type == "test") {
         $('.test').show();
-          $('.utterance').hide();
-	  $('#info').text('You can test the '+stim.objectName.toLowerCase()+' below.');
+        $('.utterance').hide();
+	$('#info').text('You can test the '+stim.objectName.toLowerCase()+' below.');
+	var testSequence = [];
+	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
+	  testSequence.push('1');
+	}
+	for (i = stim.testSequence.binSize*stim.testSequence.proportionSuccess; i < stim.testSequence.binSize; i++) {
+	  testSequence.push('0');
+	}
+	testSequence = this.shuffle(testSequence);
+	var testSequenceIndex = 0;
       }
 
       exp.startExploration = Date.now();
       exp.events = [];
+      exp.testResults = [];
 	  
       var makePlatformPath = function(startX, startY) {
         return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
@@ -324,6 +337,7 @@ function make_slides(f) {
 
       var paper = new Raphael(document.getElementById('paper'), 800, 530);
       exp.paper = paper;
+      paper.customAttributes.shuffle = this.shuffle;
       makeTable();
 	
       // platforms: visible holders for objects of interest, testing, and garbage
@@ -347,14 +361,14 @@ function make_slides(f) {
 
       // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
       paper.customAttributes.itemsTested = 0;
-	paper.customAttributes.logResultDepth = 250;
+      paper.customAttributes.logResultDepth = 250;
 	
       var onPickUp = function() {
         if (paper.customAttributes.pickedItemId) {
           console.log('You cannot pick up more than one item.')
         }
         else {
-          var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectDolor);
+          var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectColor);
           paper.customAttributes.pickedItemId = newItem.id;
           newItem.drag(move, start, up);
           blicketPile.forEach(function(blicket) {
@@ -425,7 +439,7 @@ function make_slides(f) {
           console.log('no item on testing stage');
         }
         else {
-          if (stim.testSequence.charAt(paper.customAttributes.itemsTested) == '1') {
+          if (testSequence[testSequenceIndex] == '1') {
             if (stim.successfulTestResult == 'squeak') {
               squeak.play();
             }
@@ -441,6 +455,12 @@ function make_slides(f) {
                 elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOut.delay(500))})
               });
             }
+          }
+          exp.testResults.push(testSequence[testSequenceIndex]);
+          testSequenceIndex ++;
+	  if (testSequenceIndex == stim.testSequence.binSize) {
+            testSequence = paper.customAttributes.shuffle(testSequence);
+            testSequenceIndex = 0;
           }
           var bBox = testItem.getBBox();
           moveToGarbage(testItem, bBox.x, bBox.y);
@@ -471,13 +491,24 @@ function make_slides(f) {
         trial_type: "drag_and_drop",
         itemsTested: exp.paper.customAttributes.itemsTested,
         timeExploring: (Date.now() - exp.startExploration)/60000,
-        events: exp.events
+        events: exp.events,
+        testResults: exp.testResults
       })
     },
     button: function(e) {
       this.log_responses();
       exp.paper.remove();
       _stream.apply(this);
+    },
+    shuffle: function(arr) {
+      var j, x, i;
+      for (i = arr.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = arr[i];
+        arr[i] = arr[j];
+        arr[j] = x;
+      }
+      return arr;
     }
   });
 
