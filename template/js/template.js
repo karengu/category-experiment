@@ -8,6 +8,13 @@ function make_slides(f) {
      }
   });
 
+  slides.introduction = slide({
+    name: "introduction",
+    button: function() {
+      exp.go();
+    }
+  });
+
   slides.instructions = slide({
     name : "instructions",
     button : function() {
@@ -244,9 +251,31 @@ function make_slides(f) {
   slides.drag_and_drop = slide({
     name: "drag_and_drop",
     present: [
-      {}
+      {
+          type: "utterance",
+	  objectName: "Blickets"
+      },
+      {
+          type: "test",
+	  objectName: "Blickets",
+	  objectColor: "#ff0",
+	  testSequence: "111000011101110000110101100110011110001011110000001101010010011111001101101000111000111000001111010101101100011001110110011001101100010101110100110001011010001100110110000101110101101011010001101110000011001100101110011010101100011000110101",
+	  successfulTestResult: "squeak"
+      }
     ],
     present_handle: function(stim) {
+
+      if (stim.type == "utterance") {
+        $('.utterance').show();
+          $('.test').hide();
+	  $('#testStatement').text('Your colleague has already tested the '+stim.objectName.toLowerCase()+', and he tells you that: ');
+	  $('#utterance').text(stim.objectName+' squeak.');
+      }
+      else if (stim.type == "test") {
+        $('.test').show();
+          $('.utterance').hide();
+	  $('#info').text('You can test the '+stim.objectName.toLowerCase()+' below.');
+      }
 
       exp.startExploration = Date.now();
       exp.events = [];
@@ -262,7 +291,7 @@ function make_slides(f) {
       var makeBlicketPile = function(startX, startY, numberBlickets, blicketPile) {
 	paper.path("M "+startX+","+startY+"m -70,-25 l 60,-20 h 140 l -60,20, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"})
         for (i = 0; i < numberBlickets; i++) {
-          var newBlicket = paper.path(makeBlicketPath(startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: "#ff0"});
+          var newBlicket = paper.path(makeBlicketPath(startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: stim.objectColor});
           blicketPile.push(newBlicket);
         }
 	paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
@@ -295,7 +324,7 @@ function make_slides(f) {
 
       var paper = new Raphael(document.getElementById('paper'), 800, 530);
       exp.paper = paper;
-	makeTable();
+      makeTable();
 	
       // platforms: visible holders for objects of interest, testing, and garbage
       var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
@@ -305,7 +334,7 @@ function make_slides(f) {
       // source: items of interest to be tested
       var blicketPile = paper.set();
       makeBlicketPile(370,100,200, blicketPile);
-      var sourceLabel = paper.text(400, 25, "Blickets");
+      var sourceLabel = paper.text(400, 25, stim.objectName);
       var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
 	
       // target: testing area
@@ -318,14 +347,14 @@ function make_slides(f) {
 
       // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
       paper.customAttributes.itemsTested = 0;
-      paper.customAttributes.logResultDepth = 250;
+	paper.customAttributes.logResultDepth = 250;
 	
       var onPickUp = function() {
         if (paper.customAttributes.pickedItemId) {
           console.log('You cannot pick up more than one item.')
         }
         else {
-          var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", "#ff0");
+          var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectDolor);
           paper.customAttributes.pickedItemId = newItem.id;
           newItem.drag(move, start, up);
           blicketPile.forEach(function(blicket) {
@@ -396,18 +425,23 @@ function make_slides(f) {
           console.log('no item on testing stage');
         }
         else {
-          console.log('testing item', testItem);
-	    squeak.play();
-	    var alert = paper.set();
-	    alert.push(paper.rect(100,100,600,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-	    alert.push(paper.text(400,200, "Squeak!").attr({fill: "white","stroke-opacity":0}));
-	    alert.click(function() {
-	      alert.remove();
-	    });
-	    var fadeOut = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
-	    alert.forEach(function(elem) {
-	      elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOut.delay(500))})
-	    });
+          if (stim.testSequence.charAt(paper.customAttributes.itemsTested) == '1') {
+            if (stim.successfulTestResult == 'squeak') {
+              squeak.play();
+            }
+            else {
+              var alert = paper.set();
+              alert.push(paper.rect(100,100,600,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+              alert.push(paper.text(400,200, "Squeak!").attr({fill: "white","stroke-opacity":0}));
+              alert.click(function() {
+                alert.remove();
+              });
+              var fadeOut = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
+              alert.forEach(function(elem) {
+                elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOut.delay(500))})
+              });
+            }
+          }
           var bBox = testItem.getBBox();
           moveToGarbage(testItem, bBox.x, bBox.y);
           paper.customAttributes.testItem = null;
@@ -498,7 +532,9 @@ function init() {
       screenUW: exp.width
     };
   //blocks of the experiment:
-    exp.structure=["i0",
+    exp.structure=[
+	//"i0",
+	"introduction",
 		   "instructions",
 		   //"single_trial", "one_slider", "multi_slider", "vertical_sliders",
 		   'drag_and_drop', 'subj_info', 'thanks'];

@@ -48,11 +48,17 @@
     <p id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology. If you have questions about this research, please contact Erin Bennett at <a href="mailto://erindb@stanford.edu">erindb@stanford.edu</a> or Noah Goodman, at ngoodman@stanford.edu. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>
   </div>
 
+  <div class="slide" id="introduction">
+    <h3>Introduction</h3>
+    <p>You have been sent to a recently discovered planet outside of the solar system, where you will replace your colleague, who has been exploring the planet for a year. He would like to give you some information he has discovered about the things on the planet.</p>
+    <button onclick="_s.button()">Continue</button>
+  </div>
+
   <div class="slide" id="instructions">
     <h3>Instructions</h3>
-    <p>On the next page you will see the following setup: </p>
+    <p>After receiving information from your colleague, you will see a similar setup: </p>
     <img src="../_shared/images/example.png" width="540" height="325"></img>
-    <p>You can use the blue <b><i>Pick Up</i></b> button to pick up blickets from the box at the top of the screen. Then, you can drag the blicket to the testing platform and use the green <b><i>Test</i></b> button to test the blicket. After the blicket has been tested, it will be automatically moved to the next platform.</p>
+    <p>You can use the blue <b><i>Pick Up</i></b> button to pick up items from the box at the top of the screen. Then, you can drag the item to the testing platform and use the green <b><i>Test</i></b> button to test the blicket. After the item has been tested, it will be automatically moved to the next platform.</p>
     <p>You may spend as much time on this task as you wish. Hit the continue button when you are finished with the task.</p>
     <button onclick="_s.button()">Continue</button>
   </div>
@@ -102,8 +108,14 @@
   </div>
 
   <div class="slide" id="drag_and_drop">
-    <p>Here is the drag and drop interface.</p>
-    <div class="paper" id="paper"></div>
+    <div class="utterance">
+      <p id="testStatement">Your colleague has already tested the blickets, and he tells you that:</p>
+      <h3 id="utterance">Blickets squeak.</h3>
+    </div>
+    <div class="test">
+      <p id="info">You can test the blickets below.</p>
+      <div class="paper" id="paper"></div>
+    </div>
     <button onclick="_s.button()">Continue</button>
   </div>
 
