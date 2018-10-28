@@ -307,7 +307,7 @@ function make_slides(f) {
         $('.test').show();
         $('.utterance').hide();
 	$('#info').text('You can test the '+stim.objectName.toLowerCase()+' below.');
-	var testSequence = [];
+	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push('1');
 	}
@@ -418,7 +418,7 @@ function make_slides(f) {
         };
         var up = function () {
           this.animate({"fill-opacity": 1}, 500);
-          var bBox = this.getBBox();
+          var bBox = this.getBBox(); // gets top left coordinates of bounding box
           xTrans = 0;
           yTrans = 0;
           if (bBox.x < 0) {
@@ -440,7 +440,7 @@ function make_slides(f) {
             this.translate(-this.odx, -this.ody);
             exp.events.push({event: "dropGarbagePrevented", time: Date.now()});
           }
-          if (340 < bBox.x && bBox.x <= 410 && 190 < bBox.y && bBox.y <= 240) {
+          if (330 < bBox.x && bBox.x <= 410 && 190 < bBox.y && bBox.y <= 240) {
             console.log('item moved to testing area')
             if (paper.customAttributes.testItem) {
               console.log('item already on testing stage');
@@ -532,14 +532,14 @@ function make_slides(f) {
         })
       }
     },
-    button: function(e) {
+    button: function(e) { // testing button
       this.log_responses();
       if (exp.type == 'test') {
         exp.paper.remove();
       }
       _stream.apply(this);
     },
-    shuffle: function(arr) {
+    shuffle: function(arr) { // used to randomize test results with chunks of size binSize (user input)
       var j, x, i;
       for (i = arr.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
