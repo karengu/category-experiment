@@ -252,18 +252,36 @@ function make_slides(f) {
     name: "drag_and_drop",
     present: [
       {
-          type: "utterance",
-	  objectName: "Blickets"
+        type: "utterance",
+	objectName: "Blickets",
+	utteranceType: "barePlural"
       },
       {
-          type: "test",
-	  objectName: "Blickets",
-	  objectColor: "#ff0",
-	  testSequence: {
-	      binSize: 8,
-	      proportionSuccess: .5
-	  },
-	  successfulTestResult: "squeak"
+        type: "test",
+	objectName: "Blickets",
+	objectColor: "#ff0",
+	greyedColor: "#999937",
+	testSequence: {
+          binSize: 8,
+          proportionSuccess: .5
+        },
+        successfulTestResult: "squeak"
+      },
+      {
+        type: "utterance",
+        objectName: "Daxes",
+        utteranceType: "all"
+      },
+      {
+        type: "test",
+        objectName: "Daxes",
+        objectColor: "#f44248",
+        greyedColor: "#992a34",
+        testSequence: {
+          binSize: 4,
+	  proportionSuccess: .5
+        },
+        successfulTestResult: "alert"
       }
     ],
     present_handle: function(stim) {
@@ -272,9 +290,18 @@ function make_slides(f) {
 
       if (stim.type == "utterance") {
         $('.utterance').show();
-          $('.test').hide();
-	  $('#testStatement').text('Your colleague has already tested the '+stim.objectName.toLowerCase()+', and he tells you that: ');
-	  $('#utterance').text(stim.objectName+' squeak.');
+        $('.test').hide();
+	$('#testStatement').text('Your colleague has already tested the '+stim.objectName.toLowerCase()+', and he tells you that: ');
+	if (stim.utteranceType == "barePlural") {
+          $('#utterance').text(stim.objectName+' squeak.');
+        }
+        else if (stim.utteranceType == "all") {
+          $('#utterance').text('All '+stim.objectName.toLowerCase()+' squeak.');
+        }
+        else if (stim.utteranceType == "some") {
+          $('#utterance').text('Some '+stim.objectName.toLowerCase()+' squeak.');
+        }
+	exp.utteranceType = stim.utteranceType;
       }
       else if (stim.type == "test") {
         $('.test').show();
@@ -373,7 +400,7 @@ function make_slides(f) {
             paper.customAttributes.pickedItemId = newItem.id;
             newItem.drag(move, start, up);
             blicketPile.forEach(function(blicket) {
-              blicket.attr({"fill": "#999937"});
+              blicket.attr({"fill": stim.greyedColor});
 	    });
             exp.events.push({event: "newItem", time: Date.now()});
           }
@@ -426,7 +453,7 @@ function make_slides(f) {
               paper.customAttributes.testItem = this;
               paper.customAttributes.pickedItemId = null;
 	      blicketPile.forEach(function(blicket) {
-	        blicket.attr({"fill": "#ff0"});
+	        blicket.attr({"fill": stim.objectColor});
 	      })
             }
           }
@@ -446,7 +473,7 @@ function make_slides(f) {
               }
               else {
                 var alert = paper.set();
-                alert.push(paper.rect(100,100,600,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+                alert.push(paper.rect(150,100,500,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
                 alert.push(paper.text(400,200, "Squeak!").attr({fill: "white","stroke-opacity":0}));
                 alert.click(function() {
                   alert.remove();
@@ -491,7 +518,8 @@ function make_slides(f) {
     log_responses: function() {
       if (exp.type == 'utterance') {
         exp.data_trials.push({
-	  trial_type: "utterance"
+          trial_type: "utterance",
+          utteranceType: exp.utteranceType
         });
       }
       else {
