@@ -291,9 +291,10 @@ function make_slides(f) {
       if (stim.type == "utterance") {
         $('.utterance').show();
         $('.test').hide();
-	$('#testStatement').text('Your colleague has already tested the '+stim.objectName.toLowerCase()+', and he tells you that: ');
+	       $('#testStatement').text('First, you are you going to explore '+stim.objectName.toLowerCase()+
+         '. Your colleague has been studying '+stim.objectName.toLowerCase()+', and he tells you that: ');
 	if (stim.utteranceType == "barePlural") {
-          $('#utterance').text(stim.objectName+' squeak.');
+          $('#utterance').text('"'+stim.objectName+' squeak.'+'"');
         }
         else if (stim.utteranceType == "all") {
           $('#utterance').text('All '+stim.objectName.toLowerCase()+' squeak.');
@@ -306,7 +307,7 @@ function make_slides(f) {
       else if (stim.type == "test") {
         $('.test').show();
         $('.utterance').hide();
-	$('#info').text('You can test the '+stim.objectName.toLowerCase()+' below.');
+	$('#info').text('You can continue to explore '+stim.objectName.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Continue.');
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push('1');
@@ -320,7 +321,7 @@ function make_slides(f) {
         exp.startExploration = Date.now();
         exp.events = [];
         exp.testResults = [];
-	  
+
         var makePlatformPath = function(startX, startY) {
           return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
         }
@@ -367,7 +368,7 @@ function make_slides(f) {
         exp.paper = paper;
         paper.customAttributes.shuffle = this.shuffle;
         makeTable();
-	
+
         // platforms: visible holders for objects of interest, testing, and garbage
         var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
         var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
@@ -378,7 +379,7 @@ function make_slides(f) {
         makeBlicketPile(370,100,200, blicketPile);
         var sourceLabel = paper.text(400, 25, stim.objectName);
         var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
-	
+
         // target: testing area
         var targetLabel = paper.text(370, 285, "Testing Stage");
         var testButton = makeButton(400, 340, "#49e575", "Test");
@@ -390,7 +391,7 @@ function make_slides(f) {
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
-	
+
         var onPickUp = function() {
           if (paper.customAttributes.pickedItemId) {
             console.log('You cannot pick up more than one item.')
@@ -603,7 +604,7 @@ function init() {
     };
   //blocks of the experiment:
     exp.structure=[
-	//"i0",
+	// "i0",
 	"introduction",
 		   "instructions",
 		   //"single_trial", "one_slider", "multi_slider", "vertical_sliders",
