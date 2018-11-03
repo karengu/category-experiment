@@ -2,14 +2,21 @@ function make_slides(f) {
   var slides = {};
 
   slides.i0 = slide({
-     name : "i0",
-     start: function() {
+    name : "i0",
+    start: function() {
       exp.startT = Date.now();
-     }
+    }
   });
 
   slides.introduction = slide({
     name: "introduction",
+    start: function() {
+      exp.startT = Date.now();
+      $('#intrButton').hide();
+      setTimeout(function() {
+        $('#intrButton').show();
+      }, 5000)
+    },
     button: function() {
       exp.go();
     }
@@ -17,8 +24,32 @@ function make_slides(f) {
 
   slides.instructions = slide({
     name : "instructions",
+    start: function() {
+      $('#instButton').hide();
+      setTimeout(function() {
+        $('#instButton').show();
+      }, 5000);
+    },
     button : function() {
       exp.go(); //use exp.go() if and only if there is no "present" data.
+    }
+  });
+
+  slides.check_sound = slide({
+    name: "check_sound",
+    start: function() {
+      exp.pretzel = new Audio('../_shared/audio/pretzel.mp3');
+    },
+    test_sound: function() {
+      exp.pretzel.play();
+    },
+    button: function() {
+      response = $('#sound_response').val();
+      exp.data_trials.push({
+	"trial_type": "check_sound",
+	"response": response
+      });
+      exp.go();
     }
   });
 
@@ -248,7 +279,12 @@ function make_slides(f) {
     },
   });
 
-  slides.drag_and_drop = slide({
+    slides.drag_and_drop = slide({ // TODO: make text bigger
+	// TODO: make only one blicket active at a time
+	// TODO: testing knowledge: slider of probability that blicket squeaks, generic endorsement, free response (3 lines long ish text box, no limit on amount of text)
+	// TODO: demonstration for object?? have participant try the blicket, then move blicket to garbage and allow them to continue testing on same slide
+	// first trial: Blickets squeak. This dax squeaks. binSize = 6
+	// Ks F. This K Fs. x 0%, 50%, 100%
     name: "drag_and_drop",
     present: [
       {
@@ -281,14 +317,19 @@ function make_slides(f) {
           binSize: 4,
 	  proportionSuccess: .5
         },
-        successfulTestResult: "alert"
+        successfulTestResult: "whistle"
       }
     ],
     present_handle: function(stim) {
 
       exp.type = stim.type;
 
-      if (stim.type == "utterance") {
+	if (stim.type == "utterance") {
+	    $('#ddbutton').hide();
+	    setTimeout(function() {
+		$('#ddbutton').show();
+		$('#ddbutton').text('Continue');
+	    }, 2000);
         $('.utterance').show();
         $('.test').hide();
 	       $('#testStatement').text('First, you are you going to explore '+stim.objectName.toLowerCase()+
@@ -297,23 +338,28 @@ function make_slides(f) {
           $('#utterance').text('"'+stim.objectName+' squeak.'+'"');
         }
         else if (stim.utteranceType == "all") {
-          $('#utterance').text('All '+stim.objectName.toLowerCase()+' squeak.');
+          $('#utterance').text('"All '+stim.objectName.toLowerCase()+' squeak."');
         }
         else if (stim.utteranceType == "some") {
-          $('#utterance').text('Some '+stim.objectName.toLowerCase()+' squeak.');
+          $('#utterance').text('"Some '+stim.objectName.toLowerCase()+' squeak."');
         }
 	exp.utteranceType = stim.utteranceType;
       }
-      else if (stim.type == "test") {
+	else if (stim.type == "test") {
+	    $('#ddbutton').hide();
+	    setTimeout(function() {
+		$('#ddbutton').show();
+		$('#ddbutton').text('Leave testing area');
+	    }, 5000);
         $('.test').show();
         $('.utterance').hide();
-	$('#info').text('You can continue to explore '+stim.objectName.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Continue.');
+	$('#info').text('You can continue to explore '+stim.objectName.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Leave testing area.');
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
-	  testSequence.push('1');
+	  testSequence.push(true);
 	}
 	for (i = stim.testSequence.binSize*stim.testSequence.proportionSuccess; i < stim.testSequence.binSize; i++) {
-	  testSequence.push('0');
+	  testSequence.push(false);
 	}
 	testSequence = this.shuffle(testSequence);
 	var testSequenceIndex = 0;
@@ -362,7 +408,10 @@ function make_slides(f) {
 	  paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
         }
 
-        var squeak = new Audio('../_shared/audio/squeak.mp3');
+            var squeak = new Audio('../_shared/audio/squeak.mp3');
+	    var beep = new Audio('../_shared/audio/beep.mp3');
+	    var ring = new Audio('../_shared/audio/ring.mp3');
+	    var whistle = new Audio('../_shared/audio/whistle.mp3');
 
         var paper = new Raphael(document.getElementById('paper'), 800, 530);
         exp.paper = paper;
@@ -382,7 +431,7 @@ function make_slides(f) {
 
         // target: testing area
         var targetLabel = paper.text(370, 285, "Testing Stage");
-        var testButton = makeButton(400, 340, "#49e575", "Test");
+        var testButton = makeButton(400, 210, "#49e575", "Test");
 
         // garbage: items already tested
         var garbageLabel = paper.text(620, 285, "Tested Items");
@@ -462,16 +511,25 @@ function make_slides(f) {
             exp.events.push({event: "dropLoc", time: Date.now()});
           }
         };
-        var onButtonClick = function() {
+        var onTest = function() {
           const testItem = paper.customAttributes.testItem;
           if (!testItem) {
             console.log('no item on testing stage');
           }
           else {
-            if (testSequence[testSequenceIndex] == '1') {
+            if (testSequence[testSequenceIndex]) {
               if (stim.successfulTestResult == 'squeak') {
                 squeak.play();
               }
+		else if (stim.successfulTestResult == 'beep') {
+		    beep.play();
+		}
+		else if (stim.successfulTestResult == 'ring') {
+		    ring.play();
+		}
+		else if (stim.successfulTestResult == 'whistle') {
+		    whistle.play();
+		}
               else {
                 var alert = paper.set();
                 alert.push(paper.rect(150,100,500,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
@@ -507,7 +565,7 @@ function make_slides(f) {
         pickUpButton.buttonSet.mouseup(function() {
           pickUpButton.button.animate({"fill": "#4985e5"});
         });
-        testButton.buttonSet.click(onButtonClick);
+        testButton.buttonSet.click(onTest);
         testButton.buttonSet.mousedown(function() {
           testButton.button.animate({"fill":"#287f41"});
         });
@@ -529,16 +587,22 @@ function make_slides(f) {
           itemsTested: exp.paper.customAttributes.itemsTested,
           timeExploring: (Date.now() - exp.startExploration)/60000,
           events: exp.events,
-          testResults: exp.testResults
+          testResults: exp.testResults // to store order of successful/unsuccessful results, since order is randomized
         })
       }
     },
-    button: function(e) { // testing button
-      this.log_responses();
+    button: function(e) { // continue button
       if (exp.type == 'test') {
-        exp.paper.remove();
+        if (confirm('Are you sure you would like to move on to answering questions?')) {
+          this.log_responses();
+          exp.paper.remove();
+          _stream.apply(this);
+        }
       }
-      _stream.apply(this);
+      else {
+        this.log_responses();
+        _stream.apply(this);
+      }
     },
     shuffle: function(arr) { // used to randomize test results with chunks of size binSize (user input)
       var j, x, i;
@@ -580,7 +644,7 @@ function make_slides(f) {
           "system" : exp.system,
           "condition" : exp.condition,
           "subject_information" : exp.subj_data,
-          "time_in_minutes" : (Date.now() - exp.startT)/60000
+          "time_in_minutes" : (Date.now() - exp.startT)/60000 // TODO: initialize exp.startT in first slide
       };
       setTimeout(function() {turk.submit(exp.data);}, 1000);
     }
@@ -605,8 +669,8 @@ function init() {
   //blocks of the experiment:
     exp.structure=[
 	// "i0",
-	"introduction",
-		   "instructions",
+	"introduction", "check_sound",
+	"instructions",
 		   //"single_trial", "one_slider", "multi_slider", "vertical_sliders",
 		   'drag_and_drop', 'subj_info', 'thanks'];
 
