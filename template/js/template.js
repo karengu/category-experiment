@@ -38,18 +38,24 @@ function make_slides(f) {
   slides.check_sound = slide({
     name: "check_sound",
     start: function() {
-      exp.pretzel = new Audio('../_shared/audio/pretzel.mp3');
+	exp.pretzel = new Audio('../_shared/audio/pretzel.mp3');
+	$('.err').hide();
     },
     test_sound: function() {
       exp.pretzel.play();
     },
-    button: function() {
+      button: function() {
+	  if ($('#sound_response').val() == '') {
+	      $('.err').show();
+	  }
+	  else {
       response = $('#sound_response').val();
       exp.data_trials.push({
 	"trial_type": "check_sound",
 	"response": response
       });
-      exp.go();
+	      exp.go();
+	  }
     }
   });
 
@@ -279,81 +285,51 @@ function make_slides(f) {
     },
   });
 
-    slides.drag_and_drop = slide({ // TODO: make text bigger
-	// TODO: make only one blicket active at a time
-	// TODO: testing knowledge: slider of probability that blicket squeaks, generic endorsement, free response (3 lines long ish text box, no limit on amount of text)
-	// TODO: demonstration for object?? have participant try the blicket, then move blicket to garbage and allow them to continue testing on same slide
-	// first trial: Blickets squeak. This dax squeaks. binSize = 6
-	// Ks F. This K Fs. x 0%, 50%, 100%
+  slides.drag_and_drop = slide({
     name: "drag_and_drop",
-    present: [
-      {
-        type: "utterance",
-	objectName: "Blickets",
-	utteranceType: "barePlural"
-      },
-      {
-        type: "test",
-	objectName: "Blickets",
-	objectColor: "#ff0",
-	greyedColor: "#999937",
-	testSequence: {
-          binSize: 8,
-          proportionSuccess: .5
-        },
-        successfulTestResult: "squeak"
-      },
-      {
-        type: "utterance",
-        objectName: "Daxes",
-        utteranceType: "all"
-      },
-      {
-        type: "test",
-        objectName: "Daxes",
-        objectColor: "#f44248",
-        greyedColor: "#992a34",
-        testSequence: {
-          binSize: 4,
-	  proportionSuccess: .5
-        },
-        successfulTestResult: "whistle"
-      }
-    ],
+    present: exp.randomized_trials,
     present_handle: function(stim) {
 
       exp.type = stim.type;
 
-	if (stim.type == "utterance") {
-	    $('#ddbutton').hide();
-	    setTimeout(function() {
-		$('#ddbutton').show();
-		$('#ddbutton').text('Continue');
-	    }, 2000);
+      if (stim.type == "utterance") {
+        $('.err').hide();
+        $('#ddbutton').hide();
+        setTimeout(function() {
+          $('#ddbutton').show();
+	  $('#ddbutton').text('Continue');
+        }, 2000);
         $('.utterance').show();
-        $('.test').hide();
-	       $('#testStatement').text('First, you are you going to explore '+stim.objectName.toLowerCase()+
-         '. Your colleague has been studying '+stim.objectName.toLowerCase()+', and he tells you that: ');
-	if (stim.utteranceType == "barePlural") {
-          $('#utterance').text('"'+stim.objectName+' squeak.'+'"');
+          $('.explore').hide();
+	  $('.test').hide();
+        if (stim.id == 0) {
+	  $('#testStatement').text('First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
+        }
+        else {
+          $('#testStatement').text('Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
+        }
+        if (stim.utteranceType == "barePlural") {
+          exp.utterance = '"'+stim.objectNamePlural+' '+stim.successfulTestResult+'."';
+        }
+        else if (stim.utteranceType == "specific") {
+          exp.utterance = '"This '+stim.objectNameSingular.toLowerCase()+' '+stim.successfulTestResult+'s."';
         }
         else if (stim.utteranceType == "all") {
-          $('#utterance').text('"All '+stim.objectName.toLowerCase()+' squeak."');
+          exp.utterance = '"All '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'."';
         }
         else if (stim.utteranceType == "some") {
-          $('#utterance').text('"Some '+stim.objectName.toLowerCase()+' squeak."');
+          exp.utterance = '"Some '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'."';
         }
-	exp.utteranceType = stim.utteranceType;
+        exp.utteranceType = stim.utteranceType;
+        $('#utterance').text(exp.utterance);
       }
-	else if (stim.type == "test") {
-	    $('#ddbutton').hide();
-	    setTimeout(function() {
-		$('#ddbutton').show();
-		$('#ddbutton').text('Leave testing area');
-	    }, 5000);
-        $('.test').show();
-        $('.utterance').hide();
-	$('#info').text('You can continue to explore '+stim.objectName.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Leave testing area.');
+	else if (stim.type == "explore") {
+	    	    $('.err').hide();
+          $('#ddbutton').hide();
+	  $('.test').hide();
+        $('.explore').show();
+            $('.utterance').hide();
+	    $('#info').text('Try testing the '+stim.objectNameSingular.toLowerCase()+' by dragging it to the testing stage and clicking the Test button.');
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push(true);
@@ -366,7 +342,8 @@ function make_slides(f) {
 
         exp.startExploration = Date.now();
         exp.events = [];
-        exp.testResults = [];
+          exp.testResults = [];
+	  exp.proportionSuccess = stim.testSequence.proportionSuccess;
 
         var makePlatformPath = function(startX, startY) {
           return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
@@ -393,8 +370,8 @@ function make_slides(f) {
         }
 
         var makeButton = function(startX, startY, color, buttonText) {
-	  var button = paper.rect(startX -25, startY-10, 50, 20, 8).attr("fill", color);
-          var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold"});
+	  var button = paper.rect(startX -35, startY-15, 70, 30, 8).attr("fill", color);
+            var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold", "font-size": 16});
           var buttonSet = paper.set();
 	  buttonSet.push(button, buttonLabel).attr({"cursor": "pointer"});
 	  return ({button: button, buttonSet: buttonSet});
@@ -408,54 +385,7 @@ function make_slides(f) {
 	  paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
         }
 
-            var squeak = new Audio('../_shared/audio/squeak.mp3');
-	    var beep = new Audio('../_shared/audio/beep.mp3');
-	    var ring = new Audio('../_shared/audio/ring.mp3');
-	    var whistle = new Audio('../_shared/audio/whistle.mp3');
-
-        var paper = new Raphael(document.getElementById('paper'), 800, 530);
-        exp.paper = paper;
-        paper.customAttributes.shuffle = this.shuffle;
-        makeTable();
-
-        // platforms: visible holders for objects of interest, testing, and garbage
-        var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
-        var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
-        var garbagePlatform = paper.path(makePlatformPath(570, 300)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
-
-        // source: items of interest to be tested
-        var blicketPile = paper.set();
-        makeBlicketPile(370,100,200, blicketPile);
-        var sourceLabel = paper.text(400, 25, stim.objectName);
-        var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
-
-        // target: testing area
-        var targetLabel = paper.text(370, 285, "Testing Stage");
-        var testButton = makeButton(400, 210, "#49e575", "Test");
-
-        // garbage: items already tested
-        var garbageLabel = paper.text(620, 285, "Tested Items");
-        // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
-
-        // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
-        paper.customAttributes.itemsTested = 0;
-        paper.customAttributes.logResultDepth = 250;
-
-        var onPickUp = function() {
-          if (paper.customAttributes.pickedItemId) {
-            console.log('You cannot pick up more than one item.')
-          }
-          else {
-            var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectColor);
-            paper.customAttributes.pickedItemId = newItem.id;
-            newItem.drag(move, start, up);
-            blicketPile.forEach(function(blicket) {
-              blicket.attr({"fill": stim.greyedColor});
-	    });
-            exp.events.push({event: "newItem", time: Date.now()});
-          }
-        }
-        var start = function (x,y) {
+	    var start = function (x,y) {
           this.odx = 0;
           this.ody = 0;
           this.animate({"fill-opacity": 0.2}, 500);
@@ -491,7 +421,6 @@ function make_slides(f) {
             exp.events.push({event: "dropGarbagePrevented", time: Date.now()});
           }
           if (330 < bBox.x && bBox.x <= 410 && 190 < bBox.y && bBox.y <= 240) {
-            console.log('item moved to testing area')
             if (paper.customAttributes.testItem) {
               console.log('item already on testing stage');
 	      this.translate(-this.odx, -this.ody);
@@ -502,34 +431,101 @@ function make_slides(f) {
               this.undrag();
               paper.customAttributes.testItem = this;
               paper.customAttributes.pickedItemId = null;
-	      blicketPile.forEach(function(blicket) {
-	        blicket.attr({"fill": stim.objectColor});
-	      })
             }
           }
 	  else {
             exp.events.push({event: "dropLoc", time: Date.now()});
           }
         };
+
+        var squeak = new Audio('../_shared/audio/squeak.mp3');
+	var beep = new Audio('../_shared/audio/beep.mp3');
+        var ring = new Audio('../_shared/audio/ring.mp3');
+        var whistle = new Audio('../_shared/audio/whistle.mp3');
+        var click = new Audio('../_shared/audio/click.mp3');
+        var boom = new Audio('../_shared/audio/boom.mp3');
+
+        var paper = new Raphael(document.getElementById('paper'), 800, 530);
+        exp.paper = paper;
+        paper.customAttributes.shuffle = this.shuffle;
+        makeTable();
+
+        // platforms: visible holders for objects of interest, testing, and garbage
+        var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
+        var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+        var garbagePlatform = paper.path(makePlatformPath(570, 300)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
+
+        // source: items of interest to be tested
+        var blicketPile = paper.set();
+        makeBlicketPile(370,100,200, blicketPile);
+        var sourceLabel = paper.text(400, 20, stim.objectNamePlural).attr({"font-size": 18});
+        var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
+
+        // target: testing area
+        var targetLabel = paper.text(370, 285, "Testing Stage").attr({"font-size": 14});
+        var testButton = makeButton(400, 210, "#49e575", "Test");
+
+        // garbage: items already tested
+        var garbageLabel = paper.text(620, 285, "Tested Items").attr({"font-size": 14});
+        // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
+
+	     var firstItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectColor);
+        paper.customAttributes.pickedItemId = firstItem.id;
+        const firstItemId = firstItem.id;
+        firstItem.drag(move, start, up);
+        // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
+        paper.customAttributes.itemsTested = 0;
+        paper.customAttributes.logResultDepth = 250;
+
+        var onPickUp = function() {
+          if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
+            console.log('You cannot pick up more than one item.')
+          }
+          else {
+            var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectColor);
+            paper.customAttributes.pickedItemId = newItem.id;
+            newItem.drag(move, start, up);
+            blicketPile.forEach(function(blicket) {
+              blicket.attr({"fill": stim.greyedColor});
+	    });
+            exp.events.push({event: "newItem", time: Date.now()});
+          }
+        }
         var onTest = function() {
           const testItem = paper.customAttributes.testItem;
           if (!testItem) {
             console.log('no item on testing stage');
           }
-          else {
-            if (testSequence[testSequenceIndex]) {
+            else {
+		 blicketPile.forEach(function(blicket) {
+	      blicket.attr({"fill": stim.objectColor});
+	    })
+            if (testItem.id == firstItemId) {
+		$('#info').text('You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Leave testing area.');
+		setTimeout(function() {
+          $('#ddbutton').show();
+	  $('#ddbutton').text('Leave testing area');
+        }, 5000);
+	    }
+            if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
               if (stim.successfulTestResult == 'squeak') {
                 squeak.play();
               }
-		else if (stim.successfulTestResult == 'beep') {
-		    beep.play();
-		}
-		else if (stim.successfulTestResult == 'ring') {
-		    ring.play();
-		}
-		else if (stim.successfulTestResult == 'whistle') {
-		    whistle.play();
-		}
+	      else if (stim.successfulTestResult == 'beep') {
+	        beep.play();
+	      }
+	      else if (stim.successfulTestResult == 'ring') {
+	        ring.play();
+	      }
+	      else if (stim.successfulTestResult == 'whistle') {
+	        whistle.play();
+	      }
+	      else if (stim.successfulTestResult == 'boom') {
+	        boom.play();
+	      }
+	      else if (stim.successfulTestResult == 'click') {
+	        click.play();
+	      }
               else {
                 var alert = paper.set();
                 alert.push(paper.rect(150,100,500,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
@@ -573,47 +569,80 @@ function make_slides(f) {
           testButton.button.animate({"fill": "#49e575"});
         });
       }
+      else if (stim.type == 'test') {
+	    $('.err').hide();
+	    $('#ddbutton').hide();
+        setTimeout(function() {
+          $('#ddbutton').show();
+	  $('#ddbutton').text('Continue');
+        }, 2000);
+	    $('.explore').hide();
+	    $('.utterance').hide();
+	    $('.test').show();
+	    $('#probability').text('What do you think is the probability that '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'?');
+	    this.init_sliders();
+      exp.sliderPost = null;
+	    $('#generic').text(stim.objectNamePlural+' '+stim.successfulTestResult+'.');
+	    $('#free_response_prompt').text('Please provide information about '+stim.objectNamePlural.toLowerCase()+' below.');
+	    $('#free_response').val('');
+	    $('input[name="endorsement"]').prop('checked', false);
+	}
     },
     log_responses: function() {
       if (exp.type == 'utterance') {
         exp.data_trials.push({
           trial_type: "utterance",
-          utteranceType: exp.utteranceType
+            utteranceType: exp.utteranceType,
+	    utterance: exp.utterance
         });
       }
-      else {
+	else if (exp.type == 'explore') {
         exp.data_trials.push({
-          trial_type: "test",
+          trial_type: "explore",
           itemsTested: exp.paper.customAttributes.itemsTested,
           timeExploring: (Date.now() - exp.startExploration)/60000,
           events: exp.events,
-          testResults: exp.testResults // to store order of successful/unsuccessful results, since order is randomized
+            testResults: exp.testResults, // to store order of successful/unsuccessful results, since order is randomized
+	    proportionSuccess: exp.proportionSuccess
         })
-      }
+	}
+	else if (exp.type == 'test') {
+	    exp.data_trials.push({
+		trial_type: "test",
+		probabilityOfFeature: exp.sliderPost,
+		genericEndorsement: $('input[name="endorsement"]:checked').val(),
+		freeResponse: $('#free_response').val()
+	    });
+	}
     },
+      init_sliders : function() {
+      utils.make_slider("#prob_slider", function(event, ui) {
+        exp.sliderPost = ui.value;
+      });
+      },
     button: function(e) { // continue button
-      if (exp.type == 'test') {
+      if (exp.type == 'explore') {
         if (confirm('Are you sure you would like to move on to answering questions?')) {
           this.log_responses();
           exp.paper.remove();
           _stream.apply(this);
         }
       }
+	else if (exp.type == 'test') {
+	    if (exp.sliderPost == null || $('input[name="endorsement"]:checked').val() == null || $('#free_response').val() == '') {
+		$('.err').show();
+	    }
+	    else {
+		this.log_responses();
+		_stream.apply(this);
+	    }
+	}
       else {
         this.log_responses();
         _stream.apply(this);
       }
     },
-    shuffle: function(arr) { // used to randomize test results with chunks of size binSize (user input)
-      var j, x, i;
-      for (i = arr.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = arr[i];
-        arr[i] = arr[j];
-        arr[j] = x;
-      }
-      return arr;
-    }
+    shuffle: shuffle
   });
 
   slides.subj_info =  slide({
@@ -653,6 +682,63 @@ function make_slides(f) {
   return slides;
 }
 
+function shuffle(arr) { // used to randomize test results with chunks of size binSize (user input)
+      var j, x, i;
+      for (i = arr.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = arr[i];
+        arr[i] = arr[j];
+        arr[j] = x;
+      }
+      return arr;
+    }
+
+function randomize_trials(objects, sounds, proportionsSuccess, utteranceTypes, binSize) {
+    var trialTypes = [];
+    for (i=0; i<proportionsSuccess.length; i++) {
+	for (j=0; j<utteranceTypes.length; j++) {
+	    trialTypes.push({
+		utteranceType: utteranceTypes[j],
+		proportionSuccess: proportionsSuccess[i]
+	    });
+	}
+    }
+  objects = shuffle(objects);
+  sounds = shuffle(sounds);
+  trialTypes = shuffle(trialTypes);
+  var result = [];
+  for (i=0; i<trialTypes.length; i++) {
+    result.push({
+      id: i,
+      type: "utterance",
+      objectNamePlural: objects[i].plural,
+      objectNameSingular: objects[i].singular,
+      utteranceType: trialTypes[i].utteranceType,
+      successfulTestResult: sounds[i]
+    });
+    result.push({
+      id: i,
+      type: "explore",
+      objectNamePlural: objects[i].plural,
+      objectNameSingular: objects[i].singular,
+      successfulTestResult: sounds[i],
+      testSequence: {
+        binSize: binSize,
+        proportionSuccess: trialTypes[i].proportionSuccess
+      },
+      objectColor: objects[i].color,
+      greyedColor: objects[i].greyed
+    });
+      result.push({
+	  id: i,
+	  type: "test",
+	  objectNamePlural: objects[i].plural,
+	  successfulTestResult: sounds[i]
+      });
+  }
+  return result;
+}
+
 /// init ///
 function init() {
   exp.trials = [];
@@ -665,7 +751,53 @@ function init() {
       screenUH: exp.height,
       screenW: screen.width,
       screenUW: exp.width
-    };
+  };
+
+  const objectNames = [
+    {
+      plural: "Blickets",
+      singular: "Blicket",
+      color: "#ff0",
+      greyed: "#999937",
+    },
+    {
+      plural: "Daxes",
+      singular: "Dax",
+      color: "#f44248",
+      greyed: "#992a34"
+    },
+    {
+      plural: "Griffs",
+      singular: "Griff",
+      color: "#8b36c1",
+      greyed: "#602784"
+    },
+    {
+      plural: "Feps",
+      singular: "Fep",
+      color: "#f45042",
+      greyed: "#c14136"
+    },
+    {
+      plural: "Wugs",
+      singular: "Wug",
+      color: "#43e8e8",
+      greyed: "#2b9696"
+    },
+    {
+      plural: "Tomas",
+      singular: "Toma",
+      color: "#ff00cb",
+      greyed: "#a80186"
+    }
+  ]
+  const sounds = ['squeak', 'beep', 'whistle', 'ring', 'boom', 'click'];
+    const utteranceTypes = ['barePlural', 'specific'];
+    const proportionsSuccess = [0, 0.5, 1];
+  const binSize = 6;
+
+  exp.randomized_trials = randomize_trials(objectNames, sounds, proportionsSuccess, utteranceTypes, binSize);
+    
   //blocks of the experiment:
     exp.structure=[
 	// "i0",
