@@ -500,16 +500,18 @@ function make_slides(f) {
                 });
               }
             }
-            exp.testResults.push(testSequence[testSequenceIndex]);
-            testSequenceIndex ++;
-	    if (testSequenceIndex == stim.testSequence.binSize) {
-              testSequence = _.shuffle(testSequence);
-              testSequenceIndex = 0;
-            }
+            if (testItem.id != firstItemId) {
+              exp.testResults.push(testSequence[testSequenceIndex]);
+              testSequenceIndex ++;
+	      if (testSequenceIndex == stim.testSequence.binSize) {
+                testSequence = _.shuffle(testSequence);
+                testSequenceIndex = 0;
+              }
+              paper.customAttributes.itemsTested ++;
+	    }
             var bBox = testItem.getBBox();
             drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
             paper.customAttributes.testItem = null;
-            paper.customAttributes.itemsTested ++;
             // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
             // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
             exp.events[Date.now()] = "testItem";
@@ -645,8 +647,8 @@ function make_slides(f) {
 /// init ///
 function init() {
   exp.trials = [];
-  exp.catch_trials = [];
-  exp.condition = _.sample(["CONDITION 1", "condition 2"]); //can randomize between subject conditions here
+  //exp.catch_trials = [];
+  //exp.condition = _.sample(["CONDITION 1", "condition 2"]); //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
