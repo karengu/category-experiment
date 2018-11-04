@@ -75,6 +75,7 @@ var utils = {
 		});
 		$(label).css({"background":"#eee"});
 	}
+
 }
 /*
 		var keys = getUnique.apply(list_keys);

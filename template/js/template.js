@@ -300,12 +300,12 @@ function make_slides(f) {
 	  $('#ddbutton').text('Continue');
         }, 2000);
         $('.utterance').show();
-          $('.explore').hide();
-	  $('.test').hide();
-        if (stim.id == 0) {
+        $('.explore').hide();
+	$('.test').hide();
+        if (stim.id == 0) { // first item needs to say "first"
 	  $('#testStatement').text('First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
         }
-        else {
+        else { // other items say "next"
           $('#testStatement').text('Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
         }
         if (stim.utteranceType == "barePlural") {
@@ -323,13 +323,14 @@ function make_slides(f) {
         exp.utteranceType = stim.utteranceType;
         $('#utterance').text(exp.utterance);
       }
-	else if (stim.type == "explore") {
-	    	    $('.err').hide();
-          $('#ddbutton').hide();
-	  $('.test').hide();
+	
+      else if (stim.type == "explore") {
+        $('.err').hide();
+        $('#ddbutton').hide();
+        $('.test').hide();
         $('.explore').show();
-            $('.utterance').hide();
-	    $('#info').text('Try testing the '+stim.objectNameSingular.toLowerCase()+' by dragging it to the testing stage and clicking the Test button.');
+        $('.utterance').hide();
+        $('#info').text('Try testing the '+stim.objectNameSingular.toLowerCase()+' by dragging it to the testing stage and clicking the Test button.');
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push(true);
@@ -337,55 +338,15 @@ function make_slides(f) {
 	for (i = stim.testSequence.binSize*stim.testSequence.proportionSuccess; i < stim.testSequence.binSize; i++) {
 	  testSequence.push(false);
 	}
-	testSequence = this.shuffle(testSequence);
+	testSequence = _.shuffle(testSequence);
 	var testSequenceIndex = 0;
 
         exp.startExploration = Date.now();
         exp.events = [];
-          exp.testResults = [];
-	  exp.proportionSuccess = stim.testSequence.proportionSuccess;
+        exp.testResults = [];
+	exp.proportionSuccess = stim.testSequence.proportionSuccess;
 
-        var makePlatformPath = function(startX, startY) {
-          return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
-        }
-
-        var makeBlicketPath = function(startX, startY) {
-          return "M "+startX+","+startY+"m -20,0 l 20,-20 l 20,20 l -20,20 l -20,-20 m 20,20 l -7.5,-20 l 7.5,-20 l 7.5,20 l -7.5,20"
-        }
-
-        var makeBlicketPile = function(startX, startY, numberBlickets, blicketPile) {
-	  paper.path("M "+startX+","+startY+"m -70,-25 l 60,-20 h 140 l -60,20, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"})
-          for (i = 0; i < numberBlickets; i++) {
-            var newBlicket = paper.path(makeBlicketPath(startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: stim.objectColor});
-            blicketPile.push(newBlicket);
-          }
-	  paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
-	  paper.path("M "+startX+","+startY+"m70,85 l 60,-20 v -110 l-60,20 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
-        }
-
-        var moveToGarbage = function(blicket, x, y) {
-          const finalX = 60*Math.random()-30+630
-          const finalY = 20*Math.random()-10+220
-          blicket.translate(finalX-x,finalY-y)
-        }
-
-        var makeButton = function(startX, startY, color, buttonText) {
-	  var button = paper.rect(startX -35, startY-15, 70, 30, 8).attr("fill", color);
-            var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold", "font-size": 16});
-          var buttonSet = paper.set();
-	  buttonSet.push(button, buttonLabel).attr({"cursor": "pointer"});
-	  return ({button: button, buttonSet: buttonSet});
-        }
-
-        var makeTable = function() {
-	  paper.path("M 100,140 v 200 A 20,10 0 0,0 120,340 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-	  paper.path("M 780,140 v 200 A 20,10 0 0,0 800,340 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-	  paper.path("M 0,320 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-	  paper.path("M 0,320 v 200 A 20,10 0 0,0 20,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-	  paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-        }
-
-	    var start = function (x,y) {
+	var start = function (x,y) {
           this.odx = 0;
           this.ody = 0;
           this.animate({"fill-opacity": 0.2}, 500);
@@ -447,29 +408,29 @@ function make_slides(f) {
 
         var paper = new Raphael(document.getElementById('paper'), 800, 530);
         exp.paper = paper;
-        paper.customAttributes.shuffle = this.shuffle;
-        makeTable();
+        //paper.customAttributes.shuffle = utils.shuffle;
+        drag_and_drop.makeTable(paper);
 
         // platforms: visible holders for objects of interest, testing, and garbage
-        var sourcePlatform = paper.path(makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
-        var testingPlatform = paper.path(makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
-        var garbagePlatform = paper.path(makePlatformPath(570, 300)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
+        var sourcePlatform = paper.path(drag_and_drop.makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
+        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+        var garbagePlatform = paper.path(drag_and_drop.makePlatformPath(570, 300)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
 
         // source: items of interest to be tested
         var blicketPile = paper.set();
-        makeBlicketPile(370,100,200, blicketPile);
+        drag_and_drop.makeBlicketPile(370,100,200, blicketPile, paper, stim.greyedColor, 'diamond');
         var sourceLabel = paper.text(400, 20, stim.objectNamePlural).attr({"font-size": 18});
-        var pickUpButton = makeButton(370, 130, "#4985e5", "Pick up");
+        var pickUpButton = drag_and_drop.makeButton(370, 130, "#4985e5", "Pick up", paper);
 
         // target: testing area
         var targetLabel = paper.text(370, 285, "Testing Stage").attr({"font-size": 14});
-        var testButton = makeButton(400, 210, "#49e575", "Test");
+        var testButton = drag_and_drop.makeButton(400, 210, "#49e575", "Test", paper);
 
         // garbage: items already tested
         var garbageLabel = paper.text(620, 285, "Tested Items").attr({"font-size": 14});
         // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
-	     var firstItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectColor);
+	var firstItem = paper.path(drag_and_drop.makeBlicketPath(150,240)).attr("fill", stim.objectColor);
         paper.customAttributes.pickedItemId = firstItem.id;
         const firstItemId = firstItem.id;
         firstItem.drag(move, start, up);
@@ -482,7 +443,7 @@ function make_slides(f) {
             console.log('You cannot pick up more than one item.')
           }
           else {
-            var newItem = paper.path(makeBlicketPath(150,240)).attr("fill", stim.objectColor);
+            var newItem = paper.path(drag_and_drop.makeBlicketPath(150,240)).attr("fill", stim.objectColor);
             paper.customAttributes.pickedItemId = newItem.id;
             newItem.drag(move, start, up);
             blicketPile.forEach(function(blicket) {
@@ -496,16 +457,16 @@ function make_slides(f) {
           if (!testItem) {
             console.log('no item on testing stage');
           }
-            else {
-		 blicketPile.forEach(function(blicket) {
+          else {
+            blicketPile.forEach(function(blicket) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
             if (testItem.id == firstItemId) {
-		$('#info').text('You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Leave testing area.');
-		setTimeout(function() {
-          $('#ddbutton').show();
-	  $('#ddbutton').text('Leave testing area');
-        }, 5000);
+	      $('#info').text('You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Leave testing area.');
+	      setTimeout(function() {
+                $('#ddbutton').show();
+	        $('#ddbutton').text('Leave testing area');
+              }, 5000);
 	    }
             if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
               if (stim.successfulTestResult == 'squeak') {
@@ -542,11 +503,11 @@ function make_slides(f) {
             exp.testResults.push(testSequence[testSequenceIndex]);
             testSequenceIndex ++;
 	    if (testSequenceIndex == stim.testSequence.binSize) {
-              testSequence = paper.customAttributes.shuffle(testSequence);
+              testSequence = _.shuffle(testSequence);
               testSequenceIndex = 0;
             }
             var bBox = testItem.getBBox();
-            moveToGarbage(testItem, bBox.x, bBox.y);
+            drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
             paper.customAttributes.testItem = null;
             paper.customAttributes.itemsTested ++;
             // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
@@ -570,23 +531,23 @@ function make_slides(f) {
         });
       }
       else if (stim.type == 'test') {
-	    $('.err').hide();
-	    $('#ddbutton').hide();
+        $('.err').hide();
+        $('#ddbutton').hide();
         setTimeout(function() {
           $('#ddbutton').show();
 	  $('#ddbutton').text('Continue');
         }, 2000);
-	    $('.explore').hide();
-	    $('.utterance').hide();
-	    $('.test').show();
-	    $('#probability').text('What do you think is the probability that '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'?');
-	    this.init_sliders();
-      exp.sliderPost = null;
-	    $('#generic').text(stim.objectNamePlural+' '+stim.successfulTestResult+'.');
-	    $('#free_response_prompt').text('Please provide information about '+stim.objectNamePlural.toLowerCase()+' below.');
-	    $('#free_response').val('');
-	    $('input[name="endorsement"]').prop('checked', false);
-	}
+        $('.explore').hide();
+        $('.utterance').hide();
+        $('.test').show();
+        $('#probability').text('What do you think is the probability that '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'?');
+        this.init_sliders();
+        exp.sliderPost = null;
+        $('#generic').text(stim.objectNamePlural+' '+stim.successfulTestResult+'.');
+        $('#free_response_prompt').text('Please provide information about '+stim.objectNamePlural.toLowerCase()+' below.');
+        $('#free_response').val('');
+        $('input[name="endorsement"]').prop('checked', false);
+      }
     },
     log_responses: function() {
       if (exp.type == 'utterance') {
@@ -596,30 +557,30 @@ function make_slides(f) {
 	    utterance: exp.utterance
         });
       }
-	else if (exp.type == 'explore') {
+      else if (exp.type == 'explore') {
         exp.data_trials.push({
           trial_type: "explore",
           itemsTested: exp.paper.customAttributes.itemsTested,
           timeExploring: (Date.now() - exp.startExploration)/60000,
           events: exp.events,
-            testResults: exp.testResults, // to store order of successful/unsuccessful results, since order is randomized
-	    proportionSuccess: exp.proportionSuccess
+          testResults: exp.testResults, // to store order of successful/unsuccessful results, since order is randomized
+          proportionSuccess: exp.proportionSuccess
         })
-	}
-	else if (exp.type == 'test') {
-	    exp.data_trials.push({
-		trial_type: "test",
-		probabilityOfFeature: exp.sliderPost,
-		genericEndorsement: $('input[name="endorsement"]:checked').val(),
-		freeResponse: $('#free_response').val()
-	    });
-	}
+      }
+      else if (exp.type == 'test') {
+        exp.data_trials.push({
+          trial_type: "test",
+          probabilityOfFeature: exp.sliderPost,
+	  genericEndorsement: $('input[name="endorsement"]:checked').val(),
+	  freeResponse: $('#free_response').val()
+        });
+      }
     },
-      init_sliders : function() {
+    init_sliders : function() {
       utils.make_slider("#prob_slider", function(event, ui) {
         exp.sliderPost = ui.value;
       });
-      },
+    },
     button: function(e) { // continue button
       if (exp.type == 'explore') {
         if (confirm('Are you sure you would like to move on to answering questions?')) {
@@ -628,21 +589,20 @@ function make_slides(f) {
           _stream.apply(this);
         }
       }
-	else if (exp.type == 'test') {
-	    if (exp.sliderPost == null || $('input[name="endorsement"]:checked').val() == null || $('#free_response').val() == '') {
-		$('.err').show();
-	    }
-	    else {
-		this.log_responses();
-		_stream.apply(this);
-	    }
-	}
+      else if (exp.type == 'test') {
+        if (exp.sliderPost == null || $('input[name="endorsement"]:checked').val() == null || $('#free_response').val() == '') {
+          $('.err').show();
+        }
+        else {
+          this.log_responses();
+          _stream.apply(this);
+        }
+      }
       else {
         this.log_responses();
         _stream.apply(this);
       }
-    },
-    shuffle: shuffle
+    }
   });
 
   slides.subj_info =  slide({
@@ -680,63 +640,6 @@ function make_slides(f) {
   });
 
   return slides;
-}
-
-function shuffle(arr) { // used to randomize test results with chunks of size binSize (user input)
-      var j, x, i;
-      for (i = arr.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = arr[i];
-        arr[i] = arr[j];
-        arr[j] = x;
-      }
-      return arr;
-    }
-
-function randomize_trials(objects, sounds, proportionsSuccess, utteranceTypes, binSize) {
-    var trialTypes = [];
-    for (i=0; i<proportionsSuccess.length; i++) {
-	for (j=0; j<utteranceTypes.length; j++) {
-	    trialTypes.push({
-		utteranceType: utteranceTypes[j],
-		proportionSuccess: proportionsSuccess[i]
-	    });
-	}
-    }
-  objects = shuffle(objects);
-  sounds = shuffle(sounds);
-  trialTypes = shuffle(trialTypes);
-  var result = [];
-  for (i=0; i<trialTypes.length; i++) {
-    result.push({
-      id: i,
-      type: "utterance",
-      objectNamePlural: objects[i].plural,
-      objectNameSingular: objects[i].singular,
-      utteranceType: trialTypes[i].utteranceType,
-      successfulTestResult: sounds[i]
-    });
-    result.push({
-      id: i,
-      type: "explore",
-      objectNamePlural: objects[i].plural,
-      objectNameSingular: objects[i].singular,
-      successfulTestResult: sounds[i],
-      testSequence: {
-        binSize: binSize,
-        proportionSuccess: trialTypes[i].proportionSuccess
-      },
-      objectColor: objects[i].color,
-      greyedColor: objects[i].greyed
-    });
-      result.push({
-	  id: i,
-	  type: "test",
-	  objectNamePlural: objects[i].plural,
-	  successfulTestResult: sounds[i]
-      });
-  }
-  return result;
 }
 
 /// init ///
@@ -792,19 +695,16 @@ function init() {
     }
   ]
   const sounds = ['squeak', 'beep', 'whistle', 'ring', 'boom', 'click'];
-    const utteranceTypes = ['barePlural', 'specific'];
-    const proportionsSuccess = [0, 0.5, 1];
+  const utteranceTypes = ['barePlural', 'specific'];
+  const proportionsSuccess = [0, 0.5, 1];
   const binSize = 6;
 
-  exp.randomized_trials = randomize_trials(objectNames, sounds, proportionsSuccess, utteranceTypes, binSize);
+  exp.randomized_trials = drag_and_drop.randomize_trials(objectNames, sounds, proportionsSuccess, utteranceTypes, binSize);
     
   //blocks of the experiment:
-    exp.structure=[
-	// "i0",
-	"introduction", "check_sound",
-	"instructions",
-		   //"single_trial", "one_slider", "multi_slider", "vertical_sliders",
-		   'drag_and_drop', 'subj_info', 'thanks'];
+  exp.structure=[
+    'introduction', 'check_sound', 'instructions', 'drag_and_drop', 'subj_info', 'thanks'
+  ];
 
   exp.data_trials = [];
   //make corresponding slides:
