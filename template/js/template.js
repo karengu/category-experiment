@@ -309,19 +309,19 @@ function make_slides(f) {
           $('#testStatement').text('Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
         }
         if (stim.utteranceType == "barePlural") {
-          exp.utterance = '"'+stim.objectNamePlural+' '+stim.successfulTestResult+'."';
+          exp.utterance = stim.objectNamePlural+' '+stim.successfulTestResult+'.';
         }
         else if (stim.utteranceType == "specific") {
-          exp.utterance = '"This '+stim.objectNameSingular.toLowerCase()+' '+stim.successfulTestResult+'s."';
+          exp.utterance = 'This '+stim.objectNameSingular.toLowerCase()+' '+stim.successfulTestResult+'s.';
         }
         else if (stim.utteranceType == "all") {
-          exp.utterance = '"All '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'."';
+          exp.utterance = 'All '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'.';
         }
         else if (stim.utteranceType == "some") {
-          exp.utterance = '"Some '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'."';
+          exp.utterance = 'Some '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'.';
         }
         exp.utteranceType = stim.utteranceType;
-        $('#utterance').text(exp.utterance);
+        $('#utterance').text('"'+exp.utterance+'"');
       }
 	
       else if (stim.type == "explore") {
@@ -330,7 +330,7 @@ function make_slides(f) {
         $('.test').hide();
         $('.explore').show();
         $('.utterance').hide();
-        $('#info').text('Try testing the '+stim.objectNameSingular.toLowerCase()+' by dragging it to the testing stage and clicking the Test button.');
+        $('#info').html('Try testing the '+stim.objectNameSingular.toLowerCase()+' by dragging it from the blue stage to the green testing stage and clicking the <b>Test</b> button.');
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push(true);
@@ -408,7 +408,6 @@ function make_slides(f) {
 
         var paper = new Raphael(document.getElementById('paper'), 800, 530);
         exp.paper = paper;
-        //paper.customAttributes.shuffle = utils.shuffle;
         drag_and_drop.makeTable(paper);
 
         // platforms: visible holders for objects of interest, testing, and garbage
@@ -462,7 +461,7 @@ function make_slides(f) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
             if (testItem.id == firstItemId) {
-	      $('#info').text('You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click Leave testing area.');
+	      $('#info').html('You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click <b>Leave testing area</b>.');
 	      setTimeout(function() {
                 $('#ddbutton').show();
 	        $('#ddbutton').text('Leave testing area');
@@ -565,7 +564,7 @@ function make_slides(f) {
           itemsTested: exp.paper.customAttributes.itemsTested,
           timeExploring: (Date.now() - exp.startExploration)/60000,
           events: exp.events,
-          testResults: exp.testResults, // to store order of successful/unsuccessful results, since order is randomized
+          testResults: exp.testResults, // to store order of successful/unsuccessful test results, since order is randomized
           proportionSuccess: exp.proportionSuccess
         })
       }
@@ -583,7 +582,7 @@ function make_slides(f) {
         exp.sliderPost = ui.value;
       });
     },
-    button: function(e) { // continue button
+    button: function(e) { // continue or leave testing area button button
       if (exp.type == 'explore') {
         if (confirm('Are you sure you would like to move on to answering questions?')) {
           this.log_responses();
@@ -631,11 +630,11 @@ function make_slides(f) {
     start : function() {
       exp.data= {
           "trials" : exp.data_trials,
-          "catch_trials" : exp.catch_trials,
+          //"catch_trials" : exp.catch_trials,
           "system" : exp.system,
-          "condition" : exp.condition,
+          //"condition" : exp.condition,
           "subject_information" : exp.subj_data,
-          "time_in_minutes" : (Date.now() - exp.startT)/60000 // TODO: initialize exp.startT in first slide
+          "time_in_minutes" : (Date.now() - exp.startT)/60000
       };
       setTimeout(function() {turk.submit(exp.data);}, 1000);
     }
