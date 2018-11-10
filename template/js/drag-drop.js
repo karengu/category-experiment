@@ -9,7 +9,68 @@ var makeSphere = function(startX, startY, paper) {
   return sphere;
 };
 
+var makeTrials = function(trialTypes, objects, sounds, binSize) {
+  objects = _.shuffle(objects);
+  sounds = _.shuffle(sounds);
+  trialTypes = _.shuffle(trialTypes);
+  var result = [];
+  var resultSummary = []
+  for (i=0; i<trialTypes.length; i++) {
+    resultSummary.push({
+      id: i,
+      objectName: objects[i].plural,
+      successfulTestResult: sounds[i],
+      proportionSuccess: trialTypes[i].proportionSuccess,
+      utteranceType: trialTypes[i].utteranceType
+    });
+    result.push({
+      id: i,
+      type: "explore",
+      objectNamePlural: objects[i].plural,
+      objectNameSingular: objects[i].singular,
+      utteranceType: trialTypes[i].utteranceType,
+      successfulTestResult: sounds[i],
+      testSequence: {
+        binSize: binSize,
+        proportionSuccess: trialTypes[i].proportionSuccess
+      },
+      objectColor: objects[i].color,
+      greyedColor: objects[i].greyed
+    });
+    result.push({
+      id: i,
+      type: "testProb",
+      objectNamePlural: objects[i].plural,
+      objectNameSingular: objects[i].singular,
+      successfulTestResult: sounds[i]
+    });
+    result.push({
+      id: i,
+      type: "testGeneric",
+      objectNamePlural: objects[i].plural,
+      successfulTestResult: sounds[i]
+    });
+    result.push({
+      id: i,
+      type: "testFree",
+      objectNamePlural: objects[i].plural
+    });
+  }
+  return {
+    randomized_trials: result,
+    trial_summary: resultSummary
+  };
+}
+
 var drag_and_drop = {
+
+  fixed_trials: function(objects, sounds, fixedOrders, binSize) {
+    objects = _.shuffle(objects);
+    sounds = _.shuffle(sounds);
+    fixedOrder = _.sample(fixedOrders);
+    return makeTrials(fixedOrder, objects, sounds, binSize);
+  },
+    
   randomize_trials: function(objects, sounds, proportionsSuccess, utteranceTypes, binSize) {
     var trialTypes = [];
     for (i=0; i<proportionsSuccess.length; i++) {
@@ -20,40 +81,7 @@ var drag_and_drop = {
         });
       }
     }
-    objects = _.shuffle(objects);
-    sounds = _.shuffle(sounds);
-    trialTypes = _.shuffle(trialTypes);
-    var result = [];
-    for (i=0; i<trialTypes.length; i++) {
-      result.push({
-        id: i,
-        type: "utterance",
-        objectNamePlural: objects[i].plural,
-        objectNameSingular: objects[i].singular,
-        utteranceType: trialTypes[i].utteranceType,
-        successfulTestResult: sounds[i]
-      });
-      result.push({
-        id: i,
-        type: "explore",
-        objectNamePlural: objects[i].plural,
-        objectNameSingular: objects[i].singular,
-        successfulTestResult: sounds[i],
-        testSequence: {
-          binSize: binSize,
-          proportionSuccess: trialTypes[i].proportionSuccess
-        },
-        objectColor: objects[i].color,
-        greyedColor: objects[i].greyed
-      });
-      result.push({
-        id: i,
-        type: "test",
-        objectNamePlural: objects[i].plural,
-        successfulTestResult: sounds[i]
-      });
-    }
-    return result;
+    return makeTrials(trialTypes, objects, sounds, binSize);
   },
   makePlatformPath: function(startX, startY) {
     return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
@@ -92,5 +120,29 @@ var drag_and_drop = {
     paper.path("M 0,320 v 200 A 20,10 0 0,0 20,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
     paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
   },
-  makeSphere: makeSphere
+    makeSphere: makeSphere,
+  alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut) {
+    var alert = paper.set();
+    alert.push(paper.rect(30,100,750,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+    alert.push(paper.text(400, 130, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+    alert.push(paper.text(400,175, text).attr({fill: "white","stroke-opacity":0, "font-size": 18, "font-weight": "bold"}));
+    alert.push(paper.text(400, 220, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+    alert.push(paper.text(400, 235, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+    alert.push(paper.text(400, 280, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+    alert.click(function() {
+      alert.remove();
+    });
+    if (fadeOut) {
+      var fadeOutFunc = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
+      alert.forEach(function(elem) {
+        elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOutFunc.delay(500))})
+      });
+    }
+    else {
+      alert.forEach(function(elem) {
+        elem.animate({"fill-opacity": 1, "stroke-opacity":1}, 500, "easeInOut");
+      });
+    }
+    return alert;
+  }
 }

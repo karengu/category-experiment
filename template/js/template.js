@@ -5,20 +5,21 @@ function make_slides(f) {
     name : "i0",
     start: function() {
       exp.startT = Date.now();
+      $('#instruct-text > #1').text("6 objects");
+      $('#instruct-text > #2').text("10");
     }
   });
 
   slides.introduction = slide({
     name: "introduction",
     start: function() {
-      exp.startT = Date.now();
       $('#intrButton').hide();
       setTimeout(function() {
         $('#intrButton').show();
       }, 5000)
     },
     button: function() {
-      exp.go();
+	exp.go();
     }
   });
 
@@ -38,24 +39,24 @@ function make_slides(f) {
   slides.check_sound = slide({
     name: "check_sound",
     start: function() {
-	exp.pretzel = new Audio('../_shared/audio/pretzel.mp3');
-	$('.err').hide();
+      exp.tiger = new Audio('../_shared/audio/tiger.mp3');
+      $('.err').hide();
     },
     test_sound: function() {
-      exp.pretzel.play();
+      exp.tiger.play();
     },
-      button: function() {
-	  if ($('#sound_response').val() == '') {
-	      $('.err').show();
-	  }
-	  else {
-      response = $('#sound_response').val();
-      exp.data_trials.push({
-	"trial_type": "check_sound",
-	"response": response
-      });
-	      exp.go();
-	  }
+    button: function() {
+      if ($('#sound_response').val() == '') {
+        $('.err').show();
+      }
+      else {
+        response = $('#sound_response').val();
+        exp.data_trials.push({
+	  "trial_type": "check_sound",
+	  "response": response
+        });
+        exp.go();
+      }
     }
   });
 
@@ -289,24 +290,15 @@ function make_slides(f) {
     name: "drag_and_drop",
     present: exp.randomized_trials,
     present_handle: function(stim) {
-
       exp.type = stim.type;
-
-      if (stim.type == "utterance") {
-        $('.err').hide();
-        $('#ddbutton').hide();
-        setTimeout(function() {
-          $('#ddbutton').show();
-	  $('#ddbutton').text('Continue');
-        }, 2000);
-        $('.utterance').show();
-        $('.explore').hide();
-	$('.test').hide();
+        
+      if (stim.type == "explore") {
+        this.stim = stim;
         if (stim.id == 0) { // first item needs to say "first"
-	  $('#testStatement').text('First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
+	  exp.utteranceHeader = 'First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ';
         }
         else { // other items say "next"
-          $('#testStatement').text('Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ');
+          exp.utteranceHeader = 'Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ';
         }
         if (stim.utteranceType == "barePlural") {
           exp.utterance = stim.objectNamePlural+' '+stim.successfulTestResult+'.';
@@ -320,17 +312,15 @@ function make_slides(f) {
         else if (stim.utteranceType == "some") {
           exp.utterance = 'Some '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'.';
         }
-        exp.utteranceType = stim.utteranceType;
-        $('#utterance').text('"'+exp.utterance+'"');
-      }
-	
-      else if (stim.type == "explore") {
         $('.err').hide();
         $('#ddbutton').hide();
-        $('.test').hide();
+        $('.testProb').hide();
+	$('.testGeneric').hide();
+        $('.testFree').hide();
         $('.explore').show();
         $('.utterance').hide();
-        $('#info').html('Try testing the '+stim.objectNameSingular.toLowerCase()+' by dragging it from the blue stage to the green testing stage and clicking the <b>Test</b> button.');
+        exp.belowUtteranceBefore = 'Try testing the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
+	exp.belowUtteranceAfter = ' from the blue stage to the green testing stage and clicking the green Test button.';
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push(true);
@@ -341,7 +331,6 @@ function make_slides(f) {
 	testSequence = _.shuffle(testSequence);
 	var testSequenceIndex = 0;
 
-        exp.startExploration = Date.now();
         exp.events = [];
         exp.testResults = [];
 	exp.proportionSuccess = stim.testSequence.proportionSuccess;
@@ -361,7 +350,10 @@ function make_slides(f) {
           this.animate({"fill-opacity": 1}, 500);
           var bBox = this.getBBox(); // gets top left coordinates of bounding box
           xTrans = 0;
-          yTrans = 0;
+            yTrans = 0;
+	    if (this.id == firstItemId) {
+		arrow.remove();
+	    }
           if (bBox.x < 0) {
             xTrans=-bBox.x
           }
@@ -436,12 +428,14 @@ function make_slides(f) {
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
+        var arrow = paper.path("M150,170 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
+        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false);
 
         var onPickUp = function() {
           if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
             console.log('You cannot pick up more than one item.')
           }
-          else {
+            else {
             var newItem = paper.path(drag_and_drop.makeBlicketPath(150,240)).attr("fill", stim.objectColor);
             paper.customAttributes.pickedItemId = newItem.id;
             newItem.drag(move, start, up);
@@ -461,7 +455,7 @@ function make_slides(f) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
             if (testItem.id == firstItemId) {
-	      $('#info').html('You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want. When you are ready to answer questions about them, click <b>Leave testing area</b>.');
+    		paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false);
 	      setTimeout(function() {
                 $('#ddbutton').show();
 	        $('#ddbutton').text('Leave testing area');
@@ -486,18 +480,6 @@ function make_slides(f) {
 	      else if (stim.successfulTestResult == 'click') {
 	        click.play();
 	      }
-              else {
-                var alert = paper.set();
-                alert.push(paper.rect(150,100,500,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-                alert.push(paper.text(400,200, "Squeak!").attr({fill: "white","stroke-opacity":0}));
-                alert.click(function() {
-                  alert.remove();
-                });
-                var fadeOut = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
-                alert.forEach(function(elem) {
-                  elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOut.delay(500))})
-                });
-              }
             }
             if (testItem.id != firstItemId) {
               exp.testResults.push(testSequence[testSequenceIndex]);
@@ -508,6 +490,9 @@ function make_slides(f) {
               }
               paper.customAttributes.itemsTested ++;
 	    }
+            else {
+              exp.startExploration = Date.now();
+            }
             var bBox = testItem.getBBox();
             drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
             paper.customAttributes.testItem = null;
@@ -531,7 +516,8 @@ function make_slides(f) {
           testButton.button.animate({"fill": "#49e575"});
         });
       }
-      else if (stim.type == 'test') {
+      else if (stim.type == 'testProb') {
+        this.stim = stim;
         $('.err').hide();
         $('#ddbutton').hide();
         setTimeout(function() {
@@ -540,27 +526,53 @@ function make_slides(f) {
         }, 2000);
         $('.explore').hide();
         $('.utterance').hide();
-        $('.test').show();
-        $('#probability').text('What do you think is the probability that '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'?');
+        $('.testProb').show();
+        $('.testGeneric').hide();
+        $('.testFree').hide();
+        $('#probability').text('Suppose you pick up another '+stim.objectNameSingular.toLowerCase()+' from the box. What are the chances that it '+stim.successfulTestResult+'s?');
+        $('.left').text("definitely won't "+stim.successfulTestResult);
+        $('.right').text("definitely will "+stim.successfulTestResult);
         this.init_sliders();
         exp.sliderPost = null;
+      }
+      else if (stim.type == 'testGeneric') {
+        this.stim = stim;
+        $('.err').hide();
+        $('#ddbutton').hide();
+        setTimeout(function() {
+          $('#ddbutton').show();
+	  $('#ddbutton').text('Continue');
+        }, 2000);
+        $('.explore').hide();
+        $('.utterance').hide();
+        $('.testProb').hide();
+        $('.testGeneric').show();
+        $('.testFree').hide();
         $('#generic').text(stim.objectNamePlural+' '+stim.successfulTestResult+'.');
+        $('input[name="endorsement"]').prop('checked', false);
+      }
+      else if (stim.type == 'testFree') {
+        this.stim = stim;
+        $('.err').hide();
+        $('#ddbutton').hide();
+        setTimeout(function() {
+          $('#ddbutton').show();
+	  $('#ddbutton').text('Continue');
+        }, 2000);
+        $('.explore').hide();
+        $('.utterance').hide();
+        $('.testProb').hide();
+        $('.testGeneric').hide();
+        $('.testFree').show();
         $('#free_response_prompt').text('Please provide information about '+stim.objectNamePlural.toLowerCase()+' below.');
         $('#free_response').val('');
-        $('input[name="endorsement"]').prop('checked', false);
       }
     },
     log_responses: function() {
-      if (exp.type == 'utterance') {
-        exp.data_trials.push({
-          trial_type: "utterance",
-            utteranceType: exp.utteranceType,
-	    utterance: exp.utterance
-        });
-      }
-      else if (exp.type == 'explore') {
+      if (exp.type == 'explore') {
         exp.data_trials.push({
           trial_type: "explore",
+          id: this.stim.id,
           itemsTested: exp.paper.customAttributes.itemsTested,
           timeExploring: (Date.now() - exp.startExploration)/60000,
           events: exp.events,
@@ -568,11 +580,24 @@ function make_slides(f) {
           proportionSuccess: exp.proportionSuccess
         })
       }
-      else if (exp.type == 'test') {
+      else if (exp.type == 'testProb') {
         exp.data_trials.push({
-          trial_type: "test",
-          probabilityOfFeature: exp.sliderPost,
-	  genericEndorsement: $('input[name="endorsement"]:checked').val(),
+          trial_type: "testProb",
+          id: this.stim.id,
+          probabilityOfFeature: exp.sliderPost
+	});
+      }
+      else if (exp.type == 'testGeneric') {
+        exp.data_trials.push({
+	  trial_type: "testGeneric",
+	  id: this.stim.id,
+	  genericEndorsement: $('input[name="endorsement"]:checked').val()
+        });
+      }
+      else if (exp.type == 'testFree') {
+        exp.data_trials.push({
+ 	  trial_type: "testFree",
+	  id: this.stim.id,
 	  freeResponse: $('#free_response').val()
         });
       }
@@ -590,8 +615,8 @@ function make_slides(f) {
           _stream.apply(this);
         }
       }
-      else if (exp.type == 'test') {
-        if (exp.sliderPost == null || $('input[name="endorsement"]:checked').val() == null || $('#free_response').val() == '') {
+      else if (exp.type == 'testProb') {
+        if (exp.sliderPost == null) {
           $('.err').show();
         }
         else {
@@ -599,9 +624,43 @@ function make_slides(f) {
           _stream.apply(this);
         }
       }
+      else if (exp.type == 'testGeneric') {
+        if ($('input[name="endorsement"]:checked').val() == null) {
+          $('.err').show();
+        }
+        else {
+          this.log_responses();
+	  _stream.apply(this);
+        }
+      }
+      else if (exp.type == 'testFree') {
+        if ($('#free_response').val() == '') {
+          $('.err').show();
+        }
+        else {
+          this.log_responses();
+	  _stream.apply(this);
+        }
+      }
       else {
         this.log_responses();
         _stream.apply(this);
+      }
+    }
+  });
+
+  slides.attention_check = slide({
+    name: "attention_check",
+    button: function() {
+      if ($('#attention_check_response').val() == '') {
+        $('.err').show()
+      }
+      else {
+	exp.data_trials.push({
+          trial_type: "attention_check",
+          response: $('#attention_check_response').val()
+	});
+	exp.go();
       }
     }
   });
@@ -628,11 +687,12 @@ function make_slides(f) {
   slides.thanks = slide({
     name : "thanks",
     start : function() {
-      exp.data= {
+	exp.data= {
+	    "trial_summary": exp.trial_summary,
           "trials" : exp.data_trials,
           //"catch_trials" : exp.catch_trials,
           "system" : exp.system,
-          //"condition" : exp.condition,
+          "condition" : exp.condition,
           "subject_information" : exp.subj_data,
           "time_in_minutes" : (Date.now() - exp.startT)/60000
       };
@@ -647,7 +707,7 @@ function make_slides(f) {
 function init() {
   exp.trials = [];
   //exp.catch_trials = [];
-  //exp.condition = _.sample(["CONDITION 1", "condition 2"]); //can randomize between subject conditions here
+  exp.condition = _.sample(["fixed", "random"]); //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
@@ -700,11 +760,49 @@ function init() {
   const proportionsSuccess = [0, 0.5, 1];
   const binSize = 6;
 
-  exp.randomized_trials = drag_and_drop.randomize_trials(objectNames, sounds, proportionsSuccess, utteranceTypes, binSize);
+  var fixedOrders = [
+    [
+      {
+	utteranceType: 'barePlural',
+	proportionSuccess: 1,
+      },
+      {
+	utteranceType: 'specific',
+	proportionSuccess: 0
+      },
+      {
+        utteranceType: 'barePlural',
+        proportionSuccess: .5
+      },
+      {
+        utteranceType: 'specific',
+        proportionSuccess: .5
+      },
+      {
+        utteranceType: 'barePlural',
+        proportionSuccess: 0
+      },
+      {
+        utteranceType: 'specific',
+        proportionSuccess: 1
+      }
+    ]
+  ];
+
+  if (exp.condition == 'random') {
+    randomized_trials = drag_and_drop.randomize_trials(objectNames, sounds, proportionsSuccess, utteranceTypes, binSize);
+    exp.randomized_trials = randomized_trials.randomized_trials;
+    exp.trial_summary = randomized_trials.trial_summary;
+  }
+  else {
+    fixed_orders = drag_and_drop.fixed_trials(objectNames, sounds, fixedOrders, binSize);
+    exp.randomized_trials = fixed_orders.randomized_trials;
+    exp.trial_summary = fixed_orders.trial_summary;
+  }
     
   //blocks of the experiment:
   exp.structure=[
-    'introduction', 'check_sound', 'instructions', 'drag_and_drop', 'subj_info', 'thanks'
+      'i0','introduction', 'check_sound', 'instructions', 'drag_and_drop', 'attention_check', 'subj_info', 'thanks'
   ];
 
   exp.data_trials = [];
