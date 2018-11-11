@@ -429,7 +429,7 @@ function make_slides(f) {
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
         var arrow = paper.path("M150,170 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
-        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false);
+        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true);
 
         var onPickUp = function() {
           if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
@@ -455,11 +455,11 @@ function make_slides(f) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
             if (testItem.id == firstItemId) {
-    		paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false);
+    		paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false);
 	      setTimeout(function() {
                 $('#ddbutton').show();
 	        $('#ddbutton').text('Leave testing area');
-              }, 5000);
+              }, 7000);
 	    }
             if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
               if (stim.successfulTestResult == 'squeak') {

@@ -12,7 +12,6 @@ var makeSphere = function(startX, startY, paper) {
 var makeTrials = function(trialTypes, objects, sounds, binSize) {
   objects = _.shuffle(objects);
   sounds = _.shuffle(sounds);
-  trialTypes = _.shuffle(trialTypes);
   var result = [];
   var resultSummary = []
   for (i=0; i<trialTypes.length; i++) {
@@ -81,6 +80,7 @@ var drag_and_drop = {
         });
       }
     }
+    trialTypes = _.shuffle(trialTypes);
     return makeTrials(trialTypes, objects, sounds, binSize);
   },
   makePlatformPath: function(startX, startY) {
@@ -120,9 +120,10 @@ var drag_and_drop = {
     paper.path("M 0,320 v 200 A 20,10 0 0,0 20,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
     paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
   },
-    makeSphere: makeSphere,
-  alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut) {
+  makeSphere: makeSphere,
+  alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait) {
     var alert = paper.set();
+    paper.customAttributes.startReading = Date.now();
     alert.push(paper.rect(30,100,750,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
     alert.push(paper.text(400, 130, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
     alert.push(paper.text(400,175, text).attr({fill: "white","stroke-opacity":0, "font-size": 18, "font-weight": "bold"}));
@@ -130,7 +131,9 @@ var drag_and_drop = {
     alert.push(paper.text(400, 235, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
     alert.push(paper.text(400, 280, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
     alert.click(function() {
-      alert.remove();
+      if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
+        alert.remove();
+      }
     });
     if (fadeOut) {
       var fadeOutFunc = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
