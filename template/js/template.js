@@ -291,14 +291,14 @@ function make_slides(f) {
     present: exp.randomized_trials,
     present_handle: function(stim) {
       exp.type = stim.type;
-        
+
       if (stim.type == "explore") {
         this.stim = stim;
         if (stim.id == 0) { // first item needs to say "first"
-	  exp.utteranceHeader = 'First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ';
+	  exp.utteranceHeader = 'First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and she tells you that: ';
         }
         else { // other items say "next"
-          exp.utteranceHeader = 'Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and he tells you that: ';
+          exp.utteranceHeader = 'Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and she tells you that: ';
         }
         if (stim.utteranceType == "barePlural") {
           exp.utterance = stim.objectNamePlural+' '+stim.successfulTestResult+'.';
@@ -564,7 +564,7 @@ function make_slides(f) {
         $('.testProb').hide();
         $('.testGeneric').hide();
         $('.testFree').show();
-        $('#free_response_prompt').text('Please provide information about '+stim.objectNamePlural.toLowerCase()+' below.');
+        $('#free_response_prompt').text('Please describe what you know about '+stim.objectNamePlural.toLowerCase()+' below.');
         $('#free_response').val('');
       }
     },
@@ -799,7 +799,7 @@ function init() {
     exp.randomized_trials = fixed_orders.randomized_trials;
     exp.trial_summary = fixed_orders.trial_summary;
   }
-    
+
   //blocks of the experiment:
   exp.structure=[
       'i0','introduction', 'check_sound', 'instructions', 'drag_and_drop', 'attention_check', 'subj_info', 'thanks'
