@@ -577,7 +577,6 @@ function make_slides(f) {
           timeExploring: (Date.now() - exp.startExploration)/60000,
           events: exp.events,
           testResults: exp.testResults, // to store order of successful/unsuccessful test results, since order is randomized
-          proportionSuccess: exp.proportionSuccess
         })
       }
       else if (exp.type == 'testProb') {
