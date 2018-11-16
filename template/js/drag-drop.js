@@ -1,6 +1,23 @@
-var makeBlicketPath = function(startX, startY) {
-  return "M "+startX+","+startY+"m -20,0 l 20,-20 l 20,20 l -20,20 l -20,-20 m 20,20 l -7.5,-20 l 7.5,-20 l 7.5,20 l -7.5,20"
-};
+var objectPaths = {
+  "diamond": function(startX, startY) {
+    return "M "+startX+","+startY+"m -20,0 l 20,-20 l 20,20 l -20,20 l -20,-20 m 20,20 l -7.5,-20 l 7.5,-20 l 7.5,20 l -7.5,20"
+  },
+  "pyramid": function(startX, startY) {
+    return "M"+startX+","+startY+" m0,-20 l20,40 l-40,0 l20,-40 l20,17 l0,23 m0,-23 l-40,23"
+  },
+  "cylinder": function(startX, startY) {
+    return "M"+startX+","+startY+"m-15,10 a 15,8 0 0,0 30,0 v-20 a 15,8 0 0,0 -30,0 v20 m30,0 a 15,8, 0 0,0 -30,0 m0,-20 a 15,8 0 0,0 30,0"
+  },
+  "cube": function(startX, startY) {
+    return "M"+startX+","+startY+"m-12.5,-12.5 l12.5,-5 h 22.5 v22.5  l-12.5,5  h-22.5v -22.5 h22.5 l12.5,-5 v22.5 m-12.5,5 m-22.5,0 l12.5,-5 h22.5 m-22.5,0 v-22.5 m10,5 v 22.5"
+  },
+  "hexagon": function(startX, startY) {
+    return "M "+startX+","+startY+"m-15,-5 l10,-10 l5,-3 h10 l10,10 v10 l-10,10 l-5,3 h-10 l-10,-10 v-10 l10,-10 h10 l10,10 v10 l-10,10 h-10 l-10,-10 v-10 l5,-3 l10,-10 l-5,3 m5,-3 h10 l-5,3 m5,-3 l10,10 l-5,3 m5,-3 v10 l-5,3 m5,-3 l-10,10 l-5,3 m5,-3 h-10 l-5,3 m5,-3 l-10,-10 l-5,3 m5,-3 v-10"
+  },
+  "cone": function(startX, startY) {
+    return "M"+startX+","+startY+"m-20,15 a 20,10 0 0,0 40,0 l-20,-30 l-20,30 m40,0 a20,10 0 0,0 -40,0"
+  }
+}
 
 var makeSphere = function(startX, startY, paper) {
   const sphere = paper.circle(startX, startY, 20).attr({fill: "#8642f4"});
@@ -9,16 +26,15 @@ var makeSphere = function(startX, startY, paper) {
   return sphere;
 };
 
-var makeTrials = function(trialTypes, objects, sounds, binSize) {
+var makeTrials = function(trialTypes, objects, binSize) {
   objects = _.shuffle(objects);
-  sounds = _.shuffle(sounds);
   var result = [];
   var resultSummary = []
   for (i=0; i<trialTypes.length; i++) {
     resultSummary.push({
       id: i,
       objectName: objects[i].plural,
-      successfulTestResult: sounds[i],
+      successfulTestResult: objects[i].sound,
       proportionSuccess: trialTypes[i].proportionSuccess,
       utteranceType: trialTypes[i].utteranceType
     });
@@ -28,7 +44,9 @@ var makeTrials = function(trialTypes, objects, sounds, binSize) {
       objectNamePlural: objects[i].plural,
       objectNameSingular: objects[i].singular,
       utteranceType: trialTypes[i].utteranceType,
-      successfulTestResult: sounds[i],
+      utteranceSpoken: objects[i].plural.toLowerCase()+trialTypes[i].utteranceType+'.mp3',
+      shape: objects[i].shape,
+      successfulTestResult: objects[i].sound,
       testSequence: {
         binSize: binSize,
         proportionSuccess: trialTypes[i].proportionSuccess
@@ -41,13 +59,13 @@ var makeTrials = function(trialTypes, objects, sounds, binSize) {
       type: "testProb",
       objectNamePlural: objects[i].plural,
       objectNameSingular: objects[i].singular,
-      successfulTestResult: sounds[i]
+      successfulTestResult: objects[i].sound
     });
     result.push({
       id: i,
       type: "testGeneric",
       objectNamePlural: objects[i].plural,
-      successfulTestResult: sounds[i]
+      successfulTestResult: objects[i].sound
     });
     result.push({
       id: i,
@@ -63,14 +81,13 @@ var makeTrials = function(trialTypes, objects, sounds, binSize) {
 
 var drag_and_drop = {
 
-  fixed_trials: function(objects, sounds, fixedOrders, binSize) {
+  fixed_trials: function(objects, fixedOrders, binSize) {
     objects = _.shuffle(objects);
-    sounds = _.shuffle(sounds);
     fixedOrder = _.sample(fixedOrders);
-    return makeTrials(fixedOrder, objects, sounds, binSize);
+    return makeTrials(fixedOrder, objects, binSize);
   },
     
-  randomize_trials: function(objects, sounds, proportionsSuccess, utteranceTypes, binSize) {
+  randomize_trials: function(objects, proportionsSuccess, utteranceTypes, binSize) {
     var trialTypes = [];
     for (i=0; i<proportionsSuccess.length; i++) {
       for (j=0; j<utteranceTypes.length; j++) {
@@ -81,25 +98,24 @@ var drag_and_drop = {
       }
     }
     trialTypes = _.shuffle(trialTypes);
-    return makeTrials(trialTypes, objects, sounds, binSize);
+    return makeTrials(trialTypes, objects, binSize);
   },
   makePlatformPath: function(startX, startY) {
     return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
   },
-  makeBlicketPath: makeBlicketPath,
   makeBlicketPile: function(startX, startY, numberBlickets, blicketPile, paper, greyedColor, type) {
-    paper.path("M "+startX+","+startY+"m -70,-25 l 60,-20 h 140 l -60,20, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"});
+    paper.path("M "+startX+","+startY+"m -70,-25 l 65,-25 h 140 l -65,25, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"});
     for (i = 0; i < numberBlickets; i++) {
-      if (type == 'diamond') {
-        var newBlicket = paper.path(makeBlicketPath(startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: greyedColor});
-      }
-      else if (type =='sphere') {
+      if (type =='sphere') {
         var newBlicket = makeSphere(startX+160*Math.random()-50, startY+100*Math.random()-50, paper);
+      }
+      else {
+        var newBlicket = paper.path(objectPaths[type](startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: greyedColor});
       }
       blicketPile.push(newBlicket);
     }
     paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
-    paper.path("M "+startX+","+startY+"m70,85 l 60,-20 v -110 l-60,20 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
+    paper.path("M "+startX+","+startY+"m70,85 l 65,-25 v -110 l-65,25 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"});
   },
   moveToGarbage: function(blicket, x, y) {
     const finalX = 60*Math.random()-30+630
@@ -121,15 +137,15 @@ var drag_and_drop = {
     paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
   },
   makeSphere: makeSphere,
-  alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait) {
+  alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime) {
     var alert = paper.set();
-    paper.customAttributes.startReading = Date.now();
-    alert.push(paper.rect(30,100,750,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-    alert.push(paper.text(400, 130, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-    alert.push(paper.text(400,175, text).attr({fill: "white","stroke-opacity":0, "font-size": 18, "font-weight": "bold"}));
-    alert.push(paper.text(400, 220, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-    alert.push(paper.text(400, 235, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-    alert.push(paper.text(400, 280, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+      paper.customAttributes.startReading = Date.now();
+      alert.push(paper.rect(20,300,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+      alert.push(paper.text(400, 330, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400,375, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+      alert.push(paper.text(400, 420, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400, 435, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400, 480, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
     alert.click(function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
         alert.remove();
@@ -143,7 +159,7 @@ var drag_and_drop = {
     }
     else {
       alert.forEach(function(elem) {
-        elem.animate({"fill-opacity": 1, "stroke-opacity":1}, 500, "easeInOut");
+        elem.animate({"fill-opacity": 1, "stroke-opacity":1}, fadeInTime, "easeInOut");
       });
     }
     return alert;

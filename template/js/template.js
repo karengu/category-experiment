@@ -397,6 +397,7 @@ function make_slides(f) {
         var whistle = new Audio('../_shared/audio/whistle.mp3');
         var click = new Audio('../_shared/audio/click.mp3');
         var boom = new Audio('../_shared/audio/boom.mp3');
+	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
 
         var paper = new Raphael(document.getElementById('paper'), 800, 530);
         exp.paper = paper;
@@ -409,7 +410,7 @@ function make_slides(f) {
 
         // source: items of interest to be tested
         var blicketPile = paper.set();
-        drag_and_drop.makeBlicketPile(370,100,200, blicketPile, paper, stim.greyedColor, 'diamond');
+        drag_and_drop.makeBlicketPile(370,100,200, blicketPile, paper, stim.greyedColor, stim.shape);
         var sourceLabel = paper.text(400, 20, stim.objectNamePlural).attr({"font-size": 18});
         var pickUpButton = drag_and_drop.makeButton(370, 130, "#4985e5", "Pick up", paper);
 
@@ -421,7 +422,7 @@ function make_slides(f) {
         var garbageLabel = paper.text(620, 285, "Tested Items").attr({"font-size": 14});
         // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
-	var firstItem = paper.path(drag_and_drop.makeBlicketPath(150,240)).attr("fill", stim.objectColor);
+	var firstItem = paper.path(objectPaths[stim.shape](150,240)).attr("fill", stim.objectColor);
         paper.customAttributes.pickedItemId = firstItem.id;
         const firstItemId = firstItem.id;
         firstItem.drag(move, start, up);
@@ -429,14 +430,17 @@ function make_slides(f) {
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
         var arrow = paper.path("M150,170 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
-        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true);
+          var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 0);
+	  setTimeout(function() {
+	      utteranceSpoken.play();
+	  }, 3000);
 
         var onPickUp = function() {
           if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
             console.log('You cannot pick up more than one item.')
           }
             else {
-            var newItem = paper.path(drag_and_drop.makeBlicketPath(150,240)).attr("fill", stim.objectColor);
+            var newItem = paper.path(objectPaths[stim.shape](150,240)).attr("fill", stim.objectColor);
             paper.customAttributes.pickedItemId = newItem.id;
             newItem.drag(move, start, up);
             blicketPile.forEach(function(blicket) {
@@ -455,7 +459,17 @@ function make_slides(f) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
             if (testItem.id == firstItemId) {
-    		paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false);
+	      if (utterance) {
+	        utterance.remove();
+	      }
+	      setTimeout(function() {
+	        if (stim.id == 0) {
+	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
+	      }
+	        else {
+    	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
+	        }
+	      }, 1000);
 	      setTimeout(function() {
                 $('#ddbutton').show();
 	        $('#ddbutton').text('Leave testing area');
@@ -721,40 +735,51 @@ function init() {
       plural: "Blickets",
       singular: "Blicket",
       color: "#ff0",
-      greyed: "#999937",
+	greyed: "#999937",
+	sound: "squeak",
+	shape: "diamond"
     },
     {
       plural: "Daxes",
       singular: "Dax",
       color: "#f44248",
-      greyed: "#992a34"
+	greyed: "#992a34",
+	sound: "beep",
+	shape: "cylinder"
     },
     {
       plural: "Griffs",
       singular: "Griff",
       color: "#8b36c1",
-      greyed: "#602784"
+	greyed: "#602784",
+	sound: "whistle",
+	shape: "hexagon"
     },
     {
       plural: "Feps",
       singular: "Fep",
       color: "#f45042",
-      greyed: "#c14136"
+	greyed: "#c14136",
+	sound: "ring",
+	shape: "pyramid"
     },
     {
       plural: "Wugs",
       singular: "Wug",
       color: "#43e8e8",
-      greyed: "#2b9696"
+	greyed: "#2b9696",
+	sound: "boom",
+	shape: "cube"
     },
     {
       plural: "Tomas",
       singular: "Toma",
       color: "#ff00cb",
-      greyed: "#a80186"
+	greyed: "#a80186",
+	sound: "click",
+	shape: "cone"
     }
   ]
-  const sounds = ['squeak', 'beep', 'whistle', 'ring', 'boom', 'click'];
   const utteranceTypes = ['barePlural', 'specific'];
   const proportionsSuccess = [0, 0.5, 1];
   const binSize = 6;
@@ -789,19 +814,19 @@ function init() {
   ];
 
   if (exp.condition == 'random') {
-    randomized_trials = drag_and_drop.randomize_trials(objectNames, sounds, proportionsSuccess, utteranceTypes, binSize);
+    randomized_trials = drag_and_drop.randomize_trials(objectNames, proportionsSuccess, utteranceTypes, binSize);
     exp.randomized_trials = randomized_trials.randomized_trials;
     exp.trial_summary = randomized_trials.trial_summary;
   }
   else {
-    fixed_orders = drag_and_drop.fixed_trials(objectNames, sounds, fixedOrders, binSize);
+    fixed_orders = drag_and_drop.fixed_trials(objectNames, fixedOrders, binSize);
     exp.randomized_trials = fixed_orders.randomized_trials;
     exp.trial_summary = fixed_orders.trial_summary;
   }
 
   //blocks of the experiment:
   exp.structure=[
-      'i0','introduction', 'check_sound', 'instructions', 'drag_and_drop', 'attention_check', 'subj_info', 'thanks'
+      'i0','introduction', 'check_sound', 'instructions','drag_and_drop', 'attention_check', 'subj_info', 'thanks'
   ];
 
   exp.data_trials = [];
