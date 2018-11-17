@@ -720,7 +720,7 @@ function make_slides(f) {
 function init() {
   exp.trials = [];
   //exp.catch_trials = [];
-  exp.condition = _.sample(["fixed", "random"]); //can randomize between subject conditions here
+  exp.condition = _.sample(["random"]); //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,

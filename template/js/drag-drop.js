@@ -107,10 +107,10 @@ var drag_and_drop = {
     paper.path("M "+startX+","+startY+"m -70,-25 l 65,-25 h 140 l -65,25, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"});
     for (i = 0; i < numberBlickets; i++) {
       if (type =='sphere') {
-        var newBlicket = makeSphere(startX+160*Math.random()-50, startY+100*Math.random()-50, paper);
+        var newBlicket = makeSphere(startX+160*Math.random()-50, startY+60*Math.random()-30, paper);
       }
       else {
-        var newBlicket = paper.path(objectPaths[type](startX+160*Math.random()-50, startY+100*Math.random()-50)).attr({fill: greyedColor});
+        var newBlicket = paper.path(objectPaths[type](startX+160*Math.random()-50, startY+80*Math.random()-40)).attr({fill: greyedColor});
       }
       blicketPile.push(newBlicket);
     }
