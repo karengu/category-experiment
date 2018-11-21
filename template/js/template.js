@@ -295,10 +295,10 @@ function make_slides(f) {
       if (stim.type == "explore") {
         this.stim = stim;
         if (stim.id == 0) { // first item needs to say "first"
-	  exp.utteranceHeader = 'First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and she tells you that: ';
+	  exp.utteranceHeader = 'First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. '+stim.investigator+' has been studying '+stim.objectNamePlural.toLowerCase()+', and '+stim.pronoun.toLowerCase()+' tells you that: ';
         }
         else { // other items say "next"
-          exp.utteranceHeader = 'Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. Your colleague has been studying '+stim.objectNamePlural.toLowerCase()+', and she tells you that: ';
+          exp.utteranceHeader = 'Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. '+stim.investigator+' has been studying '+stim.objectNamePlural.toLowerCase()+', and '+stim.pronoun.toLowerCase()+' tells you that: ';
         }
         if (stim.utteranceType == "barePlural") {
           exp.utterance = stim.objectNamePlural+' '+stim.successfulTestResult+'.';
@@ -430,10 +430,10 @@ function make_slides(f) {
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
         var arrow = paper.path("M150,170 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
-          var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 0);
-	  setTimeout(function() {
-	      utteranceSpoken.play();
-	  }, 3000);
+        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 0);
+	setTimeout(function() {
+          utteranceSpoken.play(); // read utterance
+        }, 3000);
 
         var onPickUp = function() {
           if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
@@ -463,14 +463,14 @@ function make_slides(f) {
 	        utterance.remove();
 	      }
 	      setTimeout(function() {
-	        if (stim.id == 0) {
-	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
+	        if (stim.id == 0) { // give reminder of how to drag items on first trial
+	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
 	      }
-	        else {
-    	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, 'Your colleague is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
+	        else { // no reminder on all subsequent trials
+    	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
 	        }
 	      }, 1000);
-	      setTimeout(function() {
+	      setTimeout(function() { // delay showing button to leave for 7 seconds
                 $('#ddbutton').show();
 	        $('#ddbutton').text('Leave testing area');
               }, 7000);
@@ -622,14 +622,14 @@ function make_slides(f) {
     },
     button: function(e) { // continue or leave testing area button button
       if (exp.type == 'explore') {
-        if (confirm('Are you sure you would like to move on to answering questions?')) {
+        if (confirm('Are you sure you would like to move on to answering questions?')) { // check to make sure user wants to move on
           this.log_responses();
           exp.paper.remove();
           _stream.apply(this);
         }
       }
       else if (exp.type == 'testProb') {
-        if (exp.sliderPost == null) {
+        if (exp.sliderPost == null) { // check to make sure user answered
           $('.err').show();
         }
         else {
@@ -638,7 +638,7 @@ function make_slides(f) {
         }
       }
       else if (exp.type == 'testGeneric') {
-        if ($('input[name="endorsement"]:checked').val() == null) {
+        if ($('input[name="endorsement"]:checked').val() == null) { // check to make sure user answered
           $('.err').show();
         }
         else {
@@ -647,17 +647,13 @@ function make_slides(f) {
         }
       }
       else if (exp.type == 'testFree') {
-        if ($('#free_response').val() == '') {
+        if ($('#free_response').val() == '') { // check to make sure user answered
           $('.err').show();
         }
         else {
           this.log_responses();
 	  _stream.apply(this);
         }
-      }
-      else {
-        this.log_responses();
-        _stream.apply(this);
       }
     }
   });
@@ -735,49 +731,61 @@ function init() {
       plural: "Blickets",
       singular: "Blicket",
       color: "#ff0",
-	greyed: "#999937",
-	sound: "squeak",
-	shape: "diamond"
+      greyed: "#999937",
+      sound: "squeak",
+      shape: "diamond",
+      investigator: "Ashley",
+      pronoun: "She"
     },
     {
       plural: "Daxes",
       singular: "Dax",
       color: "#f44248",
-	greyed: "#992a34",
-	sound: "beep",
-	shape: "cylinder"
+      greyed: "#992a34",
+      sound: "beep",
+      shape: "cylinder",
+      investigator: "Beth",
+      pronoun: "She"
     },
     {
       plural: "Griffs",
       singular: "Griff",
       color: "#8b36c1",
-	greyed: "#602784",
-	sound: "whistle",
-	shape: "hexagon"
+      greyed: "#602784",
+      sound: "whistle",
+      shape: "hexagon",
+      investigator: "James",
+      pronoun: "He"
     },
     {
       plural: "Feps",
       singular: "Fep",
       color: "#f45042",
-	greyed: "#c14136",
-	sound: "ring",
-	shape: "pyramid"
+      greyed: "#c14136",
+      sound: "ring",
+      shape: "pyramid",
+      investigator: "Julie",
+      pronoun: "She"
     },
     {
       plural: "Wugs",
       singular: "Wug",
       color: "#43e8e8",
-	greyed: "#2b9696",
-	sound: "boom",
-	shape: "cube"
+      greyed: "#2b9696",
+      sound: "boom",
+      shape: "cube",
+      investigator: "Tom",
+      pronoun: "He"
     },
     {
       plural: "Tomas",
       singular: "Toma",
       color: "#ff00cb",
-	greyed: "#a80186",
-	sound: "click",
-	shape: "cone"
+      greyed: "#a80186",
+      sound: "click",
+      shape: "cone",
+      investigator: "Paul",
+      pronoun: "He"
     }
   ]
   const utteranceTypes = ['barePlural', 'specific'];
@@ -826,7 +834,7 @@ function init() {
 
   //blocks of the experiment:
   exp.structure=[
-      'i0','introduction', 'check_sound', 'instructions','drag_and_drop', 'attention_check', 'subj_info', 'thanks'
+    'i0','introduction', 'check_sound', 'instructions','drag_and_drop', 'attention_check', 'subj_info', 'thanks'
   ];
 
   exp.data_trials = [];
