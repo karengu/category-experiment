@@ -11,6 +11,17 @@
     <script src="../_shared/js/underscore-min.js"></script>
     <!-- if you want to draw stuff: -->
     <script src="../_shared/js/raphael-min.js"></script>
+    <script src="//uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      (function(){
+      var ut_id = "abff21292ee266bce1b7f9540ab127c2";
+      if (UTWorkerLimitReached(ut_id)) {
+        document.getElementById('mturk_form').style.display = 'none';
+        document.getElementsByTagName('body')[0].innerHTML = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
+      }
+    })();
+    </script>
+
 
     <!-- cocolab experiment logic -->
     <script src="../_shared/js/exp-V2.js"></script>
