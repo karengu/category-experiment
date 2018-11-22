@@ -303,17 +303,22 @@ function make_slides(f) {
         if (stim.id == 0) {
           $('#testStatement').text('First, you are going to talk with '+stim.investigator+'.');
 	  $('#utterance').text(stim.investigator+' has been exploring '+stim.objectNamePlural.toLowerCase()+'.');
-	    }
+	  setTimeout(function() {
+	    $('#ddbutton').show();
+	  }, 2000);
+	}
 	else if (stim.last) {
 	  $('#testStatement').text('Now you are done with the exploration.');
+	  $('#utterance').text('');
+	  $('#ddbutton').show();
 	}
         else {
           $('#testStatement').text('Now you are done exploring '+stim.prevItem.toLowerCase()+'. Next, you are going to talk with '+stim.investigator+'.');
 	  $('#utterance').text(stim.investigator+' has been exploring '+stim.objectNamePlural.toLowerCase()+'.');
+	  setTimeout(function() {
+	    $('#ddbutton').show();
+	  }, 2000);
 	}
-	setTimeout(function() {
-	  $('#ddbutton').show();
-	}, 2000);
       }
 	
       else if (stim.type == "explore") {
