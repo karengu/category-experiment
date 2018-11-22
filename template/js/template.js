@@ -292,14 +292,33 @@ function make_slides(f) {
     present_handle: function(stim) {
       exp.type = stim.type;
 
-      if (stim.type == "explore") {
+      if (stim.type == "transition") {
+        $('.err').hide();
+        $('#ddbutton').hide();
+        $('.testProb').hide();
+	$('.testGeneric').hide();
+        $('.testFree').hide();
+        $('.explore').hide();
+        $('.transition').show();
+        if (stim.id == 0) {
+          $('#testStatement').text('First, you are going to talk with '+stim.investigator+'.');
+	  $('#utterance').text(stim.investigator+' has been exploring '+stim.objectNamePlural.toLowerCase()+'.');
+	    }
+	else if (stim.last) {
+	  $('#testStatement').text('Now you are done with the exploration.');
+	}
+        else {
+          $('#testStatement').text('Now you are done exploring '+stim.prevItem.toLowerCase()+'. Next, you are going to talk with '+stim.investigator+'.');
+	  $('#utterance').text(stim.investigator+' has been exploring '+stim.objectNamePlural.toLowerCase()+'.');
+	}
+	setTimeout(function() {
+	  $('#ddbutton').show();
+	}, 2000);
+      }
+	
+      else if (stim.type == "explore") {
         this.stim = stim;
-        if (stim.id == 0) { // first item needs to say "first"
-	  exp.utteranceHeader = 'First, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. '+stim.investigator+' has been studying '+stim.objectNamePlural.toLowerCase()+', and '+stim.pronoun.toLowerCase()+' tells you that: ';
-        }
-        else { // other items say "next"
-          exp.utteranceHeader = 'Next, you are going to explore '+stim.objectNamePlural.toLowerCase()+'. '+stim.investigator+' has been studying '+stim.objectNamePlural.toLowerCase()+', and '+stim.pronoun.toLowerCase()+' tells you that: ';
-        }
+	exp.utteranceHeader = stim.investigator+' tells you that: ';
         if (stim.utteranceType == "barePlural") {
           exp.utterance = stim.objectNamePlural+' '+stim.successfulTestResult+'.';
         }
@@ -318,7 +337,7 @@ function make_slides(f) {
 	$('.testGeneric').hide();
         $('.testFree').hide();
         $('.explore').show();
-        $('.utterance').hide();
+        $('.transition').hide();
         exp.belowUtteranceBefore = 'Try testing the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
 	exp.belowUtteranceAfter = ' from the blue stage to the green testing stage and clicking the green Test button.';
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
@@ -433,7 +452,7 @@ function make_slides(f) {
         var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 0);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
-        }, 3000);
+        }, 2000);
 
         var onPickUp = function() {
           if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
@@ -464,10 +483,10 @@ function make_slides(f) {
 	      }
 	      setTimeout(function() {
 	        if (stim.id == 0) { // give reminder of how to drag items on first trial
-	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
+	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
 	      }
 	        else { // no reminder on all subsequent trials
-    	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 1000);
+    	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
 	        }
 	      }, 1000);
 	      setTimeout(function() { // delay showing button to leave for 7 seconds
@@ -539,7 +558,7 @@ function make_slides(f) {
 	  $('#ddbutton').text('Continue');
         }, 2000);
         $('.explore').hide();
-        $('.utterance').hide();
+        $('.transition').hide();
         $('.testProb').show();
         $('.testGeneric').hide();
         $('.testFree').hide();
@@ -558,7 +577,7 @@ function make_slides(f) {
 	  $('#ddbutton').text('Continue');
         }, 2000);
         $('.explore').hide();
-        $('.utterance').hide();
+        $('.transition').hide();
         $('.testProb').hide();
         $('.testGeneric').show();
         $('.testFree').hide();
@@ -574,7 +593,7 @@ function make_slides(f) {
 	  $('#ddbutton').text('Continue');
         }, 2000);
         $('.explore').hide();
-        $('.utterance').hide();
+        $('.transition').hide();
         $('.testProb').hide();
         $('.testGeneric').hide();
         $('.testFree').show();
@@ -620,8 +639,11 @@ function make_slides(f) {
         exp.sliderPost = ui.value;
       });
     },
-    button: function(e) { // continue or leave testing area button button
-      if (exp.type == 'explore') {
+      button: function(e) { // continue or leave testing area button button
+	  if (exp.type == 'transition') {
+	      _stream.apply(this);
+	  }
+      else if (exp.type == 'explore') {
         if (confirm('Are you sure you would like to move on to answering questions?')) { // check to make sure user wants to move on
           this.log_responses();
           exp.paper.remove();

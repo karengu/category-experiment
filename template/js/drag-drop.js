@@ -38,6 +38,27 @@ var makeTrials = function(trialTypes, objects, binSize) {
       proportionSuccess: trialTypes[i].proportionSuccess,
       utteranceType: trialTypes[i].utteranceType
     });
+    if (i == 0) {
+      result.push({
+        id: i,
+        type: "transition",
+        objectNamePlural: objects[i].plural,
+        investigator: objects[i].investigator,
+        pronoun: objects[i].pronoun
+      });
+    }
+    else {
+      result.push({
+        id: i,
+        type: "transition",
+        objectNamePlural: objects[i].plural,
+        investigator: objects[i].investigator,
+        pronoun: objects[i].pronoun,
+        prevItem: objects[i-1].plural,
+        prevInvestigator: objects[i-1].investigator,
+        prevPronoun: objects[i-1].investigator
+      });
+    }
     result.push({
       id: i,
       type: "explore",
@@ -74,6 +95,13 @@ var makeTrials = function(trialTypes, objects, binSize) {
       type: "testFree",
       objectNamePlural: objects[i].plural
     });
+    if (i == trialTypes.length - 1) {
+      result.push({
+        id: i,
+        type: "transition",
+        last: true
+      });
+    }
   }
   return {
     randomized_trials: result,
