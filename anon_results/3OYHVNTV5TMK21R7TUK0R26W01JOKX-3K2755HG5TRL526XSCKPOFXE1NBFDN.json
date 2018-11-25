@@ -1,0 +1,319 @@
+{
+    "AcceptTime": "2018-11-25T13:30:34.000Z",
+    "AssignmentId": "3K2755HG5TRL526XSCKPOFXE1NBFDN",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-02T13:37:06.000Z",
+    "HITId": "3OYHVNTV5TMK21R7TUK0R26W01JOKX",
+    "SubmitTime": "2018-11-25T13:37:06.000Z",
+    "answers": {
+        "condition": "random",
+        "subject_information": {
+            "age": "31",
+            "asses": "No",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 6.328383333333333,
+        "trial_summary": [
+            {
+                "id": 0,
+                "objectName": "Feps",
+                "proportionSuccess": 0,
+                "successfulTestResult": "ring",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 1,
+                "objectName": "Wugs",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "boom",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 2,
+                "objectName": "Griffs",
+                "proportionSuccess": 1,
+                "successfulTestResult": "whistle",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 3,
+                "objectName": "Blickets",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "squeak",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 4,
+                "objectName": "Daxes",
+                "proportionSuccess": 0,
+                "successfulTestResult": "beep",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 5,
+                "objectName": "Tomas",
+                "proportionSuccess": 1,
+                "successfulTestResult": "click",
+                "utteranceType": "barePlural"
+            }
+        ],
+        "trials": [
+            {
+                "response": "tiger",
+                "trial_type": "check_sound"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543152706663
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543152707099
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543152707766
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543152708647
+                    }
+                ],
+                "id": 0,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.17723333333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 0,
+                "probabilityOfFeature": 0.37,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "No",
+                "id": 0,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are jewels",
+                "id": 0,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543152773638
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543152774504
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543152779805
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1543152780855
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543152780855
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543152824543
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543152824879
+                    }
+                ],
+                "id": 1,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.15873333333333334,
+                "trial_type": "explore"
+            },
+            {
+                "id": 1,
+                "probabilityOfFeature": 0.8,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 1,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are square",
+                "id": 1,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543152863862
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543152864624
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543152869511
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543152869839
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543152870610
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543152871959
+                    }
+                ],
+                "id": 2,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.17766666666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 2,
+                "probabilityOfFeature": 0.53,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 2,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "can whistle, are circular",
+                "id": 2,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543152907134
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543152907654
+                    }
+                ],
+                "id": 3,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.15515,
+                "trial_type": "explore"
+            },
+            {
+                "id": 3,
+                "probabilityOfFeature": 0.73,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 3,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are jewels",
+                "id": 3,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543152935917
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543152936367
+                    }
+                ],
+                "id": 4,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.14703333333333332,
+                "trial_type": "explore"
+            },
+            {
+                "id": 4,
+                "probabilityOfFeature": 0.5,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 4,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are cylinders",
+                "id": 4,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543152964703
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543152965295
+                    }
+                ],
+                "id": 5,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.15711666666666665,
+                "trial_type": "explore"
+            },
+            {
+                "id": 5,
+                "probabilityOfFeature": 0.54,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 5,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are cones",
+                "id": 5,
+                "trial_type": "testFree"
+            },
+            {
+                "response": "told about shape qualities",
+                "trial_type": "attention_check"
+            }
+        ]
+    }
+}

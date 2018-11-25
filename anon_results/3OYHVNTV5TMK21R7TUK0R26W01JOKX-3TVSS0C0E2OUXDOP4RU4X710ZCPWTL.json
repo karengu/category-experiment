@@ -1,0 +1,635 @@
+{
+    "AcceptTime": "2018-11-25T13:30:38.000Z",
+    "AssignmentId": "3TVSS0C0E2OUXDOP4RU4X710ZCPWTL",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-02T13:53:27.000Z",
+    "HITId": "3OYHVNTV5TMK21R7TUK0R26W01JOKX",
+    "SubmitTime": "2018-11-25T13:53:27.000Z",
+    "answers": {
+        "condition": "random",
+        "subject_information": {
+            "age": "66",
+            "asses": "Yes",
+            "comments": "None.  Thank you.",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1.25",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 10.072733333333334,
+        "trial_summary": [
+            {
+                "id": 0,
+                "objectName": "Griffs",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "whistle",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 1,
+                "objectName": "Blickets",
+                "proportionSuccess": 1,
+                "successfulTestResult": "squeak",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 2,
+                "objectName": "Wugs",
+                "proportionSuccess": 0,
+                "successfulTestResult": "boom",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 3,
+                "objectName": "Tomas",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "click",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 4,
+                "objectName": "Daxes",
+                "proportionSuccess": 0,
+                "successfulTestResult": "beep",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 5,
+                "objectName": "Feps",
+                "proportionSuccess": 1,
+                "successfulTestResult": "ring",
+                "utteranceType": "specific"
+            }
+        ],
+        "trials": [
+            {
+                "response": "tiger",
+                "trial_type": "check_sound"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153549862
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543153550782
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153554219
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153554799
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153567583
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153568685
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153569741
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153584376
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153587234
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153588781
+                    }
+                ],
+                "id": 0,
+                "itemsTested": 2,
+                "testResults": [
+                    true,
+                    true
+                ],
+                "timeExploring": 0.6960833333333334,
+                "trial_type": "explore"
+            },
+            {
+                "id": 0,
+                "probabilityOfFeature": 0.88,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "The griffs I tested did whistle.",
+                "id": 0,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153635636
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153636767
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153639391
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153640252
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153641069
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153643330
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153644349
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153644942
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153647801
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153648860
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153649518
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153651903
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153654220
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153654829
+                    }
+                ],
+                "id": 1,
+                "itemsTested": 4,
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.4169833333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 1,
+                "probabilityOfFeature": 0.9,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 1,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "The blickets I tested did squeak.",
+                "id": 1,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153691462
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543153693367
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153696565
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153697055
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153700464
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153701471
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153702127
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153706344
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153707230
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153707935
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153710935
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153712198
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153713334
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153715805
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153719741
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153720863
+                    }
+                ],
+                "id": 2,
+                "itemsTested": 4,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.47368333333333335,
+                "trial_type": "explore"
+            },
+            {
+                "id": 2,
+                "probabilityOfFeature": 0.25,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 2,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Some wugs did not boom.",
+                "id": 2,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153765071
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153766137
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153768866
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153769511
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153770511
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153772506
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153773239
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153774217
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153776440
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153777151
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153777825
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153780369
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153781326
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153781952
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153786210
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153788151
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153789368
+                    }
+                ],
+                "id": 3,
+                "itemsTested": 5,
+                "testResults": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.4626166666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 3,
+                "probabilityOfFeature": 0.46,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 3,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Some Tomas click.",
+                "id": 3,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153821553
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153822417
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153824701
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153825280
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153825993
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153828393
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153829072
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153829649
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153831578
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153832489
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153833104
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153834945
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153836184
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153837025
+                    }
+                ],
+                "id": 4,
+                "itemsTested": 4,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.32206666666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 4,
+                "probabilityOfFeature": 0.32,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 4,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Not all daxes beep.",
+                "id": 4,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153868489
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153869474
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153872532
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153873344
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153874177
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153876421
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153877265
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153877962
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153880556
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153881521
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153882338
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153884627
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153885353
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153885954
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153890283
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153891457
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153892297
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153894501
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153895409
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153896242
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153898355
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153899194
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153899762
+                    }
+                ],
+                "id": 5,
+                "itemsTested": 7,
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.6070833333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 5,
+                "probabilityOfFeature": 0.91,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 5,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "The feps I tested did ring.",
+                "id": 5,
+                "trial_type": "testFree"
+            },
+            {
+                "response": "I just finished testing daxes.  Other objects were also tested.  Some exhibited traits that other did not.",
+                "trial_type": "attention_check"
+            }
+        ]
+    }
+}

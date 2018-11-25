@@ -1,0 +1,591 @@
+{
+    "AcceptTime": "2018-11-25T14:31:02.000Z",
+    "AssignmentId": "3YGXWBAF71512U3U8ZTVD5I5RXQC4W",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-02T14:41:06.000Z",
+    "HITId": "3OYHVNTV5TMK21R7TUK0R26W01JOKX",
+    "SubmitTime": "2018-11-25T14:41:06.000Z",
+    "answers": {
+        "condition": "random",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "I like ones like this they are a great break from the never ending surveys",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "$1",
+            "gender": "Female",
+            "language": "English",
+            "problems": "nope"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 9.583866666666667,
+        "trial_summary": [
+            {
+                "id": 0,
+                "objectName": "Daxes",
+                "proportionSuccess": 0,
+                "successfulTestResult": "beep",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 1,
+                "objectName": "Tomas",
+                "proportionSuccess": 1,
+                "successfulTestResult": "click",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 2,
+                "objectName": "Blickets",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "squeak",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 3,
+                "objectName": "Wugs",
+                "proportionSuccess": 1,
+                "successfulTestResult": "boom",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 4,
+                "objectName": "Feps",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "ring",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 5,
+                "objectName": "Griffs",
+                "proportionSuccess": 0,
+                "successfulTestResult": "whistle",
+                "utteranceType": "specific"
+            }
+        ],
+        "trials": [
+            {
+                "response": "tiger",
+                "trial_type": "check_sound"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543156357090
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156358524
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156372874
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156373948
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543156374646
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156376515
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543156376614
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156380556
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156381076
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156384921
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156385996
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156387330
+                    }
+                ],
+                "id": 0,
+                "itemsTested": 2,
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.5094,
+                "trial_type": "explore"
+            },
+            {
+                "id": 0,
+                "probabilityOfFeature": 0.31,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "No",
+                "id": 0,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Some beep but others do not.",
+                "id": 0,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543156425645
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156426662
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156434179
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156435004
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156436946
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156441373
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156442891
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156443967
+                    }
+                ],
+                "id": 1,
+                "itemsTested": 2,
+                "testResults": [
+                    true,
+                    true
+                ],
+                "timeExploring": 0.3355166666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 1,
+                "probabilityOfFeature": 1,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 1,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are pink cone shaped and they click",
+                "id": 1,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543156485388
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156486391
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156491025
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156491953
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156492818
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156496365
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156498522
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156499259
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156503035
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156504066
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156505339
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156507469
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156508089
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156508875
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156512614
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156513604
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156514548
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156516919
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156517762
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156518738
+                    }
+                ],
+                "id": 2,
+                "itemsTested": 6,
+                "testResults": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    false,
+                    true
+                ],
+                "timeExploring": 0.5786333333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 2,
+                "probabilityOfFeature": 0.49,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 2,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are yellow, diamond shaped and about half of them squeak",
+                "id": 2,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543156561651
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156562623
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156567883
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156568722
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156569596
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156572377
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156573203
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543156573915
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156575914
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156576288
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156578785
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156579731
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156580795
+                    }
+                ],
+                "id": 3,
+                "itemsTested": 3,
+                "testResults": [
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.37365,
+                "trial_type": "explore"
+            },
+            {
+                "id": 3,
+                "probabilityOfFeature": 1,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 3,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are blue, square and the make a boom sound",
+                "id": 3,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543156652346
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156653439
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156655928
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156657442
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156658771
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156660735
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156662035
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156662943
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156664475
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156665324
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156666165
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156706762
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156707494
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156708820
+                    }
+                ],
+                "id": 4,
+                "itemsTested": 4,
+                "testResults": [
+                    false,
+                    true,
+                    true,
+                    false
+                ],
+                "timeExploring": 0.9787833333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 4,
+                "probabilityOfFeature": 0.51,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 4,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "They are red diamond shapes and about half of them ring.",
+                "id": 4,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543156746938
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156748527
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156752748
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156753484
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156754789
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156756688
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156757426
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156758536
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156765614
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156766178
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156767172
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156768720
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156769647
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156770812
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543156772456
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543156773187
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543156774181
+                    }
+                ],
+                "id": 5,
+                "itemsTested": 5,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.48256666666666664,
+                "trial_type": "explore"
+            },
+            {
+                "id": 5,
+                "probabilityOfFeature": 0,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "No",
+                "id": 5,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "They are purple octagons ",
+                "id": 5,
+                "trial_type": "testFree"
+            },
+            {
+                "response": "I had to determine if an object made a sound or not",
+                "trial_type": "attention_check"
+            }
+        ]
+    }
+}

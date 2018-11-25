@@ -1,0 +1,606 @@
+{
+    "AcceptTime": "2018-11-25T13:30:36.000Z",
+    "AssignmentId": "384PI804XTP0ANAPMKWTG7WAWOWS0Q",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-02T13:50:16.000Z",
+    "HITId": "30P8I9JKOI9CA2F1NJ28K5HMZ4M5VW",
+    "SubmitTime": "2018-11-25T13:50:16.000Z",
+    "answers": {
+        "condition": "random",
+        "subject_information": {
+            "age": "31",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "1",
+            "fairprice": "sure",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 800,
+            "screenW": 1280
+        },
+        "time_in_minutes": 10.014616666666667,
+        "trial_summary": [
+            {
+                "id": 0,
+                "objectName": "Blickets",
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 1,
+                "objectName": "Wugs",
+                "proportionSuccess": 1,
+                "successfulTestResult": "boom",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 2,
+                "objectName": "Tomas",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "click",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 3,
+                "objectName": "Daxes",
+                "proportionSuccess": 0,
+                "successfulTestResult": "beep",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 4,
+                "objectName": "Griffs",
+                "proportionSuccess": 1,
+                "successfulTestResult": "whistle",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 5,
+                "objectName": "Feps",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "ring",
+                "utteranceType": "barePlural"
+            }
+        ],
+        "trials": [
+            {
+                "response": "tiger",
+                "trial_type": "check_sound"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153464572
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153466000
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153486236
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153487493
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153488812
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153491639
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153492541
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153493473
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153497349
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153498301
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153499357
+                    }
+                ],
+                "id": 0,
+                "itemsTested": 3,
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.6546333333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 0,
+                "probabilityOfFeature": 0.27,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "sometimes they squeak but not very often ",
+                "id": 0,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153537874
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153538813
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153542878
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153544544
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153545409
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153548802
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153549600
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153550415
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153553111
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153554144
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153555000
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153558932
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153559619
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153560502
+                    }
+                ],
+                "id": 1,
+                "itemsTested": 4,
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.44776666666666665,
+                "trial_type": "explore"
+            },
+            {
+                "id": 1,
+                "probabilityOfFeature": 0.89,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 1,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are blue squares that boom ",
+                "id": 1,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153590789
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153591786
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153594641
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153595694
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153596633
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153598628
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153599535
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153600169
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153603880
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153604691
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153605392
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153608574
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153609358
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153610116
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153612937
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153613863
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153614868
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153617321
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153618255
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153619570
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153622510
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153623348
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153624275
+                    }
+                ],
+                "id": 2,
+                "itemsTested": 7,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    true,
+                    true,
+                    true,
+                    false
+                ],
+                "timeExploring": 0.6259166666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 2,
+                "probabilityOfFeature": 0.54,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 2,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "They are pink and click sometimes ",
+                "id": 2,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153649020
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153650483
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153652581
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153653270
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153654158
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153655726
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153656707
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153657605
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153659216
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153659963
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153660744
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153664736
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153665537
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153666498
+                    }
+                ],
+                "id": 3,
+                "itemsTested": 4,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.3426,
+                "trial_type": "explore"
+            },
+            {
+                "id": 3,
+                "probabilityOfFeature": 0.15,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 3,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are red and very rarely make a beeping sound",
+                "id": 3,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153693590
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153694499
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153697144
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153697901
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153698785
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153700656
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153701624
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153702643
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153704434
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153705268
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153706205
+                    }
+                ],
+                "id": 4,
+                "itemsTested": 3,
+                "testResults": [
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.25943333333333335,
+                "trial_type": "explore"
+            },
+            {
+                "id": 4,
+                "probabilityOfFeature": 0.94,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 4,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are purple and whistle ",
+                "id": 4,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153729990
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153731089
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153733152
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153733904
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153734907
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153736844
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153737656
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153738401
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153740025
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153741045
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153741719
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153743673
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153744442
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153745159
+                    }
+                ],
+                "id": 5,
+                "itemsTested": 4,
+                "testResults": [
+                    false,
+                    false,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.32156666666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 5,
+                "probabilityOfFeature": 0.56,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 5,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "they are red and ring on occasion ",
+                "id": 5,
+                "trial_type": "testFree"
+            },
+            {
+                "response": "i was asked to test objects to see if they made a certain sound ",
+                "trial_type": "attention_check"
+            }
+        ]
+    }
+}

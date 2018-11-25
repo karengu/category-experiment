@@ -1,0 +1,291 @@
+{
+    "AcceptTime": "2018-11-25T13:30:50.000Z",
+    "AssignmentId": "3FQ5JJ512MC570POIHPP0X1DNNUKNC",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-02T14:25:50.000Z",
+    "HITId": "3OYHVNTV5TMK21R7TUK0R26W01JOKX",
+    "SubmitTime": "2018-11-25T14:25:50.000Z",
+    "answers": {
+        "condition": "random",
+        "subject_information": {
+            "age": "24",
+            "asses": "Yes",
+            "comments": "awesome experience",
+            "education": "4",
+            "enjoyment": "2",
+            "fairprice": "it is awesome",
+            "gender": "Female",
+            "language": "Tamil",
+            "problems": "yes,its identical"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 18.389266666666668,
+        "trial_summary": [
+            {
+                "id": 0,
+                "objectName": "Tomas",
+                "proportionSuccess": 0,
+                "successfulTestResult": "click",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 1,
+                "objectName": "Feps",
+                "proportionSuccess": 0,
+                "successfulTestResult": "ring",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 2,
+                "objectName": "Griffs",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "whistle",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 3,
+                "objectName": "Blickets",
+                "proportionSuccess": 1,
+                "successfulTestResult": "squeak",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 4,
+                "objectName": "Daxes",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "beep",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 5,
+                "objectName": "Wugs",
+                "proportionSuccess": 1,
+                "successfulTestResult": "boom",
+                "utteranceType": "specific"
+            }
+        ],
+        "trials": [
+            {
+                "response": "tiger",
+                "trial_type": "check_sound"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543155133870
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543155133968
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543155134580
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543155135383
+                    }
+                ],
+                "id": 0,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.42315,
+                "trial_type": "explore"
+            },
+            {
+                "id": 0,
+                "probabilityOfFeature": 1,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "computational process",
+                "id": 0,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543155240739
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543155242038
+                    }
+                ],
+                "id": 1,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.17431666666666668,
+                "trial_type": "explore"
+            },
+            {
+                "id": 1,
+                "probabilityOfFeature": 1,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 1,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "awesome computational",
+                "id": 1,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543155315395
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543155316137
+                    }
+                ],
+                "id": 2,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.16536666666666666,
+                "trial_type": "explore"
+            },
+            {
+                "id": 2,
+                "probabilityOfFeature": 0.97,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 2,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "griffs is round shape",
+                "id": 2,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543155429649
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543155430331
+                    }
+                ],
+                "id": 3,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.15476666666666666,
+                "trial_type": "explore"
+            },
+            {
+                "id": 3,
+                "probabilityOfFeature": 1,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 3,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "blickets one type of computational",
+                "id": 3,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543155479329
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543155480048
+                    }
+                ],
+                "id": 4,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.17541666666666667,
+                "trial_type": "explore"
+            },
+            {
+                "id": 4,
+                "probabilityOfFeature": 1,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 4,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "computational daxes",
+                "id": 4,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543155559224
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543155559893
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543155565544
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543155565946
+                    }
+                ],
+                "id": 5,
+                "itemsTested": 0,
+                "testResults": [],
+                "timeExploring": 0.15535,
+                "trial_type": "explore"
+            },
+            {
+                "id": 5,
+                "probabilityOfFeature": 0.97,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 5,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "wugs booms is computational bomb",
+                "id": 5,
+                "trial_type": "testFree"
+            },
+            {
+                "response": "boom,wug,computational things",
+                "trial_type": "attention_check"
+            }
+        ]
+    }
+}

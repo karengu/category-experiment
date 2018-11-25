@@ -1,0 +1,435 @@
+{
+    "AcceptTime": "2018-11-25T13:30:37.000Z",
+    "AssignmentId": "35LDD5557BSZPI4O6GAPNICDIXKKMC",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-02T13:54:14.000Z",
+    "HITId": "30P8I9JKOI9CA2F1NJ28K5HMZ4M5VW",
+    "SubmitTime": "2018-11-25T13:54:14.000Z",
+    "answers": {
+        "condition": "random",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "It would be interesting to know the results.",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1.25",
+            "gender": "Female",
+            "language": "English",
+            "problems": "No problems."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 800,
+            "screenW": 1280
+        },
+        "time_in_minutes": 9.2203,
+        "trial_summary": [
+            {
+                "id": 0,
+                "objectName": "Griffs",
+                "proportionSuccess": 0,
+                "successfulTestResult": "whistle",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 1,
+                "objectName": "Feps",
+                "proportionSuccess": 0,
+                "successfulTestResult": "ring",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 2,
+                "objectName": "Blickets",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "squeak",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 3,
+                "objectName": "Wugs",
+                "proportionSuccess": 0.5,
+                "successfulTestResult": "boom",
+                "utteranceType": "barePlural"
+            },
+            {
+                "id": 4,
+                "objectName": "Daxes",
+                "proportionSuccess": 1,
+                "successfulTestResult": "beep",
+                "utteranceType": "specific"
+            },
+            {
+                "id": 5,
+                "objectName": "Tomas",
+                "proportionSuccess": 1,
+                "successfulTestResult": "click",
+                "utteranceType": "barePlural"
+            }
+        ],
+        "trials": [
+            {
+                "response": "tiger",
+                "trial_type": "check_sound"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153663543
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153664693
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153679904
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153680765
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153681387
+                    }
+                ],
+                "id": 0,
+                "itemsTested": 1,
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.37248333333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 0,
+                "probabilityOfFeature": 0.69,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Griffs are purple and are multi-sided shapes that whistle at least some of the time.",
+                "id": 0,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153731696
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543153731857
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153733071
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153733645
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153738599
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153739608
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153740373
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153743273
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153744375
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153745665
+                    }
+                ],
+                "id": 1,
+                "itemsTested": 2,
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.3898,
+                "trial_type": "explore"
+            },
+            {
+                "id": 1,
+                "probabilityOfFeature": 0.51,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 1,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Feps are shapes with multiple sides and sometimes ring when tested.",
+                "id": 1,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153787017
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153787615
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153795383
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153796337
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153796891
+                    }
+                ],
+                "id": 2,
+                "itemsTested": 1,
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.25,
+                "trial_type": "explore"
+            },
+            {
+                "id": 2,
+                "probabilityOfFeature": 0.5,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 2,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Blickets are objects that sometimes squeak and sometimes do not.",
+                "id": 2,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153833562
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153835350
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153839226
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153839973
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153840491
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153844684
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153845475
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543153845993
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153848613
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1543153848911
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153850427
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153851081
+                    }
+                ],
+                "id": 3,
+                "itemsTested": 2,
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.3791833333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 3,
+                "probabilityOfFeature": 0.42,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 3,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Wugs are shapes that sometimes boom but sometimes do not.",
+                "id": 3,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153881040
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153883827
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153887871
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153888953
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153890002
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153895755
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153896749
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153897730
+                    }
+                ],
+                "id": 4,
+                "itemsTested": 2,
+                "testResults": [
+                    true,
+                    true
+                ],
+                "timeExploring": 0.30648333333333333,
+                "trial_type": "explore"
+            },
+            {
+                "id": 4,
+                "probabilityOfFeature": 0.92,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 4,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Daxes are cylindrical shapes that usually beep.",
+                "id": 4,
+                "trial_type": "testFree"
+            },
+            {
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1543153934825
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153935732
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153938905
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153940191
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153941259
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1543153943342
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1543153944294
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1543153945407
+                    }
+                ],
+                "id": 5,
+                "itemsTested": 2,
+                "testResults": [
+                    true,
+                    true
+                ],
+                "timeExploring": 0.23635,
+                "trial_type": "explore"
+            },
+            {
+                "id": 5,
+                "probabilityOfFeature": 0.88,
+                "trial_type": "testProb"
+            },
+            {
+                "genericEndorsement": "Yes",
+                "id": 5,
+                "trial_type": "testGeneric"
+            },
+            {
+                "freeResponse": "Tomas are cone-shaped and usually click.",
+                "id": 5,
+                "trial_type": "testFree"
+            },
+            {
+                "response": "I talked to colleagues about different objects and they told me about their experiences with the objects, what the objects do, and then I tested the objects myself and made predictions about their future behavior.",
+                "trial_type": "attention_check"
+            }
+        ]
+    }
+}
