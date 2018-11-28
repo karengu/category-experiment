@@ -1,0 +1,91 @@
+---
+title: "Analysis of pilot data for gen ex"
+output: html_notebook
+---
+
+[Link to expt](https://www.mit.edu/~karengu/category-experiment/template/template.html)
+
+```{r}
+library(ggthemes)
+library(tidyboot)
+theme_set(theme_few())
+```
+
+must run `summarize_results.R`
+```{r}
+# trialNum = id
+df.1 <- df %>%
+  rename(trialNum = id) %>%
+  mutate(
+    genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+    probabilityOfFeature = as.numeric(probabilityOfFeature),
+    timeExploring = as.numeric(timeExploring),
+    itemsTested = as.numeric(as.character(itemsTested))
+  )
+
+df.1 %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram()
+```
+
+
+```{r}
+df.1 %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ proportionSuccess)
+```
+
+```{r}
+df.1 %>%
+  ggplot(., aes( x = itemsTested))+
+  geom_bar()+
+  facet_grid(utteranceType ~ proportionSuccess)
+```
+
+
+
+
+```{r}
+df.bs <- df.1 %>%
+  select(-freeResponse) %>%
+  gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
+  group_by(key, utteranceType, proportionSuccess) %>%
+  tidyboot_mean(column = val)
+```
+
+```{r}
+df.bs %>% 
+  ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
+                 y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_col(position = position_dodge())+
+  geom_errorbar(position = position_dodge())+
+  facet_wrap(~key, scales = 'free')
+```
+
+```{r}
+df.bs.0 <- df.1 %>%
+  filter(trialNum ==0) %>% 
+  select(-freeResponse) %>%
+  gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
+  group_by(key, utteranceType, proportionSuccess) %>%
+  tidyboot_mean(column = val)
+```
+
+
+```{r}
+df.1 %>%
+  filter(trialNum ==0)  %>%
+  ggplot(., aes( x = itemsTested))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ proportionSuccess)
+```
+
+```{r}
+df.bs.0 %>% 
+  ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
+                 y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_col(position = position_dodge())+
+  geom_errorbar(position = position_dodge())+
+  facet_wrap(~key, scales = 'free')
+```

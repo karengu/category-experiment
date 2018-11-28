@@ -1,9 +1,10 @@
-setwd("anon_results")
+#setwd("anon_results")
 
 library("jsonlite")
 library("tidyverse")
 
-anon_results = list.files()
+
+anon_results = list.files("../anon_results")
 summary <- data.frame(
   participantId = integer(),
   trialId = integer(),
@@ -18,13 +19,31 @@ summary <- data.frame(
 names(summary) <- c("particpantId", "trialId", "itemsTested", "timeExploring", "utteranceType", "proportionSuccess", "probabilityOfFeature")
 events <- vector("list", length(anon_results))
 trial_summaries <- vector("list", length(anon_results))
-
+df <- data.frame()
 i = 0
 for (anon_result in anon_results) {
   result_json = fromJSON(anon_result)[[7]]
+  
+
+  
   trial_summary = result_json[[5]]
+  df <- bind_rows(
+    df,
+    left_join( trial_summary,
+               result_json$trials %>% 
+                 select(-events, -testResults, -trial_type) %>% 
+                 gather(key, val, -id) %>%
+                 drop_na() %>% 
+                 spread(key, val)
+    ) %>% mutate(workerid = i)
+  )
+
+  
+  
   trials = result_json[[6]]
   individual_events = vector("list", length(fromJSON(anon_results[[1]])[[7]][[5]]))
+  
+  
   for (row in 1:nrow(trial_summary)) {
     trial_explore = filter(trials, !is.na(id), id == trial_summary[row, "id"], trial_type == "explore")
     trial_prob = filter(trials, !is.na(id), id == trial_summary[row, "id"], trial_type == "testProb")
@@ -44,3 +63,8 @@ for (anon_result in anon_results) {
   events[[i]] <- individual_events
   trial_summaries[[i]] <- trial_summary
 }
+
+#result_json$trials %>% select(-events, -testResults)
+
+
+
