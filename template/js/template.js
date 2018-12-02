@@ -603,25 +603,30 @@ function make_slides(f) {
         $('#free_response').val('');
       }
     },
-      writeInNotebook: function() {
-	  exp.paper.customAttributes.teacher.remove();
-      exp.notebook = $('#notebookInput').val();
-      $('.writeNotebook').hide();
-      $('.notebook').show();
-      $('#infoParagraph').text(exp.notebook);
-      const stim = this.stim;
-      setTimeout(function() {
-        if (stim.id == 0) { // give reminder of how to drag items on first trial
-          exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
-        }
-        else { // no reminder on all subsequent trials
-          exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
-        }
-      }, 1000);
-      setTimeout(function() { // delay showing button to leave for 7 seconds
-        $('#ddbutton').show();
-        $('#ddbutton').text('Leave testing area');
-      }, 7000);
+    writeInNotebook: function() {
+      if ($('#notebookInput').val() == '') {
+        $('#error').text('Please write something in the notebook.');
+      }
+      else {
+        exp.paper.customAttributes.teacher.remove();
+        exp.notebook = $('#notebookInput').val();
+        $('.writeNotebook').hide();
+        $('.notebook').show();
+        $('#infoParagraph').text(exp.notebook);
+        const stim = this.stim;
+        setTimeout(function() {
+          if (stim.id == 0) { // give reminder of how to drag items on first trial
+            exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
+          }
+          else { // no reminder on all subsequent trials
+            exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
+          }
+        }, 1000);
+        setTimeout(function() { // delay showing button to leave for 7 seconds
+          $('#ddbutton').show();
+          $('#ddbutton').text('Leave testing area');
+        }, 7000);
+      }
     },
     log_responses: function() {
       if (exp.type == 'explore') {
@@ -629,6 +634,7 @@ function make_slides(f) {
 	exp.data_trials[this.stim.id].timeExploring = (Date.now() - exp.startExploration)/60000;
 	exp.data_trials[this.stim.id].events = exp.events;
 	exp.data_trials[this.stim.id].testResults = exp.testResults; // to store order of successful/unsuccessful test results, since order is randomized
+	exp.data_trials[this.stim.id].attentionCheck = exp.notebook;
       }
       else if (exp.type == 'testProb') {
         exp.data_trials[this.stim.id].probabilityOfFeature = exp.sliderPost;
@@ -911,7 +917,9 @@ function init() {
 
   //blocks of the experiment:
   exp.structure=[
-    'i0','introduction', 'check_sound', 'instructions','drag_and_drop', 'attention_check', 'subj_info', 'thanks'
+    'i0','introduction', 'check_sound', 'instructions','drag_and_drop',
+      //'attention_check',
+    'subj_info', 'thanks'
   ];
 
   //make corresponding slides:
