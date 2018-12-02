@@ -130,6 +130,58 @@ var drag_and_drop = {
     trialTypes = _.shuffle(trialTypes);
     return makeTrials(trialTypes, objects, binSize);
   },
+
+  single_trial: function(objects, proportionsSuccess, utteranceTypes, binSize) {
+    const utteranceType = _.sample(utteranceTypes);
+    const proportionSuccess = _.sample(proportionsSuccess);
+    var summary = {
+      id: 0,
+      objectName: objects[0].plural,
+      successfulTestResult: objects[0].sound,
+      utteranceType: utteranceType,
+      proportionSuccess: proportionSuccess
+    }
+    var trials = [{
+      type: "transition",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      investigator: objects[0].investigator,
+      pronoun: objects[0].pronoun
+    }, {
+      type: "explore",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      objectNameSingular: objects[0].singular,
+      utteranceType: utteranceType,
+      utteranceSpoken: objects[0].plural.toLowerCase()+utteranceType+'.mp3',
+      shape: objects[0].shape,
+      successfulTestResult: objects[0].sound,
+      investigator: objects[0].investigator,
+      pronoun: objects[0].pronoun,
+      testSequence: {
+	binSize: binSize,
+	proportionSuccess: proportionSuccess
+      },
+      objectColor: objects[0].color,
+      greyedColor: objects[0].greyed
+    }, {
+      type: "testProb",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      objectNameSingular: objects[0].singular,
+      successfulTestResult: objects[0].sound
+    }, {
+      type: "testGeneric",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      successfulTestResult: objects[0].sound
+    }, {
+      type: "testFree",
+      id: 0,
+      objectNamePlural: objects[0].plural
+    }];
+    return {summary: summary, trials: trials}
+  },
     
   makePlatformPath: function(startX, startY) {
     return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"

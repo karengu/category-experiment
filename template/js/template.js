@@ -727,15 +727,13 @@ function make_slides(f) {
   slides.thanks = slide({
     name : "thanks",
     start : function() {
-	exp.data= {
-	    "sound_check": exp.check_sound,
-	    "attention_check": exp.attention_check,
-          "trials" : exp.data_trials,
-          //"catch_trials" : exp.catch_trials,
-          "system" : exp.system,
-          "condition" : exp.condition,
-          "subject_information" : exp.subj_data,
-          "time_in_minutes" : (Date.now() - exp.startT)/60000
+      exp.data= {
+        "sound_check": exp.check_sound,
+        "trials" : exp.data_trials,
+        "system" : exp.system,
+        "condition" : exp.condition,
+        "subject_information" : exp.subj_data,
+        "time_in_minutes" : (Date.now() - exp.startT)/60000
       };
       setTimeout(function() {turk.submit(exp.data);}, 1000);
     }
