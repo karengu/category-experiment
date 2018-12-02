@@ -5,8 +5,8 @@ function make_slides(f) {
     name : "i0",
     start: function() {
       exp.startT = Date.now();
-      $('#instruct-text > #1').text("6 objects");
-      $('#instruct-text > #2').text("10");
+      $('#instruct-text > #1').text("some objects");
+      $('#instruct-text > #2').text("3");
     }
   });
 
@@ -51,10 +51,7 @@ function make_slides(f) {
       }
       else {
         response = $('#sound_response').val();
-        exp.data_trials.push({
-	  "trial_type": "check_sound",
-	  "response": response
-        });
+        exp.check_sound = response;
         exp.go();
       }
     }
@@ -300,7 +297,14 @@ function make_slides(f) {
         $('.testFree').hide();
         $('.explore').hide();
         $('.transition').show();
-        if (stim.id == 0) {
+	if (exp.condition == 'single') {
+	  $('#testStatement').text('You are going to talk with '+stim.investigator+'.');
+	  $('#utterance').text(stim.investigator+' will teach you about '+stim.objectNamePlural.toLowerCase()+'.');
+	  setTimeout(function() {
+	    $('#ddbutton').show();
+          }, 2000);
+        }
+        else if (stim.id == 0) {
           $('#testStatement').text('First, you are going to talk with '+stim.investigator+'.');
 	  $('#utterance').text(stim.investigator+' has been exploring '+stim.objectNamePlural.toLowerCase()+'.');
 	  setTimeout(function() {
@@ -343,6 +347,8 @@ function make_slides(f) {
         $('.testFree').hide();
         $('.explore').show();
         $('.transition').hide();
+	$('.writeNotebook').hide();
+	$('.notebook').hide();
         exp.belowUtteranceBefore = 'Try testing the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
 	exp.belowUtteranceAfter = ' from the blue stage to the green testing stage and clicking the green Test button.';
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
@@ -393,11 +399,11 @@ function make_slides(f) {
           if (xTrans !== 0 || yTrans !== 0) {
             this.translate(xTrans,yTrans);
           }
-          if (bBox.x < 700 && bBox.x > 550 && 190 < bBox.y && bBox.y <= 270) {
+          if (bBox.x < 700 && bBox.x > 550 && 290 < bBox.y && bBox.y <= 370) {
             this.translate(-this.odx, -this.ody);
             exp.events.push({event: "dropGarbagePrevented", time: Date.now()});
           }
-          if (330 < bBox.x && bBox.x <= 410 && 190 < bBox.y && bBox.y <= 240) {
+          if (330 < bBox.x && bBox.x <= 410 && 290 < bBox.y && bBox.y <= 340) {
             if (paper.customAttributes.testItem) {
               console.log('item already on testing stage');
 	      this.translate(-this.odx, -this.ody);
@@ -423,37 +429,38 @@ function make_slides(f) {
         var boom = new Audio('../_shared/audio/boom.mp3');
 	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
 
-        var paper = new Raphael(document.getElementById('paper'), 800, 530);
+        var paper = new Raphael(document.getElementById('paper'), 800, 630);
         exp.paper = paper;
+ 	paper.customAttributes.teacher = paper.image("../_shared/images/ashley.jpg", 0, 0, 202, 400);
         drag_and_drop.makeTable(paper);
 
         // platforms: visible holders for objects of interest, testing, and garbage
-        var sourcePlatform = paper.path(drag_and_drop.makePlatformPath(70,300)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
-        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(320, 300)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
-        var garbagePlatform = paper.path(drag_and_drop.makePlatformPath(570, 300)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
+        var sourcePlatform = paper.path(drag_and_drop.makePlatformPath(70,400)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
+        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(320, 400)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+        var garbagePlatform = paper.path(drag_and_drop.makePlatformPath(570, 400)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
 
         // source: items of interest to be tested
         var blicketPile = paper.set();
-        drag_and_drop.makeBlicketPile(370,100,200, blicketPile, paper, stim.greyedColor, stim.shape);
-        var sourceLabel = paper.text(400, 20, stim.objectNamePlural).attr({"font-size": 18});
-        var pickUpButton = drag_and_drop.makeButton(370, 130, "#4985e5", "Pick up", paper);
+        drag_and_drop.makeBlicketPile(370,200,200, blicketPile, paper, stim.greyedColor, stim.shape);
+        var sourceLabel = paper.text(400, 120, stim.objectNamePlural).attr({"font-size": 18});
+        var pickUpButton = drag_and_drop.makeButton(370, 230, "#4985e5", "Pick up", paper);
 
         // target: testing area
-        var targetLabel = paper.text(370, 285, "Testing Stage").attr({"font-size": 14});
-        var testButton = drag_and_drop.makeButton(400, 210, "#49e575", "Test", paper);
+        var targetLabel = paper.text(370, 385, "Testing Stage").attr({"font-size": 14});
+        var testButton = drag_and_drop.makeButton(400, 310, "#49e575", "Test", paper);
 
         // garbage: items already tested
-        var garbageLabel = paper.text(620, 285, "Tested Items").attr({"font-size": 14});
+        var garbageLabel = paper.text(620, 385, "Tested Items").attr({"font-size": 14});
         // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
-	var firstItem = paper.path(objectPaths[stim.shape](150,240)).attr("fill", stim.objectColor);
+	var firstItem = paper.path(objectPaths[stim.shape](150,340)).attr("fill", stim.objectColor);
         paper.customAttributes.pickedItemId = firstItem.id;
         const firstItemId = firstItem.id;
         firstItem.drag(move, start, up);
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
-        var arrow = paper.path("M150,170 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
+          var arrow = paper.path("M150,270 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
         var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 0);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
@@ -464,7 +471,7 @@ function make_slides(f) {
             console.log('You cannot pick up more than one item.')
           }
             else {
-            var newItem = paper.path(objectPaths[stim.shape](150,240)).attr("fill", stim.objectColor);
+            var newItem = paper.path(objectPaths[stim.shape](150,340)).attr("fill", stim.objectColor);
             paper.customAttributes.pickedItemId = newItem.id;
             newItem.drag(move, start, up);
             blicketPile.forEach(function(blicket) {
@@ -486,18 +493,8 @@ function make_slides(f) {
 	      if (utterance) {
 	        utterance.remove();
 	      }
-	      setTimeout(function() {
-	        if (stim.id == 0) { // give reminder of how to drag items on first trial
-	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
-	      }
-	        else { // no reminder on all subsequent trials
-    	          paper.customAttributes.continueTesting = drag_and_drop.alert(paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
-	        }
-	      }, 1000);
-	      setTimeout(function() { // delay showing button to leave for 7 seconds
-                $('#ddbutton').show();
-	        $('#ddbutton').text('Leave testing area');
-              }, 7000);
+		$('.writeNotebook').show();
+		$('#notebookText').text('Write down what '+stim.investigator+' told you for your lesson plan.');
 	    }
             if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
               if (stim.successfulTestResult == 'squeak') {
@@ -606,37 +603,41 @@ function make_slides(f) {
         $('#free_response').val('');
       }
     },
+      writeInNotebook: function() {
+	  exp.paper.customAttributes.teacher.remove();
+      exp.notebook = $('#notebookInput').val();
+      $('.writeNotebook').hide();
+      $('.notebook').show();
+      $('#infoParagraph').text(exp.notebook);
+      const stim = this.stim;
+      setTimeout(function() {
+        if (stim.id == 0) { // give reminder of how to drag items on first trial
+          exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
+        }
+        else { // no reminder on all subsequent trials
+          exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
+        }
+      }, 1000);
+      setTimeout(function() { // delay showing button to leave for 7 seconds
+        $('#ddbutton').show();
+        $('#ddbutton').text('Leave testing area');
+      }, 7000);
+    },
     log_responses: function() {
       if (exp.type == 'explore') {
-        exp.data_trials.push({
-          trial_type: "explore",
-          id: this.stim.id,
-          itemsTested: exp.paper.customAttributes.itemsTested,
-          timeExploring: (Date.now() - exp.startExploration)/60000,
-          events: exp.events,
-          testResults: exp.testResults, // to store order of successful/unsuccessful test results, since order is randomized
-        })
+        exp.data_trials[this.stim.id].itemsTested = exp.paper.customAttributes.itemsTested;
+	exp.data_trials[this.stim.id].timeExploring = (Date.now() - exp.startExploration)/60000;
+	exp.data_trials[this.stim.id].events = exp.events;
+	exp.data_trials[this.stim.id].testResults = exp.testResults; // to store order of successful/unsuccessful test results, since order is randomized
       }
       else if (exp.type == 'testProb') {
-        exp.data_trials.push({
-          trial_type: "testProb",
-          id: this.stim.id,
-          probabilityOfFeature: exp.sliderPost
-	});
+        exp.data_trials[this.stim.id].probabilityOfFeature = exp.sliderPost;
       }
       else if (exp.type == 'testGeneric') {
-        exp.data_trials.push({
-	  trial_type: "testGeneric",
-	  id: this.stim.id,
-	  genericEndorsement: $('input[name="endorsement"]:checked').val()
-        });
+        exp.data_trials[this.stim.id].genericEndorsement = $('input[name="endorsement"]:checked').val();
       }
       else if (exp.type == 'testFree') {
-        exp.data_trials.push({
- 	  trial_type: "testFree",
-	  id: this.stim.id,
-	  freeResponse: $('#free_response').val()
-        });
+        exp.data_trials[this.stim.id].freeResponse = $('#free_response').val();
       }
     },
     init_sliders : function() {
@@ -644,10 +645,10 @@ function make_slides(f) {
         exp.sliderPost = ui.value;
       });
     },
-      button: function(e) { // continue or leave testing area button button
-	  if (exp.type == 'transition') {
-	      _stream.apply(this);
-	  }
+    button: function(e) { // continue or leave testing area button button
+      if (exp.type == 'transition') {
+        _stream.apply(this);
+      }
       else if (exp.type == 'explore') {
         if (confirm('Are you sure you would like to move on to answering questions?')) { // check to make sure user wants to move on
           this.log_responses();
@@ -692,10 +693,7 @@ function make_slides(f) {
         $('.err').show()
       }
       else {
-	exp.data_trials.push({
-          trial_type: "attention_check",
-          response: $('#attention_check_response').val()
-	});
+	exp.attention_check = $('#attention_check_response').val();
 	exp.go();
       }
     }
@@ -724,7 +722,8 @@ function make_slides(f) {
     name : "thanks",
     start : function() {
 	exp.data= {
-	    "trial_summary": exp.trial_summary,
+	    "sound_check": exp.check_sound,
+	    "attention_check": exp.attention_check,
           "trials" : exp.data_trials,
           //"catch_trials" : exp.catch_trials,
           "system" : exp.system,
@@ -743,7 +742,7 @@ function make_slides(f) {
 function init() {
   exp.trials = [];
   //exp.catch_trials = [];
-  exp.condition = _.sample(["random"]); //can randomize between subject conditions here
+  exp.condition = _.sample(["single"]); //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
@@ -752,8 +751,9 @@ function init() {
       screenW: screen.width,
       screenUW: exp.width
   };
+  exp.data_trials = [];
 
-  const objectNames = [
+  const objects = [
     {
       plural: "Blickets",
       singular: "Blicket",
@@ -849,12 +849,62 @@ function init() {
   ];
 
   if (exp.condition == 'random') {
-    randomized_trials = drag_and_drop.randomize_trials(objectNames, proportionsSuccess, utteranceTypes, binSize);
+    randomized_trials = drag_and_drop.randomize_trials(objects, proportionsSuccess, utteranceTypes, binSize);
     exp.randomized_trials = randomized_trials.randomized_trials;
-    exp.trial_summary = randomized_trials.trial_summary;
+    exp.data_trials = randomized_trials.trial_summary;
+  }
+  else if (exp.condition == 'single') {
+    const utteranceType = _.sample(utteranceTypes);
+    const proportionSuccess = _.sample(proportionsSuccess);
+    exp.data_trials.push({
+      id: 0,
+      objectName: objects[0].plural,
+      successfulTestResult: objects[0].sound,
+      utteranceType: utteranceType,
+      proportionSuccess: proportionSuccess
+    });
+    exp.randomized_trials = [{
+      type: "transition",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      investigator: objects[0].investigator,
+      pronoun: objects[0].pronoun
+    }, {
+      type: "explore",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      objectNameSingular: objects[0].singular,
+      utteranceType: utteranceType,
+      utteranceSpoken: objects[0].plural.toLowerCase()+utteranceType+'.mp3',
+      shape: objects[0].shape,
+      successfulTestResult: objects[0].sound,
+      investigator: objects[0].investigator,
+      pronoun: objects[0].pronoun,
+      testSequence: {
+	binSize: binSize,
+	proportionSuccess: proportionSuccess
+      },
+      objectColor: objects[0].color,
+      greyedColor: objects[0].greyed
+    }, {
+      type: "testProb",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      objectNameSingular: objects[0].singular,
+      successfulTestResult: objects[0].sound
+    }, {
+      type: "testGeneric",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      successfulTestResult: objects[0].sound
+    }, {
+      type: "testFree",
+      id: 0,
+      objectNamePlural: objects[0].plural
+    }];
   }
   else {
-    fixed_orders = drag_and_drop.fixed_trials(objectNames, fixedOrders, binSize);
+    fixed_orders = drag_and_drop.fixed_trials(objects, fixedOrders, binSize);
     exp.randomized_trials = fixed_orders.randomized_trials;
     exp.trial_summary = fixed_orders.trial_summary;
   }
@@ -864,7 +914,6 @@ function init() {
     'i0','introduction', 'check_sound', 'instructions','drag_and_drop', 'attention_check', 'subj_info', 'thanks'
   ];
 
-  exp.data_trials = [];
   //make corresponding slides:
   exp.slides = make_slides(exp);
 

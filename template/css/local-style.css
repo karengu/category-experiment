@@ -3,3 +3,15 @@
 	width: 400;
 	margin: 10px;
 }
+
+.classroom {
+    text-align: center;
+}
+
+#paper {
+    width: 600;
+}
+
+#paper, #teacher {
+    display: inline;
+}

@@ -130,9 +130,11 @@ var drag_and_drop = {
     trialTypes = _.shuffle(trialTypes);
     return makeTrials(trialTypes, objects, binSize);
   },
+    
   makePlatformPath: function(startX, startY) {
     return "M "+startX+","+startY+"h 100 v -30 h -100 v 30 m 0,-30 l 60,-40 h 100 l -60,40 m 0,30 l 60,-40 v -30 l -60,40"
   },
+    
   makeBlicketPile: function(startX, startY, numberBlickets, blicketPile, paper, greyedColor, type) {
     paper.path("M "+startX+","+startY+"m -70,-25 l 65,-25 h 140 l -65,25, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"}); // back part of box
     for (i = 0; i < numberBlickets; i++) {
@@ -147,11 +149,13 @@ var drag_and_drop = {
     paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"}); // front part of box
     paper.path("M "+startX+","+startY+"m70,85 l 65,-25 v -110 l-65,25 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"}); // front part of box
   },
+    
   moveToGarbage: function(blicket, x, y) {
     const finalX = 60*Math.random()-30+630
-    const finalY = 20*Math.random()-10+220
+    const finalY = 20*Math.random()-10+320
     blicket.translate(finalX-x,finalY-y)
   },
+    
   makeButton: function(startX, startY, color, buttonText, paper) {
     var button = paper.rect(startX -35, startY-15, 70, 30, 8).attr("fill", color);
     var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold", "font-size": 16});
@@ -159,23 +163,26 @@ var drag_and_drop = {
     buttonSet.push(button, buttonLabel).attr({"cursor": "pointer"});
     return ({button: button, buttonSet: buttonSet});
   },
+    
   makeTable: function(paper) {
-    paper.path("M 100,140 v 200 A 20,10 0 0,0 120,340 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 780,140 v 200 A 20,10 0 0,0 800,340 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 0,320 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 0,320 v 200 A 20,10 0 0,0 20,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 680,320 v 200 A 20,10 0 0,0 700,520 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 100,240 v 200 A 20,10 0 0,0 120,440 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 780,240 v 200 A 20,10 0 0,0 800,440 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 0,420 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 0,420 v 200 A 20,10 0 0,0 20,620 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 680,420 v 200 A 20,10 0 0,0 700,620 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
   },
-  makeSphere: makeSphere,
+    
+    makeSphere: makeSphere,
+    
   alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime) {
     var alert = paper.set();
       paper.customAttributes.startReading = Date.now();
-      alert.push(paper.rect(20,300,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-      alert.push(paper.text(400, 330, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400,375, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
-      alert.push(paper.text(400, 420, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400, 435, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400, 480, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 10}));
+      alert.push(paper.rect(20,400,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+      alert.push(paper.text(400, 430, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400,475, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+      alert.push(paper.text(400, 520, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400, 535, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400, 580, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 10}));
     alert.click(function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
         alert.remove();

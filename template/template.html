@@ -54,27 +54,28 @@
   <div class="slide" id="i0" >
     <img src="../_shared/images/cpl.png" id="cocologo"></img>
     <p id="cocolab">MIT Computational Psycholinguistics Lab</p>
-    <p id="instruct-text">You will see <span id='1'>{{}}</span> and be asked some questions about them. The HIT should take ~<span id='2'>{{}}</span> minutes. Please pay attention, thanks!</p>
+    <p id="instruct-text">You will see <span id='1'>{{}}</span> and be asked a few questions about them. The HIT should take ~<span id='2'>{{}}</span> minutes. Please pay attention, thanks!</p>
     <button id="start_button" type="button">Start Experiment</button>
     <p id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the MIT Computational Psycholinguistics Lab. If you have questions about this research, please contact Karen Gu, at <a href="mailto://karengu@mit.edu">karengu@mit.edu</a>, or MH Tessler, at tessler@mit.edu. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>
+    <p id="credit">Image used from <a href='https://zalarieunique.ru'>https://zalarieunique.ru</a>.</p>
   </div>
 
   <div class="slide" id="introduction">
     <h3>Introduction</h3>
-    <p>You are part of a team that has been sent to a recently discovered planet outside of the solar system. Your team will replace another team of fellow astronaut-scientists.</p>
-    <p>The other team has been exploring different objects and learning about the noises that these objects make. You are going to pick up where they left off and continue this exploration. As the first member of your team to wake up from hibernation, you must pass on any information you learn to the rest of your team members.</p>
-    <p>You'll learn about and explore 6 different kinds of objects in total. After each one, you will be asked short questions about them.</p>
+    <p>You are going to help teach children about a new kind of object.</p>
+    <p>First, your fellow teacher will teach you about the objects. Then, you will have time to explore them so that you can teach children about the objects later.</p>
+    <p>You'll learn about and explore one kind of object. Then, you will be asked short questions about the objects.</p>
     <button onclick="_s.button()" id="intrButton">Continue</button>
   </div>
 
   <div class="slide" id="instructions">
-    <p>When you arrive on the planet, your laboratory will look like this:</p>
+    <p>After you meet the teacher, you will enter the classroom. It will look like this:</p>
     <img src="../_shared/images/sample.png" width="540" height="325"></img>
     <p>You will have a box of objects. You can take an object out of the box to explore using the blue <b><i>Pick Up</i></b> button on the front of the box. It will be automatically moved to the blue stage.
        Then, you can drag the object to the green <b><i>Testing Stage</i></b>.
        You can press the green <b><i>Test</i></b> button to test whether or not an object produces a sound.
        After the object has been tested, it will be automatically moved to the pink <b><i>Tested Items</i></b> stage.</p>
-    <p>This is the end of the instructions. Hit the <b>Continue</b> button when you are ready to proceed to the laboratory.</p>
+    <p>This is the end of the instructions. Hit the <b>Continue</b> button when you are ready to proceed to the classroom.</p>
     <button onclick="_s.button()" id="instButton">Continue</button>
   </div>
 
@@ -134,10 +135,21 @@
     <div class="transition">
       <p id="testStatement"></p>
       <h3 id="utterance"></h3>
+      <img src="../_shared/images/ashley.jpg" height="400"/>
     </div>
     <div class="explore">
-      <p id="info"></p>
-      <div class="paper" id="paper"></div>
+      <div class="notebook" style="background-color:#ffffcc">
+	<h3>Notebook</h3>
+	<p class="notebook" id="infoParagraph"></p>
+      </div>
+      <div class="classroom">
+        <div class="paper" id="paper"></div>
+      </div>
+      <div class="writeNotebook">
+	<p id="notebookText"></p>
+        <textarea id="notebookInput" rows="1" cols="50"></textarea>
+        <button onclick="_s.writeInNotebook()" id="notebookButton">Write</button>
+      </div>
     </div>
     <div class="testProb">
       <p id="probability">Suppose you pick up another blicket from the box. What are the chances that it squeaks?</p>
