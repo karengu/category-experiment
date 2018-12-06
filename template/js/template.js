@@ -361,7 +361,6 @@ function make_slides(f) {
 	}
 	testSequence = _.shuffle(testSequence);
 	var testSequenceIndex = 0;
-	var testExemplar = false;
 
         exp.events = [];
         exp.testResults = [];
@@ -456,7 +455,6 @@ function make_slides(f) {
 	var firstItem = paper.path(objectPaths[stim.shape](150,340)).attr("fill", stim.objectColor);
         paper.customAttributes.pickedItemId = firstItem.id;
         const firstItemId = firstItem.id;
-        firstItem.drag(move, start, up);
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
@@ -465,7 +463,7 @@ function make_slides(f) {
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
 	  setTimeout(function() {
-	    testExemplar = true; // allow user to test exemplar
+            firstItem.drag(move, start, up); // allow user to test exemplar
 	  }, 1500);
         }, 2000);
 
@@ -492,20 +490,20 @@ function make_slides(f) {
             blicketPile.forEach(function(blicket) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
-            if (testItem.id == firstItemId && testExemplar) {
+            if (testItem.id == firstItemId) {
 	      if (utterance) {
 	        utterance.remove();
 	      }
 	      $('.writeNotebook').show();
 	      $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
-	      $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided)');
+	      $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided.)');
 	    }
-              if (testSequence[testSequenceIndex] || (testItem.id == firstItemId && testExemplar)) {
-	        positiveSound.play();
-              }
-	      else if (exp.config.negativeProperty) {
-		negativeSound.play();
-	      }
+            if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
+	      positiveSound.play();
+            }
+	    else if (exp.config.negativeProperty) {
+              negativeSound.play();
+	    }
             if (testItem.id != firstItemId) {
               exp.testResults.push(testSequence[testSequenceIndex]);
               testSequenceIndex ++;
