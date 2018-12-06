@@ -226,15 +226,17 @@ var drag_and_drop = {
     
     makeSphere: makeSphere,
     
-  alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime) {
+    alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime, restTime) {
     var alert = paper.set();
       paper.customAttributes.startReading = Date.now();
       alert.push(paper.rect(20,400,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
       alert.push(paper.text(400, 430, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400,475, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
-      alert.push(paper.text(400, 520, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+	alert.push(paper.text(400,475, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+	setTimeout(function() {
+			       alert.push(paper.text(400, 520, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
       alert.push(paper.text(400, 535, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400, 580, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 10}));
+	    alert.push(paper.text(400, 580, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	}, restTime);
     alert.click(function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
         alert.remove();

@@ -297,8 +297,8 @@ function make_slides(f) {
         $('.testFree').hide();
         $('.explore').hide();
         $('.transition').show();
-	if (exp.condition == 'single') {
-	  $('#testStatement').text('You are going to talk with '+stim.investigator+'.');
+	if (exp.config.coverStory == 'teacher') {
+	  $('#testStatement').text('You are going to talk with your fellow teacher, '+stim.investigator+'.');
 	  $('#utterance').text(stim.investigator+' will teach you about '+stim.objectNamePlural.toLowerCase()+'.');
 	  setTimeout(function() {
 	    $('#ddbutton').show();
@@ -349,6 +349,7 @@ function make_slides(f) {
         $('.transition').hide();
 	$('.writeNotebook').hide();
 	$('.notebook').hide();
+	$('#classroomIntro').text(stim.investigator+' takes you into the classroom.');
         exp.belowUtteranceBefore = 'Try testing the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
 	exp.belowUtteranceAfter = ' from the blue stage to the green testing stage and clicking the green Test button.';
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
@@ -360,6 +361,7 @@ function make_slides(f) {
 	}
 	testSequence = _.shuffle(testSequence);
 	var testSequenceIndex = 0;
+	var testExemplar = false;
 
         exp.events = [];
         exp.testResults = [];
@@ -421,12 +423,10 @@ function make_slides(f) {
           }
         };
 
-        var squeak = new Audio('../_shared/audio/squeak.mp3');
-	var beep = new Audio('../_shared/audio/beep.mp3');
-        var ring = new Audio('../_shared/audio/ring.mp3');
-        var whistle = new Audio('../_shared/audio/whistle.mp3');
-        var click = new Audio('../_shared/audio/click.mp3');
-        var boom = new Audio('../_shared/audio/boom.mp3');
+        var positiveSound = new Audio('../_shared/audio/'+stim.successfulTestResult+'.mp3');
+        if (exp.config.negativeProperty) {
+          var negativeSound = new Audio('../_shared/audio/'+exp.config.negativeProperty+'.mp3');
+        }
 	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
 
         var paper = new Raphael(document.getElementById('paper'), 800, 630);
@@ -460,10 +460,13 @@ function make_slides(f) {
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
-          var arrow = paper.path("M150,270 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
-        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 0);
+        var arrow = paper.path("M150,270 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
+        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 4000);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
+	  setTimeout(function() {
+	    testExemplar = true; // allow user to test exemplar
+	  }, 1500);
         }, 2000);
 
         var onPickUp = function() {
@@ -489,33 +492,20 @@ function make_slides(f) {
             blicketPile.forEach(function(blicket) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
-            if (testItem.id == firstItemId) {
+            if (testItem.id == firstItemId && testExemplar) {
 	      if (utterance) {
 	        utterance.remove();
 	      }
-		$('.writeNotebook').show();
-		$('#notebookText').text('Write down what '+stim.investigator+' told you for your lesson plan.');
+	      $('.writeNotebook').show();
+	      $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
+	      $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided)');
 	    }
-            if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
-              if (stim.successfulTestResult == 'squeak') {
-                squeak.play();
+              if (testSequence[testSequenceIndex] || (testItem.id == firstItemId && testExemplar)) {
+	        positiveSound.play();
               }
-	      else if (stim.successfulTestResult == 'beep') {
-	        beep.play();
+	      else if (exp.config.negativeProperty) {
+		negativeSound.play();
 	      }
-	      else if (stim.successfulTestResult == 'ring') {
-	        ring.play();
-	      }
-	      else if (stim.successfulTestResult == 'whistle') {
-	        whistle.play();
-	      }
-	      else if (stim.successfulTestResult == 'boom') {
-	        boom.play();
-	      }
-	      else if (stim.successfulTestResult == 'click') {
-	        click.play();
-	      }
-            }
             if (testItem.id != firstItemId) {
               exp.testResults.push(testSequence[testSequenceIndex]);
               testSequenceIndex ++;
@@ -599,7 +589,7 @@ function make_slides(f) {
         $('.testProb').hide();
         $('.testGeneric').hide();
         $('.testFree').show();
-        $('#free_response_prompt').text('Please describe what you know about '+stim.objectNamePlural.toLowerCase()+' below.');
+        $('#free_response_prompt').text('Please write down what you would tell your students to teach them about '+stim.objectNamePlural.toLowerCase()+'.');
         $('#free_response').val('');
       }
     },
@@ -613,10 +603,11 @@ function make_slides(f) {
         $('.writeNotebook').hide();
         $('.notebook').show();
         $('#infoParagraph').text(exp.notebook);
+        $('#classroomIntro').hide();
         const stim = this.stim;
         setTimeout(function() {
           if (stim.id == 0) { // give reminder of how to drag items on first trial
-            exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
+            exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500, 0);
           }
           else { // no reminder on all subsequent trials
             exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
@@ -919,6 +910,11 @@ function init() {
       //'attention_check',
     'subj_info', 'thanks'
   ];
+
+    exp.config = {
+	negativeProperty: 'whistle',
+	coverStory: 'teacher'
+    };
 
   //make corresponding slides:
   exp.slides = make_slides(exp);

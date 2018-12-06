@@ -15,3 +15,7 @@
 #paper, #teacher {
     display: inline;
 }
+
+#notebookInstruction {
+    font-size: 10pt;
+}
