@@ -1,0 +1,85 @@
+{
+    "AcceptTime": "2018-12-07T17:20:39.000Z",
+    "AssignmentId": "3IUZPWIU1PVVUUY2AIGCWGE4K1MWKB",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T17:30:28.000Z",
+    "HITId": "3UYRNV2KITNIPFPUJQNKM8X0G6E8N8",
+    "SubmitTime": "2018-12-07T17:30:28.000Z",
+    "answers": {
+        "attention_check": "tigio",
+        "condition": "single",
+        "sound_check": "tigio",
+        "subject_information": {
+            "age": "29",
+            "asses": "Yes",
+            "comments": "good",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "understanding the instruction and following",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 8.615183333333333,
+        "trials": [
+            {
+                "attentionCheck": "tigio",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544203573092
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544203573219
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544203573350
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544203573485
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544203573627
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544203573757
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544203580954
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544203582229
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544203683776
+                    }
+                ],
+                "freeResponse": "its about picking the bricks",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 0,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.54,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [],
+                "timeExploring": 1.3160833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

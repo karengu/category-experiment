@@ -1,0 +1,57 @@
+{
+    "AcceptTime": "2018-12-07T17:08:03.000Z",
+    "AssignmentId": "39GHHAVOMGFOA890IRAH09V0LJK4JV",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T17:12:47.000Z",
+    "HITId": "3B0MCRZMBRI3YS0OLM2NCJXL5VFPP5",
+    "SubmitTime": "2018-12-07T17:12:47.000Z",
+    "answers": {
+        "attention_check": "blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "36",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "0",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "english",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 1.9644833333333334,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeek",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544202695130
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544202696317
+                    }
+                ],
+                "freeResponse": "blickets squeak",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 0,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.98,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [],
+                "timeExploring": 0.35675,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

@@ -1,0 +1,173 @@
+{
+    "AcceptTime": "2018-12-07T15:41:54.000Z",
+    "AssignmentId": "3LQ8PUHQFMGMR9DPFG90IXP4D8DIHD",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T16:16:17.000Z",
+    "HITId": "30IRMPJWDZ7NZEJNLM14LXB1C3SRKT",
+    "SubmitTime": "2018-12-07T16:16:17.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "29",
+            "asses": "Yes",
+            "comments": "No comments. ",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "40",
+            "gender": "Male",
+            "language": "Tamil",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 5.2977,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544199177416
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199177612
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199179397
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199179602
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199181098
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199181234
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199181827
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199182009
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199186183
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199186348
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199188064
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199188195
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199193122
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199193280
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199193738
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199193896
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199197244
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199197381
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199197563
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199197664
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199198277
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199198573
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199201789
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199201903
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199202903
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199203011
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199205055
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544199205950
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544199257370
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199258869
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199258931
+                    }
+                ],
+                "freeResponse": "Blickets are objects that are used to make sound.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 0,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [],
+                "timeExploring": 1.06005,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

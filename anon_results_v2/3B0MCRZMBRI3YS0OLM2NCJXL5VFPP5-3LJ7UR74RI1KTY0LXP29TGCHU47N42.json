@@ -1,0 +1,65 @@
+{
+    "AcceptTime": "2018-12-07T19:09:49.000Z",
+    "AssignmentId": "3LJ7UR74RI1KTY0LXP29TGCHU47N42",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T19:21:08.000Z",
+    "HITId": "3B0MCRZMBRI3YS0OLM2NCJXL5VFPP5",
+    "SubmitTime": "2018-12-07T19:21:08.000Z",
+    "answers": {
+        "attention_check": "teaching some about",
+        "condition": "single",
+        "sound_check": "skyscraper",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "good one",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "10",
+            "gender": "Male",
+            "language": "TAMIL",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 800,
+            "screenW": 1280
+        },
+        "time_in_minutes": 3.76745,
+        "trials": [
+            {
+                "attentionCheck": "test",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544210327729
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544210328855
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544210333640
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544210334382
+                    }
+                ],
+                "freeResponse": "its new expirence",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 0,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.79,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [],
+                "timeExploring": 0.58635,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

@@ -1,0 +1,118 @@
+{
+    "AcceptTime": "2018-12-07T16:16:25.000Z",
+    "AssignmentId": "3XM0HYN6NLN2OL9R2ARE6RT376NEPC",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T16:19:47.000Z",
+    "HITId": "306996CF6W8YD6GCHF9WG3AYLBQB1Y",
+    "SubmitTime": "2018-12-07T16:19:47.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "38",
+            "asses": "Yes",
+            "comments": "This was a fun new style of hit.  Thank you for the opportunity!",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "Yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.1926,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544199475969
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544199476062
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199476703
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544199477496
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544199499001
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199501029
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544199501948
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544199504389
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199505355
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544199505922
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544199511564
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199512284
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544199512821
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544199514409
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544199515607
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544199516068
+                    }
+                ],
+                "freeResponse": "After testing several blickets I have found that only on a rare occasion do they squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.13,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.6832166666666667,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

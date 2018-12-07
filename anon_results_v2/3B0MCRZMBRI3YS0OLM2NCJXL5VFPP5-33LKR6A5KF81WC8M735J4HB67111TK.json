@@ -1,0 +1,79 @@
+{
+    "AcceptTime": "2018-12-07T17:08:03.000Z",
+    "AssignmentId": "33LKR6A5KF81WC8M735J4HB67111TK",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T17:48:15.000Z",
+    "HITId": "3B0MCRZMBRI3YS0OLM2NCJXL5VFPP5",
+    "SubmitTime": "2018-12-07T17:48:15.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "24",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "0",
+            "fairprice": "$0.6",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 2.18825,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544204804889
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544204804925
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544204807286
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204808061
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544204822769
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544204826213
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204827758
+                    }
+                ],
+                "freeResponse": "Blickets always make loud squeaking noises.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.72,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.42461666666666664,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

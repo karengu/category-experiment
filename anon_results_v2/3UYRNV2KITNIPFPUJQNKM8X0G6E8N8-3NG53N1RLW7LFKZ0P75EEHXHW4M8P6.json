@@ -1,0 +1,91 @@
+{
+    "AcceptTime": "2018-12-07T17:48:41.000Z",
+    "AssignmentId": "3NG53N1RLW7LFKZ0P75EEHXHW4M8P6",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T18:21:14.000Z",
+    "HITId": "3UYRNV2KITNIPFPUJQNKM8X0G6E8N8",
+    "SubmitTime": "2018-12-07T18:21:14.000Z",
+    "answers": {
+        "attention_check": "blickets",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "26",
+            "asses": "Yes",
+            "comments": "nice",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "35",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1024,
+            "screenW": 1280
+        },
+        "time_in_minutes": 3.951233333333333,
+        "trials": [
+            {
+                "attentionCheck": "blicket",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544206822368
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544206823774
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544206831174
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544206832872
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544206832872
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544206839994
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544206843993
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544206889015
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544206890386
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544206891245
+                    }
+                ],
+                "freeResponse": "its a game to develop knowledge",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.9,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.1056666666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

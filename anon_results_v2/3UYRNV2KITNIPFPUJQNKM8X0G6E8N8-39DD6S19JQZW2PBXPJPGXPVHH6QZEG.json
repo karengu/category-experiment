@@ -1,0 +1,73 @@
+{
+    "AcceptTime": "2018-12-07T17:08:05.000Z",
+    "AssignmentId": "39DD6S19JQZW2PBXPJPGXPVHH6QZEG",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T17:16:34.000Z",
+    "HITId": "3UYRNV2KITNIPFPUJQNKM8X0G6E8N8",
+    "SubmitTime": "2018-12-07T17:16:34.000Z",
+    "answers": {
+        "attention_check": "nothing",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "Yes",
+            "comments": "none really but hope to see bonus with it",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "0.42",
+            "gender": "Male",
+            "language": "English",
+            "problems": "n/a"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Linux",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 8.424816666666667,
+        "trials": [
+            {
+                "attentionCheck": "squeek",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544202642982
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544202643101
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544202649069
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544202649173
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544202651758
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544202652494
+                    }
+                ],
+                "freeResponse": "to continue it",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 0,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.45,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [],
+                "timeExploring": 0.5221833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

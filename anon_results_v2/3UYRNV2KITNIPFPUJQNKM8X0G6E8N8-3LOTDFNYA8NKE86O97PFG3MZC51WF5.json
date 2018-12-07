@@ -1,0 +1,71 @@
+{
+    "AcceptTime": "2018-12-07T17:08:00.000Z",
+    "AssignmentId": "3LOTDFNYA8NKE86O97PFG3MZC51WF5",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T17:19:47.000Z",
+    "HITId": "3UYRNV2KITNIPFPUJQNKM8X0G6E8N8",
+    "SubmitTime": "2018-12-07T17:19:47.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "No",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "50 cents",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 1.9227666666666667,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544203100890
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544203101666
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544203123537
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544203124827
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544203125503
+                    }
+                ],
+                "freeResponse": "Blickets are yellow objects and they squeak when you test them.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.62,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.45305,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

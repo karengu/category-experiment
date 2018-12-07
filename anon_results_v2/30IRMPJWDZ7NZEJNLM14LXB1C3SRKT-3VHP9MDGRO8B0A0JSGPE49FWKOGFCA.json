@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-07T14:54:18.000Z",
+    "AssignmentId": "3VHP9MDGRO8B0A0JSGPE49FWKOGFCA",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T14:56:27.000Z",
+    "HITId": "30IRMPJWDZ7NZEJNLM14LXB1C3SRKT",
+    "SubmitTime": "2018-12-07T14:56:27.000Z",
+    "answers": {
+        "attention_check": "blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "0",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "Enbglish",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 2.0740666666666665,
+        "trials": [
+            {
+                "attentionCheck": "squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544194502905
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544194503020
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194504007
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544194504094
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194504663
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544194505096
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194505807
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544194506263
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194506479
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194507399
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194522003
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194522992
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194523432
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194529715
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194530551
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194530991
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194533580
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194534799
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194535262
+                    }
+                ],
+                "freeResponse": "Blickets whistle",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.14,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.49648333333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

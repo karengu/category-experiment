@@ -1,0 +1,57 @@
+{
+    "AcceptTime": "2018-12-07T14:54:25.000Z",
+    "AssignmentId": "3P529IW9KZ943EUP5TID7S5JEXUFLQ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T15:36:42.000Z",
+    "HITId": "30IRMPJWDZ7NZEJNLM14LXB1C3SRKT",
+    "SubmitTime": "2018-12-07T15:36:42.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "37",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "slightly",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 2.3137666666666665,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544196921470
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544196922839
+                    }
+                ],
+                "freeResponse": "Blickets are capable of squeaking",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 0,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.51,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [],
+                "timeExploring": 0.44411666666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

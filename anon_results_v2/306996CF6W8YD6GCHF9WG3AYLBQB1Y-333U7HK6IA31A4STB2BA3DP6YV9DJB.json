@@ -1,0 +1,123 @@
+{
+    "AcceptTime": "2018-12-07T14:54:19.000Z",
+    "AssignmentId": "333U7HK6IA31A4STB2BA3DP6YV9DJB",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T14:57:35.000Z",
+    "HITId": "306996CF6W8YD6GCHF9WG3AYLBQB1Y",
+    "SubmitTime": "2018-12-07T14:57:35.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "37",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "english",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.0174166666666666,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544194539441
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194540329
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194571096
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194571947
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194572698
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194577023
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194578087
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194578769
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194583486
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194584419
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194585222
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194588893
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194590675
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194591574
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544194594568
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544194595870
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544194596457
+                    }
+                ],
+                "freeResponse": "Most blickets whistle",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.16,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.01615,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

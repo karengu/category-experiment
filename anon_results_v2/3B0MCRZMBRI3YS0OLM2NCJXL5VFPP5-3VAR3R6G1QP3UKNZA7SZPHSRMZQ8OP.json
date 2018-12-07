@@ -1,0 +1,123 @@
+{
+    "AcceptTime": "2018-12-07T17:08:04.000Z",
+    "AssignmentId": "3VAR3R6G1QP3UKNZA7SZPHSRMZQ8OP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T18:04:10.000Z",
+    "HITId": "3B0MCRZMBRI3YS0OLM2NCJXL5VFPP5",
+    "SubmitTime": "2018-12-07T18:04:10.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "59",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "maybe",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.7929,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544205695919
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544205697207
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544205756724
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544205757750
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544205758342
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544205763417
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544205765478
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544205766542
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544205770938
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544205772222
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544205773087
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544205776185
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544205776951
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544205778183
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544205780492
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544205781438
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544205782311
+                    }
+                ],
+                "freeResponse": "Blickets whistle.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.18,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.4028,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

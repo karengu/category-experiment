@@ -1,0 +1,110 @@
+{
+    "AcceptTime": "2018-12-07T17:08:02.000Z",
+    "AssignmentId": "352YTHGROW1SJ2EAUR7WOWFL8RG4HQ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-08T17:49:13.000Z",
+    "HITId": "3B0MCRZMBRI3YS0OLM2NCJXL5VFPP5",
+    "SubmitTime": "2018-12-07T17:49:13.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "26",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": ".35",
+            "gender": "Female",
+            "language": "English",
+            "problems": "Nope!"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 2.1010833333333334,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544204858902
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204860121
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544204875268
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544204876078
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204876623
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544204879865
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544204880670
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204881206
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544204884770
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544204885375
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204886631
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544204889253
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544204890022
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544204890807
+                    }
+                ],
+                "freeResponse": "Sometimes blickets squeak, but most produce a whistling sound, like a kettle.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.09,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.5308333333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}
