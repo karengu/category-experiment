@@ -1,0 +1,132 @@
+---
+title: "Analysis of pilot data for gen ex"
+output: html_notebook
+---
+
+[Link to expt](https://www.mit.edu/~karengu/category-experiment/template/template.html)
+
+```{r}
+library(ggthemes)
+library(tidyboot)
+library("jsonlite")
+library("tidyverse")
+theme_set(theme_few())
+results.path <- "../anon_results_v2/"
+```
+
+```{r}
+
+
+anon_results = list.files(results.path)
+
+i = 0
+df.subject <- data.frame()
+df.trials <- data.frame()
+df.attention <- data.frame()
+for (anon_result in anon_results) {
+  
+  result_json = fromJSON(paste(results.path, anon_result, sep =""))
+
+  df.attention = bind_rows(
+    df.attention, 
+    data.frame(
+      workerid = i,
+      sound_check = result_json$answers$sound_check,
+      attention_check = result_json$answers$attention_check
+    )
+  )
+  
+  df.subject = bind_rows(
+    df.subject, 
+    data.frame(result_json$answers$subject_information) %>% mutate(workerid = i)
+  )
+  
+  df.trials = bind_rows(
+    df.trials, 
+    result_json$answers$trials %>% select(-events, -testResults) %>% mutate(workerid = i)
+  )
+
+  i = i + 1
+}
+```
+
+
+```{r}
+problem.subjects <- c(10, 23, 28, 29, 31)
+```
+
+```{r}
+df.trials <- df.trials %>%
+  mutate(exclude = workerid %in% problem.subjects,
+         genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0)) %>%
+  rename(trialNum = id)
+```
+
+
+
+```{r}
+# trialNum = id
+df.1 <- df %>%
+  rename(trialNum = id) %>%
+  mutate(
+    genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+    probabilityOfFeature = as.numeric(probabilityOfFeature),
+    timeExploring = as.numeric(timeExploring),
+    itemsTested = as.numeric(as.character(itemsTested))
+  )
+
+df.1 %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram()
+```
+
+
+```{r}
+df.trials %>%
+  filter(!exclude) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ .)
+```
+
+```{r}
+df.trials %>%
+  filter(!exclude) %>%
+  ggplot(., aes( x = itemsTested))+
+  geom_bar()+
+  facet_grid(utteranceType ~ .)
+```
+
+```{r}
+df.trials %>%
+  filter(!exclude) %>%
+  ggplot(., aes( x = probabilityOfFeature))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ .)
+```
+
+```{r}
+df.trials %>%
+  filter(!exclude) %>%
+  ggplot(., aes( x = probabilityOfFeature, y = itemsTested, color = utteranceType))+
+  geom_point()
+```
+
+```{r}
+df.bs <- df.trials %>%
+  filter(!exclude) %>%
+  select(-freeResponse) %>%
+  gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
+  group_by(key, utteranceType, proportionSuccess) %>%
+  tidyboot_mean(column = val)
+```
+
+```{r}
+df.bs %>% 
+  ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
+                 y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_col(position = position_dodge())+
+  geom_errorbar(position = position_dodge())+
+  scale_fill_solarized()+
+  facet_wrap(~key, scales = 'free')
+```
