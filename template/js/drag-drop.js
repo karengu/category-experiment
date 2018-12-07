@@ -204,7 +204,7 @@ var drag_and_drop = {
     
   moveToGarbage: function(blicket, x, y) {
     const finalX = 60*Math.random()-30+630
-    const finalY = 20*Math.random()-10+320
+    const finalY = 20*Math.random()-10+300
     blicket.translate(finalX-x,finalY-y)
   },
     
@@ -217,11 +217,11 @@ var drag_and_drop = {
   },
     
   makeTable: function(paper) {
-    paper.path("M 100,240 v 200 A 20,10 0 0,0 120,440 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 780,240 v 200 A 20,10 0 0,0 800,440 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 0,420 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 0,420 v 200 A 20,10 0 0,0 20,620 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 680,420 v 200 A 20,10 0 0,0 700,620 v-200").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 100,220 v 150 A 20,10 0 0,0 120,370 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 780,220 v 150 A 20,10 0 0,0 800,370 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 0,400 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 0,400 v 150 A 20,10 0 0,0 20,550 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.path("M 680,400 v 150 A 20,10 0 0,0 700,550 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
   },
     
     makeSphere: makeSphere,
@@ -229,13 +229,13 @@ var drag_and_drop = {
     alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime, restTime) {
     var alert = paper.set();
       paper.customAttributes.startReading = Date.now();
-      alert.push(paper.rect(20,400,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-      alert.push(paper.text(400, 430, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-	alert.push(paper.text(400,475, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+      alert.push(paper.rect(20,370,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+      alert.push(paper.text(400, 400, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+	alert.push(paper.text(400,445, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
 	setTimeout(function() {
-			       alert.push(paper.text(400, 520, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400, 535, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-	    alert.push(paper.text(400, 580, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+			       alert.push(paper.text(400, 490, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400, 505, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+	    alert.push(paper.text(400, 550, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
 	}, restTime);
     alert.click(function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {

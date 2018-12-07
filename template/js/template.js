@@ -400,11 +400,11 @@ function make_slides(f) {
           if (xTrans !== 0 || yTrans !== 0) {
             this.translate(xTrans,yTrans);
           }
-          if (bBox.x < 700 && bBox.x > 550 && 290 < bBox.y && bBox.y <= 370) {
+          if (bBox.x < 700 && bBox.x > 550 && 270 < bBox.y && bBox.y <= 350) {
             this.translate(-this.odx, -this.ody);
             exp.events.push({event: "dropGarbagePrevented", time: Date.now()});
           }
-          if (330 < bBox.x && bBox.x <= 410 && 290 < bBox.y && bBox.y <= 340) {
+          if (330 < bBox.x && bBox.x <= 410 && 270 < bBox.y && bBox.y <= 320) {
             if (paper.customAttributes.testItem) {
               console.log('item already on testing stage');
 	      this.translate(-this.odx, -this.ody);
@@ -428,37 +428,39 @@ function make_slides(f) {
         }
 	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
 
-        var paper = new Raphael(document.getElementById('paper'), 800, 630);
+          var paper = new Raphael(document.getElementById('paper'), 800, 580);
+	  const platformLevel = 380;
+	  const labelLevel = platformLevel - 15;
         exp.paper = paper;
  	paper.customAttributes.teacher = paper.image("../_shared/images/ashley.jpg", 0, 0, 202, 400);
         drag_and_drop.makeTable(paper);
 
         // platforms: visible holders for objects of interest, testing, and garbage
-        var sourcePlatform = paper.path(drag_and_drop.makePlatformPath(70,400)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
-        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(320, 400)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
-        var garbagePlatform = paper.path(drag_and_drop.makePlatformPath(570, 400)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
+        var sourcePlatform = paper.path(drag_and_drop.makePlatformPath(70,platformLevel)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
+        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(320, platformLevel)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+        var garbagePlatform = paper.path(drag_and_drop.makePlatformPath(570, platformLevel)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
 
         // source: items of interest to be tested
         var blicketPile = paper.set();
-        drag_and_drop.makeBlicketPile(370,200,200, blicketPile, paper, stim.greyedColor, stim.shape);
-        var sourceLabel = paper.text(400, 120, stim.objectNamePlural).attr({"font-size": 18});
-        var pickUpButton = drag_and_drop.makeButton(370, 230, "#4985e5", "Pick up", paper);
+        drag_and_drop.makeBlicketPile(370,180,200, blicketPile, paper, stim.greyedColor, stim.shape);
+        var sourceLabel = paper.text(400, 100, stim.objectNamePlural).attr({"font-size": 18});
+        var pickUpButton = drag_and_drop.makeButton(370, 210, "#4985e5", "Pick up", paper);
 
         // target: testing area
-        var targetLabel = paper.text(370, 385, "Testing Stage").attr({"font-size": 14});
-        var testButton = drag_and_drop.makeButton(400, 310, "#49e575", "Test", paper);
+        var targetLabel = paper.text(370, labelLevel, "Testing Stage").attr({"font-size": 14});
+        var testButton = drag_and_drop.makeButton(400, 290, "#49e575", "Test", paper);
 
         // garbage: items already tested
-        var garbageLabel = paper.text(620, 385, "Tested Items").attr({"font-size": 14});
+        var garbageLabel = paper.text(620, labelLevel, "Tested Items").attr({"font-size": 14});
         // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
-	var firstItem = paper.path(objectPaths[stim.shape](150,340)).attr("fill", stim.objectColor);
+	var firstItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
         paper.customAttributes.pickedItemId = firstItem.id;
         const firstItemId = firstItem.id;
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
-        var arrow = paper.path("M150,270 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
+        var arrow = paper.path("M150,250 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
         var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 4000);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
@@ -466,15 +468,18 @@ function make_slides(f) {
             firstItem.drag(move, start, up); // allow user to test exemplar
 	  }, 1500);
         }, 2000);
+	  paper.customAttributes.classroomIntro = paper.text(400, 20, stim.investigator+' takes you into the classroom.').attr({"font-size": 16});
 
-        var onPickUp = function() {
+	  exp.wroteInNotebook = false;
+
+          var onPickUp = function() {
           if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
             console.log('You cannot pick up more than one item.')
           }
-            else {
-            var newItem = paper.path(objectPaths[stim.shape](150,340)).attr("fill", stim.objectColor);
-            paper.customAttributes.pickedItemId = newItem.id;
-            newItem.drag(move, start, up);
+            else if (exp.wroteInNotebook) {
+            var newItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
+		paper.customAttributes.pickedItemId = newItem.id;
+		    newItem.drag(move, start, up);
             blicketPile.forEach(function(blicket) {
               blicket.attr({"fill": stim.greyedColor});
 	    });
@@ -595,13 +600,14 @@ function make_slides(f) {
       if ($('#notebookInput').val() == '') {
         $('#error').text('Please write something in the notebook.');
       }
-      else {
+	else {
+	    exp.wroteInNotebook = true;
         exp.paper.customAttributes.teacher.remove();
         exp.notebook = $('#notebookInput').val();
         $('.writeNotebook').hide();
         $('.notebook').show();
         $('#infoParagraph').text(exp.notebook);
-        $('#classroomIntro').hide();
+            exp.paper.customAttributes.classroomIntro.remove();
         const stim = this.stim;
         setTimeout(function() {
           if (stim.id == 0) { // give reminder of how to drag items on first trial
@@ -717,7 +723,8 @@ function make_slides(f) {
     name : "thanks",
     start : function() {
       exp.data= {
-        "sound_check": exp.check_sound,
+          "sound_check": exp.check_sound,
+	  "attention_check": exp.attention_check,
         "trials" : exp.data_trials,
         "system" : exp.system,
         "condition" : exp.condition,
@@ -847,8 +854,8 @@ function init() {
     exp.data_trials = randomized_trials.trial_summary;
   }
   else if (exp.condition == 'single') {
-    const utteranceType = _.sample(utteranceTypes);
-    const proportionSuccess = _.sample(proportionsSuccess);
+    const utteranceType = 'specific';
+    const proportionSuccess = 0;
     exp.data_trials.push({
       id: 0,
       objectName: objects[0].plural,
@@ -905,7 +912,7 @@ function init() {
   //blocks of the experiment:
   exp.structure=[
     'i0','introduction', 'check_sound', 'instructions','drag_and_drop',
-      //'attention_check',
+      'attention_check',
     'subj_info', 'thanks'
   ];
 
