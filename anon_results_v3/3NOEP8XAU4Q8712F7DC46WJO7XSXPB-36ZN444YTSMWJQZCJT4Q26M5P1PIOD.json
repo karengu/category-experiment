@@ -1,0 +1,175 @@
+{
+    "AcceptTime": "2018-12-08T14:29:19.000Z",
+    "AssignmentId": "36ZN444YTSMWJQZCJT4Q26M5P1PIOD",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T14:44:13.000Z",
+    "HITId": "3NOEP8XAU4Q8712F7DC46WJO7XSXPB",
+    "SubmitTime": "2018-12-08T14:44:13.000Z",
+    "answers": {
+        "attention_check": "take blickets put on the table",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "32",
+            "asses": "Confused",
+            "comments": "",
+            "education": "0",
+            "enjoyment": "1",
+            "fairprice": "1$",
+            "gender": "Male",
+            "language": "Tamil",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 14.5032,
+        "trials": [
+            {
+                "attentionCheck": "no",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544279985006
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544279985162
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544279989174
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544279989399
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544279989838
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544279993015
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544279995782
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544279996527
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544279996982
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544279997054
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544279997470
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544279997686
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280004806
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280007279
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280007558
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280007662
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280011063
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280012422
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280020998
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280021568
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280022343
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280023367
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280024014
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280026959
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280100445
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280103527
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280105357
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544280106407
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544280149144
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280155638
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544280156335
+                    }
+                ],
+                "freeResponse": "take the blickets",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.71,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.00715,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

@@ -1,0 +1,191 @@
+{
+    "AcceptTime": "2018-12-08T14:16:11.000Z",
+    "AssignmentId": "33C7UALJVMMIYSGY45UODLFJTU9180",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T14:22:42.000Z",
+    "HITId": "3NOEP8XAU4Q8712F7DC46WJO7XSXPB",
+    "SubmitTime": "2018-12-08T14:22:42.000Z",
+    "answers": {
+        "attention_check": "pick up the squike",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "0",
+            "fairprice": "$1",
+            "gender": "Male",
+            "language": "Tamil",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 6.31445,
+        "trials": [
+            {
+                "attentionCheck": "pick up the Blickets",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544278721830
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278721996
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278724327
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278724513
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278747400
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278747601
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278749547
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278749750
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278750694
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278750858
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278771183
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278771394
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278804904
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278805048
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278805076
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278805211
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278805236
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278805363
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278805615
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278805753
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278805782
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278805918
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278805953
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278806096
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278806128
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278806263
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278806303
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278806423
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278806451
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544278807403
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278811074
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544278812751
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544278865745
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278867105
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544278868047
+                    }
+                ],
+                "freeResponse": "pick the squiltes ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.53,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.0771333333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

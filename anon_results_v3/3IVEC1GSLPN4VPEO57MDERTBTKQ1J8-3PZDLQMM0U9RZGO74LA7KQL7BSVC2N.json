@@ -1,0 +1,131 @@
+{
+    "AcceptTime": "2018-12-08T17:29:45.000Z",
+    "AssignmentId": "3PZDLQMM0U9RZGO74LA7KQL7BSVC2N",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T17:44:59.000Z",
+    "HITId": "3IVEC1GSLPN4VPEO57MDERTBTKQ1J8",
+    "SubmitTime": "2018-12-08T17:44:59.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "none",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "0.35",
+            "gender": "Male",
+            "language": "English",
+            "problems": "none"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 2.8178833333333335,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544290963070
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290964023
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290986514
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290987595
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290988086
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290990684
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290992680
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290993242
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290995620
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544290996446
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290996446
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290997489
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544290998665
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290998665
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544291001267
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544291001937
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544291001937
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544291004796
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544291005653
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544291005653
+                    }
+                ],
+                "freeResponse": "Some blickets squeak, while others don't.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.49,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.7836666666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

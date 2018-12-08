@@ -1,0 +1,84 @@
+{
+    "AcceptTime": "2018-12-08T18:44:35.000Z",
+    "AssignmentId": "36WLNQG780Y0KR8HJ59DB7OEQAWEBV",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T19:05:36.000Z",
+    "HITId": "3IVEC1GSLPN4VPEO57MDERTBTKQ1J8",
+    "SubmitTime": "2018-12-08T19:05:36.000Z",
+    "answers": {
+        "attention_check": "this blicket squeaks ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".3\n0.35",
+            "gender": "Male",
+            "language": "English",
+            "problems": "None"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.43175,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeaks ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544295813502
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544295814637
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544295846019
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544295847960
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544295848646
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544295856517
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544295857314
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544295858215
+                    }
+                ],
+                "freeResponse": "blickets will squeak when you squeeze them",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.84,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8424,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "AcceptTime": "2018-12-08T17:36:41.000Z",
+    "AssignmentId": "3PZDLQMM0U9RZGO74LA7KQL7BSW2CE",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T17:47:38.000Z",
+    "HITId": "32TMVRKDGNMW37FO1L8ONZR0PT6484",
+    "SubmitTime": "2018-12-08T17:47:38.000Z",
+    "answers": {
+        "attention_check": "this blickets quicks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "24",
+            "asses": "Yes",
+            "comments": "good",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.35",
+            "gender": "Male",
+            "language": "malayalam",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 3.4411,
+        "trials": [
+            {
+                "attentionCheck": "this blickets quicks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544291095985
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544291096734
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544291131486
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544291132269
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544291133180
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544291134685
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544291135914
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544291136590
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544291138329
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544291139355
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544291140277
+                    }
+                ],
+                "freeResponse": "its a yellow diamond",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.8,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7735166666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

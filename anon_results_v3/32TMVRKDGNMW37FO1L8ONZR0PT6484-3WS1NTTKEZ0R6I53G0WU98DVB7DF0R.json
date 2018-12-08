@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-08T18:37:55.000Z",
+    "AssignmentId": "3WS1NTTKEZ0R6I53G0WU98DVB7DF0R",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T18:41:06.000Z",
+    "HITId": "32TMVRKDGNMW37FO1L8ONZR0PT6484",
+    "SubmitTime": "2018-12-08T18:41:06.000Z",
+    "answers": {
+        "attention_check": "BLICKETS SQEAKS",
+        "condition": "single",
+        "sound_check": "TIGER",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "GOOD",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.35",
+            "gender": "Female",
+            "language": "MALAYALAM",
+            "problems": "NO"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 720,
+            "screenW": 1280
+        },
+        "time_in_minutes": 2.747533333333333,
+        "trials": [
+            {
+                "attentionCheck": "THIS BLICKET SQEAKS",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544294344820
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544294345457
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544294370365
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294372004
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544294372356
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544294374198
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294374835
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544294375084
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294375108
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544294375124
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294376315
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544294376501
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294376523
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544294376558
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294377795
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544294378037
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544294379642
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544294380331
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544294380670
+                    }
+                ],
+                "freeResponse": "IT WAS A YELLOW DIAMOND",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.88,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.6202,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

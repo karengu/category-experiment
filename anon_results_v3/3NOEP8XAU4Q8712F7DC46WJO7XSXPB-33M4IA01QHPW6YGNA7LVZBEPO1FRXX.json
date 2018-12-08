@@ -1,0 +1,79 @@
+{
+    "AcceptTime": "2018-12-08T14:47:02.000Z",
+    "AssignmentId": "33M4IA01QHPW6YGNA7LVZBEPO1FRXX",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T15:23:48.000Z",
+    "HITId": "3NOEP8XAU4Q8712F7DC46WJO7XSXPB",
+    "SubmitTime": "2018-12-08T15:23:48.000Z",
+    "answers": {
+        "attention_check": "blickets",
+        "condition": "single",
+        "sound_check": "skyscraper",
+        "subject_information": {
+            "age": "32",
+            "asses": "Yes",
+            "comments": "its very interesting task..",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "yes i agree",
+            "gender": "Male",
+            "language": "english",
+            "problems": "take more time to understand.."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 36.35093333333333,
+        "trials": [
+            {
+                "attentionCheck": "blickets",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544280975156
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544280980810
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544280990721
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544280993060
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544281099654
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544281103137
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544281105523
+                    }
+                ],
+                "freeResponse": "you can take an object out of the box to explore using the blue pick up button on the front of the box(blickets). it will be automatically moved to the blue stage.then you can drag the object to the green testing stage. you can press the green test button to test whether or not an object produce a sound. after the objects has been tested, it will be automatically moved to pink tested item stage.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.75,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 2.51995,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

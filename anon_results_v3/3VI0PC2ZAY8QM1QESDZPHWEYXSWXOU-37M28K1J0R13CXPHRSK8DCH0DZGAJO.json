@@ -1,0 +1,183 @@
+{
+    "AcceptTime": "2018-12-08T15:26:08.000Z",
+    "AssignmentId": "37M28K1J0R13CXPHRSK8DCH0DZGAJO",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T15:33:04.000Z",
+    "HITId": "3VI0PC2ZAY8QM1QESDZPHWEYXSWXOU",
+    "SubmitTime": "2018-12-08T15:33:04.000Z",
+    "answers": {
+        "attention_check": "Blicket's squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "26",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": ".35",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.8159,
+        "trials": [
+            {
+                "attentionCheck": "Blicket's squeak.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544283074935
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544283075067
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283080813
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283082105
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283100983
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283101599
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283102130
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283104283
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283104830
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283105427
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283112373
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283112999
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283113411
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283115308
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283115951
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283116347
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283117896
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283118324
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283119035
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283120832
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283123331
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283124423
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283125833
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283126347
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283126849
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283128472
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283129028
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283129486
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544283130747
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544283131220
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544283131671
+                    }
+                ],
+                "freeResponse": "Blicket's do not squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 9,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8552666666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

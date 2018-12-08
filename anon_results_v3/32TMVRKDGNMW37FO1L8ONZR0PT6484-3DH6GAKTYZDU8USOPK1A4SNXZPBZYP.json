@@ -1,0 +1,121 @@
+{
+    "AcceptTime": "2018-12-08T17:33:10.000Z",
+    "AssignmentId": "3DH6GAKTYZDU8USOPK1A4SNXZPBZYP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T18:07:06.000Z",
+    "HITId": "32TMVRKDGNMW37FO1L8ONZR0PT6484",
+    "SubmitTime": "2018-12-08T18:07:06.000Z",
+    "answers": {
+        "attention_check": "this blacket sqeez",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "nice study",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 3.9178166666666665,
+        "trials": [
+            {
+                "attentionCheck": "blickets",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544292277983
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544292278110
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544292288763
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544292289915
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544292295170
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544292296083
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544292337006
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544292338234
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544292338355
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544292340482
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544292341203
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544292344278
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544292345276
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544292345763
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544292347470
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544292348410
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544292349107
+                    }
+                ],
+                "freeResponse": "squez",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.53,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.94035,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

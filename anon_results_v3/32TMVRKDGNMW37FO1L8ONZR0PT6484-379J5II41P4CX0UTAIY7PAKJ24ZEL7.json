@@ -1,0 +1,155 @@
+{
+    "AcceptTime": "2018-12-08T17:35:07.000Z",
+    "AssignmentId": "379J5II41P4CX0UTAIY7PAKJ24ZEL7",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T17:42:35.000Z",
+    "HITId": "32TMVRKDGNMW37FO1L8ONZR0PT6484",
+    "SubmitTime": "2018-12-08T17:42:35.000Z",
+    "answers": {
+        "attention_check": "BLICKS SHLIQUOR QUICKS",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "26",
+            "asses": "Yes",
+            "comments": "GOOD",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.35",
+            "gender": "Male",
+            "language": "MALAYALAM",
+            "problems": "NO"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1024,
+            "screenW": 1280
+        },
+        "time_in_minutes": 6.52055,
+        "trials": [
+            {
+                "attentionCheck": "BLICKS LIQUOR QUIETS",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544290699278
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290699301
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290699309
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290700107
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290741422
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290742910
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290743015
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290743053
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290743649
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290746243
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290751757
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290752065
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290754897
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290755878
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290756394
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290759959
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290760299
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290766174
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290767775
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544290767805
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290767837
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290768278
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544290788145
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544290790029
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544290790386
+                    }
+                ],
+                "freeResponse": "IT IS YELLOW COLOUR DIAMOND",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.84,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.5767833333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

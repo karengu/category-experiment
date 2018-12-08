@@ -1,0 +1,84 @@
+{
+    "AcceptTime": "2018-12-08T14:21:32.000Z",
+    "AssignmentId": "369J354OFEYSYTNDT9IT0UNYPO26GJ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-09T14:24:44.000Z",
+    "HITId": "3VI0PC2ZAY8QM1QESDZPHWEYXSWXOU",
+    "SubmitTime": "2018-12-08T14:24:44.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "$1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 3.060766666666667,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544278959168
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544278960629
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544278984215
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278985867
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544278986900
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544278991969
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544278992875
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544278993723
+                    }
+                ],
+                "freeResponse": "Blickets will come in the box and must be properly tested first for squeaking as we would like for them all to squeak.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.74,
+                "proportionSuccess": 0,
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7399666666666667,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}
