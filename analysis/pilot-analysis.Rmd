@@ -1,26 +1,122 @@
 ---
-title: "Analysis of pilot data for gen ex"
-output: html_notebook
+title: "Analysis of pilot data 1 for genex"
+output: github_document
 ---
 
 [Link to expt](https://www.mit.edu/~karengu/category-experiment/template/template.html)
 
 ```{r}
+knitr::opts_chunk$set(echo = F, warning = F, fig.width = 6,
+                      fig.height =4, fig.asp = 0.5)
 library(ggthemes)
 library(tidyboot)
+library("jsonlite")
+library("tidyverse")
+library(knitr)
 theme_set(theme_few())
 ```
 
-must run `summarize_results.R`
+```{r echo=F, warning=F}
+data.path <- "../anon_results_v1/"
+anon_results = list.files(data.path)
+summary <- data.frame(
+  participantId = integer(),
+  trialId = integer(),
+  itemsTested = integer(),
+  timeExploring = double(),
+  utteranceType = character(),
+  proportionSuccess = double(),
+  probabilityOfFeature = double(),
+  genericEndorsement = logical(),
+  stringsAsFactors = FALSE
+)
+names(summary) <- c("particpantId", "trialId", "itemsTested", "timeExploring", "utteranceType", "proportionSuccess", "probabilityOfFeature")
+events <- vector("list", length(anon_results))
+trial_summaries <- vector("list", length(anon_results))
+df <- data.frame()
+i = 0
+df.check <- data.frame()
+for (anon_result in anon_results) {
+  
+  result_json = fromJSON(paste(data.path, anon_result, sep = ""))[[7]]
+  
+
+  
+  trial_summary = result_json[[5]]
+  df <- bind_rows(
+    df,
+    left_join( trial_summary,
+               result_json$trials %>% 
+                 select(-events, -testResults, -trial_type) %>% 
+                 gather(key, val, -id) %>%
+                 drop_na() %>% 
+                 spread(key, val)
+    ) %>% mutate(workerid = i)
+  )
+
+  
+  df.check <- bind_rows(
+    df.check,
+    result_json$trials %>% 
+      select(trial_type, response) %>% 
+      filter(trial_type %in% c("check_sound", "attention_check")) %>%
+      spread(trial_type, response) %>%
+      mutate(workerid = i)
+  )
+  
+  
+  trials = result_json[[6]]
+  individual_events = vector("list", 
+                             length(fromJSON(paste(data.path, anon_result, sep = "")[[1]])[[7]][[5]]))
+  
+  
+  for (row in 1:nrow(trial_summary)) {
+    trial_explore = filter(trials, !is.na(id), id == trial_summary[row, "id"], trial_type == "explore")
+    trial_prob = filter(trials, !is.na(id), id == trial_summary[row, "id"], trial_type == "testProb")
+    trial_generic = filter(trials, !is.na(id), id == trial_summary[row, "id"], trial_type == "testGeneric")
+    individual_events[[row]] <- transmute(trial_explore[1, "events"][[1]], event = event, timestamp = time - trial_explore[1, "events"][[1]][1, "time"])
+    summary <- rbind(summary, data.frame(
+      participantId = i, 
+      trialId = trial_summary[row, "id"], 
+      itemsTested = trial_explore[1, "itemsTested"], 
+      timeExploring = trial_explore[1, "timeExploring"], 
+      utteranceType = trial_summary[row, "utteranceType"], 
+      proportionSuccess = trial_summary[row, "proportionSuccess"],
+      probabilityOfFeature = trial_prob[1, "probabilityOfFeature"],
+      genericEndorsement = trial_generic[1, "genericEndorsement"] == "Yes"))
+  }
+  i = i + 1
+  events[[i]] <- individual_events
+  trial_summaries[[i]] <- trial_summary
+}
+```
+
+```{r}
+df.check %>% 
+  filter(!(check_sound %in% c("tiger", "Tiger"))) %>%
+  pull(workerid)
+```
+
+```{r}
+problem.subjects <- c(0, 29, 15, 23)
+```
+
+4 subjects excluded for either not reporting a sensible summary of the experiment (2) or not inputting the sound check word "tiger" (2)
+
+## overall time exploring
+
 ```{r}
 # trialNum = id
 df.1 <- df %>%
+  filter(!(workerid %in% problem.subjects)) %>%
   rename(trialNum = id) %>%
   mutate(
     genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
     probabilityOfFeature = as.numeric(probabilityOfFeature),
     timeExploring = as.numeric(timeExploring),
-    itemsTested = as.numeric(as.character(itemsTested))
+    itemsTested = as.numeric(as.character(itemsTested)),
+    utteranceType = ifelse(utteranceType == "barePlural", 
+                                "generic", "specific")
   )
 
 df.1 %>%
@@ -28,6 +124,7 @@ df.1 %>%
   geom_histogram()
 ```
 
+## Time exploring: by utterance and true probability
 
 ```{r}
 df.1 %>%
@@ -36,6 +133,9 @@ df.1 %>%
   facet_grid(utteranceType ~ proportionSuccess)
 ```
 
+## Items tested: by utterance and true probability
+
+
 ```{r}
 df.1 %>%
   ggplot(., aes( x = itemsTested))+
@@ -43,7 +143,25 @@ df.1 %>%
   facet_grid(utteranceType ~ proportionSuccess)
 ```
 
+## Probability judgment: by utterance & true probability
 
+```{r}
+df.1 %>%
+  ggplot(., aes( x = probabilityOfFeature))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ proportionSuccess)+
+  xlab("probability judgment")
+```
+
+## Items tested vs. probability judgment vs. true probability
+
+```{r}
+df.1 %>%
+  ggplot(., aes( x = probabilityOfFeature, y = itemsTested, 
+                 color = factor(proportionSuccess)))+
+  geom_point()+
+  xlab("probability judgment")
+```
 
 
 ```{r}
@@ -54,13 +172,17 @@ df.bs <- df.1 %>%
   tidyboot_mean(column = val)
 ```
 
+## All measures (means and 95% CI)
+
 ```{r}
 df.bs %>% 
   ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
                  y = mean, ymin = ci_lower, ymax = ci_upper))+
-  geom_col(position = position_dodge())+
-  geom_errorbar(position = position_dodge())+
-  facet_wrap(~key, scales = 'free')
+  geom_col(position = position_dodge(0.9), color = 'black')+
+  geom_errorbar(position = position_dodge(0.9), width =0.5)+
+  scale_fill_solarized()+
+  facet_wrap(~key, scales = 'free')+
+  xlab("true probability")
 ```
 
 ```{r}
@@ -72,6 +194,9 @@ df.bs.0 <- df.1 %>%
   tidyboot_mean(column = val)
 ```
 
+# First trial only
+
+## First trial only: items tested
 
 ```{r}
 df.1 %>%
@@ -81,11 +206,34 @@ df.1 %>%
   facet_grid(utteranceType ~ proportionSuccess)
 ```
 
+## First trial only: All measures (means and 95% CI)
+
 ```{r}
 df.bs.0 %>% 
   ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
                  y = mean, ymin = ci_lower, ymax = ci_upper))+
-  geom_col(position = position_dodge())+
-  geom_errorbar(position = position_dodge())+
-  facet_wrap(~key, scales = 'free')
+  geom_col(position = position_dodge(0.9), color = 'black')+
+  geom_errorbar(position = position_dodge(0.9), width =0.5)+
+  scale_fill_solarized()+
+  facet_wrap(~key, scales = 'free')+
+  xlab("true probability")
+```
+
+
+## Free response data (with other data)
+
+
+```{r, echo = T}
+df.1 %>%
+  select(workerid,trialNum, utteranceType, proportionSuccess, freeResponse, probabilityOfFeature, genericEndorsement, itemsTested, timeExploring) %>%
+  rename( utt = utteranceType,
+          trial = trialNum,
+          prob = proportionSuccess,
+          subj = workerid,
+          response = freeResponse,
+          probJudge = probabilityOfFeature,
+         generic = genericEndorsement,
+         n_items = itemsTested, 
+         time = timeExploring) %>%
+  kable()
 ```
