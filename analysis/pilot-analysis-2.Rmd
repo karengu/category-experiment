@@ -1,11 +1,14 @@
 ---
-title: "Analysis of pilot data for gen ex"
-output: html_notebook
+title: "Analysis of pilot data 2 for gen ex"
+output: github_document
 ---
 
 [Link to expt](https://www.mit.edu/~karengu/category-experiment/template/template.html)
 
-```{r}
+```{r, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, fig.width = 6,
+                      fig.height =4, fig.asp = 0.5)
+library(knitr)
 library(ggthemes)
 library(tidyboot)
 library("jsonlite")
@@ -14,8 +17,7 @@ theme_set(theme_few())
 results.path <- "../anon_results_v2/"
 ```
 
-```{r}
-
+```{r, echo=F, warning=F}
 
 anon_results = list.files(results.path)
 
@@ -55,39 +57,67 @@ for (anon_result in anon_results) {
 problem.subjects <- c(10, 23, 28, 29, 31)
 ```
 
+5 subjects excluded for either not reporting what Ashley told them (4) or not inputting the sound check "tiger" (1)
+
 ```{r}
 df.trials <- df.trials %>%
   mutate(exclude = workerid %in% problem.subjects,
-         genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0)) %>%
+         genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+         utteranceType = ifelse(utteranceType == "barePlural", 
+                                "generic", "specific")) %>%
   rename(trialNum = id)
 ```
 
 
+#### Number of subjects
 
-```{r}
-# trialNum = id
-df.1 <- df %>%
-  rename(trialNum = id) %>%
-  mutate(
-    genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
-    probabilityOfFeature = as.numeric(probabilityOfFeature),
-    timeExploring = as.numeric(timeExploring),
-    itemsTested = as.numeric(as.character(itemsTested))
-  )
-
-df.1 %>%
-  ggplot(., aes( x = timeExploring))+
-  geom_histogram()
+```{r echo = T}
+df.trials %>%
+  group_by(utteranceType, exclude) %>%
+  count() %>%
+  kable()
 ```
 
+
+
+
+## Free response data (with other data)
+
+Excluded subjects marked with `Exclude` 
+
+```{r, echo = T}
+df.trials %>%
+  select(workerid, utteranceType, exclude, freeResponse, probabilityOfFeature, genericEndorsement, itemsTested, timeExploring) %>%
+  rename( utterance = utteranceType,
+          subj = workerid,
+          response = freeResponse,
+          probJudge = probabilityOfFeature,
+         generic = genericEndorsement,
+         n_items = itemsTested, 
+         time = timeExploring) %>%
+  kable()
+```
+
+
+```{r eval = F}
+df.trials %>%
+  filter(!exclude) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram( bins = 20)
+```
+
+## Time exploring
 
 ```{r}
 df.trials %>%
   filter(!exclude) %>%
   ggplot(., aes( x = timeExploring))+
-  geom_histogram()+
+  geom_histogram( bins = 10)+
   facet_grid(utteranceType ~ .)
+  #xlim(0, 2)
 ```
+
+## Objects tested
 
 ```{r}
 df.trials %>%
@@ -97,6 +127,8 @@ df.trials %>%
   facet_grid(utteranceType ~ .)
 ```
 
+## Probability judgment
+
 ```{r}
 df.trials %>%
   filter(!exclude) %>%
@@ -104,6 +136,8 @@ df.trials %>%
   geom_histogram()+
   facet_grid(utteranceType ~ .)
 ```
+
+## Items tested vs. probability judgment
 
 ```{r}
 df.trials %>%
@@ -121,12 +155,15 @@ df.bs <- df.trials %>%
   tidyboot_mean(column = val)
 ```
 
+## All measures (means and 95% CI)
+
 ```{r}
 df.bs %>% 
   ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
                  y = mean, ymin = ci_lower, ymax = ci_upper))+
-  geom_col(position = position_dodge())+
-  geom_errorbar(position = position_dodge())+
+  geom_col(position = position_dodge(1), color = 'black')+
+  geom_errorbar(position = position_dodge(1), width =0.5)+
   scale_fill_solarized()+
-  facet_wrap(~key, scales = 'free')
+  facet_wrap(~key, scales = 'free')+
+  xlab("true probability")
 ```
