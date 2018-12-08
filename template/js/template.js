@@ -382,7 +382,7 @@ function make_slides(f) {
           var bBox = this.getBBox(); // gets top left coordinates of bounding box
           xTrans = 0;
             yTrans = 0;
-	    if (this.id == firstItemId) {
+	    if (this.id == demoItemId) {
 		arrow.remove();
 	    }
           if (bBox.x < 0) {
@@ -454,9 +454,9 @@ function make_slides(f) {
         var garbageLabel = paper.text(620, labelLevel, "Tested Items").attr({"font-size": 14});
         // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
-	var firstItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
-        paper.customAttributes.pickedItemId = firstItem.id;
-        const firstItemId = firstItem.id;
+	var demoItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
+        paper.customAttributes.pickedItemId = demoItem.id;
+        const demoItemId = demoItem.id;
         // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
@@ -465,7 +465,7 @@ function make_slides(f) {
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
 	  setTimeout(function() {
-            firstItem.drag(move, start, up); // allow user to test exemplar
+            demoItem.drag(move, start, up); // allow user to test exemplar
 	  }, 1500);
         }, 2000);
 	  paper.customAttributes.classroomIntro = paper.text(400, 20, stim.investigator+' takes you into the classroom.').attr({"font-size": 16});
@@ -495,7 +495,7 @@ function make_slides(f) {
             blicketPile.forEach(function(blicket) {
 	      blicket.attr({"fill": stim.objectColor});
 	    })
-            if (testItem.id == firstItemId) {
+            if (testItem.id == demoItemId) {
 	      if (utterance) {
 	        utterance.remove();
 	      }
@@ -503,13 +503,13 @@ function make_slides(f) {
 	      $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
 	      $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided.)');
 	    }
-            if (testSequence[testSequenceIndex] || testItem.id == firstItemId) {
+            if (testSequence[testSequenceIndex] || testItem.id == demoItemId) {
 	      positiveSound.play();
             }
 	    else if (exp.config.negativeProperty) {
               negativeSound.play();
 	    }
-            if (testItem.id != firstItemId) {
+            if (testItem.id != demoItemId) {
               exp.testResults.push(testSequence[testSequenceIndex]);
               testSequenceIndex ++;
 	      if (testSequenceIndex == stim.testSequence.binSize) {
@@ -521,6 +521,12 @@ function make_slides(f) {
             else {
               exp.startExploration = Date.now();
             }
+	      if (paper.customAttributes.itemsTested == 1) {
+		  setTimeout(function() { // delay showing button to leave for 2 seconds
+          $('#ddbutton').show();
+          $('#ddbutton').text('Leave testing area');
+        }, 2000);
+	      }
             var bBox = testItem.getBBox();
             drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
             paper.customAttributes.testItem = null;
@@ -617,10 +623,6 @@ function make_slides(f) {
             exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
           }
         }, 1000);
-        setTimeout(function() { // delay showing button to leave for 7 seconds
-          $('#ddbutton').show();
-          $('#ddbutton').text('Leave testing area');
-        }, 7000);
       }
     },
     log_responses: function() {
@@ -917,7 +919,7 @@ function init() {
   ];
 
     exp.config = {
-	negativeProperty: 'whistle',
+	negativeProperty: null, // one of the sound files in _shared/audio or null
 	coverStory: 'teacher'
     };
 
