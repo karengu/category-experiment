@@ -226,15 +226,16 @@ var drag_and_drop = {
     
     makeSphere: makeSphere,
     
-    alert: function(paper, headerText, text, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime, restTime) {
+    alert: function(paper, headerText, textBefore, textAfter, belowTextBefore, belowTextAfter, fadeOut, wait, fadeInTime, restTime) {
     var alert = paper.set();
       paper.customAttributes.startReading = Date.now();
       alert.push(paper.rect(20,370,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
       alert.push(paper.text(400, 400, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-	alert.push(paper.text(400,445, text).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+	alert.push(paper.text(400,430, textBefore).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+	alert.push(paper.text(400, 455, textAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 20, "font-weight": "bold"}));
 	setTimeout(function() {
-			       alert.push(paper.text(400, 490, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-      alert.push(paper.text(400, 505, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+			       alert.push(paper.text(400, 490, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+      alert.push(paper.text(400, 505, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	    alert.push(paper.text(400, 550, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
 	}, restTime);
     alert.click(function() {
@@ -254,5 +255,43 @@ var drag_and_drop = {
       });
     }
     return alert;
-  }
+    },
+
+    alert2: function(paper, headerText, textBefore, textAfter, belowText1, belowText2, belowText3, belowText4, belowText5, belowText6, belowText7, belowText8, belowText9, fadeOut, wait, fadeInTime, restTime) {
+    var alert = paper.set();
+      paper.customAttributes.startReading = Date.now();
+      alert.push(paper.rect(20,370,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+      alert.push(paper.text(400, 390, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+	alert.push(paper.text(400,415, textBefore).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
+	alert.push(paper.text(400, 440, textAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 20, "font-weight": "bold"}));
+	setTimeout(function() {
+	    alert.push(paper.text(400, 475, belowText1).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(202, 495, belowText2).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(445, 495, belowText3).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	    alert.push(paper.text(643, 495, belowText4).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(305, 515, belowText5).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	    alert.push(paper.text(465, 515, belowText6).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(518, 515, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	    alert.push(paper.text(605, 515, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(370, 535, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(400, 555, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	}, restTime);
+    alert.click(function() {
+      if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
+        alert.remove();
+      }
+    });
+    if (fadeOut) {
+      var fadeOutFunc = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
+      alert.forEach(function(elem) {
+        elem.animate({"fill-opacity": 1,"stroke-opacity":1},500,"easeInOut", function() {elem.animate(fadeOutFunc.delay(500))})
+      });
+    }
+    else {
+      alert.forEach(function(elem) {
+        elem.animate({"fill-opacity": 1, "stroke-opacity":1}, fadeInTime, "easeInOut");
+      });
+    }
+    return alert;
+    }
 }

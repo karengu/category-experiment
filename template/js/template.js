@@ -463,7 +463,7 @@ function make_slides(f) {
         paper.customAttributes.itemsTested = 0;
         paper.customAttributes.logResultDepth = 250;
         var arrow = paper.path("M150,250 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
-        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 4000);
+          var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, '', exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 4000);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
 	  setTimeout(function() {
@@ -639,12 +639,18 @@ function make_slides(f) {
         setTimeout(function() {
 
           if (stim.id == 0) { // give reminder of how to drag items on first trial
-              exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+
-                ' has to go teach her class now.',
-                'She encourages you to explore the ' + stim.objectNamePlural.toLowerCase() +
+              exp.paper.customAttributes.continueTesting = drag_and_drop.alert2(
+		  exp.paper,
+stim.investigator+' has to go teach her class now.',
+									       'She encourages you to explore the ' + stim.objectNamePlural.toLowerCase(),
                 ' so that you can plan the best lesson possible for your students.',
-                'Please explore the ' + stim.objectNamePlural.toLowerCase() + ' for as long as you want. Afterward you will answer questions about what you learned and teach children about them.'+
-                "<br><strong>Click the Blue Pick Up</strong> button to pick up blickets, then <strong>drag them to the Green Testing Stage</strong> and <strong>click Test*</strong>to test them.",
+		  'Please explore the ' + stim.objectNamePlural.toLowerCase() + ' for as long as you want. Afterward you will answer questions about what ', 'you learned and teach children about them.',
+										"Click the Blue Pick Up",
+										" button to pick up blickets, then ",
+										"drag them to the Green Testing Stage",
+										" and ",
+										"click Test ",
+										"to test them.",
                 ' When you are ready to answer questions and teach about them, click Leave testing area.',
                  false, false, 500, 0);
           }
@@ -964,9 +970,9 @@ function init() {
 
   //blocks of the experiment:
   exp.structure=[
-    'i0',
-    'check_sound',
-    'introduction',
+    //'i0',
+    //'check_sound',
+    //'introduction',
     // 'instructions',
     'drag_and_drop',
     'attention_check',
