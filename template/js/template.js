@@ -942,5 +942,6 @@ function init() {
   });
 
     exp.go(); //show first slide
+    USOnly();
     uniqueTurker();
 }
