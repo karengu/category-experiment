@@ -1,0 +1,176 @@
+---
+title: "Analysis of pilot data 3 for genex"
+output: github_document
+---
+
+Changes from Pilot 2
+- no alternative sound (pilot 2 had alternative sound)
+- force participants to try one item
+
+[Link to expt](https://www.mit.edu/~karengu/category-experiment/template/template.html)
+
+```{r, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, fig.width = 6,
+                      fig.height =4, fig.asp = 0.5)
+library(knitr)
+library(ggthemes)
+library(tidyboot)
+library("jsonlite")
+library("tidyverse")
+theme_set(theme_few())
+results.path <- "../anon_results_v3/"
+```
+
+```{r, echo=F, warning=F}
+
+anon_results = list.files(results.path)
+
+i = 0
+df.subject <- data.frame()
+df.trials <- data.frame()
+df.attention <- data.frame()
+for (anon_result in anon_results) {
+  
+  result_json = fromJSON(paste(results.path, anon_result, sep =""))
+
+  df.attention = bind_rows(
+    df.attention, 
+    data.frame(
+      workerid = i,
+      sound_check = result_json$answers$sound_check,
+      attention_check = result_json$answers$attention_check,
+      utterance = result_json$answers$trials$utteranceType
+    )
+  )
+  
+  df.subject = bind_rows(
+    df.subject, 
+    data.frame(result_json$answers$subject_information) %>% mutate(workerid = i)
+  )
+  
+  df.trials = bind_rows(
+    df.trials, 
+    result_json$answers$trials %>% select(-events, -testResults) %>% mutate(workerid = i)
+  )
+
+  i = i + 1
+}
+```
+
+
+```{r}
+failed.attention <- c(0, 1, 3, 4, 8, 11, 19, 20, 21, 24, 29)
+non.english <- c(0,  4, 7, 8, 19, 21, 29, 33, 35)
+```
+
+
+
+```{r}
+df.trials <- df.trials %>%
+  mutate(fail_attention = workerid %in% failed.attention,
+         non_english = workerid %in% non.english,
+         genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+         utteranceType = ifelse(utteranceType == "barePlural", 
+                                "generic", "specific")) %>%
+  rename(trialNum = id)
+```
+
+
+#### Number of subjects
+
+```{r echo = T}
+df.trials %>%
+  group_by(utteranceType, fail_attention, non_english) %>%
+  count() %>%
+  kable()
+```
+
+
+
+
+## Free response data (with other data)
+
+Excluded subjects marked with `Exclude` 
+
+```{r, echo = T}
+df.trials %>%
+  select(workerid, utteranceType, fail_attention, non_english, freeResponse, probabilityOfFeature, genericEndorsement, itemsTested, timeExploring) %>%
+  rename( utterance = utteranceType,
+          subj = workerid,
+          response = freeResponse,
+          probJudge = probabilityOfFeature,
+         generic = genericEndorsement,
+         n_items = itemsTested, 
+         time = timeExploring) %>%
+  kable()
+```
+
+
+```{r eval = F}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram( bins = 20)
+```
+
+## Time exploring
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram( bins = 10)+
+  facet_grid(utteranceType ~ .)
+  #xlim(0, 2)
+```
+
+## Objects tested
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = itemsTested))+
+  geom_bar()+
+  facet_grid(utteranceType ~ .)
+```
+
+## Probability judgment
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = probabilityOfFeature))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ .)
+```
+
+## Items tested vs. probability judgment
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = probabilityOfFeature, y = itemsTested, color = utteranceType))+
+  geom_point()
+```
+
+```{r}
+df.bs <- df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  select(-freeResponse) %>%
+  gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
+  group_by(key, utteranceType, proportionSuccess) %>%
+  tidyboot_mean(column = val)
+```
+
+## All measures (means and 95% CI)
+
+```{r}
+df.bs %>% 
+  ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
+                 y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_col(position = position_dodge(1), color = 'black')+
+  geom_errorbar(position = position_dodge(1), width =0.5)+
+  scale_fill_solarized()+
+  facet_wrap(~key, scales = 'free')+
+  xlab("true probability")
+```
