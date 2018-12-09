@@ -970,9 +970,9 @@ function init() {
 
   //blocks of the experiment:
   exp.structure=[
-    //'i0',
-    //'check_sound',
-    //'introduction',
+    'i0',
+    'check_sound',
+    'introduction',
     // 'instructions',
     'drag_and_drop',
     'attention_check',
