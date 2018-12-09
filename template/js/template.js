@@ -6,7 +6,7 @@ function make_slides(f) {
     start: function() {
       exp.startT = Date.now();
       $('#instruct-text > #1').text("some objects");
-      $('#instruct-text > #2').text("3");
+      $('#instruct-text > #2').text("3-5");
     }
   });
 
@@ -296,7 +296,8 @@ function make_slides(f) {
 	$('.testGeneric').hide();
         $('.testFree').hide();
         $('.explore').hide();
-        $('.transition').show();
+          $('.transition').show();
+	  	  $('.testReasoning').hide();
 	if (exp.config.coverStory == 'teacher') {
 	  $('#testStatement').text('You are going to talk with your fellow teacher, '+stim.investigator+'.');
 	  $('#utterance').text(stim.investigator+' will teach you about '+stim.objectNamePlural.toLowerCase()+'.');
@@ -344,7 +345,8 @@ function make_slides(f) {
         $('#ddbutton').hide();
         $('.testProb').hide();
 	$('.testGeneric').hide();
-        $('.testFree').hide();
+          $('.testFree').hide();
+	  	  $('.testReasoning').hide();
         $('.explore').show();
         $('.transition').hide();
 	$('.writeNotebook').hide();
@@ -567,7 +569,8 @@ function make_slides(f) {
         $('.left').text("definitely won't "+stim.successfulTestResult);
         $('.right').text("definitely will "+stim.successfulTestResult);
         this.init_sliders();
-        exp.sliderPost = null;
+          exp.sliderPost = null;
+	  	  $('.testReasoning').hide();
       }
       else if (stim.type == 'testGeneric') {
         this.stim = stim;
@@ -583,7 +586,8 @@ function make_slides(f) {
         $('.testGeneric').show();
         $('.testFree').hide();
         $('#generic').text(stim.objectNamePlural+' '+stim.successfulTestResult+'.');
-        $('input[name="endorsement"]').prop('checked', false);
+          $('input[name="endorsement"]').prop('checked', false);
+	  	  $('.testReasoning').hide();
       }
       else if (stim.type == 'testFree') {
         this.stim = stim;
@@ -599,8 +603,25 @@ function make_slides(f) {
         $('.testGeneric').hide();
         $('.testFree').show();
         $('#free_response_prompt').text('Please write down what you would tell your students to teach them about '+stim.objectNamePlural.toLowerCase()+'.');
-        $('#free_response').val('');
+          $('#free_response').val('');
+	  $('.testReasoning').hide();
       }
+	else if (stim.type == 'testReasoning') {
+	    this.stim = stim;
+	    $('.err').hide();
+	    $('#ddbutton').hide();
+        setTimeout(function() {
+          $('#ddbutton').show();
+	  $('#ddbutton').text('Continue');
+        }, 2000);
+        $('.explore').hide();
+        $('.transition').hide();
+        $('.testProb').hide();
+        $('.testGeneric').hide();
+            $('.testFree').hide();
+	    $('.testReasoning').show();
+	    $('#reasoning_prompt').text('Did the '+stim.objectNamePlural.toLowerCase()+' you tested '+stim.successfulTestResult+'?');
+	}
     },
     writeInNotebook: function() {
       if ($('#notebookInput').val() == '') {
@@ -617,7 +638,7 @@ function make_slides(f) {
         const stim = this.stim;
         setTimeout(function() {
           if (stim.id == 0) { // give reminder of how to drag items on first trial
-            exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500, 0);
+              exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work. You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'This will help you teach children about '+stim.objectNamePlural.toLowerCase()+' later.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500, 0);
           }
           else { // no reminder on all subsequent trials
             exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
@@ -642,6 +663,10 @@ function make_slides(f) {
       else if (exp.type == 'testFree') {
         exp.data_trials[this.stim.id].freeResponse = $('#free_response').val();
       }
+	else if (exp.type == 'testReasoning') {
+	    exp.data_trials[this.stim.id].featureAgreement = $('input[name="agreement"]:checked').val();
+	    exp.data_trials[this.stim.id].reasoning = $('#reasoning').val();
+	}
     },
     init_sliders : function() {
       utils.make_slider("#prob_slider", function(event, ui) {
@@ -686,11 +711,24 @@ function make_slides(f) {
 	  _stream.apply(this);
         }
       }
+	else if (exp.type == 'testReasoning') {
+	    if ($('input[name="agreement"]:checked').val() == null || $('#reasoning').val() == '') { // check to make sure user answered
+		$('.err').show();
+	    }
+	    else {
+		this.log_responses();
+		_stream.apply(this);
+	    }
+	}
     }
   });
 
   slides.attention_check = slide({
-    name: "attention_check",
+      name: "attention_check",
+      start: function() {
+	  console.log('inside attention_check');
+	  $('.err').hide();
+      },
     button: function() {
       if ($('#attention_check_response').val() == '') {
         $('.err').show()
@@ -903,6 +941,11 @@ function init() {
       type: "testFree",
       id: 0,
       objectNamePlural: objects[0].plural
+    }, {
+	type: "testReasoning",
+	id: 0,
+	objectNamePlural: objects[0].plural,
+	successfulTestResult: objects[0].sound
     }];
   }
   else {
