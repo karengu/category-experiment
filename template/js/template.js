@@ -14,9 +14,9 @@ function make_slides(f) {
     name: "introduction",
     start: function() {
       $('#intrButton').hide();
-      setTimeout(function() {
+      // setTimeout(function() {
         $('#intrButton').show();
-      }, 5000)
+      // }, 5000)
     },
     button: function() {
 	exp.go();
@@ -299,18 +299,18 @@ function make_slides(f) {
           $('.transition').show();
 	  	  $('.testReasoning').hide();
 	if (exp.config.coverStory == 'teacher') {
-	  $('#testStatement').text('You are going to talk with your fellow teacher, '+stim.investigator+'.');
-	  $('#utterance').text(stim.investigator+' will teach you about '+stim.objectNamePlural.toLowerCase()+'.');
-	  setTimeout(function() {
+	  // $('#testStatement').text('Your fellow teacher '+stim.investigator+'.');
+	  $('#utterance').text('Your fellow teacher '+stim.investigator+' will teach you about '+stim.objectNamePlural.toLowerCase()+'.');
+	  // setTimeout(function() {
 	    $('#ddbutton').show();
-          }, 2000);
+          // }, 2000);
         }
         else if (stim.id == 0) {
           $('#testStatement').text('First, you are going to talk with '+stim.investigator+'.');
 	  $('#utterance').text(stim.investigator+' has been exploring '+stim.objectNamePlural.toLowerCase()+'.');
-	  setTimeout(function() {
+	  // setTimeout(function() {
 	    $('#ddbutton').show();
-	  }, 2000);
+	  // }, 2000);
 	}
 	else if (stim.last) {
 	  $('#testStatement').text('Now you are done with the exploration.');
@@ -325,7 +325,7 @@ function make_slides(f) {
 	  }, 2000);
 	}
       }
-	
+
       else if (stim.type == "explore") {
         this.stim = stim;
 	exp.utteranceHeader = stim.investigator+' tells you that: ';
@@ -352,7 +352,7 @@ function make_slides(f) {
 	$('.writeNotebook').hide();
 	$('.notebook').hide();
 	$('#classroomIntro').text(stim.investigator+' takes you into the classroom.');
-        exp.belowUtteranceBefore = 'Try testing the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
+        exp.belowUtteranceBefore = 'Test the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
 	exp.belowUtteranceAfter = ' from the blue stage to the green testing stage and clicking the green Test button.';
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
@@ -637,8 +637,16 @@ function make_slides(f) {
             exp.paper.customAttributes.classroomIntro.remove();
         const stim = this.stim;
         setTimeout(function() {
+
           if (stim.id == 0) { // give reminder of how to drag items on first trial
-              exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work. You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', 'This will help you teach children about '+stim.objectNamePlural.toLowerCase()+' later.', 'You can use the blue Pick Up button to pick up '+stim.objectNamePlural.toLowerCase()+', then drag them to the green Testing Stage', ' and hit Test to test them. When you are ready to answer questions about them, click Leave testing area.', false, false, 500, 0);
+              exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+
+                ' has to go teach her class now.',
+                'She encourages you to explore the ' + stim.objectNamePlural.toLowerCase() +
+                ' so that you can plan the best lesson possible for your students.',
+                'Please explore the ' + stim.objectNamePlural.toLowerCase() + ' for as long as you want. Afterward you will answer questions about what you learned and teach children about them.'+
+                "<br><strong>Click the Blue Pick Up</strong> button to pick up blickets, then <strong>drag them to the Green Testing Stage</strong> and <strong>click Test*</strong>to test them.",
+                ' When you are ready to answer questions and teach about them, click Leave testing area.',
+                 false, false, 500, 0);
           }
           else { // no reminder on all subsequent trials
             exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
@@ -956,8 +964,12 @@ function init() {
 
   //blocks of the experiment:
   exp.structure=[
-    'i0','introduction', 'check_sound', 'instructions','drag_and_drop',
-      'attention_check',
+    'i0',
+    'check_sound',
+    'introduction',
+    // 'instructions',
+    'drag_and_drop',
+    'attention_check',
     'subj_info', 'thanks'
   ];
 
