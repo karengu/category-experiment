@@ -1,0 +1,112 @@
+{
+    "AcceptTime": "2018-12-10T15:22:12.000Z",
+    "AssignmentId": "3SLE99ER0O1YVMZDFSNQWHPWETHZBO",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:28:23.000Z",
+    "HITId": "31GECDVA9JANEG0ERU450JFNGXR66R",
+    "SubmitTime": "2018-12-10T15:28:23.000Z",
+    "answers": {
+        "attention_check": "blicket squeaks ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "29",
+            "asses": "Yes",
+            "comments": "N/A",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1200,
+            "screenW": 1920
+        },
+        "time_in_minutes": 6.107766666666667,
+        "trials": [
+            {
+                "attentionCheck": "wicked squick",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544455403523
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455408768
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455472281
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455473029
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455473714
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455476504
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455477045
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455477949
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455480921
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455481650
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455483617
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455486716
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455487718
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455488670
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "blickets are picked up and then placed on the blue board, you transfer it to green board and test it. It will make a noise when you test it, it will either squeak or make loud bang noise. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.08,
+                "proportionSuccess": 0,
+                "reasoning": "They made a banging sound.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.4176333333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

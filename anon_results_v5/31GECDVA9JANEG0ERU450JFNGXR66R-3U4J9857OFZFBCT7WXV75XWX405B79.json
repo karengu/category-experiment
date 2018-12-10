@@ -1,0 +1,120 @@
+{
+    "AcceptTime": "2018-12-10T16:21:36.000Z",
+    "AssignmentId": "3U4J9857OFZFBCT7WXV75XWX405B79",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:30:16.000Z",
+    "HITId": "31GECDVA9JANEG0ERU450JFNGXR66R",
+    "SubmitTime": "2018-12-10T16:30:16.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "68",
+            "asses": "Yes",
+            "comments": "It was pretty straight forward. Thank you.",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 5.66595,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544459158899
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544459160237
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544459250359
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544459252585
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544459253772
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544459258833
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544459259917
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544459261044
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544459265972
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544459267003
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544459267838
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544459272019
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544459273205
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544459274080
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544459277769
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544459278252
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets make noise that sounds like a 'boom.'",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.29,
+                "proportionSuccess": 0,
+                "reasoning": "Because blickets don't squeak.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.0818166666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

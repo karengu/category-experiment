@@ -1,0 +1,138 @@
+{
+    "AcceptTime": "2018-12-10T15:21:05.000Z",
+    "AssignmentId": "3RWE2M8QWIY3UAIKEOF7HDM4DBD0NN",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:33:45.000Z",
+    "HITId": "31GECDVA9JANEG0ERU450JFNGXR66R",
+    "SubmitTime": "2018-12-10T15:33:45.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "36",
+            "asses": "Yes",
+            "comments": "I wasn't sure when to quit testing the Blickets. ",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.80",
+            "gender": "Female",
+            "language": "English",
+            "problems": "No."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Linux",
+            "screenH": 731,
+            "screenW": 1300
+        },
+        "time_in_minutes": 12.152033333333334,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544455798253
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455799426
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455826642
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455828863
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455829963
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455834132
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455835277
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455836225
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455839243
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455840864
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455841809
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455845349
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455846286
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455847434
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455850693
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455851865
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455853493
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455858111
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455860408
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455861297
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets squeak, but sometimes they do not. It might not be a blicket if it doesn't squeak. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.11,
+                "proportionSuccess": 0,
+                "reasoning": "I don't believe they were true blickets.  Of the 6 I tested only one squeaked.  That leads me to believe they were not all blickets in the basket.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.2350666666666668,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

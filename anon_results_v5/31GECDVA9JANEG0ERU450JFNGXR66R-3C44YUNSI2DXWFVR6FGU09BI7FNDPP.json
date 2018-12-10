@@ -1,0 +1,112 @@
+{
+    "AcceptTime": "2018-12-10T15:21:21.000Z",
+    "AssignmentId": "3C44YUNSI2DXWFVR6FGU09BI7FNDPP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:25:39.000Z",
+    "HITId": "31GECDVA9JANEG0ERU450JFNGXR66R",
+    "SubmitTime": "2018-12-10T15:25:39.000Z",
+    "answers": {
+        "attention_check": "blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "46",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 4.272666666666667,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544455473724
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455474965
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455534998
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455536809
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455537618
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455545398
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455547545
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455548162
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455552405
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455553394
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455554076
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455557973
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455558706
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455559420
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "The blicket makes a noise like a gunshot",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.17,
+                "proportionSuccess": 0,
+                "reasoning": "they did not make a squeaking noise during testing",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.1344833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}
