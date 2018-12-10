@@ -1,0 +1,86 @@
+{
+    "AcceptTime": "2018-12-10T14:26:25.000Z",
+    "AssignmentId": "3EF8EXOTT2J7I9CHV9RF2BOX9JQJ1H",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:35:55.000Z",
+    "HITId": "3W0KKJIARRXHH94RMDV4UGGWNNUK8P",
+    "SubmitTime": "2018-12-10T14:35:55.000Z",
+    "answers": {
+        "attention_check": "That blickets sqeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "It was a fun experiment.",
+            "education": "1",
+            "enjoyment": "1",
+            "fairprice": ".75",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Linux",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 7.5747333333333335,
+        "trials": [
+            {
+                "attentionCheck": "This blicket sqeeks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452289598
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452290748
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452338190
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452341159
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452342632
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452363951
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452365264
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452366470
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Some blickets sqeek some dont.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.52,
+                "proportionSuccess": 0,
+                "reasoning": "Yes some did and some didnt.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3120333333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

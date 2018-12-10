@@ -1,0 +1,203 @@
+{
+    "AcceptTime": "2018-12-10T14:11:27.000Z",
+    "AssignmentId": "3SLE99ER0O1YVMZDFSNQWHPWETNZBU",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:35:12.000Z",
+    "HITId": "3P458N04Q15CFU195F1SAJBVXWG2XS",
+    "SubmitTime": "2018-12-10T14:35:12.000Z",
+    "answers": {
+        "attention_check": "this blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "thanks",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no other blicket squeaked in case that wasn't by design"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.6097333333333332,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeaks ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452321764
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452322360
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452354540
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452356287
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452356830
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452361822
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452364976
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452365365
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452369615
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452370175
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452370577
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452372478
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452373315
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452374208
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452376695
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452377235
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452377840
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452380536
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452381603
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452382865
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452384243
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452384971
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452385917
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452388865
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452389310
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452389823
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452396135
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452396773
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452397349
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452399675
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452400427
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452401458
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452403102
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452404024
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452404288
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "The teacher was only talking about one specific blicket, all the other ones were soundless.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 11,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.05,
+                "proportionSuccess": 0,
+                "reasoning": "Because you did not attach a sound to any of the other blickets ",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3621833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

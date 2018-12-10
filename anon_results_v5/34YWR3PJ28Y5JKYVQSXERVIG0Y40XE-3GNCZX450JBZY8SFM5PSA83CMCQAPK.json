@@ -1,0 +1,159 @@
+{
+    "AcceptTime": "2018-12-10T15:26:08.000Z",
+    "AssignmentId": "3GNCZX450JBZY8SFM5PSA83CMCQAPK",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:06:26.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG0Y40XE",
+    "SubmitTime": "2018-12-10T16:06:26.000Z",
+    "answers": {
+        "attention_check": "that the blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "32",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".5",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 9.060816666666666,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544457769947
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544457769991
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457773327
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457774005
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457804891
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457805660
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457806183
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457810928
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457811486
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457812007
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457816000
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457816542
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457817285
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457819972
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457820686
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457821269
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457823974
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457824688
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457825331
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457827690
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457829024
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457829569
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457831458
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457832283
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457832761
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "While it initially appeared upon the first test that blickets squeak, as I tested several more from the box not a single one squeaked. What is clear is that blickets are yellow and diamond shaped. ",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 7,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "The one that was already placed for me to test did but not a single one I took from the box and tested squeaked",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.0480333333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

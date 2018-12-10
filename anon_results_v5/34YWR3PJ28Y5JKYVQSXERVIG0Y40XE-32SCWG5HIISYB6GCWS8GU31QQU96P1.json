@@ -1,0 +1,120 @@
+{
+    "AcceptTime": "2018-12-10T15:42:38.000Z",
+    "AssignmentId": "32SCWG5HIISYB6GCWS8GU31QQU96P1",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:31:27.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG0Y40XE",
+    "SubmitTime": "2018-12-10T16:31:27.000Z",
+    "answers": {
+        "attention_check": "That blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "39",
+            "asses": "Yes",
+            "comments": "Thank you!",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "80 cents",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 7.561616666666667,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544456548697
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544456548815
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456552867
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456554173
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456662260
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456663537
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456664637
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456672640
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456673567
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456674619
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456679390
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456680537
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456681200
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456704244
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456708099
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456708955
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets squeak like a toy but some sound like dropping a hammer on the floor.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.21,
+                "proportionSuccess": 0,
+                "reasoning": "It squeak but also had a different sound , like drooping a bomb.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.53305,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

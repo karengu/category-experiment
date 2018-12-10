@@ -1,0 +1,109 @@
+{
+    "AcceptTime": "2018-12-10T14:30:53.000Z",
+    "AssignmentId": "30LB5CDZNDYXBZW3HCQ1C0TDNPZ0ZI",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:11:21.000Z",
+    "HITId": "3P458N04Q15CFU195F1SAJBVXWG2XS",
+    "SubmitTime": "2018-12-10T15:11:21.000Z",
+    "answers": {
+        "attention_check": "Yellow blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "56",
+            "asses": "Yes",
+            "comments": "no comment",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "50 cents",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no comments"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 5.047666666666666,
+        "trials": [
+            {
+                "attentionCheck": "this object squeaks (yellow diamond)",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454442965
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454444193
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454508290
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454510238
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454510498
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454510578
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454510713
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454511312
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454512226
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454512984
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454513733
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454521932
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454523355
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454523489
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Yellow diamond shaped blickets squeak",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.48,
+                "proportionSuccess": 0,
+                "reasoning": "I heard the squeak",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 2.010666666666667,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

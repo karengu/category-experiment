@@ -1,0 +1,146 @@
+{
+    "AcceptTime": "2018-12-10T14:26:48.000Z",
+    "AssignmentId": "3IX2EGZR7C7VBEBYT36U826ADHKRJL",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:05:11.000Z",
+    "HITId": "3W0KKJIARRXHH94RMDV4UGGWNNUK8P",
+    "SubmitTime": "2018-12-10T15:05:11.000Z",
+    "answers": {
+        "attention_check": "That blickets squeak ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "25",
+            "asses": "Confused",
+            "comments": "Thank you :)",
+            "education": "4",
+            "enjoyment": "0",
+            "fairprice": "2.00",
+            "gender": "Male",
+            "language": "English, Spanish ",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Safari",
+            "OS": "Mac",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.920066666666667,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454059380
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454060282
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454110354
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454111517
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454112424
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454125398
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454126333
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454126782
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454129111
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454129457
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454133337
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454134400
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454135034
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454137509
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454138149
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454138551
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454140710
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454141938
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454142531
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454144337
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454145279
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454145695
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Sometimes blickets squeak but most of the time they don't. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.04,
+                "proportionSuccess": 0,
+                "reasoning": "I'm not sure because the first one did but the other ones didn't and this was probably caused by the false information Ashely gave me.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.51435,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

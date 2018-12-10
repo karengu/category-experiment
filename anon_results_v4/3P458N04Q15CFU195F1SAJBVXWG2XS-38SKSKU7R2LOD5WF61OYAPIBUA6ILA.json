@@ -1,0 +1,73 @@
+{
+    "AcceptTime": "2018-12-10T14:27:49.000Z",
+    "AssignmentId": "38SKSKU7R2LOD5WF61OYAPIBUA6ILA",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:37:23.000Z",
+    "HITId": "3P458N04Q15CFU195F1SAJBVXWG2XS",
+    "SubmitTime": "2018-12-10T14:37:23.000Z",
+    "answers": {
+        "attention_check": "Test the blicket. ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "56",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "Sure.",
+            "gender": "Female",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 9.480366666666667,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452193948
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452195918
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452301436
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452341979
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452343252
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Some blickets squeak. You should test each one to discover if it squeaks.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.63,
+                "proportionSuccess": 0,
+                "reasoning": "One did squeak and one did not.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 2.5156,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

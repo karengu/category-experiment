@@ -1,0 +1,180 @@
+{
+    "AcceptTime": "2018-12-10T14:26:14.000Z",
+    "AssignmentId": "33FOTY3KEN9KAV6BLHATF7B2JZH1CL",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:31:29.000Z",
+    "HITId": "3JYPJ2TAYIWR7FBU7J6I0PJH41DPFC",
+    "SubmitTime": "2018-12-10T14:31:29.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Female",
+            "language": "english",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 3.2657,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452115256
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452115347
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452115762
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452115881
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452122767
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452123734
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452152921
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452157642
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452158365
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452163374
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452165262
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452165787
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452169455
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452170107
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452170830
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452173214
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452173899
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452174948
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452177499
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452178481
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452179363
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452181515
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452182340
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452182816
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452184830
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452185365
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452186014
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452188366
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452189067
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452189699
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets make a \"BOOM\" sound when you test them. Sometimes something else happens, but not often.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 8,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.13,
+                "proportionSuccess": 0,
+                "reasoning": "It appears that the first one was an exception.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.1216833333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

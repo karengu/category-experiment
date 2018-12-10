@@ -1,0 +1,110 @@
+{
+    "AcceptTime": "2018-12-10T14:11:33.000Z",
+    "AssignmentId": "3C8HJ7UOP8IUED3A6HDZAX0QQSRZMJ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:13:34.000Z",
+    "HITId": "3QTFNPMJC66X9BQHSGNXZSU4GR4NZ0",
+    "SubmitTime": "2018-12-10T14:13:34.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "36",
+            "asses": "Confused",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "0",
+            "fairprice": "don't know",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 600,
+            "screenW": 1067
+        },
+        "time_in_minutes": 1.9235666666666666,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451123987
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451124098
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451124213
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451124321
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451124654
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451125976
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451126649
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451126892
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451147862
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451148860
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451149323
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451152369
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451153289
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451153769
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "don't know",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.34,
+                "proportionSuccess": 0,
+                "reasoning": "don't know",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.55315,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

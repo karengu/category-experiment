@@ -1,0 +1,149 @@
+{
+    "AcceptTime": "2018-12-10T14:11:34.000Z",
+    "AssignmentId": "3AAPLD8UCD5C0NT09S84W4RDOA6HTC",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:29:49.000Z",
+    "HITId": "3P458N04Q15CFU195F1SAJBVXWG2XS",
+    "SubmitTime": "2018-12-10T14:29:49.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "36",
+            "asses": "Yes",
+            "comments": "I only put that I did not enjoy it because I was about to return the HIT as I thought the audio was malfunctioning. I didn't realize that it's normal for blickets to not squeak until I moved on and saw the next screen. I feel that some people will return the HIT and not complete it because they'll become confused and think the HIT has a glitch. That's what I initially thought and at the last second I just thought I'd click through to the next screen to report it or see what was stated next. ",
+            "education": "2",
+            "enjoyment": "0",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 6.6254,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544505830903
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544505831941
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544505888464
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505889837
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544505890871
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544505899917
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505901182
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544505902014
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544505906847
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505908346
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544505909526
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505910026
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544505910185
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505912120
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544505913325
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544505916837
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505917538
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544505918161
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544505934293
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505935270
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544505935449
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544505935867
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544505936629
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets are objects that sometimes squeak, but most of the time they do not squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.06,
+                "proportionSuccess": 0,
+                "reasoning": "I'm not sure why but if I had to guess I would say that only some blickets squeak. It's unlikely they were all broken.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.8573666666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

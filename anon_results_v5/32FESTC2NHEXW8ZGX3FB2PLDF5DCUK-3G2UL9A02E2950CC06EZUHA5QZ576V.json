@@ -1,0 +1,73 @@
+{
+    "AcceptTime": "2018-12-10T14:30:39.000Z",
+    "AssignmentId": "3G2UL9A02E2950CC06EZUHA5QZ576V",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:34:52.000Z",
+    "HITId": "32FESTC2NHEXW8ZGX3FB2PLDF5DCUK",
+    "SubmitTime": "2018-12-10T14:34:52.000Z",
+    "answers": {
+        "attention_check": "That blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "56",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": "25",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.17155,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452299133
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452300072
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452345106
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452347985
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452348907
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets makes noise, such as squeaking & banging sounds.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.21,
+                "proportionSuccess": 0,
+                "reasoning": "The first one squeaked the 2nd sounded like a bang",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.068,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

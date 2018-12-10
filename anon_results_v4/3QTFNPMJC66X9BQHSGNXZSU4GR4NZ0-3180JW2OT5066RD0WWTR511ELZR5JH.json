@@ -1,0 +1,125 @@
+{
+    "AcceptTime": "2018-12-10T14:16:26.000Z",
+    "AssignmentId": "3180JW2OT5066RD0WWTR511ELZR5JH",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:29:39.000Z",
+    "HITId": "3QTFNPMJC66X9BQHSGNXZSU4GR4NZ0",
+    "SubmitTime": "2018-12-10T14:29:39.000Z",
+    "answers": {
+        "attention_check": "this blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "No",
+            "comments": "the instructions were clear and easy to follow.",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".75",
+            "gender": "Female",
+            "language": "english",
+            "problems": "none"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 3.62395,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeaks. ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451996963
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451997625
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452029222
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452031032
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452031479
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452037019
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452038405
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452039638
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452047393
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452048230
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452049070
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452052896
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452055341
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452055870
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452057790
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452058717
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452059350
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "The majority of blickets do not squeak, but some do.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "the first one did squeak, but the rest did not. I think the first one as defective.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.9955166666666667,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
