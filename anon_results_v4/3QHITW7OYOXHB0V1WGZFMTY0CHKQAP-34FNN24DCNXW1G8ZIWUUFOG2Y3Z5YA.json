@@ -1,0 +1,105 @@
+{
+    "AcceptTime": "2018-12-10T14:14:39.000Z",
+    "AssignmentId": "34FNN24DCNXW1G8ZIWUUFOG2Y3Z5YA",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:12:54.000Z",
+    "HITId": "3QHITW7OYOXHB0V1WGZFMTY0CHKQAP",
+    "SubmitTime": "2018-12-10T15:12:54.000Z",
+    "answers": {
+        "attention_check": "Ashely told me to pickup and then test it.",
+        "condition": "single",
+        "sound_check": "Timon",
+        "subject_information": {
+            "age": "34",
+            "asses": "Yes",
+            "comments": "none",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "100",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1364
+        },
+        "time_in_minutes": 18.2918,
+        "trials": [
+            {
+                "attentionCheck": "test the blicket marked with on arrow by dragging it from the blue stage to the green testing stage and the green test button. ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544453939767
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453940076
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454059620
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454059867
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454061052
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454061133
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454061216
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454061444
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454063172
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454067462
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454367657
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454371032
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454374352
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "What i understand from Ashley teacher like that i will teach my student.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.49,
+                "proportionSuccess": 0,
+                "reasoning": "Because she want to test me.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 5.725833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

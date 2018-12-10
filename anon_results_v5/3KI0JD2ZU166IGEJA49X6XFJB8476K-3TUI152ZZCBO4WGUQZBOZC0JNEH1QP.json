@@ -1,0 +1,133 @@
+{
+    "AcceptTime": "2018-12-10T14:24:24.000Z",
+    "AssignmentId": "3TUI152ZZCBO4WGUQZBOZC0JNEH1QP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:18:47.000Z",
+    "HITId": "3KI0JD2ZU166IGEJA49X6XFJB8476K",
+    "SubmitTime": "2018-12-10T15:18:47.000Z",
+    "answers": {
+        "attention_check": "the blicket squeeks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "59",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": "it was fair",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 1350,
+            "screenW": 2400
+        },
+        "time_in_minutes": 4.390066666666667,
+        "trials": [
+            {
+                "attentionCheck": "it squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454937685
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454938633
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454977990
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454979405
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454979987
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454988177
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454989470
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454990106
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454991158
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454991604
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454994478
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454995142
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454995792
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454998291
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454999572
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455000409
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455007885
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455008817
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455010026
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Some squeek, most don't",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "One did, The rest didn't",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.2725333333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

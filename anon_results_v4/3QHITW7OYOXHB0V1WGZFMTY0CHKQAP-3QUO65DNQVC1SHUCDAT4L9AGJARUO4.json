@@ -1,0 +1,128 @@
+{
+    "AcceptTime": "2018-12-10T14:17:29.000Z",
+    "AssignmentId": "3QUO65DNQVC1SHUCDAT4L9AGJARUO4",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:25:57.000Z",
+    "HITId": "3QHITW7OYOXHB0V1WGZFMTY0CHKQAP",
+    "SubmitTime": "2018-12-10T14:25:57.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "No",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "na"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 3.79415,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451776937
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451778386
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451822383
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451824980
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451825384
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451827377
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451827915
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451831299
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451834420
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451834872
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451839898
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451840352
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451850912
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451854180
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451854665
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451867110
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451868699
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451869254
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blickets squeak ",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.04,
+                "proportionSuccess": 0,
+                "reasoning": "I am not sure. Maybe squeaking is a rare property",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.5075833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

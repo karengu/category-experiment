@@ -1,0 +1,141 @@
+{
+    "AcceptTime": "2018-12-10T14:24:22.000Z",
+    "AssignmentId": "3RKNTXVS3NMD9F6WOLX47ASHVG54AY",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:29:22.000Z",
+    "HITId": "3KI0JD2ZU166IGEJA49X6XFJB8476K",
+    "SubmitTime": "2018-12-10T14:29:22.000Z",
+    "answers": {
+        "attention_check": "This Blickets squeaks",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "24",
+            "asses": "Yes",
+            "comments": "If the payment can go up a little it'll give you much better reviews in general.",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "Yes",
+            "gender": "Female",
+            "language": "United States",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 4.413783333333333,
+        "trials": [
+            {
+                "attentionCheck": "This Blickets squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451942161
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451942653
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451943934
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451945325
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452008569
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452009770
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452010660
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452020631
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452021533
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452022309
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452026004
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452027129
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452027795
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452030991
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452032257
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452032843
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452034560
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452035155
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452036964
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452037782
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452038535
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "They definitely don't squeek except for maybe once in every 100 times",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "It squeaked only once then other time it's explosion sounds",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.4426166666666667,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

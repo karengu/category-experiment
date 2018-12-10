@@ -1,0 +1,255 @@
+{
+    "AcceptTime": "2018-12-10T14:12:14.000Z",
+    "AssignmentId": "3OLF68YTNAPN7V3L82TNYEP8K69AFN",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:16:27.000Z",
+    "HITId": "302U8RURJZPG0RL7RJYUEMH8SGYVN8",
+    "SubmitTime": "2018-12-10T14:16:27.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".5",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.115033333333334,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451199470
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451201288
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451249690
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451250515
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451251085
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451252849
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451253443
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451253973
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451256407
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451257044
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451257834
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451260635
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451261115
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451261875
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451265772
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451266492
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451267032
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451280493
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451285310
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451285886
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451287970
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451288494
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451289109
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451290802
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451291432
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451292107
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451294164
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451294735
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451295396
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451296852
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451297369
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451298140
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451299115
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451299592
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451300078
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451301259
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451301942
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451302591
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451303875
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451304506
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451305330
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451306716
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451307156
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451307635
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451308574
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451309874
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451310518
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets normally do not squeak but they do squeak rarely.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 15,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.09,
+                "proportionSuccess": 0,
+                "reasoning": "I think maybe it's very rare that they actually squeak.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.87375,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

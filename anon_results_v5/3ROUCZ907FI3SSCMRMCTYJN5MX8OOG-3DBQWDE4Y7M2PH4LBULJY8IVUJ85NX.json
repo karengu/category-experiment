@@ -1,0 +1,136 @@
+{
+    "AcceptTime": "2018-12-10T14:51:06.000Z",
+    "AssignmentId": "3DBQWDE4Y7M2PH4LBULJY8IVUJ85NX",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:03:54.000Z",
+    "HITId": "3ROUCZ907FI3SSCMRMCTYJN5MX8OOG",
+    "SubmitTime": "2018-12-10T15:03:54.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "47",
+            "asses": "Yes",
+            "comments": "No, it was different. Thanks for that :)",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1440,
+            "screenW": 2560
+        },
+        "time_in_minutes": 2.8594166666666667,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454090774
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454091818
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454117865
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454118846
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454118948
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454119895
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454119941
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454121264
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454121365
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454121691
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454122324
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454133066
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454134154
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454134806
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454142530
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454144002
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454144607
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454148392
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454149299
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454149679
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blickets squeak, but most make a different sound.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.89,
+                "proportionSuccess": 0,
+                "reasoning": "Unknown",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.0009,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

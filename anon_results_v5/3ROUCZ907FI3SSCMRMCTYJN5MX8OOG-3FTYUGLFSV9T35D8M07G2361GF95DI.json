@@ -1,0 +1,135 @@
+{
+    "AcceptTime": "2018-12-10T14:50:51.000Z",
+    "AssignmentId": "3FTYUGLFSV9T35D8M07G2361GF95DI",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:58:30.000Z",
+    "HITId": "3ROUCZ907FI3SSCMRMCTYJN5MX8OOG",
+    "SubmitTime": "2018-12-10T14:58:30.000Z",
+    "answers": {
+        "attention_check": "Ashley told me that blickets squeak.",
+        "condition": "single",
+        "sound_check": "title",
+        "subject_information": {
+            "age": "64",
+            "asses": "Yes",
+            "comments": "no comments",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".5",
+            "gender": "Male",
+            "language": "English",
+            "problems": "the pages were a little slow "
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 7.009416666666667,
+        "trials": [
+            {
+                "attentionCheck": "yellow blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544453573776
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453575203
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453583926
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453584280
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453612182
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544453612825
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453612825
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453622886
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453625028
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453695159
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453696586
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453698251
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453710681
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453711924
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453712936
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453718398
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453720038
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453720955
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453723446
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453724168
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "some blickets squeak but most make a loud noise like a small explosion",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.05,
+                "proportionSuccess": 0,
+                "reasoning": "I do not know why but none of the blickets I selected to test squeaked.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.4449,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

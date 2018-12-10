@@ -1,0 +1,151 @@
+{
+    "AcceptTime": "2018-12-10T15:21:13.000Z",
+    "AssignmentId": "3DIP6YHAPDGHITAAGTP3K5YDIHO8ET",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:24:28.000Z",
+    "HITId": "3H781YYV6T6XTT45TPVWNHZEH3PTE9",
+    "SubmitTime": "2018-12-10T15:24:28.000Z",
+    "answers": {
+        "attention_check": "Blickets Squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "Yes",
+            "comments": "This was a great and easy study.",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "Yes",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 3.156633333333333,
+        "trials": [
+            {
+                "attentionCheck": "Bleakets Squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544455225744
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455226059
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455226634
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455227090
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455228112
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455228412
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455230052
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544455230613
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455230613
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455233795
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455233963
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455234022
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455234103
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455242328
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455242932
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455305608
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455308234
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455308844
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455310459
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455311031
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455311332
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455312702
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455313315
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455313570
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "I would tell my students that blickets can squeak or make a boom sound",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.13,
+                "proportionSuccess": 0,
+                "reasoning": "Yes, It sounded like a dog toy that would squeak",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.2170666666666667,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

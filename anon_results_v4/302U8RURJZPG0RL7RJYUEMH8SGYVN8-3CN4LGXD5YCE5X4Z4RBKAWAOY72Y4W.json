@@ -1,0 +1,125 @@
+{
+    "AcceptTime": "2018-12-10T14:12:08.000Z",
+    "AssignmentId": "3CN4LGXD5YCE5X4Z4RBKAWAOY72Y4W",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:32:55.000Z",
+    "HITId": "302U8RURJZPG0RL7RJYUEMH8SGYVN8",
+    "SubmitTime": "2018-12-10T14:32:55.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "55",
+            "asses": "Yes",
+            "comments": "thanks, hope I did this correctly and no rejection. oved the hit otherwise.",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "english",
+            "problems": "I just was confused on why the first obe only squeaked and didn't hear the other ones."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 20.5846,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452127091
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452128529
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452212581
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452214403
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452215032
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452219823
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452220819
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452221542
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452230899
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452231956
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452232905
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452234979
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452236140
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452237822
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452240673
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452241204
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452242006
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blickets squeak, but others do not. Most probably do not squeak.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.23,
+                "proportionSuccess": 0,
+                "reasoning": "Only the first one in the study did, not the others. So I'm slightly confused on this. :(",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.50125,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

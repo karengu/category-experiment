@@ -1,0 +1,138 @@
+{
+    "AcceptTime": "2018-12-10T14:12:06.000Z",
+    "AssignmentId": "3HFNH7HEMI2L8B6X8IWR6Z4PP3UQG8",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:29:27.000Z",
+    "HITId": "302U8RURJZPG0RL7RJYUEMH8SGYVN8",
+    "SubmitTime": "2018-12-10T14:29:27.000Z",
+    "answers": {
+        "attention_check": "blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "32",
+            "asses": "No",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 3.7923666666666667,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451991957
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451992972
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452036862
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452038450
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452039794
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452044876
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452045806
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452046785
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452052599
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452054309
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452055237
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452057360
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452058275
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452059185
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452063384
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452065063
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452066131
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452068213
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452069092
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452069883
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "You can identify blickets because they squeak ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.1,
+                "proportionSuccess": 0,
+                "reasoning": "they were not blickets",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3488833333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

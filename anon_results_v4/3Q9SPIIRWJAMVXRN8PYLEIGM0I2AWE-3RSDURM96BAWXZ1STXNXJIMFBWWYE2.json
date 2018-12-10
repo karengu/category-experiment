@@ -1,0 +1,110 @@
+{
+    "AcceptTime": "2018-12-10T14:12:13.000Z",
+    "AssignmentId": "3RSDURM96BAWXZ1STXNXJIMFBWWYE2",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:16:14.000Z",
+    "HITId": "3Q9SPIIRWJAMVXRN8PYLEIGM0I2AWE",
+    "SubmitTime": "2018-12-10T14:16:14.000Z",
+    "answers": {
+        "attention_check": "she told be what a blicket was",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "26",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.9299833333333334,
+        "trials": [
+            {
+                "attentionCheck": "Blicket",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544451187466
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451187552
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451199228
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451199315
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451200397
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544451201895
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451204745
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451205955
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451266505
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451267440
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451267936
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544451270082
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544451271038
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544451271550
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets are yellow and they squeak.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.79,
+                "proportionSuccess": 0,
+                "reasoning": "i Heard it",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 1.1396666666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

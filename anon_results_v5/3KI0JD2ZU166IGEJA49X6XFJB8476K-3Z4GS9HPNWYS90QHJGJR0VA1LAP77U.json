@@ -1,0 +1,123 @@
+{
+    "AcceptTime": "2018-12-10T14:24:26.000Z",
+    "AssignmentId": "3Z4GS9HPNWYS90QHJGJR0VA1LAP77U",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:04:24.000Z",
+    "HITId": "3KI0JD2ZU166IGEJA49X6XFJB8476K",
+    "SubmitTime": "2018-12-10T15:04:24.000Z",
+    "answers": {
+        "attention_check": "this blicket squeak",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "no",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 6.722,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544453951561
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453951710
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453956386
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453956504
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453957017
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453957129
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453958239
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453958993
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454043202
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454045375
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454047147
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454056435
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454058557
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454060363
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454065932
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454067543
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454068953
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "the blickets squeak",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.98,
+                "proportionSuccess": 0,
+                "reasoning": "don't know",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.93745,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

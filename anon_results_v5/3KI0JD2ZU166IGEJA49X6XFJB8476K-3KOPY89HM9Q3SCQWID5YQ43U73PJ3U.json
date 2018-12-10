@@ -1,0 +1,154 @@
+{
+    "AcceptTime": "2018-12-10T15:14:50.000Z",
+    "AssignmentId": "3KOPY89HM9Q3SCQWID5YQ43U73PJ3U",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:20:30.000Z",
+    "HITId": "3KI0JD2ZU166IGEJA49X6XFJB8476K",
+    "SubmitTime": "2018-12-10T15:20:30.000Z",
+    "answers": {
+        "attention_check": "That the blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".80",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 858,
+            "screenW": 1525
+        },
+        "time_in_minutes": 4.988533333333334,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454989912
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454990075
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454996086
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454997018
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455062097
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455065322
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455065914
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455072717
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455074535
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455075353
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455082926
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455083846
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455084310
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455086206
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455088772
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455089269
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455091825
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455092288
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455096603
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455097384
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455098362
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455100025
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455100789
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455101702
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "I would say that, on average, it is far more likely that the blicket will bang than squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.21,
+                "proportionSuccess": 0,
+                "reasoning": "I believe the probability of selecting a 'squeak' is very low or even negligible to the 'boom' ones.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.7987833333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

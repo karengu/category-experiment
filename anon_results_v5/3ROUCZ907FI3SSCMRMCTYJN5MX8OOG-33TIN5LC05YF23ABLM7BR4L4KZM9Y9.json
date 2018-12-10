@@ -1,0 +1,131 @@
+{
+    "AcceptTime": "2018-12-10T14:24:38.000Z",
+    "AssignmentId": "33TIN5LC05YF23ABLM7BR4L4KZM9Y9",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:35:54.000Z",
+    "HITId": "3ROUCZ907FI3SSCMRMCTYJN5MX8OOG",
+    "SubmitTime": "2018-12-10T14:35:54.000Z",
+    "answers": {
+        "attention_check": "very good ",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "No",
+            "comments": "Is very good all ",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "yes ",
+            "gender": "Female",
+            "language": "english ",
+            "problems": "any"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1280
+        },
+        "time_in_minutes": 10.87065,
+        "trials": [
+            {
+                "attentionCheck": "Is very good all",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452058788
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452058927
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452172974
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544452174974
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452174974
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452175985
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452176710
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452339306
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452340658
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452343425
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452347065
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452348628
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544452349776
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452349776
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452352820
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452353657
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452357228
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452358144
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452358759
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "very good ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.67,
+                "proportionSuccess": 0,
+                "reasoning": "is very good all",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.5420833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

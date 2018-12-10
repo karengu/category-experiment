@@ -1,0 +1,177 @@
+{
+    "AcceptTime": "2018-12-10T14:12:08.000Z",
+    "AssignmentId": "388U7OUMF8PO98AC7VWOQXREE880RH",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:32:26.000Z",
+    "HITId": "306996CF6W8YD6GCHF9WG3AYMNE1B1",
+    "SubmitTime": "2018-12-10T14:32:26.000Z",
+    "answers": {
+        "attention_check": "She told me: \"Blickets squeak.\"",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "57",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "No."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 5.4547,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452065909
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452067419
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452108800
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452110123
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452111270
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452115016
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452116173
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452117237
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452120718
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452125207
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452126172
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452130688
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452131560
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452132588
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452137074
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452138061
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452139188
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452147005
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452148132
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452148981
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452151273
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452152066
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452153124
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452155606
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452156882
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452158047
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452167157
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452168305
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452169698
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "One thing you should know is that sometimes blickets squeak, but not very often at all.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 9,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.15,
+                "proportionSuccess": 0,
+                "reasoning": "I have no idea, but I can suppose that either the blickets I tested were defective, or most likely, that not all blickets squeak.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.7822333333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

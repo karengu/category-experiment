@@ -1,0 +1,102 @@
+{
+    "AcceptTime": "2018-12-10T14:53:03.000Z",
+    "AssignmentId": "3M0NZ3JDP2MW66I4EIWDTVP44XK5ZI",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:52:36.000Z",
+    "HITId": "3KI0JD2ZU166IGEJA49X6XFJB8476K",
+    "SubmitTime": "2018-12-10T15:52:36.000Z",
+    "answers": {
+        "attention_check": "Blockets sqeak",
+        "condition": "single",
+        "sound_check": "Titan",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "yes",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 2.8767,
+        "trials": [
+            {
+                "attentionCheck": "This blicket sqeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544457029619
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457030572
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457067579
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457068845
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544457068943
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457069328
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544457069844
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457071191
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457071587
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457075603
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457076795
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457077676
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blockets sqeak some don't",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "Because they made another noise",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.895,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

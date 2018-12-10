@@ -1,0 +1,89 @@
+{
+    "AcceptTime": "2018-12-10T14:28:15.000Z",
+    "AssignmentId": "3VFJCI1K40NLKCLXLXLRBPEULP3RGH",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:42:17.000Z",
+    "HITId": "3DFYDSXB2WOK4M5M7VWXPTY85PMUJG",
+    "SubmitTime": "2018-12-10T14:42:17.000Z",
+    "answers": {
+        "attention_check": "ASHLEY TOLD ME TEST THE BLICKETS",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "32",
+            "asses": "No",
+            "comments": "GOOD",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "ENGLISH",
+            "problems": "NO"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1364
+        },
+        "time_in_minutes": 13.908483333333333,
+        "trials": [
+            {
+                "attentionCheck": "Ashley told me to to take the blickets to the class room",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452571479
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452571612
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452577648
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452578360
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452692066
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452698113
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452699321
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452702221
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452702677
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "describing about the blickets",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.88,
+                "proportionSuccess": 0,
+                "reasoning": "IT MADE TO TEST EASY THE EXPERIMENT",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 2.1716166666666665,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

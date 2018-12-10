@@ -1,0 +1,86 @@
+{
+    "AcceptTime": "2018-12-10T14:18:52.000Z",
+    "AssignmentId": "33M4IA01QHPW6YGNA7LVZBEPOFVXRB",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:14:57.000Z",
+    "HITId": "3QHITW7OYOXHB0V1WGZFMTY0CHKQAP",
+    "SubmitTime": "2018-12-10T15:14:57.000Z",
+    "answers": {
+        "attention_check": "Ashley told me that blickets squeek.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "34",
+            "asses": "Yes",
+            "comments": "Great experiment! Thanks!",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No."
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Linux",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 4.541966666666666,
+        "trials": [
+            {
+                "attentionCheck": "squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454680236
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454681638
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454738447
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454739720
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454741987
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454751783
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454753313
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454755231
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Although some blickets squeek most don't.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.08,
+                "proportionSuccess": 0,
+                "reasoning": "I don't know why the blickets I tested didn't squeek.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 1.0965833333333332,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

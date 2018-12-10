@@ -1,0 +1,146 @@
+{
+    "AcceptTime": "2018-12-10T14:36:34.000Z",
+    "AssignmentId": "36DSNE9QZ6MSE1JI1BPQE7152U0JO4",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:01:33.000Z",
+    "HITId": "3DFYDSXB2WOK4M5M7VWXPTY85PMUJG",
+    "SubmitTime": "2018-12-10T15:01:33.000Z",
+    "answers": {
+        "attention_check": "This Blicket Squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "38",
+            "asses": "Yes",
+            "comments": "Perhaps a better instruction or warning about how the object make different sound will make the task can be understood better.",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": "At some point during the experiment, I thought that there was a glitch about the sound how the object makes since it was squeaking the first time."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 10.048716666666667,
+        "trials": [
+            {
+                "attentionCheck": "This Blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544453579820
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453580804
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453657481
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453658930
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453659616
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453664089
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453666028
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453666533
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453668855
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453669325
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453673454
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453674815
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453675577
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453678334
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453679130
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453679758
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453681850
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453682772
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453683419
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453686240
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453687283
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453687798
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "There are two kinds of sound that Blicket makes. Some Blickets squeak, and some other Blickets make a loud drum noise. ",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.05,
+                "proportionSuccess": 0,
+                "reasoning": "I tested many more and it didn't squeak like how it squeak the first time.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.8922,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

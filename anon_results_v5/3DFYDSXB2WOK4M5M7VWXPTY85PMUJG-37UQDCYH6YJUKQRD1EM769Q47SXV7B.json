@@ -1,0 +1,107 @@
+{
+    "AcceptTime": "2018-12-10T14:27:46.000Z",
+    "AssignmentId": "37UQDCYH6YJUKQRD1EM769Q47SXV7B",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:43:00.000Z",
+    "HITId": "3DFYDSXB2WOK4M5M7VWXPTY85PMUJG",
+    "SubmitTime": "2018-12-10T14:43:00.000Z",
+    "answers": {
+        "attention_check": "this blicket squeeks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "37",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 15.106266666666667,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452834767
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452834929
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452841974
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452843159
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452861884
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452863054
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452864733
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452872708
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452873686
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452874141
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452881369
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452882549
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452883157
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "they make different sounds\n",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.34,
+                "proportionSuccess": 0,
+                "reasoning": "only the first one did the rest made a low sound",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7158333333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

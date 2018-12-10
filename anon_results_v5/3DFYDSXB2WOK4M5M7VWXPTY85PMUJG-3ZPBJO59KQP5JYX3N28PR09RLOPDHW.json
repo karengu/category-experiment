@@ -1,0 +1,141 @@
+{
+    "AcceptTime": "2018-12-10T15:17:08.000Z",
+    "AssignmentId": "3ZPBJO59KQP5JYX3N28PR09RLOPDHW",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:23:09.000Z",
+    "HITId": "3DFYDSXB2WOK4M5M7VWXPTY85PMUJG",
+    "SubmitTime": "2018-12-10T15:23:09.000Z",
+    "answers": {
+        "attention_check": "She said that this blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "45",
+            "asses": "Yes",
+            "comments": "Thank you",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "60  cents",
+            "gender": "Male",
+            "language": "english",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 5.4543333333333335,
+        "trials": [
+            {
+                "attentionCheck": "The yellow blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544455099972
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455100152
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455106487
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455107667
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455143003
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455149917
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455151519
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455159234
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455160458
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455161189
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455166928
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455171228
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455172222
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455176364
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455177117
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455182289
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455183134
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455184329
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544455216551
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455217581
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455218539
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "A small percentage of blickets squeak. Most blickets sound like an explosion",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.01,
+                "proportionSuccess": 0,
+                "reasoning": "Most blickets did not squeak",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.8889833333333332,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

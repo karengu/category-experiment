@@ -1,0 +1,345 @@
+{
+    "AcceptTime": "2018-12-10T14:12:35.000Z",
+    "AssignmentId": "3TAYZSBPLMW76XD31707ZVPPX8B2SR",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:46:07.000Z",
+    "HITId": "302U8RURJZPG0RL7RJYUEMH8SGYVN8",
+    "SubmitTime": "2018-12-10T14:46:07.000Z",
+    "answers": {
+        "attention_check": "She said that blickets squeak which implied that all blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "63",
+            "asses": "Yes",
+            "comments": "I'm wondering if Ashley purposely deceived me!",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "None that I'm aware of."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 6.512266666666667,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452841338
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452842603
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452889779
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452891630
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452892456
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452898110
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452902010
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452902839
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452910432
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452911713
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452912397
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452915540
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452916679
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452917534
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452921510
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452922827
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452923528
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452925911
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452926562
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452930532
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452931712
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452932415
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452935193
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452936092
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452937148
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452937217
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452937217
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452938328
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452939206
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452942259
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452943598
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452944614
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452946541
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452947978
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452948509
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452949973
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452949986
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452950030
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452950030
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452951430
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452952294
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452954259
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452955706
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452956469
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452958672
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452959857
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452960944
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452962744
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452964252
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452965445
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452967202
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452968470
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452969461
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452971298
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452972623
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452973540
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452975823
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452977170
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452978283
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452979949
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452980917
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452982842
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452984135
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452985255
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452986582
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452987148
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452989195
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452990430
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452991517
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Very few blickets squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 17,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.09,
+                "proportionSuccess": 0,
+                "reasoning": "I think only some blickets squeak.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.573566666666667,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

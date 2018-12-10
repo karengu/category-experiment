@@ -1,0 +1,81 @@
+{
+    "AcceptTime": "2018-12-10T14:25:49.000Z",
+    "AssignmentId": "31HQ4X3T3TYD7JZBBDICEROY387LS4",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:35:22.000Z",
+    "HITId": "3KI0JD2ZU166IGEJA49X6XFJB8476K",
+    "SubmitTime": "2018-12-10T14:35:22.000Z",
+    "answers": {
+        "attention_check": "very good",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "No",
+            "comments": "very good",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1",
+            "gender": "Male",
+            "language": "english",
+            "problems": "do not"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 8.735616666666667,
+        "trials": [
+            {
+                "attentionCheck": "very good",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452169144
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452171357
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452336476
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452343085
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452343539
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452344396
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452345423
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "very good",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.63,
+                "proportionSuccess": 0,
+                "reasoning": "vey good",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 2.26545,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

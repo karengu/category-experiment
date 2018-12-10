@@ -1,0 +1,133 @@
+{
+    "AcceptTime": "2018-12-10T14:47:54.000Z",
+    "AssignmentId": "30LB5CDZNDYXBZW3HCQ1C0TDNP70ZQ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:52:37.000Z",
+    "HITId": "3DFYDSXB2WOK4M5M7VWXPTY85PMUJG",
+    "SubmitTime": "2018-12-10T14:52:37.000Z",
+    "answers": {
+        "attention_check": "This blicket squeeks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.615883333333334,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeeks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544453332736
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453334278
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453397318
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453398332
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453399070
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453403076
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453404239
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453404982
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453408016
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453408990
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453409627
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453412344
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453413120
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544453413693
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453416808
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453417285
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544453420463
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544453421197
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544453421946
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "That blickets sound like small explosions.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "only the first example did, the rest of them sounded like explosions.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.55385,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

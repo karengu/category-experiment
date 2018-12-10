@@ -1,0 +1,138 @@
+{
+    "AcceptTime": "2018-12-10T14:12:06.000Z",
+    "AssignmentId": "3OUYGIZWR8M3XVUXU3SZL2RZDQK0PP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:37:33.000Z",
+    "HITId": "306996CF6W8YD6GCHF9WG3AYMNE1B1",
+    "SubmitTime": "2018-12-10T14:37:33.000Z",
+    "answers": {
+        "attention_check": "pickup blickets",
+        "condition": "single",
+        "sound_check": "skyscraper",
+        "subject_information": {
+            "age": "25",
+            "asses": "No",
+            "comments": "This is good for learning",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "fair",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 8.499283333333333,
+        "trials": [
+            {
+                "attentionCheck": "Blickets\n",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452216150
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452216241
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452216523
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452216621
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452253877
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452253973
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452254077
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452254163
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452254266
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452254362
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452254667
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452256107
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452313305
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452314284
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452314991
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452320307
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452321373
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452322039
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452328500
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452329266
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452329387
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Pick up the blicktes.then press the test ok",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.79,
+                "proportionSuccess": 0,
+                "reasoning": "tested squeak",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3819833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

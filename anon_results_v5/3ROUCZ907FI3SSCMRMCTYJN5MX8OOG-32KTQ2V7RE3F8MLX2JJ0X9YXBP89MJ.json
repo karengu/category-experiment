@@ -1,0 +1,73 @@
+{
+    "AcceptTime": "2018-12-10T14:24:29.000Z",
+    "AssignmentId": "32KTQ2V7RE3F8MLX2JJ0X9YXBP89MJ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:33:35.000Z",
+    "HITId": "3ROUCZ907FI3SSCMRMCTYJN5MX8OOG",
+    "SubmitTime": "2018-12-10T14:33:35.000Z",
+    "answers": {
+        "attention_check": "Place the blicket in green testing stage and test it.",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "Yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "Nothing."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 800,
+            "screenW": 1280
+        },
+        "time_in_minutes": 7.165066666666666,
+        "trials": [
+            {
+                "attentionCheck": "place the blinket in green testing stage.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452054899
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452056539
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452127365
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452133789
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452134805
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "An object with certain properties causing it to trigger a \"blicket detector\" (a device that lights up and plays music), introduced in certain experiments relating to causality and perception.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.78,
+                "proportionSuccess": 0,
+                "reasoning": "Because that is the blickets work.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.63365,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

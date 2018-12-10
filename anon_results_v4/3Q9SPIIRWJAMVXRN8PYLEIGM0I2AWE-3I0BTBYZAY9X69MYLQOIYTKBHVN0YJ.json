@@ -1,0 +1,86 @@
+{
+    "AcceptTime": "2018-12-10T14:12:12.000Z",
+    "AssignmentId": "3I0BTBYZAY9X69MYLQOIYTKBHVN0YJ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:29:26.000Z",
+    "HITId": "3Q9SPIIRWJAMVXRN8PYLEIGM0I2AWE",
+    "SubmitTime": "2018-12-10T14:29:26.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "31",
+            "asses": "Yes",
+            "comments": "I think I should've tested more blickets but I thought I understood them fine when I finished.",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "None"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 2.2680666666666665,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452053605
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452054969
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452072072
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452073120
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452073774
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452078586
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452079165
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452080147
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets sometimes squeak and sometimes they don't.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.29,
+                "proportionSuccess": 0,
+                "reasoning": "I think some of them squeak and some don't.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.498,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}
