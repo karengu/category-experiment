@@ -908,7 +908,7 @@ function init() {
     exp.data_trials = randomized_trials.trial_summary;
   }
   else if (exp.condition == 'single') {
-    const utteranceType = 'specific';
+    const utteranceType = 'barePlural';
     const proportionSuccess = 0;
     exp.data_trials.push({
       id: 0,
