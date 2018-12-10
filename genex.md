@@ -52,6 +52,8 @@ single trial, specific condition, 0% success
 
 ## restrict to US IP addresses and 95% worker approval rating, wording changes
 
+## https://www.mit.edu/~karengu/genex_v4/category-experiment/template/template.html
+
 ## 12/09/2018
 n = 18
 0.50 each
@@ -59,5 +61,31 @@ single trial, specific condition, 0% success
 
 ## 12/09/2018
 n = 18
+0.50 each
+single trial, generic condition, 0% success
+
+## 12/10/2018
+n = 27
+0.50 each
+single trial, specific condition, 0% success
+
+## 12/10/2018
+n = 27
+0.50 each
+single trial, generic condition, 0% success
+
+## Pilot 5
+
+## add back in alternative sound
+
+## https://www.mit.edu/~karengu/genex_v5/category-experiment/template/template.html
+
+## 12/10/2018
+n = 27
+0.50 each
+single trial, specific condition, 0% success
+
+## 12/10/2018
+n = 27
 0.50 each
 single trial, generic condition, 0% success
