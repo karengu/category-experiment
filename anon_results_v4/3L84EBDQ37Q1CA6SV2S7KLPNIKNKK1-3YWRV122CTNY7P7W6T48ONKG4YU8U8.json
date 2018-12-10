@@ -1,0 +1,125 @@
+{
+    "AcceptTime": "2018-12-10T00:46:16.000Z",
+    "AssignmentId": "3YWRV122CTNY7P7W6T48ONKG4YU8U8",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T01:09:45.000Z",
+    "HITId": "3L84EBDQ37Q1CA6SV2S7KLPNIKNKK1",
+    "SubmitTime": "2018-12-10T01:09:45.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "$3.50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "It's possible. The blickets did not squeak when I tested them on the test stage after the first one. "
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 4.262883333333333,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak. ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544403985766
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544403989520
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404023205
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404024490
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404025603
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404033096
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404033903
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404035899
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404039736
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404042030
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404043031
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404048965
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404049952
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404051107
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404055227
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404055950
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404056889
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets sometimes squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.06,
+                "proportionSuccess": 0,
+                "reasoning": "I tested about 5-6 blickets on the test stage after the first one, and none of them squeaked. I'm not sure why they did not squeak.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.28995,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

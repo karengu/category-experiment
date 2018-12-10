@@ -1,0 +1,138 @@
+{
+    "AcceptTime": "2018-12-10T00:31:15.000Z",
+    "AssignmentId": "3NG53N1RLW7LFKZ0P75EEHXHWH2P8T",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T00:35:40.000Z",
+    "HITId": "3ZZAYRN1I6FJ5KHUN3YSSTTSL2OTO0",
+    "SubmitTime": "2018-12-10T00:35:40.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak.",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "26",
+            "asses": "Yes",
+            "comments": "This was fun. It was my first time doing this. I enjoyed it and there were no problems at all.",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No bugs or problems at all."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 4.2431,
+        "trials": [
+            {
+                "attentionCheck": "This Blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544401940433
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401941231
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401970763
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401971889
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401972392
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401977444
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401977993
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401978442
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401981373
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401981939
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401982460
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401985142
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401985719
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401986115
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401999408
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544402000160
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544402000763
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544402005210
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544402005960
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544402006431
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets should squeak but most may not squeak at all.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "They didn't squeak at all probably because they malfunctioned.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.1246166666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

@@ -1,0 +1,105 @@
+{
+    "AcceptTime": "2018-12-10T01:31:22.000Z",
+    "AssignmentId": "34X6J5FLPUMVZDWYGOHU3CW5HOHQJ4",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T01:33:52.000Z",
+    "HITId": "3ZZAYRN1I6FJ5KHUN3YSSTTSL2OTO0",
+    "SubmitTime": "2018-12-10T01:33:52.000Z",
+    "answers": {
+        "attention_check": "That this blicket squeaked. ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "35",
+            "asses": "No",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "2",
+            "fairprice": "50 C",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 2.3890833333333332,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544405528274
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544405528433
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405529455
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544405529536
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405535043
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544405535755
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405537101
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544405537210
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405538093
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544405538857
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544405557683
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405558987
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544405559533
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "They are these little yellow objects with sharp edges that squeak when you test them.  ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "proportionSuccess": 0,
+                "reasoning": "I heard the noise ...",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.4783,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

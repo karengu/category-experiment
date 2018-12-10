@@ -1,0 +1,109 @@
+{
+    "AcceptTime": "2018-12-10T00:29:28.000Z",
+    "AssignmentId": "3HMIGG0U4MUFOYR1GU1XR8QT0M58Y6",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T00:35:10.000Z",
+    "HITId": "3ODOP6T3AS8LHSDZL4ZND8EX4YC248",
+    "SubmitTime": "2018-12-10T00:35:10.000Z",
+    "answers": {
+        "attention_check": "that they squeak ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "34",
+            "asses": "Yes",
+            "comments": "thank you ",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "0.50",
+            "gender": "Female",
+            "language": "english",
+            "problems": "I could only test 1 more pass the  walkthrough after that it greyed out "
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 4.547833333333333,
+        "trials": [
+            {
+                "attentionCheck": "squeak ",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544401882642
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544401882795
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401884518
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544401885524
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401886892
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401887481
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401923507
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401924623
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544401924718
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401925753
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544401926675
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544401933418
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544401934597
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544401934674
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Most of the time if you squeeze a blicket it will squeak. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.77,
+                "proportionSuccess": 0,
+                "reasoning": "the 1st did the second did not then disappeared and I couldn't test a 3rd",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.0601,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "AcceptTime": "2018-12-10T00:29:11.000Z",
+    "AssignmentId": "3R0T90IZ1T0HEAWE30VWMUF8LH0GCM",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T00:46:29.000Z",
+    "HITId": "3L84EBDQ37Q1CA6SV2S7KLPNIKNKK1",
+    "SubmitTime": "2018-12-10T00:46:29.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "No further relevant comment, at this time.",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "0.75",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No problems encountered"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 2.617366666666667,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544402648973
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544402649061
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544402650680
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544402650799
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544402655033
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544402655584
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544402674484
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544402677387
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544402677688
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544402678985
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544402679283
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Any object which does not squeak is not a blicket.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "proportionSuccess": 0,
+                "reasoning": "Blickets squeak. If an object does not squeak, necessarily it cannot be a blicket.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.49546666666666667,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

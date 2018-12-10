@@ -1,0 +1,107 @@
+{
+    "AcceptTime": "2018-12-10T01:28:26.000Z",
+    "AssignmentId": "30JNVC0ORA8Z8718SOE9RZGQ4WDQHZ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T01:33:43.000Z",
+    "HITId": "3XBXDSS8887IGGNHFLJXPFA43T7LXU",
+    "SubmitTime": "2018-12-10T01:33:43.000Z",
+    "answers": {
+        "attention_check": "She told me \"this blicket squeaks\"",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.49565,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544405501843
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544405502957
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544405534913
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405542823
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544405543953
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544405551828
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405553018
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544405554353
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544405560849
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405561777
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544405562941
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544405566408
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544405566856
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "I would say there is a possibility that the blicket squeaks, but it isn't a certainty.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.24,
+                "proportionSuccess": 0,
+                "reasoning": "I am not sure. Maybe they were broken.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.16585,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

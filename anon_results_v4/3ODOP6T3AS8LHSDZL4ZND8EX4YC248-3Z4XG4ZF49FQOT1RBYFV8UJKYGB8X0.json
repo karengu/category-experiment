@@ -1,0 +1,128 @@
+{
+    "AcceptTime": "2018-12-10T00:29:27.000Z",
+    "AssignmentId": "3Z4XG4ZF49FQOT1RBYFV8UJKYGB8X0",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T01:00:15.000Z",
+    "HITId": "3ODOP6T3AS8LHSDZL4ZND8EX4YC248",
+    "SubmitTime": "2018-12-10T01:00:15.000Z",
+    "answers": {
+        "attention_check": "blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "31",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1",
+            "gender": "Female",
+            "language": "English",
+            "problems": "I don't think so but it's hard to tell."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 2.4687166666666664,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544403492824
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544403493440
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544403494183
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544403494693
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544403513089
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544403514273
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544403514640
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544403519215
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544403520314
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544403520692
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544403527282
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544403529251
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544403529663
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544403538504
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544403539115
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544403539538
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544403540948
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544403541287
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blickets squeak, but most do not. They look the same.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.2,
+                "proportionSuccess": 0,
+                "reasoning": "Either the experiment was broken or not all blickets squeak.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7887,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

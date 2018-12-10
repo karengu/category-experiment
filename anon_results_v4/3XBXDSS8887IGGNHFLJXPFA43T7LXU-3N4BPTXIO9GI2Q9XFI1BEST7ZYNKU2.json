@@ -1,0 +1,216 @@
+{
+    "AcceptTime": "2018-12-10T00:31:28.000Z",
+    "AssignmentId": "3N4BPTXIO9GI2Q9XFI1BEST7ZYNKU2",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T01:20:37.000Z",
+    "HITId": "3XBXDSS8887IGGNHFLJXPFA43T7LXU",
+    "SubmitTime": "2018-12-10T01:20:37.000Z",
+    "answers": {
+        "attention_check": "this blicket squeaks",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "53",
+            "asses": "Yes",
+            "comments": "no comments",
+            "education": "4",
+            "enjoyment": "1",
+            "fairprice": "0.70",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 14.497966666666667,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544404519846
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404521216
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404582445
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404591187
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404591746
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404595718
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404598227
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404599788
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404603948
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404607545
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404608604
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404614078
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404615154
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404616283
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404620158
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404626256
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404627227
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404630253
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404632377
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404633283
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404636537
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404637906
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404638916
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404641647
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404642696
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404643499
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404646047
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404647033
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404647899
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404651632
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404652616
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404654762
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404657959
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404659026
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404660212
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544404663255
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544404664129
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544404665708
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Most Blickets do not not squeak. It is uncommon for a blicket to squeak.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 12,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.06,
+                "proportionSuccess": 0,
+                "reasoning": "I don't know why - that is how they made - so that most do not squeak",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.4504,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
