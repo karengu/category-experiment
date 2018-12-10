@@ -92,19 +92,30 @@ df.trials %>%
 
 ## Free response data (with other data)
 
-Excluded subjects marked with `Exclude` 
 
-```{r, echo = T}
+Explanation of columns:
+
+- pass = passed attention checks
+- worked = did the blickets you tested squeak?
+- reasoning = why or why not?
+- n = number of items tested
+- t = time exploring (in minutes)
+- prob = probability that next blicket will squeak
+- gen = "Blickets squeak" true or false?
+- teach = what would you tell the children?
+
+```{r, echo = F}
 df.trials %>%
   select(workerid, utteranceType, pass, featureAgreement, reasoning, itemsTested, timeExploring,  probabilityOfFeature, genericEndorsement, freeResponse) %>%
   rename( utterance = utteranceType,
           subj = workerid,
-          blicketsWorked = featureAgreement,
-          response = freeResponse,
-          probJudge = probabilityOfFeature,
-         generic = genericEndorsement,
-         n_items = itemsTested, 
-         time = timeExploring) %>%
+          worked = featureAgreement,
+          teach = freeResponse,
+          prob = probabilityOfFeature,
+         gen = genericEndorsement,
+         n = itemsTested, 
+         t = timeExploring) %>%
+    mutate(t = round(t, 2)) %>%
   kable()
 ```
 
