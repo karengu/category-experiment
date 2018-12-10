@@ -1,5 +1,5 @@
 ---
-title: "Analysis of pilot data 2 for genex"
+title: "Analysis of pilot data 3 for genex"
 output: github_document
 ---
 

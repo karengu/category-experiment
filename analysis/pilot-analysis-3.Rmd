@@ -69,6 +69,7 @@ non.english <- c(0,  4, 7, 8, 19, 21, 29, 33, 35)
 df.trials <- df.trials %>%
   mutate(fail_attention = workerid %in% failed.attention,
          non_english = workerid %in% non.english,
+         exclude = workerid %in% c(failed.attention, non.english),
          genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
          utteranceType = ifelse(utteranceType == "barePlural", 
                                 "generic", "specific")) %>%
@@ -80,7 +81,7 @@ df.trials <- df.trials %>%
 
 ```{r echo = T}
 df.trials %>%
-  group_by(utteranceType, fail_attention, non_english) %>%
+  group_by(utteranceType, exclude) %>%
   count() %>%
   kable()
 ```
@@ -117,7 +118,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  #filter(!fail_attention, !non_english) %>%
   ggplot(., aes( x = timeExploring))+
   geom_histogram( bins = 10)+
   facet_grid(utteranceType ~ .)
@@ -128,7 +129,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  #filter(!fail_attention, !non_english) %>%
   ggplot(., aes( x = itemsTested))+
   geom_bar()+
   facet_grid(utteranceType ~ .)

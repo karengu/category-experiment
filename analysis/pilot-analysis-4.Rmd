@@ -1,0 +1,204 @@
+---
+title: "Analysis of pilot data 4 for genex"
+output: github_document
+---
+
+## No alternative sound
+
+- US IP restricted
+- must test at least 1 blicket
+- added explanation question
+
+
+[Link to expt](https://www.mit.edu/~karengu/category-experiment2/category-experiment/template/template.html)
+
+[Other condition](https://www.mit.edu/~karengu/category-experiment/template/template.html)
+
+
+
+```{r, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, fig.width = 6,
+                      fig.height =4, fig.asp = 0.5)
+library(knitr)
+library(ggthemes)
+library(tidyboot)
+library("jsonlite")
+library("tidyverse")
+theme_set(theme_few())
+results.path <- "../anon_results_v4/"
+fig.path <- "~/Documents/talks/eccl-lab-mtg-1218/"
+```
+
+```{r, echo=F, warning=F}
+
+anon_results = list.files(results.path)
+
+i = 0
+df.subject <- data.frame()
+df.trials <- data.frame()
+df.attention <- data.frame()
+for (anon_result in anon_results) {
+  
+  result_json = fromJSON(paste(results.path, anon_result, sep =""))
+
+  df.attention = bind_rows(
+    df.attention, 
+    data.frame(
+      workerid = i,
+      sound_check = result_json$answers$sound_check,
+      attention_check = result_json$answers$attention_check,
+      utterance = result_json$answers$trials$utteranceType
+    )
+  )
+  
+  df.subject = bind_rows(
+    df.subject, 
+    data.frame(result_json$answers$subject_information) %>% mutate(workerid = i)
+  )
+  
+  df.trials = bind_rows(
+    df.trials, 
+    result_json$answers$trials %>% select(-events, -testResults) %>% mutate(workerid = i)
+  )
+
+  i = i + 1
+}
+```
+
+
+```{r}
+#failed.attention <- c(1, 11, 12, 44, 45, 50, 57, 64, 65, 66, 69)
+failed.attention <-c(11, 12, 1, 47, 36, 37, 38, 39, 40, 54, 55, 57, 60, 77, 84, 85, 86, 89)
+non.english <- c()
+```
+
+
+
+```{r}
+df.trials <- df.trials %>%
+  mutate(fail_attention = workerid %in% failed.attention,
+         non_english = workerid %in% non.english,
+         pass = !(workerid %in% c(failed.attention, non.english)),
+         genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+         utteranceType = ifelse(utteranceType == "barePlural", 
+                                "generic", "specific")) %>%
+  rename(trialNum = id)
+```
+
+
+#### Number of subjects
+
+```{r echo = T}
+df.trials %>%
+  group_by(utteranceType, pass) %>%
+  count() %>%
+  kable()
+```
+
+
+
+
+## Free response data (with other data)
+
+Excluded subjects marked with `Exclude` 
+
+```{r, echo = T}
+df.trials %>%
+  select(workerid, utteranceType, pass, featureAgreement, reasoning, itemsTested, timeExploring,  probabilityOfFeature, genericEndorsement, freeResponse) %>%
+  rename( utterance = utteranceType,
+          subj = workerid,
+          blicketsWorked = featureAgreement,
+          response = freeResponse,
+          probJudge = probabilityOfFeature,
+         generic = genericEndorsement,
+         n_items = itemsTested, 
+         time = timeExploring) %>%
+    mutate(time = round(time, 2)) %>%
+  kable()
+```
+
+
+```{r eval = F}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram( bins = 20)
+```
+
+## Time exploring
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram( bins = 30)+
+  facet_grid(utteranceType ~ ., scales = 'free')
+  #xlim(0, 2)
+
+#ggsave(paste(fig.path, "time_exploring.pdf", sep = ""), width = 5, height = 3.5)
+
+```
+
+## Objects tested
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = itemsTested))+
+  geom_bar()+
+  facet_grid(utteranceType ~ .)
+
+#ggsave(paste(fig.path, "obj_tested.pdf", sep = ""), width = 5, height = 3.5)
+```
+
+## Probability judgment
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = probabilityOfFeature))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ .)+
+  xlab("Probability judgment")
+
+#ggsave(paste(fig.path, "prob_judgment.pdf", sep = ""), width = 5, height = 3.5)
+```
+
+## Items tested vs. probability judgment
+
+```{r}
+df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  ggplot(., aes( x = itemsTested, y = probabilityOfFeature, color = utteranceType))+
+  geom_point()+
+  scale_color_solarized()+
+  ylab("Probability judgment")+
+  xlab("number of items tested")+
+  coord_fixed(ratio = 33)
+
+#ggsave(paste(fig.path, "prob_vs_nItems.pdf", sep = ""), width = 5, height = 4)
+```
+
+```{r}
+df.bs <- df.trials %>%
+  filter(!fail_attention, !non_english) %>%
+  select(-freeResponse) %>%
+  gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
+  group_by(key, utteranceType, proportionSuccess) %>%
+  tidyboot_mean(column = val)
+```
+
+## All measures (means and 95% CI)
+
+```{r}
+df.bs %>% 
+  ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
+                 y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_col(position = position_dodge(1), color = 'black')+
+  geom_errorbar(position = position_dodge(1), width =0.5)+
+  scale_fill_solarized()+
+  facet_wrap(~key, scales = 'free')+
+  xlab("true probability")
+
+#ggsave(paste(fig.path, "bootstrapped_measures.pdf", sep = ""), width = 6, height = 4)
+```
