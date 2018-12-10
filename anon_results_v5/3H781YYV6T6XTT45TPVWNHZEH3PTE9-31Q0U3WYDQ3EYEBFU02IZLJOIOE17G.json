@@ -1,0 +1,127 @@
+{
+    "AcceptTime": "2018-12-10T15:21:16.000Z",
+    "AssignmentId": "31Q0U3WYDQ3EYEBFU02IZLJOIOE17G",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:01:13.000Z",
+    "HITId": "3H781YYV6T6XTT45TPVWNHZEH3PTE9",
+    "SubmitTime": "2018-12-10T16:01:13.000Z",
+    "answers": {
+        "attention_check": "That blickets squeek",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "ENGLISH",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.1075666666666666,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeek",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544457523040
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544457527133
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457527138
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544457527162
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457527170
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457527593
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457573565
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457574603
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457575405
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457577987
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457578638
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544457579518
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544457579518
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457580476
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457581117
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457583309
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457585845
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457587395
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "I would tell them that they make a crashing sound",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "proportionSuccess": 0,
+                "reasoning": "They did not squeek because they were broken or were not designed to squeek. ",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.9137833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

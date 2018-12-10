@@ -1,0 +1,128 @@
+{
+    "AcceptTime": "2018-12-10T14:26:40.000Z",
+    "AssignmentId": "3LYA37P8IRB36R0RFRKG921JAKHBKR",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:30:49.000Z",
+    "HITId": "3JYPJ2TAYIWR7FBU7J6I0PJH41DPFC",
+    "SubmitTime": "2018-12-10T14:30:49.000Z",
+    "answers": {
+        "attention_check": "That blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "31",
+            "asses": "Yes",
+            "comments": "n/a",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": "None"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1440,
+            "screenW": 2560
+        },
+        "time_in_minutes": 4.108233333333334,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452044921
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452047487
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452083082
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452086607
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544452087763
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452087763
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452088959
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452089428
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452093922
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452094825
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452095303
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452097063
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452097919
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452098748
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452101313
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452101889
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452102787
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452117789
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Most blickets make an loud explosion sound. Then there are some blickets that squeak. This is rare.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.05,
+                "proportionSuccess": 0,
+                "reasoning": "I'm not sure. Maybe I was given a special type of blicket that only squeaks.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.19695,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

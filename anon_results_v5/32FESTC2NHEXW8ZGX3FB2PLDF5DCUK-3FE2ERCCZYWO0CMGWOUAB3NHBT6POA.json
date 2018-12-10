@@ -1,0 +1,107 @@
+{
+    "AcceptTime": "2018-12-10T14:27:18.000Z",
+    "AssignmentId": "3FE2ERCCZYWO0CMGWOUAB3NHBT6POA",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:30:02.000Z",
+    "HITId": "32FESTC2NHEXW8ZGX3FB2PLDF5DCUK",
+    "SubmitTime": "2018-12-10T14:30:02.000Z",
+    "answers": {
+        "attention_check": "That blickets squeak.",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "18",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 2.5949666666666666,
+        "trials": [
+            {
+                "attentionCheck": "This Blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452066615
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452066736
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452067803
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452069254
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452094048
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452095085
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452096204
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452104748
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452106574
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452107126
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452108686
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452109477
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452109831
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blickets squeak while others make a sound like a explosion.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.39,
+                "proportionSuccess": 0,
+                "reasoning": "They made a explosion sound.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7396833333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

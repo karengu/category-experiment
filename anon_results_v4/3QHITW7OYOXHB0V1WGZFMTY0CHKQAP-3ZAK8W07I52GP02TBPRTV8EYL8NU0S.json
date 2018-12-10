@@ -1,0 +1,183 @@
+{
+    "AcceptTime": "2018-12-10T16:12:50.000Z",
+    "AssignmentId": "3ZAK8W07I52GP02TBPRTV8EYL8NU0S",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:59:03.000Z",
+    "HITId": "3QHITW7OYOXHB0V1WGZFMTY0CHKQAP",
+    "SubmitTime": "2018-12-10T16:59:03.000Z",
+    "answers": {
+        "attention_check": "\"this blicket squeeks\"",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "32",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 2.9227166666666666,
+        "trials": [
+            {
+                "attentionCheck": "this blicket squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544461004986
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544461005134
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461008875
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544461009527
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461013419
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544461013731
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461018642
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461019159
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461052836
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461054575
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461055456
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461060288
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461061374
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461062163
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461064240
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461064815
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544461065354
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461067159
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461067520
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461069250
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461069812
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461070806
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461072484
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461073238
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461074050
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461075634
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461076442
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461077197
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544461079630
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544461080710
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544461081571
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Rarely will a blicket squeek",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 7,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.07,
+                "proportionSuccess": 0,
+                "reasoning": "After the initial test - all the blickets I tested did not squeek.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8958166666666667,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

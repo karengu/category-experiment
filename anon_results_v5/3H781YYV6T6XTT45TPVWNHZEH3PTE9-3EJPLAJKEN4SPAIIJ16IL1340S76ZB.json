@@ -1,0 +1,120 @@
+{
+    "AcceptTime": "2018-12-10T15:21:56.000Z",
+    "AssignmentId": "3EJPLAJKEN4SPAIIJ16IL1340S76ZB",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:13:49.000Z",
+    "HITId": "3H781YYV6T6XTT45TPVWNHZEH3PTE9",
+    "SubmitTime": "2018-12-10T16:13:49.000Z",
+    "answers": {
+        "attention_check": "blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "25",
+            "asses": "Confused",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".75",
+            "gender": "Male",
+            "language": "english",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 704,
+            "screenW": 1252
+        },
+        "time_in_minutes": 2.9545,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544458291448
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458295432
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458312494
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458313680
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458314335
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458319849
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458320916
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458321536
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458323130
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458324114
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544458324824
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458325902
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458326480
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458329153
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458329936
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458330994
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "blickets squeak",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 4,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.33,
+                "proportionSuccess": 0,
+                "reasoning": "Most of them made a sound like distant gunfire",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7041833333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

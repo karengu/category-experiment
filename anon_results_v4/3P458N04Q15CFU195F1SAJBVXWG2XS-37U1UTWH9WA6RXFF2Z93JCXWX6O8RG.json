@@ -1,0 +1,193 @@
+{
+    "AcceptTime": "2018-12-10T14:21:42.000Z",
+    "AssignmentId": "37U1UTWH9WA6RXFF2Z93JCXWX6O8RG",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T14:43:21.000Z",
+    "HITId": "3P458N04Q15CFU195F1SAJBVXWG2XS",
+    "SubmitTime": "2018-12-10T14:43:21.000Z",
+    "answers": {
+        "attention_check": "That blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "53",
+            "asses": "Yes",
+            "comments": "great survey",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 7.848233333333333,
+        "trials": [
+            {
+                "attentionCheck": "this blinket squeeks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544452613704
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452613977
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452613992
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544452614061
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452615387
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452616836
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452719256
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452722603
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452723600
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452741716
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452744755
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452745633
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452749737
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452751320
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452752627
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452755708
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452757152
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452757940
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452762129
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452763613
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452764529
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452768151
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452769720
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452770849
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452780445
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452781901
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452782829
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452786192
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452787697
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452788659
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544452791986
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544452793149
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544452794279
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "That blickets are yellow and squeek",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 9,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.99,
+                "proportionSuccess": 0,
+                "reasoning": "they had no sound",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.8354666666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

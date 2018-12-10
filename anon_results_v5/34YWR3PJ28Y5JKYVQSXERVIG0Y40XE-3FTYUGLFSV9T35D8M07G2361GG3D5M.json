@@ -1,0 +1,102 @@
+{
+    "AcceptTime": "2018-12-10T16:09:11.000Z",
+    "AssignmentId": "3FTYUGLFSV9T35D8M07G2361GG3D5M",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:54:43.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG0Y40XE",
+    "SubmitTime": "2018-12-10T16:54:43.000Z",
+    "answers": {
+        "attention_check": "She said it squeaks. ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "1.20",
+            "gender": "Female",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 5.791083333333333,
+        "trials": [
+            {
+                "attentionCheck": "Blicket squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544460923495
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460923565
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460926366
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544460928519
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544460952383
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460956055
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460956452
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460956948
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544460957195
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544460959847
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460961340
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544460961762
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "That some squeaks and some does not.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 2,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.6,
+                "proportionSuccess": 0,
+                "reasoning": "It did not make the squeaky sound.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.5912166666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

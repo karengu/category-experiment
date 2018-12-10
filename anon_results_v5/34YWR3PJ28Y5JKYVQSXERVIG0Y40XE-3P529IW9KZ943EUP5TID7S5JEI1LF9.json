@@ -1,0 +1,125 @@
+{
+    "AcceptTime": "2018-12-10T15:20:55.000Z",
+    "AssignmentId": "3P529IW9KZ943EUP5TID7S5JEI1LF9",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:55:27.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG0Y40XE",
+    "SubmitTime": "2018-12-10T15:55:27.000Z",
+    "answers": {
+        "attention_check": "They they squeak. ",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "28",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".60",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 2560
+        },
+        "time_in_minutes": 2.9687833333333336,
+        "trials": [
+            {
+                "attentionCheck": "Blickets squeak",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544457173565
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457174571
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457217651
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457219948
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457220670
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457232668
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457233637
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457234117
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457246789
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457247655
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457248670
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457254004
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457255445
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457256158
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544457258322
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544457259050
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544457259835
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets sometimes squeak and sometimes they explode. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.1,
+                "proportionSuccess": 0,
+                "reasoning": "The blickets I tested after the teacher left made an exploding noise. ",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.4789833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

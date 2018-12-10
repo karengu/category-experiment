@@ -1,0 +1,85 @@
+{
+    "AcceptTime": "2018-12-10T14:36:25.000Z",
+    "AssignmentId": "3N2BF7Y2VRI8NS3G0V7SAQWLU2LHMM",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:36:19.000Z",
+    "HITId": "32FESTC2NHEXW8ZGX3FB2PLDF5DCUK",
+    "SubmitTime": "2018-12-10T15:36:19.000Z",
+    "answers": {
+        "attention_check": "The blickets squeak",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 36.59375,
+        "trials": [
+            {
+                "attentionCheck": "blicket",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544455863780
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544455863894
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544455867718
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544455868884
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456051173
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456052458
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456053377
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456055926
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "The blickets are known to squeak ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.78,
+                "proportionSuccess": 0,
+                "reasoning": "Because when I tested them, they produced that noise",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 3.157983333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

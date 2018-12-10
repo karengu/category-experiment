@@ -1,0 +1,177 @@
+{
+    "AcceptTime": "2018-12-10T15:03:18.000Z",
+    "AssignmentId": "3VE8AYVF8NL9O7A6B4992NJDUIVF8A",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:13:17.000Z",
+    "HITId": "3QTFNPMJC66X9BQHSGNXZSU4GR4NZ0",
+    "SubmitTime": "2018-12-10T15:13:17.000Z",
+    "answers": {
+        "attention_check": "That some blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "58",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.814133333333333,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544454542191
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454542292
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454546107
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454548381
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454588985
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454595450
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454599220
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454607767
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454609010
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454609148
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454610946
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454611564
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454620544
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544454621311
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454621311
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454622302
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454622442
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454654201
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454654427
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454658194
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454660932
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454661993
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454665896
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454668106
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454668876
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544454671098
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454671966
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544454672116
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544454672593
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544454673473
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Some blickets squeak, but most of them don't.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 5,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.05,
+                "proportionSuccess": 0,
+                "reasoning": "The initial blicket squeaked. But none that I tested on my own did. I'm not sure why some do and some don't.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 2.121183333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

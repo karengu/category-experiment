@@ -1,0 +1,99 @@
+{
+    "AcceptTime": "2018-12-10T16:14:57.000Z",
+    "AssignmentId": "3ATPCQ38J9YT7MKGDSLBNZWOQIAYAL",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:24:06.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG0Y40XE",
+    "SubmitTime": "2018-12-10T16:24:06.000Z",
+    "answers": {
+        "attention_check": "She told me blickets squeak.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "28",
+            "asses": "Yes",
+            "comments": "No comments.",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": ".75",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.8318,
+        "trials": [
+            {
+                "attentionCheck": "blickets squeek",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544458858017
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458859527
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458884154
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458885121
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458886027
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458894638
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458895586
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458896586
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544458901963
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544458902974
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544458903882
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Sometimes blickets squeak, but they mostly make a thud sound.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.27,
+                "proportionSuccess": 0,
+                "reasoning": "They made a loud thud instead. I don't know why.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8047166666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

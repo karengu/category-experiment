@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-10T16:32:43.000Z",
+    "AssignmentId": "33PPO7FECW35FT8NTKQARCA6L2DID5",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T16:50:45.000Z",
+    "HITId": "3P458N04Q15CFU195F1SAJBVXWG2XS",
+    "SubmitTime": "2018-12-10T16:50:45.000Z",
+    "answers": {
+        "attention_check": "That the blickets squeak. ",
+        "condition": "single",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "21",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "Yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 2.308333333333333,
+        "trials": [
+            {
+                "attentionCheck": "This blicket Squeaks",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544460536022
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460536058
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460536738
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460536826
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460536938
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460537013
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460537132
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460537206
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460538346
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460540824
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460541341
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544460542166
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544460576110
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460577030
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544460577530
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544460580548
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544460581241
+                    },
+                    {
+                        "event": "dropGarbagePrevented",
+                        "time": 1544460581878
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1544460581878
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Sometimes they squeak, sometimes they don't.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.49,
+                "proportionSuccess": 0,
+                "reasoning": "I'm not sure why.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.777,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

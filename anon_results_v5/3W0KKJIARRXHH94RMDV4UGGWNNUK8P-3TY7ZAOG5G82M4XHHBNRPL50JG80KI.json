@@ -1,0 +1,138 @@
+{
+    "AcceptTime": "2018-12-10T15:20:57.000Z",
+    "AssignmentId": "3TY7ZAOG5G82M4XHHBNRPL50JG80KI",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-11T15:46:49.000Z",
+    "HITId": "3W0KKJIARRXHH94RMDV4UGGWNNUK8P",
+    "SubmitTime": "2018-12-10T15:46:49.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks.",
+        "condition": "single",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "0.50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "none"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.9316,
+        "trials": [
+            {
+                "attentionCheck": "This blicket squeaks.",
+                "events": [
+                    {
+                        "event": "pickUp",
+                        "time": 1544456633341
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456634138
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456669004
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456670644
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456671313
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456680602
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456681810
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456682475
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456684687
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456685402
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456685847
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456687315
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456687980
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456688502
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456689740
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456691168
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456691705
+                    },
+                    {
+                        "event": "newItem",
+                        "time": 1544456693021
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1544456693693
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1544456694165
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets emit different noises. Sometimes they squeak and sometimes they make a loud boom.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 6,
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.19,
+                "proportionSuccess": 0,
+                "reasoning": "The made a loud boom sound, almost like a bomb exploded.",
+                "successfulTestResult": "squeak",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.0503333333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
