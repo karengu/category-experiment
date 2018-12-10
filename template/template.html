@@ -14,7 +14,7 @@
     <script type="text/javascript">
       function USOnly() {var accessKey = 'b487843addca6e9ec32e6ae28aeaa022';
         $.ajax({
-          url: 'http://api.ipstack.com/check?access_key='+accessKey,
+          url: 'https://api.ipstack.com/check?access_key='+accessKey,
           dataType: 'jsonp',
           success: function(json) {
           if (json.country_code != 'US') {
