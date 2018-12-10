@@ -740,7 +740,6 @@ stim.investigator+' has to go teach her class now.',
   slides.attention_check = slide({
       name: "attention_check",
       start: function() {
-	  console.log('inside attention_check');
 	  $('.err').hide();
       },
     button: function() {
@@ -980,7 +979,7 @@ function init() {
   ];
 
     exp.config = {
-	negativeProperty: null, // one of the sound files in _shared/audio or null
+	negativeProperty: 'boom', // one of the sound files in _shared/audio or null
 	coverStory: 'teacher'
     };
 

@@ -273,7 +273,7 @@ var drag_and_drop = {
 	    alert.push(paper.text(465, 515, belowText6).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	    alert.push(paper.text(518, 515, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
 	    alert.push(paper.text(605, 515, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(370, 535, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(390, 535, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	    alert.push(paper.text(400, 555, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
 	}, restTime);
     alert.click(function() {
