@@ -210,8 +210,8 @@ var drag_and_drop = {
     blicket.translate(finalX-x,finalY-y)
   },
     
-  makeButton: function(startX, startY, color, buttonText, paper) {
-    var button = paper.rect(startX -35, startY-15, 70, 30, 8).attr("fill", color);
+    makeButton: function(startX, startY, color, buttonText, paper, length, width) {
+    var button = paper.rect(startX -length/2, startY-width/2, length, width, 8).attr("fill", color);
     var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold", "font-size": 16});
     var buttonSet = paper.set();
     buttonSet.push(button, buttonLabel).attr({"cursor": "pointer"});
@@ -268,13 +268,13 @@ var drag_and_drop = {
 	alert.push(paper.text(400, 440, textAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 20, "font-weight": "bold"}));
 	setTimeout(function() {
 	    alert.push(paper.text(400, 475, belowText1).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(202, 495, belowText2).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(445, 495, belowText3).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
-	    alert.push(paper.text(643, 495, belowText4).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(305, 515, belowText5).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
-	    alert.push(paper.text(465, 515, belowText6).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(518, 515, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
-	    alert.push(paper.text(605, 515, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(400, 495, belowText2).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    //alert.push(paper.text(445, 495, belowText3).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	    //alert.push(paper.text(643, 495, belowText4).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(300, 515, belowText5).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	    alert.push(paper.text(485, 515, belowText6).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    alert.push(paper.text(540, 515, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	    alert.push(paper.text(625, 515, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	    alert.push(paper.text(390, 535, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	    alert.push(paper.text(400, 555, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
 	}, restTime);

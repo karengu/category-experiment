@@ -328,7 +328,16 @@ function make_slides(f) {
 
       else if (stim.type == "explore") {
         this.stim = stim;
-	exp.utteranceHeader = stim.investigator+' tells you that: ';
+	  exp.utteranceHeader = stim.investigator+' tells you that: ';
+	  if (exp.condition == 'double') {
+	      if (stim.utteranceType == 'barePlural') {
+		  exp.utterance = stim.objectNamePlural + ' ' + stim.property1 + ' and ' + stim.objectNamePlural.toLowerCase() + ' ' + stim.property2 + '.';
+	      }
+	      else if (stim.utteranceType == 'specific') {
+		  exp.utterance = stim.objectNamePlural + ' ' + stim.property1 + ' and this ' + stim.objectNameSingular.toLowerCase() +' '+ stim.property2 + 's.';
+	      }
+	  }
+	  else {
         if (stim.utteranceType == "barePlural") {
           exp.utterance = stim.objectNamePlural+' '+stim.successfulTestResult+'.';
         }
@@ -341,6 +350,7 @@ function make_slides(f) {
         else if (stim.utteranceType == "some") {
           exp.utterance = 'Some '+stim.objectNamePlural.toLowerCase()+' '+stim.successfulTestResult+'.';
         }
+	  }
         $('.err').hide();
         $('#ddbutton').hide();
         $('.testProb').hide();
@@ -352,8 +362,8 @@ function make_slides(f) {
 	$('.writeNotebook').hide();
 	$('.notebook').hide();
 	$('#classroomIntro').text(stim.investigator+' takes you into the classroom.');
-        exp.belowUtteranceBefore = 'Test the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow by dragging it';
-	exp.belowUtteranceAfter = ' from the blue stage to the green testing stage and clicking the green Test button.';
+        exp.belowUtteranceBefore = 'Test the '+stim.objectNameSingular.toLowerCase()+' marked with an arrow';
+	exp.belowUtteranceAfter = ' by clicking the green Test buttons.';
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.testSequence.binSize*stim.testSequence.proportionSuccess; i++) {
 	  testSequence.push(true);
@@ -368,9 +378,9 @@ function make_slides(f) {
         exp.testResults = [];
 	exp.proportionSuccess = stim.testSequence.proportionSuccess;
 
-        var positiveSound = new Audio('../_shared/audio/'+stim.successfulTestResult+'.mp3');
+        var positiveSound = new Audio('../_shared/audio/'+stim.property1+'.mp3');
         if (exp.config.negativeProperty) {
-          var negativeSound = new Audio('../_shared/audio/'+exp.config.negativeProperty+'.mp3');
+          var negativeSound = new Audio('../_shared/audio/'+stim.property2+'.mp3');
         }
 	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
 
@@ -381,19 +391,12 @@ function make_slides(f) {
  	paper.customAttributes.teacher = paper.image("../_shared/images/ashley.jpg", 0, 0, 202, 400);
           drag_and_drop.makeTable(paper);
 	  paper.customAttributes.start = function (x,y) {
-	      console.log('call to start');
-	      var i = 0;
-	      paper.customAttributes.blicketPile.forEach(function(blicket) {
-		  i++
-	      });
-	      console.log(i);
           this.odx = 0;
           this.ody = 0;
           this.animate({"fill-opacity": 0.2}, 500);
               
         };
           paper.customAttributes.move = function (dx, dy) {
-	      console.log('call to move');
           this.translate(dx - this.odx, dy - this.ody);
           this.odx = dx;
           this.ody = dy;
@@ -405,7 +408,6 @@ function make_slides(f) {
 }
 	      if (this.id != paper.customAttributes.pickedItemId) {
 		  var blicketCopy = clone(this);
-		  console.log(blicketCopy)
 		  blicketCopy.insertAfter(this);
 		  blicketCopy.undrag();
 		  paper.customAttributes.boxBack.toBack();
@@ -417,8 +419,10 @@ function make_slides(f) {
 		  blicket.attr({"fill": stim.greyedColor});
 		  blicket.undrag();
 	      });
+		  if (paper.customAttributes.firstItemId == null) {
+		      paper.customAttributes.firstItemId = this.id;
+		  }
 	      }
-	      console.log('call to up');
           this.animate({"fill-opacity": 1}, 500);
           var bBox = this.getBBox(); // gets top left coordinates of bounding box
           xTrans = 0;
@@ -469,9 +473,15 @@ function make_slides(f) {
           drag_and_drop.makeBlicketPile(370,180,200, paper.customAttributes.blicketPile, paper, stim.greyedColor, stim.shape);
         var sourceLabel = paper.text(400, 100, stim.objectNamePlural).attr({"font-size": 18});
 
-        // target: testing area
-        var targetLabel = paper.text(120, labelLevel, "Testing Stage").attr({"font-size": 14});
-        var testButton = drag_and_drop.makeButton(400, 320, "#49e575", "Test", paper);
+          // target: testing area
+	  var testingLabel = paper.text(120, labelLevel, "Testing Stage").attr({"font-size": 14});
+	  if (exp.condition == 'double') {
+	      var testButton1 = drag_and_drop.makeButton(400, 310, "#49e575", "Test "+stim.property1.charAt(0).toUpperCase() + stim.property1.slice(1)+'ing', paper, 150, 30);
+	      var testButton2 = drag_and_drop.makeButton(400, 370, "#49e575", "Test "+stim.property2.charAt(0).toUpperCase() + stim.property2.slice(1)+'ing', paper, 150, 30);
+	  }
+	  else {
+	      var testButton1 = drag_and_drop.makeButton(400, 290, "#49e575", "Test", paper, 70, 30);
+	  }
 
         // garbage: items already tested
         var garbageLabel = paper.text(620, labelLevel, "Tested Items").attr({"font-size": 14});
@@ -484,70 +494,163 @@ function make_slides(f) {
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
 	    setTimeout(function() { // allow user to test exemplar after 1.5 seconds
-		testButton.buttonSet.click(onTest);
-        testButton.buttonSet.mousedown(function() {
-          testButton.button.animate({"fill":"#287f41"});
+		testButton1.buttonSet.click(onTest1);
+		testButton2.buttonSet.click(onTest2);
+        testButton1.buttonSet.mousedown(function() {
+          testButton1.button.animate({"fill":"#287f41"});
         });
-        testButton.buttonSet.mouseup(function() {
-          testButton.button.animate({"fill": "#49e575"});
+        testButton1.buttonSet.mouseup(function() {
+          testButton1.button.animate({"fill": "#49e575"});
+        });
+		testButton2.buttonSet.mousedown(function() {
+          testButton2.button.animate({"fill":"#287f41"});
+        });
+        testButton2.buttonSet.mouseup(function() {
+          testButton2.button.animate({"fill": "#49e575"});
         });
 	  }, 1500);
         }, 2000);
 	  paper.customAttributes.classroomIntro = paper.text(400, 20, stim.investigator+' takes you into the classroom.').attr({"font-size": 16});
+	  paper.customAttributes.firstItemId = null;
+	  paper.customAttributes.itemsTested = 0;
 
-	  exp.wroteInNotebook = false;
+	exp.wroteInNotebook = false;
 
-        var onTest = function() {
-            const testItem = paper.customAttributes.testItem;
+	var onTest1 = function() { // always successful
+          const testItem = paper.customAttributes.testItem;
           if (!testItem) {
             console.log('no item on testing stage');
           }
             else {
-              if (testItem.id == demoItemId) {
-		  arrow.remove();
+		paper.customAttributes.tested1 = true;
+            if (testItem.id == demoItemId) { // demo item
+	      arrow.remove();
 	      if (utterance) {
 	        utterance.remove();
 	      }
-	      $('.writeNotebook').show();
-	      $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
-	      $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided.)');
+		positiveSound.play();
+		exp.events.push({time: Date.now(), event:"testDemo1"});
+              if (paper.customAttributes.tested1 && paper.customAttributes.tested2) { // tested both properties
+	        $('.writeNotebook').show();
+	        $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
+                $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided.)');
+                exp.startExploration = Date.now();
+                var bBox = testItem.getBBox();
+                drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
+                  paper.customAttributes.testItem = null;
+		  paper.customAttributes.tested1 = false;
+		  paper.customAttributes.tested2 = false;
 	      }
-		else {
-		    paper.customAttributes.blicketPile.forEach(function(blicket) {
-		blicket.attr({"fill": stim.objectColor});
-		blicket.drag(paper.customAttributes.move, paper.customAttributes.start, paper.customAttributes.up);
-	    })
-		}
-            if (testSequence[testSequenceIndex] || testItem.id == demoItemId) {
-	      positiveSound.play();
-            }
-	    else if (exp.config.negativeProperty) {
-              negativeSound.play();
 	    }
-            if (testItem.id != demoItemId) {
-              exp.testResults.push(testSequence[testSequenceIndex]);
+	      else { // not demo item
+	      if (paper.customAttributes.tested1 && paper.customAttributes.tested2) { // tested both properties
+	        paper.customAttributes.blicketPile.forEach(function(blicket) {
+	          blicket.attr({"fill": stim.objectColor});
+	          blicket.drag(paper.customAttributes.move, paper.customAttributes.start, paper.customAttributes.up);
+	        })
+		  if (testItem.id == paper.customAttributes.firstItemId) {
+		  setTimeout(function() { // delay showing button to leave for 2 seconds
+                    $('#ddbutton').show();
+                    $('#ddbutton').text('Leave testing area');
+                  }, 2000);
+		  }
+                  var bBox = testItem.getBBox();
+                  drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
+                  paper.customAttributes.testItem = null;
+	          paper.customAttributes.itemsTested ++;
+		  paper.customAttributes.tested1 = false;
+		  paper.customAttributes.tested2 = false;
+	      }
+		  positiveSound.play();
+		  exp.events.push({time:Date.now(), event:"testItem1"});
+            }
+	  };
+        }
+
+          var onTest2 = function() { // variable
+              const testItem = paper.customAttributes.testItem;
+          if (!testItem) {
+            console.log('no item on testing stage');
+          }
+              else {
+		  paper.customAttributes.tested2 = true;
+            if (testItem.id == demoItemId) { // demo item
+	      arrow.remove();
+	      if (utterance) {
+	        utterance.remove();
+	      }
+		negativeSound.play();
+		exp.events.push({time:Date.now(), event:"testDemo1"});
+              if (paper.customAttributes.tested1 && paper.customAttributes.tested2) { // tested both properties
+	        $('.writeNotebook').show();
+	        $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
+	          $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided.)');
+		  exp.startExploration = Date.now();
+		  var bBox = testItem.getBBox();
+                drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
+                  paper.customAttributes.testItem = null;
+		  paper.customAttributes.tested1 = false;
+		  paper.customAttributes.tested2 = false;
+	      }
+	    }
+	    else { // not demo item
+	      if (paper.customAttributes.tested1 && paper.customAttributes.tested2) { // tested both properties
+	        paper.customAttributes.blicketPile.forEach(function(blicket) {
+	          blicket.attr({"fill": stim.objectColor});
+	          blicket.drag(paper.customAttributes.move, paper.customAttributes.start, paper.customAttributes.up);
+	        })
+		  if (testItem.id == paper.customAttributes.firstItemId) {
+		  setTimeout(function() { // delay showing button to leave for 2 seconds
+                    $('#ddbutton').show();
+                    $('#ddbutton').text('Leave testing area');
+                  }, 2000);
+		  }
+                  var bBox = testItem.getBBox();
+                  drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
+                  paper.customAttributes.testItem = null;
+	          paper.customAttributes.itemsTested ++;
+		  paper.customAttributes.tested1 = false;
+		  paper.customAttributes.tested2 = false;
+	      }
+		exp.events.push({time:Date.now(), event:"testItem2"});
+	      if (testSequence[testSequenceIndex]) {
+	        negativeSound.play();
+	      }
+	      exp.testResults.push(testSequence[testSequenceIndex]);
               testSequenceIndex ++;
 	      if (testSequenceIndex == stim.testSequence.binSize) {
                 testSequence = _.shuffle(testSequence);
                 testSequenceIndex = 0;
-              }
-              paper.customAttributes.itemsTested ++;
-	    }
-            else {
-              exp.startExploration = Date.now();
+              }		  
             }
-	      if (paper.customAttributes.itemsTested == 1) {
-		  setTimeout(function() { // delay showing button to leave for 2 seconds
-          $('#ddbutton').show();
-          $('#ddbutton').text('Leave testing area');
-        }, 2000);
-	      }
-            var bBox = testItem.getBBox();
-            drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
-            paper.customAttributes.testItem = null;
-            exp.events[Date.now()] = "testItem";
-          }
-        }
+	  }
+	}
+
+	if (exp.condition == 'double') {
+          testButton1.buttonSet.click(onTest1);
+	  testButton1.buttonSet.mousedown(function() {
+            testButton1.button.animate({"fill":"#287f41"});
+          });
+          testButton1.buttonSet.mouseup(function() {
+            testButton1.button.animate({"fill": "#49e575"});
+          });
+	  testButton2.buttonSet.click(onTest2);
+          testButton2.buttonSet.mousedown(function() {
+            testButton2.button.animate({"fill":"#287f41"});
+          });
+          testButton2.buttonSet.mouseup(function() {
+            testButton2.button.animate({"fill": "#49e575"});
+          });
+	}
+	else {
+          testButton1.buttonSet.click(onTest);
+          testButton1.buttonSet.mousedown(function() {
+            testButton1.button.animate({"fill":"#287f41"});
+          });
+          testButton1.buttonSet.mouseup(function() {
+            testButton1.button.animate({"fill": "#49e575"});
+          });
+	}
       }
       else if (stim.type == 'testProb') {
         this.stim = stim;
@@ -562,9 +665,9 @@ function make_slides(f) {
         $('.testProb').show();
         $('.testGeneric').hide();
         $('.testFree').hide();
-        $('#probability').text('Suppose you pick up another '+stim.objectNameSingular.toLowerCase()+' from the box. What are the chances that it '+stim.successfulTestResult+'s?');
-        $('.left').text("definitely won't "+stim.successfulTestResult);
-        $('.right').text("definitely will "+stim.successfulTestResult);
+        $('#probability').text('Suppose you pick up another '+stim.objectNameSingular.toLowerCase()+' from the box. What are the chances that it '+stim.property2+'s?');
+        $('.left').text("definitely won't "+stim.property2);
+        $('.right').text("definitely will "+stim.property2);
         this.init_sliders();
           exp.sliderPost = null;
 	  	  $('.testReasoning').hide();
@@ -582,7 +685,7 @@ function make_slides(f) {
         $('.testProb').hide();
         $('.testGeneric').show();
         $('.testFree').hide();
-        $('#generic').text(stim.objectNamePlural+' '+stim.successfulTestResult+'.');
+        $('#generic').text(stim.objectNamePlural+' '+stim.property2+'.');
           $('input[name="endorsement"]').prop('checked', false);
 	  	  $('.testReasoning').hide();
       }
@@ -617,7 +720,7 @@ function make_slides(f) {
         $('.testGeneric').hide();
             $('.testFree').hide();
 	    $('.testReasoning').show();
-	    $('#reasoning_prompt').text('Did the '+stim.objectNamePlural.toLowerCase()+' you tested '+stim.successfulTestResult+'?');
+	    $('#reasoning_prompt').text('Did the '+stim.objectNamePlural.toLowerCase()+' you tested '+stim.property2+'?');
 	}
     },
     writeInNotebook: function() {
@@ -642,9 +745,9 @@ stim.investigator+' has to go teach her class now.',
 									       'She encourages you to explore the ' + stim.objectNamePlural.toLowerCase(),
                 ' so that you can plan the best lesson possible for your students.',
 		  'Please explore the ' + stim.objectNamePlural.toLowerCase() + ' for as long as you want. Afterward you will answer questions about what ', 'you learned and teach children about them.',
-										"Click the Blue Pick Up",
-										" button to pick up blickets, then ",
-										"drag them to the Green Testing Stage",
+										"",
+										"",
+										"Drag the blickets to the green Testing Stage",
 										" and ",
 										"click Test ",
 										"to test them.",
@@ -796,7 +899,7 @@ stim.investigator+' has to go teach her class now.',
 function init() {
   exp.trials = [];
   //exp.catch_trials = [];
-  exp.condition = _.sample(["single"]); //can randomize between subject conditions here
+  exp.condition = _.sample(["double"]); //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
@@ -962,6 +1065,67 @@ function init() {
 	successfulTestResult: objects[0].sound
     }];
   }
+    else if (exp.condition == 'double') {
+	const utteranceType = 'specific';
+	const proportionSuccess = 0;
+	const alternativeProperty = 'boom';
+	exp.data_trials.push({
+	    id: 0,
+	    objectName: objects[0].plural,
+	    property1: objects[0].sound,
+	    property2: alternativeProperty,
+	    utteranceType: utteranceType,
+	    proportionSuccess: proportionSuccess
+	});
+	exp.randomized_trials = [{
+		type: "transition",
+		id: 0,
+		objectNamePlural: objects[0].plural,
+		investigator: objects[0].investigator,
+		pronoun: objects[0].pronoun
+	},{
+	    type: "explore",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      objectNameSingular: objects[0].singular,
+      utteranceType: utteranceType,
+      utteranceSpoken: objects[0].plural.toLowerCase()+'Double'+utteranceType+'.mp3',
+      shape: objects[0].shape,
+	    property1: objects[0].sound,
+	    property2: alternativeProperty,
+      investigator: objects[0].investigator,
+      pronoun: objects[0].pronoun,
+      testSequence: {
+	binSize: binSize,
+	proportionSuccess: proportionSuccess
+      },
+      objectColor: objects[0].color,
+      greyedColor: objects[0].greyed
+	}, {
+      type: "testProb",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+      objectNameSingular: objects[0].singular,
+	property1: objects[0].sound,
+	property2: alternativeProperty
+    }, {
+      type: "testGeneric",
+      id: 0,
+      objectNamePlural: objects[0].plural,
+	property1: objects[0].sound,
+	property2: alternativeProperty
+    }, {
+      type: "testFree",
+      id: 0,
+      objectNamePlural: objects[0].plural
+    },
+				{
+	type: "testReasoning",
+	id: 0,
+	objectNamePlural: objects[0].plural,
+				    property2: alternativeProperty
+    }]
+    }
   else {
     fixed_orders = drag_and_drop.fixed_trials(objects, fixedOrders, binSize);
     exp.randomized_trials = fixed_orders.randomized_trials;
