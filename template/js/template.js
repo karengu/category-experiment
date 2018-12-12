@@ -368,25 +368,61 @@ function make_slides(f) {
         exp.testResults = [];
 	exp.proportionSuccess = stim.testSequence.proportionSuccess;
 
-	var start = function (x,y) {
+        var positiveSound = new Audio('../_shared/audio/'+stim.successfulTestResult+'.mp3');
+        if (exp.config.negativeProperty) {
+          var negativeSound = new Audio('../_shared/audio/'+exp.config.negativeProperty+'.mp3');
+        }
+	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
+
+          var paper = new Raphael(document.getElementById('paper'), 800, 580);
+	  const platformLevel = 380;
+	  const labelLevel = platformLevel - 15;
+        exp.paper = paper;
+ 	paper.customAttributes.teacher = paper.image("../_shared/images/ashley.jpg", 0, 0, 202, 400);
+          drag_and_drop.makeTable(paper);
+	  paper.customAttributes.start = function (x,y) {
+	      console.log('call to start');
+	      var i = 0;
+	      paper.customAttributes.blicketPile.forEach(function(blicket) {
+		  i++
+	      });
+	      console.log(i);
           this.odx = 0;
           this.ody = 0;
           this.animate({"fill-opacity": 0.2}, 500);
-          exp.events.push({event: "pickUp", time: Date.now()});
+              
         };
-        var move = function (dx, dy) {
+          paper.customAttributes.move = function (dx, dy) {
+	      console.log('call to move');
           this.translate(dx - this.odx, dy - this.ody);
           this.odx = dx;
           this.ody = dy;
-        };
-        var up = function () {
+          };
+          paper.customAttributes.up = function () {
+
+	      function clone(shape) { 
+		  return paper.path(shape.attr().path).attr({fill: shape.attr().fill, "fill-opacity": 1, stroke: shape.attr().stroke}); 
+}
+	      if (this.id != paper.customAttributes.pickedItemId) {
+		  var blicketCopy = clone(this);
+		  console.log(blicketCopy)
+		  blicketCopy.insertAfter(this);
+		  blicketCopy.undrag();
+		  paper.customAttributes.boxBack.toBack();
+		  paper.customAttributes.blicketPile.push(blicketCopy);
+		  paper.customAttributes.blicketPile.exclude(this);
+	      exp.events.push({event: "pickUp", time: Date.now()});
+		  paper.customAttributes.pickedItemId = this.id;
+	      paper.customAttributes.blicketPile.forEach(function(blicket) {
+		  blicket.attr({"fill": stim.greyedColor});
+		  blicket.undrag();
+	      });
+	      }
+	      console.log('call to up');
           this.animate({"fill-opacity": 1}, 500);
           var bBox = this.getBBox(); // gets top left coordinates of bounding box
           xTrans = 0;
             yTrans = 0;
-	    if (this.id == demoItemId) {
-		arrow.remove();
-	    }
           if (bBox.x < 0) {
             xTrans=-bBox.x
           }
@@ -406,7 +442,7 @@ function make_slides(f) {
             this.translate(-this.odx, -this.ody);
             exp.events.push({event: "dropGarbagePrevented", time: Date.now()});
           }
-          if (330 < bBox.x && bBox.x <= 410 && 270 < bBox.y && bBox.y <= 320) {
+          if (80 < bBox.x && bBox.x <= 170 && 270 < bBox.y && bBox.y <= 320) {
             if (paper.customAttributes.testItem) {
               console.log('item already on testing stage');
 	      this.translate(-this.odx, -this.ody);
@@ -424,87 +460,64 @@ function make_slides(f) {
           }
         };
 
-        var positiveSound = new Audio('../_shared/audio/'+stim.successfulTestResult+'.mp3');
-        if (exp.config.negativeProperty) {
-          var negativeSound = new Audio('../_shared/audio/'+exp.config.negativeProperty+'.mp3');
-        }
-	var utteranceSpoken = new Audio('../_shared/audio/'+stim.utteranceSpoken);
-
-          var paper = new Raphael(document.getElementById('paper'), 800, 580);
-	  const platformLevel = 380;
-	  const labelLevel = platformLevel - 15;
-        exp.paper = paper;
- 	paper.customAttributes.teacher = paper.image("../_shared/images/ashley.jpg", 0, 0, 202, 400);
-        drag_and_drop.makeTable(paper);
-
         // platforms: visible holders for objects of interest, testing, and garbage
-        var sourcePlatform = paper.path(drag_and_drop.makePlatformPath(70,platformLevel)).attr({"stroke-width": 2, stroke: "black", fill: "#4985e5"});
-        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(320, platformLevel)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
+        var testingPlatform = paper.path(drag_and_drop.makePlatformPath(70, platformLevel)).attr({"stroke-width":2, stroke: "black", fill: "#49e575"});
         var garbagePlatform = paper.path(drag_and_drop.makePlatformPath(570, platformLevel)).attr({"stroke-width":2, stroke: "black", fill: "#e549ae"});
 
         // source: items of interest to be tested
-        var blicketPile = paper.set();
-        drag_and_drop.makeBlicketPile(370,180,200, blicketPile, paper, stim.greyedColor, stim.shape);
+        paper.customAttributes.blicketPile = paper.set();
+          drag_and_drop.makeBlicketPile(370,180,200, paper.customAttributes.blicketPile, paper, stim.greyedColor, stim.shape);
         var sourceLabel = paper.text(400, 100, stim.objectNamePlural).attr({"font-size": 18});
-        var pickUpButton = drag_and_drop.makeButton(370, 210, "#4985e5", "Pick up", paper);
 
         // target: testing area
-        var targetLabel = paper.text(370, labelLevel, "Testing Stage").attr({"font-size": 14});
-        var testButton = drag_and_drop.makeButton(400, 290, "#49e575", "Test", paper);
+        var targetLabel = paper.text(120, labelLevel, "Testing Stage").attr({"font-size": 14});
+        var testButton = drag_and_drop.makeButton(400, 320, "#49e575", "Test", paper);
 
         // garbage: items already tested
         var garbageLabel = paper.text(620, labelLevel, "Tested Items").attr({"font-size": 14});
-        // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: 0");
 
 	var demoItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
-        paper.customAttributes.pickedItemId = demoItem.id;
+        paper.customAttributes.testItem = demoItem;
         const demoItemId = demoItem.id;
-        // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
-        paper.customAttributes.itemsTested = 0;
-        paper.customAttributes.logResultDepth = 250;
         var arrow = paper.path("M150,250 v 40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
           var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, '', exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 4000);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
-	  setTimeout(function() {
-            demoItem.drag(move, start, up); // allow user to test exemplar
+	    setTimeout(function() { // allow user to test exemplar after 1.5 seconds
+		testButton.buttonSet.click(onTest);
+        testButton.buttonSet.mousedown(function() {
+          testButton.button.animate({"fill":"#287f41"});
+        });
+        testButton.buttonSet.mouseup(function() {
+          testButton.button.animate({"fill": "#49e575"});
+        });
 	  }, 1500);
         }, 2000);
 	  paper.customAttributes.classroomIntro = paper.text(400, 20, stim.investigator+' takes you into the classroom.').attr({"font-size": 16});
 
 	  exp.wroteInNotebook = false;
 
-          var onPickUp = function() {
-          if (paper.customAttributes.pickedItemId || paper.customAttributes.testItem) {
-            console.log('You cannot pick up more than one item.')
-          }
-            else if (exp.wroteInNotebook) {
-            var newItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
-		paper.customAttributes.pickedItemId = newItem.id;
-		    newItem.drag(move, start, up);
-            blicketPile.forEach(function(blicket) {
-              blicket.attr({"fill": stim.greyedColor});
-	    });
-            exp.events.push({event: "newItem", time: Date.now()});
-          }
-        }
         var onTest = function() {
-          const testItem = paper.customAttributes.testItem;
+            const testItem = paper.customAttributes.testItem;
           if (!testItem) {
             console.log('no item on testing stage');
           }
-          else {
-            blicketPile.forEach(function(blicket) {
-	      blicket.attr({"fill": stim.objectColor});
-	    })
-            if (testItem.id == demoItemId) {
+            else {
+              if (testItem.id == demoItemId) {
+		  arrow.remove();
 	      if (utterance) {
 	        utterance.remove();
 	      }
 	      $('.writeNotebook').show();
 	      $('#notebookText').text('You decide to write down what '+stim.investigator+' told you so that you can remember it.');
 	      $('#notebookInstruction').text('(Please type what '+stim.investigator+' said in the text box provided.)');
-	    }
+	      }
+		else {
+		    paper.customAttributes.blicketPile.forEach(function(blicket) {
+		blicket.attr({"fill": stim.objectColor});
+		blicket.drag(paper.customAttributes.move, paper.customAttributes.start, paper.customAttributes.up);
+	    })
+		}
             if (testSequence[testSequenceIndex] || testItem.id == demoItemId) {
 	      positiveSound.play();
             }
@@ -532,25 +545,9 @@ function make_slides(f) {
             var bBox = testItem.getBBox();
             drag_and_drop.moveToGarbage(testItem, bBox.x, bBox.y);
             paper.customAttributes.testItem = null;
-            // var itemsTestedCounter = paper.text(600, 50, "Number of items tested: "+paper.customAttributes.itemsTested);
-            // paper.customAttributes.itemsTestedCounterId = itemsTestedCounter.id;
             exp.events[Date.now()] = "testItem";
           }
         }
-        pickUpButton.buttonSet.click(onPickUp);
-        pickUpButton.buttonSet.mousedown(function() {
-          pickUpButton.button.animate({"fill": "#2d528e"});
-        });
-        pickUpButton.buttonSet.mouseup(function() {
-          pickUpButton.button.animate({"fill": "#4985e5"});
-        });
-        testButton.buttonSet.click(onTest);
-        testButton.buttonSet.mousedown(function() {
-          testButton.button.animate({"fill":"#287f41"});
-        });
-        testButton.buttonSet.mouseup(function() {
-          testButton.button.animate({"fill": "#49e575"});
-        });
       }
       else if (stim.type == 'testProb') {
         this.stim = stim;
@@ -657,6 +654,10 @@ stim.investigator+' has to go teach her class now.',
           else { // no reminder on all subsequent trials
             exp.paper.customAttributes.continueTesting = drag_and_drop.alert(exp.paper, stim.investigator+' is leaving to do some other work.', 'You can continue to explore '+stim.objectNamePlural.toLowerCase()+' for as long as you want.', '', 'When you are ready to answer questions about them, click Leave testing area.', false, false, 500);
           }
+	    exp.paper.customAttributes.blicketPile.forEach(function(blicket) { // allow blickets to be dragged
+		blicket.attr({"fill": stim.objectColor});
+		blicket.drag(exp.paper.customAttributes.move, exp.paper.customAttributes.start, exp.paper.customAttributes.up);
+	    });
         }, 1000);
       }
     },
@@ -1005,3 +1006,9 @@ function init() {
     USOnly();
     uniqueTurker();
 }
+
+/*
+TODO:
+make sure events are still being logged correctly
+CODE CLEANUP
+*/

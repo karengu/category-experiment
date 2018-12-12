@@ -188,7 +188,7 @@ var drag_and_drop = {
   },
     
   makeBlicketPile: function(startX, startY, numberBlickets, blicketPile, paper, greyedColor, type) {
-    paper.path("M "+startX+","+startY+"m -70,-25 l 65,-25 h 140 l -65,25, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"}); // back part of box
+    paper.customAttributes.boxBack = paper.path("M "+startX+","+startY+"m -70,-25 l 65,-25 h 140 l -65,25, h-140").attr({"stroke-width":2, stroke: "black", fill: "#f4aa42"}); // back part of box
     for (i = 0; i < numberBlickets; i++) {
       if (type =='sphere') {
         var newBlicket = makeSphere(startX+160*Math.random()-50, startY+60*Math.random()-30, paper);
@@ -198,8 +198,10 @@ var drag_and_drop = {
       }
       blicketPile.push(newBlicket);
     }
-    paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"}); // front part of box
-    paper.path("M "+startX+","+startY+"m70,85 l 65,-25 v -110 l-65,25 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"}); // front part of box
+    var boxFront1 = paper.path("M "+startX+","+startY+"m-70,85 v -110 h 140 v 110 h -140").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"}); // front part of box
+      var boxFront2 = paper.path("M "+startX+","+startY+"m70,85 l 65,-25 v -110 l-65,25 v 110").attr({"stroke-width": 2, stroke: "black", fill: "#f4aa42"}); // front part of box
+      paper.customAttributes.boxFront1 = boxFront1;
+      paper.customAttributes.boxFront2 = boxFront2;
   },
     
   moveToGarbage: function(blicket, x, y) {
