@@ -215,13 +215,13 @@ var drag_and_drop = {
     var buttonLabel = paper.text(startX, startY, buttonText).attr({"font-weight": "bold", "font-size": 16});
     var buttonSet = paper.set();
     buttonSet.push(button, buttonLabel).attr({"cursor": "pointer"});
-    return ({button: button, buttonSet: buttonSet});
+	return ({button: button, buttonSet: buttonSet, buttonLabel: buttonLabel});
   },
     
   makeTable: function(paper) {
     paper.path("M 100,220 v 150 A 20,10 0 0,0 120,370 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
     paper.path("M 780,220 v 150 A 20,10 0 0,0 800,370 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
-    paper.path("M 0,400 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
+    paper.customAttributes.tableTop = paper.path("M 0,400 h 700 l 100,-180 h -700 l -100,180").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
     paper.path("M 0,400 v 150 A 20,10 0 0,0 20,550 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
     paper.path("M 680,400 v 150 A 20,10 0 0,0 700,550 v-150").attr({"stroke-width": 2, stroke: "black", fill: "#75551f"});
   },
