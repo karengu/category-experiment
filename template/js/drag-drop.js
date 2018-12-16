@@ -238,13 +238,22 @@ var drag_and_drop = {
 	setTimeout(function() {
 			       alert.push(paper.text(400, 490, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
       alert.push(paper.text(400, 505, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(400, 550, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
 	}, restTime);
-    alert.click(function() {
+		if (wait) {
+	    setTimeout(function() {
+		alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	    }, 5000)
+		}
+	else {
+	    alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	}
+   alert.forEach(function(alertComponent) {
+	    alertComponent.click(function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
         alert.remove();
       }
-    });
+	    });
+	});
     if (fadeOut) {
       var fadeOutFunc = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
       alert.forEach(function(elem) {
@@ -276,13 +285,22 @@ var drag_and_drop = {
 	    alert.push(paper.text(540, 515, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
 	    alert.push(paper.text(625, 515, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	    alert.push(paper.text(390, 535, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(400, 555, 'Click anywhere inside the box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
 	}, restTime);
-    alert.click(function() {
+	if (wait) {
+	    setTimeout(function() {
+		alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	    }, 5000)
+	}
+	else {
+	    alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	}
+	alert.forEach(function(alertComponent) {
+	    alertComponent.click(function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
         alert.remove();
       }
-    });
+	    });
+	});
     if (fadeOut) {
       var fadeOutFunc = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});
       alert.forEach(function(elem) {
@@ -295,5 +313,77 @@ var drag_and_drop = {
       });
     }
     return alert;
+    },
+
+    overlapsSource: function(bBox) {
+	return bBox.x < 500 && bBox.x > 275 && bBox.y < 250 && bBox.y > 60;
+    },
+    objects: [
+    {
+      plural: "Blickets",
+      singular: "Blicket",
+      color: "#ff0",
+      greyed: "#999937",
+      sound: "squeak",
+      shape: "diamond",
+      investigator: "Ashley",
+      pronoun: "She"
+    },
+    {
+      plural: "Daxes",
+      singular: "Dax",
+      color: "#f44248",
+      greyed: "#992a34",
+      sound: "beep",
+      shape: "cylinder",
+      investigator: "Beth",
+      pronoun: "She"
+    },
+    {
+      plural: "Griffs",
+      singular: "Griff",
+      color: "#8b36c1",
+      greyed: "#602784",
+      sound: "whistle",
+      shape: "hexagon",
+      investigator: "James",
+      pronoun: "He"
+    },
+    {
+      plural: "Feps",
+      singular: "Fep",
+      color: "#f45042",
+      greyed: "#c14136",
+      sound: "ring",
+      shape: "pyramid",
+      investigator: "Julie",
+      pronoun: "She"
+    },
+    {
+      plural: "Wugs",
+      singular: "Wug",
+      color: "#43e8e8",
+      greyed: "#2b9696",
+      sound: "boom",
+      shape: "cube",
+      investigator: "Tom",
+      pronoun: "He"
+    },
+    {
+      plural: "Tomas",
+      singular: "Toma",
+      color: "#ff00cb",
+      greyed: "#a80186",
+      sound: "click",
+      shape: "cone",
+      investigator: "Paul",
+      pronoun: "He"
     }
+    ],
+
+    clone: function(shape, paper) { 
+            return paper.path(shape.attr().path).attr({fill: shape.attr().fill, "fill-opacity": 1, stroke: shape.attr().stroke}); 
+    },
+
+    platformLevel: 380,
 }
