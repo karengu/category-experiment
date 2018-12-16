@@ -427,10 +427,10 @@ function make_slides(f) {
 		  }
 		  else {
 		      paper.text(400, 30, "You can continue practicing for as long as you want. Remember: ").attr("font-size", 16);
-		      paper.text(400, 70, "The pink item (first from the left) squeaks and booms.").attr("font-size", 14);
-		      paper.text(400, 90, "The purple item (second from the left) squeaks but does not boom.").attr("font-size", 14);
-		      paper.text(400, 110, "The red item (third from the left) does not squeak but booms.").attr("font-size", 14);
-		      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or boom.").attr("font-size", 14);
+		      paper.text(400, 70, "The pink item (first from the left) squeaks and rings.").attr("font-size", 14);
+		      paper.text(400, 90, "The purple item (second from the left) squeaks but does not ring.").attr("font-size", 14);
+		      paper.text(400, 110, "The red item (third from the left) does not squeak but rings.").attr("font-size", 14);
+		      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or ring.").attr("font-size", 14);
 		      for (i=0; i<items.length; i++) {
 			  paper.customAttributes.testItems.push(createNewItem(i, false));
 	    }
@@ -477,10 +477,10 @@ function make_slides(f) {
 		  }
 		  else {
 		      paper.text(400, 30, "You can continue practicing for as long as you want. Remember: ").attr("font-size", 16);
-		      paper.text(400, 70, "The pink item (first from the left) squeaks and booms.").attr("font-size", 14);
-		      paper.text(400, 90, "The purple item (second from the left) squeaks but does not boom.").attr("font-size", 14);
-		      paper.text(400, 110, "The red item (third from the left) does not squeak but booms.").attr("font-size", 14);
-		      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or boom.").attr("font-size", 14);
+		      paper.text(400, 70, "The pink item (first from the left) squeaks and rings.").attr("font-size", 14);
+		      paper.text(400, 90, "The purple item (second from the left) squeaks but does not ring.").attr("font-size", 14);
+		      paper.text(400, 110, "The red item (third from the left) does not squeak but rings.").attr("font-size", 14);
+		      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or ring.").attr("font-size", 14);
 		      for (i=0; i<items.length; i++) {
 			  paper.customAttributes.testItems.push(createNewItem(i, false));
 	    }
@@ -504,16 +504,16 @@ function make_slides(f) {
 	    var demo = function(i) {
 		var description = "Try testing the item by dragging it to the testing stage and clicking both buttons.";
 		if (i == 0) {
-		    var description = "This item squeaks and booms.";
+		    var description = "This item squeaks and rings.";
 		}
 		else if (i == 1) {
-		    var description = "This item squeaks but does not boom.";
+		    var description = "This item squeaks but does not ring.";
 		}
 		else if (i == 2) {
-		    var description = "This item does not squeak but booms.";
+		    var description = "This item does not squeak but rings.";
 		}
 		else if (i == 3) {
-		    var description = "This item does not squeak or boom.";
+		    var description = "This item does not squeak or ring.";
 		}
 		paper.customAttributes.demoText = paper.set();
 		paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
@@ -1275,7 +1275,7 @@ function init() {
     else if (exp.condition == 'double') {
 	const utteranceType = 'specific';
 	const proportionSuccess = 0;
-	const alternativeProperty = 'boom';
+	const alternativeProperty = 'ring';
 	exp.data_trials.push({
 	    id: 0,
 	    objectName: drag_and_drop.objects[0].plural,
@@ -1296,7 +1296,7 @@ function init() {
       objectNamePlural: drag_and_drop.objects[0].plural,
       objectNameSingular: drag_and_drop.objects[0].singular,
       utteranceType: utteranceType,
-      utteranceSpoken: drag_and_drop.objects[0].plural.toLowerCase()+'Double'+utteranceType+'.mp3',
+      utteranceSpoken: drag_and_drop.objects[0].plural.toLowerCase()+'Double'+utteranceType+alternativeProperty+'.mp3',
       shape: drag_and_drop.objects[0].shape,
 	    property1: drag_and_drop.objects[0].sound,
 	    property2: alternativeProperty,
@@ -1352,11 +1352,11 @@ function init() {
   ];
 
     exp.config = {
-	negativeProperty: 'boom', // one of the sound files in _shared/audio or null
+	negativeProperty: 'ring', // one of the sound files in _shared/audio or null
 	coverStory: 'teacher',
 	practiceTrial: [{
 	    property1: 'squeak',
-	    property2: 'boom'
+	    property2: 'ring'
 	}]
     };
 
