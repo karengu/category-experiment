@@ -1,0 +1,120 @@
+{
+    "AcceptTime": "2018-12-17T15:54:12.000Z",
+    "AssignmentId": "3180JW2OT5066RD0WWTR511ENRR5J3",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-18T15:58:59.000Z",
+    "HITId": "3DQYSJDTYLZ4AADPYZWTCKKKVUXEXO",
+    "SubmitTime": "2018-12-17T15:58:59.000Z",
+    "answers": {
+        "attention_check": "blickets squeak blickets do not ring but this blicket rings",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no issues"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.49435,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545062141279
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545062142270
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062179440
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062179456
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062180172
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062181189
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062182747
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062182761
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062183700
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062184246
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062185043
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062187335
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062187345
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062190130
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062191426
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062192248
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets squeak but blickets do not ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "blickets squeak and this blicket rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "Because blickets do not ring",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8925833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

@@ -1,0 +1,133 @@
+{
+    "AcceptTime": "2018-12-17T16:38:07.000Z",
+    "AssignmentId": "3LS2AMNW5GE90ONVW19ZB8DRIHNQOJ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-18T16:55:14.000Z",
+    "HITId": "3421H3BM9A5MKUHJ9K16TXBUTZ2J9V",
+    "SubmitTime": "2018-12-17T16:55:14.000Z",
+    "answers": {
+        "attention_check": "She told me that they squeak and ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "No",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": "$1",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 720,
+            "screenW": 1280
+        },
+        "time_in_minutes": 2.8455166666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo2",
+                        "time": 1545065608018
+                    },
+                    {
+                        "event": "testDemo1",
+                        "time": 1545065608785
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545065631215
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545065631227
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545065631912
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545065632703
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545065634741
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545065634749
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545065635242
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545065636983
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545065638155
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545065638164
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545065640898
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545065641490
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545065642191
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545065643643
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545065643650
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545065644256
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545065645125
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets always squeak but only a few of them ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Blickets squeak and blickets ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.31,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "No idea",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.6603833333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

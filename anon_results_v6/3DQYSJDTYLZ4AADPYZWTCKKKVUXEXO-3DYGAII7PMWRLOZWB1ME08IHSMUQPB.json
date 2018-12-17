@@ -1,0 +1,106 @@
+{
+    "AcceptTime": "2018-12-17T15:46:57.000Z",
+    "AssignmentId": "3DYGAII7PMWRLOZWB1ME08IHSMUQPB",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-18T16:00:56.000Z",
+    "HITId": "3DQYSJDTYLZ4AADPYZWTCKKKVUXEXO",
+    "SubmitTime": "2018-12-17T16:00:56.000Z",
+    "answers": {
+        "attention_check": "blinkets ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "68",
+            "asses": "Confused",
+            "comments": "good study thanks",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "english",
+            "problems": "not that i know of"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 615,
+            "screenW": 1093
+        },
+        "time_in_minutes": 12.202816666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545062004898
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545062006082
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062102852
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062104263
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062118298
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062118342
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062119624
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062188678
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062230182
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062231870
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062237066
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062240447
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545062303200
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "that they ring",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "notebook": "this blicket rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.7,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "cause blickets ring",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 5.1186,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

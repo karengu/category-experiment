@@ -74,7 +74,7 @@ n = 27
 0.50 each
 single trial, generic condition, 0% success
 
-## Pilot 5
+# Pilot 5
 
 ## add back in alternative sound
 
@@ -89,3 +89,19 @@ single trial, specific condition, 0% success
 n = 27
 0.50 each
 single trial, generic condition, 0% success
+
+# Pilot 6
+
+## click and drag, two utterances version
+
+## https://www.mit.edu/~karengu/genex_v6/category-experiment/template/template.html
+
+## 12/17/2018
+n = 18
+0.50 each
+single trial, specific condition, 0% success
+
+## 12/17/2018
+n = 18
+0.50 each
+single trial, specific condition, 0% success

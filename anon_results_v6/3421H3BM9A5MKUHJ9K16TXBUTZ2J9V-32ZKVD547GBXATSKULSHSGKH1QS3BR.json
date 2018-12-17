@@ -1,0 +1,112 @@
+{
+    "AcceptTime": "2018-12-17T15:22:30.000Z",
+    "AssignmentId": "32ZKVD547GBXATSKULSHSGKH1QS3BR",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-18T16:09:17.000Z",
+    "HITId": "3421H3BM9A5MKUHJ9K16TXBUTZ2J9V",
+    "SubmitTime": "2018-12-17T16:09:17.000Z",
+    "answers": {
+        "attention_check": "They they squeak and they ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "29",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.9234666666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545062804481
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545062805343
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062868576
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062868585
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062869230
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062870197
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062872304
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062872313
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062872998
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062873781
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545062875876
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545062875887
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545062876464
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545062877274
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "They squeak and they ring",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "Blickets squeak and blickets ring ",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "Ashley lied to me",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.2546,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-17T16:05:04.000Z",
+    "AssignmentId": "3GM6G9ZBKOLYS1UB0POHO9Z97OMTM0",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-18T16:22:47.000Z",
+    "HITId": "3F6045TU7DCXEI4AN8AT43XRXUQ99Q",
+    "SubmitTime": "2018-12-17T16:22:47.000Z",
+    "answers": {
+        "attention_check": "that blickets squeak and blickets ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "57",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 4.293566666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545063610990
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545063611939
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545063653133
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545063653143
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545063654049
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545063654909
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545063657124
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545063657131
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545063657971
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545063659029
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545063661210
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545063661215
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545063662237
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545063663339
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545063666134
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545063666139
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545063666956
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545063667741
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "blickets squeak blickets do not ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "blickets squeak and blickets ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "blickets do not ring",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.9871333333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

@@ -1,0 +1,201 @@
+{
+    "AcceptTime": "2018-12-17T15:24:14.000Z",
+    "AssignmentId": "3PWWM24LHTMPNDYUN9U2I4PON6682L",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-18T15:35:04.000Z",
+    "HITId": "3DQYSJDTYLZ4AADPYZWTCKKKVUXEXO",
+    "SubmitTime": "2018-12-17T15:35:04.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak. This blicket squeaks and rings.",
+        "condition": "double",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "34",
+            "asses": "Yes",
+            "comments": "I had fun!! Thanks",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".75",
+            "gender": "Male",
+            "language": "English",
+            "problems": "None at all"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 10.586283333333334,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545060600281
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545060602901
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060650664
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545060650716
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060653750
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060654724
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060656328
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060661071
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060661110
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060662407
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060663796
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060666912
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060666940
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060667977
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060669466
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060672328
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060672350
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060673370
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060675680
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060678505
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060678531
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060679662
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060681290
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060683983
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060684003
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060685007
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060686055
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060688596
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060688616
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060689925
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060690890
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545060693066
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545060693092
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545060694112
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545060695232
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Most blickets only squeak. But on the rare occasion there are some blickets that squeak and ring.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 8,
+                "notebook": "This blicket rings and squeaks",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "Because most blickets don't ring, it's rare that blickets ring.",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.6372833333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
