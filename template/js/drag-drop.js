@@ -232,24 +232,30 @@ var drag_and_drop = {
     var alert = paper.set();
       paper.customAttributes.startReading = Date.now();
       alert.push(paper.rect(20,370,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-      alert.push(paper.text(400, 400, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
+      alert.push(paper.text(400, 400, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
 	alert.push(paper.text(400,430, textBefore).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
 	alert.push(paper.text(400, 455, textAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 20, "font-weight": "bold"}));
+	var belowTextBeforeElem = paper.text(400, 490, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 16})
+	alert.push(belowTextBeforeElem.hide());
+	var belowTextAfterElem = paper.text(400, 505, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 16})
+	alert.push(belowTextAfterElem.hide());
+	var removeText = paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12})
+	alert.push(removeText.hide());
 	setTimeout(function() {
-			       alert.push(paper.text(400, 490, belowTextBefore).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-      alert.push(paper.text(400, 505, belowTextAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	    belowTextBeforeElem.show();
+	    belowTextAfterElem.show();
 	}, restTime);
 		if (wait) {
 	    setTimeout(function() {
-		alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
-	    }, 5000)
+		removeText.show();
+	    }, 8000)
 		}
 	else {
-	    alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
+	    removeText.show();
 	}
    alert.forEach(function(alertComponent) {
 	    alertComponent.click(function() {
-      if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
+      if (Date.now() - paper.customAttributes.startReading >= 8000 || !wait) {
         alert.remove();
       }
 	    });
@@ -269,37 +275,52 @@ var drag_and_drop = {
     },
 
     alert2: function(paper, headerText, textBefore, textAfter, belowText1, belowText2, belowText3, belowText4, belowText5, belowText6, belowText7, belowText8, belowText9, fadeOut, wait, fadeInTime, restTime) {
-    var alert = paper.set();
-      paper.customAttributes.startReading = Date.now();
-      alert.push(paper.rect(20,370,770,200).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
-      alert.push(paper.text(400, 390, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 14}));
-	alert.push(paper.text(400,415, textBefore).attr({fill: "white","stroke-opacity":0, "font-size": 20, "font-weight": "bold"}));
-	alert.push(paper.text(400, 440, textAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 20, "font-weight": "bold"}));
-	setTimeout(function() {
-	    alert.push(paper.text(400, 475, belowText1).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(400, 495, belowText2).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    //alert.push(paper.text(445, 495, belowText3).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
-	    //alert.push(paper.text(643, 495, belowText4).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(300, 515, belowText5).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
-	    alert.push(paper.text(485, 515, belowText6).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(540, 515, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
-	    alert.push(paper.text(625, 515, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	    alert.push(paper.text(390, 535, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
-	}, restTime);
-	if (wait) {
-	    setTimeout(function() {
-		alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
-	    }, 5000)
-	}
-	else {
-	    alert.push(paper.text(400, 555, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12}));
-	}
-	alert.forEach(function(alertComponent) {
-	    alertComponent.click(function() {
+	var alert = paper.set();
+	var removeAlert = function() {
       if (Date.now() - paper.customAttributes.startReading >= 5000 || !wait) {
         alert.remove();
       }
-	    });
+	}
+      paper.customAttributes.startReading = Date.now();
+      alert.push(paper.rect(20,170,770,300).attr({fill:"gray","fill-opacity":0,"stroke-width":0}));
+      alert.push(paper.text(400, 200, headerText).attr({fill: "white", "stroke-opacity": 0, "font-size": 16}));
+	alert.push(paper.text(400,245, textBefore).attr({fill: "white","stroke-opacity":0, "font-size": 16, "font-weight": "bold"}));
+	alert.push(paper.text(400, 265, textAfter).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"}));
+	var belowText1Elem = paper.text(400, 305, belowText1).attr({fill: "white", "stroke-opacity": 0, "font-size": 16});
+	alert.push(belowText1Elem.hide());
+	var belowText2Elem = paper.text(400, 325, belowText2).attr({fill: "white", "stroke-opacity": 0, "font-size": 16});
+	alert.push(belowText2Elem.hide());
+	var belowText5Elem = paper.text(300, 360, belowText5).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"});
+	alert.push(belowText5Elem.hide());
+	var belowText6Elem = paper.text(485, 360, belowText6).attr({fill: "white", "stroke-opacity": 0, "font-size": 16});
+	alert.push(belowText6Elem.hide());
+	var belowText7Elem = paper.text(540, 360, belowText7).attr({fill: "white", "stroke-opacity": 0, "font-size": 16, "font-weight": "bold"});
+	alert.push(belowText7Elem.hide());
+	var belowText8Elem = paper.text(625, 360, belowText8).attr({fill: "white", "stroke-opacity": 0, "font-size": 16});
+	alert.push(belowText8Elem.hide());
+	var belowText9Elem = paper.text(390, 395, belowText9).attr({fill: "white", "stroke-opacity": 0, "font-size": 16});
+	alert.push(belowText9Elem.hide());
+	var removeText = paper.text(400, 450, 'Click anywhere inside this box to continue.').attr({fill: "white", "stroke-opacity": 0, "font-size": 12});
+	alert.push(removeText.hide());
+	setTimeout(function() {
+	    belowText1Elem.show();
+	    belowText2Elem.show();
+	    belowText5Elem.show();
+	    belowText6Elem.show();
+	    belowText7Elem.show();
+	    belowText8Elem.show();
+	    belowText9Elem.show();
+	}, restTime);
+	if (wait) {
+	    setTimeout(function() {
+		removeText.show();
+	    }, 5000)
+	}
+	else {
+	    removeText.show();
+	}
+	alert.forEach(function(alertComponent) {
+	    alertComponent.click(removeAlert);
 	});
     if (fadeOut) {
       var fadeOutFunc = Raphael.animation({"fill-opacity":0,"stroke-opacity":0},500, "easeInOut", function() {alert.remove()});

@@ -6,7 +6,7 @@ function make_slides(f) {
     start: function() {
       exp.startT = Date.now();
       $('#instruct-text > #1').text("some objects");
-      $('#instruct-text > #2').text("3-5");
+      $('#instruct-text > #2').text("5");
     }
   });
 
@@ -314,7 +314,7 @@ function make_slides(f) {
           var testButton1 = drag_and_drop.makeButton(400, 290, "#49e575", "Test", paper, 70, 30);
         }
         // garbage: items already tested
-            var garbageLabel = paper.text(620, labelLevel, "Tested Items").attr({"font-size": 14});
+            var garbageLabel = paper.text(620, labelLevel, "Tested Objects").attr({"font-size": 14});
 
 	    	paper.customAttributes.start = function (x,y) {
           this.odx = 0;
@@ -426,15 +426,16 @@ function make_slides(f) {
 		      demo(demoIndex);
 		  }
 		  else {
-		      paper.text(400, 30, "You can continue practicing for as long as you want. Remember: ").attr("font-size", 16);
-		      paper.text(400, 70, "The pink item (first from the left) squeaks and rings.").attr("font-size", 14);
-		      paper.text(400, 90, "The purple item (second from the left) squeaks but does not ring.").attr("font-size", 14);
-		      paper.text(400, 110, "The red item (third from the left) does not squeak but rings.").attr("font-size", 14);
-		      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or ring.").attr("font-size", 14);
-		      for (i=0; i<items.length; i++) {
-			  paper.customAttributes.testItems.push(createNewItem(i, false));
-	    }
-		  }
+		      paper.text(400, 100, "Now that you know how the classroom materials work, let's continue to learn about a new kind of object.").attr("font-size", 16);
+	    // 	      paper.text(400, 30, "You can continue practicing for as long as you want. Remember: ").attr("font-size", 16);
+	    // 	      paper.text(400, 70, "The pink item (first from the left) squeaks and rings.").attr("font-size", 14);
+	    // 	      paper.text(400, 90, "The purple item (second from the left) squeaks but does not ring.").attr("font-size", 14);
+	    // 	      paper.text(400, 110, "The red item (third from the left) does not squeak but rings.").attr("font-size", 14);
+	    // 	      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or ring.").attr("font-size", 14);
+	    // 	      for (i=0; i<items.length; i++) {
+	    // 		  paper.customAttributes.testItems.push(createNewItem(i, false));
+	    // }
+	     	  }
             }
           }
 	    }
@@ -476,15 +477,17 @@ function make_slides(f) {
 		      demo(demoIndex);
 		  }
 		  else {
-		      paper.text(400, 30, "You can continue practicing for as long as you want. Remember: ").attr("font-size", 16);
-		      paper.text(400, 70, "The pink item (first from the left) squeaks and rings.").attr("font-size", 14);
-		      paper.text(400, 90, "The purple item (second from the left) squeaks but does not ring.").attr("font-size", 14);
-		      paper.text(400, 110, "The red item (third from the left) does not squeak but rings.").attr("font-size", 14);
-		      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or ring.").attr("font-size", 14);
-		      for (i=0; i<items.length; i++) {
-			  paper.customAttributes.testItems.push(createNewItem(i, false));
-	    }
-		  }
+		      	paper.text(400, 100, "Now that you know how the classroom materials work, let's continue to learn about a new kind of object.").attr("font-size", 16);
+
+	    // 	      paper.text(400, 30, "You can continue practicing for as long as you want. Remember: ").attr("font-size", 16);
+	    // 	      paper.text(400, 70, "The pink item (first from the left) squeaks and rings.").attr("font-size", 14);
+	    // 	      paper.text(400, 90, "The purple item (second from the left) squeaks but does not ring.").attr("font-size", 14);
+	    // 	      paper.text(400, 110, "The red item (third from the left) does not squeak but rings.").attr("font-size", 14);
+	    // 	      paper.text(400, 130, "The blue item (fourth from the left) does not squeak or ring.").attr("font-size", 14);
+	    // 	      for (i=0; i<items.length; i++) {
+	    // 		  paper.customAttributes.testItems.push(createNewItem(i, false));
+	    // }
+	     	  }
             }
           }
 	    }
@@ -502,28 +505,29 @@ function make_slides(f) {
 	    }
 
 	    var demo = function(i) {
-		var description = "Try testing the item by dragging it to the testing stage and clicking both buttons.";
+		var description = "Try testing the object by dragging it to the testing stage and clicking both buttons.";
 		if (i == 0) {
-		    var description = "This item squeaks and rings.";
+		    var description = "This object squeaks and rings.";
 		}
 		else if (i == 1) {
-		    var description = "This item squeaks but does not ring.";
+		    var description = "This object squeaks but does not ring.";
 		}
 		else if (i == 2) {
-		    var description = "This item does not squeak but rings.";
+		    var description = "This object does not squeak but rings.";
 		}
 		else if (i == 3) {
-		    var description = "This item does not squeak or ring.";
+		    var description = "This object does not squeak or ring.";
 		}
 		paper.customAttributes.demoText = paper.set();
 		paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
 		paper.customAttributes.demoText.push(paper.text(400, 70, description).attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
-		paper.customAttributes.demoText.push(paper.text(400, 100, "Try testing it by dragging it to the testing stage and clicking both buttons.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+		paper.customAttributes.demoText.push(paper.text(400, 100, "Try testing it by dragging it to the testing stage and clicking both buttons. Once you have").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+		paper.customAttributes.demoText.push(paper.text(400, 130, "clicked both buttons, the object will be moved automatically to the Tested Objects stage.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
 		paper.customAttributes.demoText.forEach(function(elem) {
 		    elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
 		});
 		const x = 100+200*i
-		paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 2});
+		paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 4});
 		paper.customAttributes.testItems.push(createNewItem(i, true));
 	    }
 	    
@@ -887,8 +891,8 @@ function make_slides(f) {
 	var demoItem = paper.path(objectPaths[stim.shape](150,320)).attr("fill", stim.objectColor);
         paper.customAttributes.testItem = demoItem;
         const demoItemId = demoItem.id;
-          var arrow = paper.path("M150,250 v 40").attr({"arrow-end": "classic-wide-long", "stroke-width": 2});
-        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, '', exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 4000);
+          var arrow = paper.path("M150,250 v 40").attr({"arrow-end": "classic-wide-long", "stroke-width": 4});
+        var utterance = drag_and_drop.alert(paper, exp.utteranceHeader, exp.utterance, '', exp.belowUtteranceBefore, exp.belowUtteranceAfter, false, true, 2000, 7000);
 	setTimeout(function() {
           utteranceSpoken.play(); // read utterance
 	  setTimeout(function() { // allow user to test exemplar after 1.5 seconds
@@ -985,7 +989,7 @@ function make_slides(f) {
         $('.testGeneric').hide();
             $('.testFree').hide();
 	    $('.testReasoning').show();
-	    $('#reasoning_prompt').text('Did the '+stim.objectNamePlural.toLowerCase()+' you tested '+stim.property2+'?');
+	    $('#reasoning_prompt').text('Did the '+stim.objectNamePlural.toLowerCase()+' that you tested after Ashley left '+stim.property2+'?');
 	}
     },
     writeInNotebook: function() {
@@ -1039,7 +1043,7 @@ function make_slides(f) {
 	exp.data_trials[this.stim.id].timeExploring = (Date.now() - exp.startExploration)/60000;
 	exp.data_trials[this.stim.id].events = exp.events;
 	exp.data_trials[this.stim.id].testResults = exp.testResults; // to store order of successful/unsuccessful test results, since order is randomized
-	exp.data_trials[this.stim.id].attentionCheck = exp.notebook;
+	exp.data_trials[this.stim.id].notebook = exp.notebook;
       }
       else if (exp.type == 'testProb') {
         exp.data_trials[this.stim.id].probabilityOfFeature = exp.sliderPost;
