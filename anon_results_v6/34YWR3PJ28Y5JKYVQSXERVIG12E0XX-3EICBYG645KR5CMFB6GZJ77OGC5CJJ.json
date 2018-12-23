@@ -1,0 +1,112 @@
+{
+    "AcceptTime": "2018-12-22T15:08:25.000Z",
+    "AssignmentId": "3EICBYG645KR5CMFB6GZJ77OGC5CJJ",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:11:33.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG12E0XX",
+    "SubmitTime": "2018-12-22T15:11:33.000Z",
+    "answers": {
+        "attention_check": "That they squeak but that specific one rings.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "1",
+            "fairprice": "0.75",
+            "gender": "Male",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.0866,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545491365316
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545491366166
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491402404
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491402418
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491403318
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491403988
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491405564
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491405575
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491406088
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491407422
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491408974
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491408983
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491409412
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491410212
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "All blickets squeak but very few ring.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "Blickets squeak and this blicket rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.19,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "She just happened to find one that rang",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8222166666666667,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

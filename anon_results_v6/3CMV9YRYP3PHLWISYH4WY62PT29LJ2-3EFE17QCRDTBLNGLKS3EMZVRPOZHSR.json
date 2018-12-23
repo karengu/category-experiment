@@ -1,0 +1,133 @@
+{
+    "AcceptTime": "2018-12-22T16:59:58.000Z",
+    "AssignmentId": "3EFE17QCRDTBLNGLKS3EMZVRPOZHSR",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T17:04:54.000Z",
+    "HITId": "3CMV9YRYP3PHLWISYH4WY62PT29LJ2",
+    "SubmitTime": "2018-12-22T17:04:54.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "39",
+            "asses": "Yes",
+            "comments": "interesting",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "little low",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.632366666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545498132231
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545498132950
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545498192324
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545498192331
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545498195504
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545498196377
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545498197584
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545498199946
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545498199954
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545498200799
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545498201785
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545498206804
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545498206808
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545498207575
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545498208457
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545498211008
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545498211012
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545498211766
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545498212428
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets squeak but do not ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Blickets squeak and blickets ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "I don't know",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3890333333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

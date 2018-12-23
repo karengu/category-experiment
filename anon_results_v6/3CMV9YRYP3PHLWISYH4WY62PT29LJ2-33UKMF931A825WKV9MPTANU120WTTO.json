@@ -1,0 +1,150 @@
+{
+    "AcceptTime": "2018-12-22T15:08:47.000Z",
+    "AssignmentId": "33UKMF931A825WKV9MPTANU120WTTO",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:31:42.000Z",
+    "HITId": "3CMV9YRYP3PHLWISYH4WY62PT29LJ2",
+    "SubmitTime": "2018-12-22T15:31:42.000Z",
+    "answers": {
+        "attention_check": "Ashley told me to explore the blickets so that you can plan the best lesson possible for your students.",
+        "condition": "double",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "34",
+            "asses": "Yes",
+            "comments": "None",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "Yes",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 22.3176,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545491872803
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545491874487
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492040297
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492040317
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492055476
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492067797
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492074375
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492074401
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492075508
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492077419
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492080345
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492080370
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492081556
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492082734
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492085560
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492085584
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492086306
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492087477
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492090172
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545492090184
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492092022
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492093139
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492093890
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "What i understood from Ashley i will teach that method.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 5,
+                "notebook": "First click test squeaking and then test ringing.",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.75,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "When I finished the first blickets Ashley left the ring.",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 4.05485,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

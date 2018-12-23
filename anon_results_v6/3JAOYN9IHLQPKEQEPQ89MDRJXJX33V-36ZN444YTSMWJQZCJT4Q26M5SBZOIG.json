@@ -1,0 +1,116 @@
+{
+    "AcceptTime": "2018-12-22T15:08:36.000Z",
+    "AssignmentId": "36ZN444YTSMWJQZCJT4Q26M5SBZOIG",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T16:01:23.000Z",
+    "HITId": "3JAOYN9IHLQPKEQEPQ89MDRJXJX33V",
+    "SubmitTime": "2018-12-22T16:01:23.000Z",
+    "answers": {
+        "attention_check": "This blicket rings.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "38",
+            "asses": "Confused",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1.00",
+            "gender": "Female",
+            "language": "English",
+            "problems": "I did not know I had to memorize what Ashley was going to say, so I went by memory, which was probably not accurate. I was focused on all the different features in the interactive task, so focusing on the voice only was not something I did."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 8.19955,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545494207233
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545494208311
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545494261470
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545494261484
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545494263016
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545494264602
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545494273209
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545494273218
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545494274709
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545494276061
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545494278429
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545494280088
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545494280093
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545494281023
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545494282354
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Most blickets do not ring.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "This blicket rings.",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.12,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "The one sample blicket rang, which is why she thought they would all ring.",
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3619666666666668,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

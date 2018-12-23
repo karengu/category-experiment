@@ -1,0 +1,82 @@
+{
+    "AcceptTime": "2018-12-22T15:13:38.000Z",
+    "AssignmentId": "3IQ1VMJRYU8E6LC85GTVOI3XK49A9L",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:38:43.000Z",
+    "HITId": "38DCH97KHHQSCTY5QMCSFS1J38WQJW",
+    "SubmitTime": "2018-12-22T15:38:43.000Z",
+    "answers": {
+        "attention_check": "blickets ring and squeak",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "37",
+            "asses": "Yes",
+            "comments": "",
+            "education": "-1",
+            "enjoyment": "1",
+            "fairprice": ".5",
+            "gender": "Male",
+            "language": "english",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1050,
+            "screenW": 1680
+        },
+        "time_in_minutes": 6.3662833333333335,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo2",
+                        "time": 1545492924254
+                    },
+                    {
+                        "event": "testDemo1",
+                        "time": 1545492925748
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492986690
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545492986705
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492991908
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492993259
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492994643
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "blickets ring",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 1,
+                "notebook": "blickets squeak and ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.98,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "they do",
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 1.2846833333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

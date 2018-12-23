@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-22T16:13:16.000Z",
+    "AssignmentId": "3WLEIWSYHP5IGOZNQDO8VHINRUV2H4",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T16:16:11.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG12E0XX",
+    "SubmitTime": "2018-12-22T16:16:11.000Z",
+    "answers": {
+        "attention_check": "\"Blickets squeak, but this blicket rings\"",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "No",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".70",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1050,
+            "screenW": 1680
+        },
+        "time_in_minutes": 2.882433333333333,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo2",
+                        "time": 1545495259626
+                    },
+                    {
+                        "event": "testDemo1",
+                        "time": 1545495260369
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495286444
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495286467
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495287030
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495287783
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495291146
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495291169
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495291614
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495293553
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495294921
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495294935
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495295463
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495296007
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495297153
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495297165
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495297541
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495299533
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets squeak, but only one blicket rings.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Blickets squeak and this blicket rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "Because she was telling the truth",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.76725,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

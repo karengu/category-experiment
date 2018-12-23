@@ -1,0 +1,201 @@
+{
+    "AcceptTime": "2018-12-22T15:26:28.000Z",
+    "AssignmentId": "3BV8HQ2ZZXPRO2AA79QJ48CVU326A7",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:44:05.000Z",
+    "HITId": "3S37Y8CWI8O7T8B6ZOOU1FUM9CNW4F",
+    "SubmitTime": "2018-12-22T15:44:05.000Z",
+    "answers": {
+        "attention_check": "She told me that the Blickets squeak and ring.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 6.1646833333333335,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545493219146
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545493220361
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493258100
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493258123
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493258708
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493260018
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493262954
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493262976
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493263803
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493264754
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493267398
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545493267420
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493268298
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493268892
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493270840
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493273553
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493273570
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493274131
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493275393
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493277625
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493277654
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493278447
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493279220
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493281378
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493281394
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493282166
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493282935
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493290705
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493290726
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493291308
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493292086
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493294567
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493294582
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493295571
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493296355
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets are objects that squeak and they ring.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 8,
+                "notebook": "Blickets squeak and they ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.78,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "I don't recall the Blickets ringing, it made a squeaking sound but the other sound was more of like a \"static\" sound.",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.3192333333333333,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

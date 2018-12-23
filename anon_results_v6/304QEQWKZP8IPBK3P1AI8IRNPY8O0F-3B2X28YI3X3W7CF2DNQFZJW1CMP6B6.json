@@ -1,0 +1,111 @@
+{
+    "AcceptTime": "2018-12-22T15:46:45.000Z",
+    "AssignmentId": "3B2X28YI3X3W7CF2DNQFZJW1CMP6B6",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:50:51.000Z",
+    "HITId": "304QEQWKZP8IPBK3P1AI8IRNPY8O0F",
+    "SubmitTime": "2018-12-22T15:50:51.000Z",
+    "answers": {
+        "attention_check": "that the Blickets squaek",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "59",
+            "asses": "Yes",
+            "comments": "fun",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.052566666666666,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545493720136
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545493721112
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545493746634
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545493750640
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493754138
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493754150
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493754934
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493756363
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545493759319
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493760711
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545493760727
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493763534
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493764101
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493765027
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets squeak but do not ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 2,
+                "notebook": "blickets squeak",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "that is what they do",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7853833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-22T15:08:50.000Z",
+    "AssignmentId": "3P1L2B7AD2DY9R7I4W13UMEX9FTOLU",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:22:21.000Z",
+    "HITId": "3ZQA3IO31BFIW05LLKEIMNAXUQEO1I",
+    "SubmitTime": "2018-12-22T15:22:21.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and blickets ring.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "0.50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "No."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 3.702733333333333,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545492021902
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545492022595
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492055030
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492055039
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492055427
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492056130
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492057861
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492057869
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492058419
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492058991
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492061004
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492061008
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492061371
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492061897
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492063949
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492063952
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492064690
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492065152
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets squeak but they don't ring.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Blickets squeak and blickets ring.",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "I think Ashley may have been wrong.",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7833166666666667,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

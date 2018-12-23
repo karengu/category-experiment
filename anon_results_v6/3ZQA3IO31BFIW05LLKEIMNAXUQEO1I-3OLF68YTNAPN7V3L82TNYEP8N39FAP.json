@@ -1,0 +1,163 @@
+{
+    "AcceptTime": "2018-12-22T16:10:58.000Z",
+    "AssignmentId": "3OLF68YTNAPN7V3L82TNYEP8N39FAP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T16:16:39.000Z",
+    "HITId": "3ZQA3IO31BFIW05LLKEIMNAXUQEO1I",
+    "SubmitTime": "2018-12-22T16:16:39.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and blickets ring.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "27",
+            "asses": "Yes",
+            "comments": "I appreciate the opportunity.",
+            "education": "1",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "I don't believe so."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 5.6175,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545495224949
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545495226107
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495273541
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495273552
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495274482
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495275697
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495279068
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495279077
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495279961
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495281755
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495284212
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495284217
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495284794
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495286384
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495288347
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495288354
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495288834
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495289400
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495290811
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495290818
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495291210
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495292001
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545495293748
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545495293753
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545495294386
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545495294791
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets squeak and blickets ring.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 6,
+                "notebook": "Blickets squeak and blickets ring.",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.47,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "They make a static noise. I don't know why.",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.2240833333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

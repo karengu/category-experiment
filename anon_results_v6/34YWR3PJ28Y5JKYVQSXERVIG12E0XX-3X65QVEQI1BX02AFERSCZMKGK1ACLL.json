@@ -1,0 +1,133 @@
+{
+    "AcceptTime": "2018-12-22T15:08:31.000Z",
+    "AssignmentId": "3X65QVEQI1BX02AFERSCZMKGK1ACLL",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:14:31.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG12E0XX",
+    "SubmitTime": "2018-12-22T15:14:31.000Z",
+    "answers": {
+        "attention_check": "that they squeek and ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.8661666666666665,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545491553677
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545491554932
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491570598
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545491570609
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491571917
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491578620
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491580620
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491588237
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491588248
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491589107
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491590308
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491593684
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491593691
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491594331
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491595979
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491598565
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491598572
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491599363
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491600324
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "sometimes blickets ring, but not always.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "blickets do both",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.12,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "it has a low probability of ringing",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.7919833333333334,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

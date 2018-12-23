@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-22T15:08:55.000Z",
+    "AssignmentId": "38F71OA9GUKO9WCA55JS75K8HJSMF8",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:35:02.000Z",
+    "HITId": "3S37Y8CWI8O7T8B6ZOOU1FUM9CNW4F",
+    "SubmitTime": "2018-12-22T15:35:02.000Z",
+    "answers": {
+        "attention_check": "bickets squeak and they ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "50",
+            "asses": "Yes",
+            "comments": "Thanks good luck with your work",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No Problems"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 5.180083333333333,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545492698840
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545492700721
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492742582
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492742596
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492744055
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492745983
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492751291
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492751300
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492753788
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492755439
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492760009
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492760015
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492761700
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492763230
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545492767655
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545492767661
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545492769276
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545492770630
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "bickets squeak but do not ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Bickets squeak and bickets ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.02,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "she was wrong",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.279,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

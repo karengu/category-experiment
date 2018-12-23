@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-22T15:08:41.000Z",
+    "AssignmentId": "3WS1NTTKEZ0R6I53G0WU98DVEGRF0Q",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:13:09.000Z",
+    "HITId": "33BFF6QPI1ZMBCS2ZAJBRA2GVCRW3U",
+    "SubmitTime": "2018-12-22T15:13:09.000Z",
+    "answers": {
+        "attention_check": "If it squeeks, it rings.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "25",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 4.379683333333333,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545491427237
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545491429773
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491464422
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491464436
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491465367
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491466764
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491474373
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491474384
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491474994
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491475859
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491477732
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491477737
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491478522
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491480776
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545491483214
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545491483220
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545491483941
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545491485561
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "There is no correlation to squeeking and ringing.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "If it squeeks, the blicket rings.",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.15,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "Perhaps it was a false product for the first one that Ashley tested before she left, that is why its important to test multiple trials.",
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.0106333333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

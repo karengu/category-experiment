@@ -1,0 +1,95 @@
+{
+    "AcceptTime": "2018-12-22T15:10:11.000Z",
+    "AssignmentId": "3IGI0VL6488OXRA3G9HI7EIMEATONW",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:30:21.000Z",
+    "HITId": "3ZQA3IO31BFIW05LLKEIMNAXUQEO1I",
+    "SubmitTime": "2018-12-22T15:30:21.000Z",
+    "answers": {
+        "attention_check": "SHE TOLD ME TO TEST THE BLICKETS",
+        "condition": "double",
+        "sound_check": "skyscraper",
+        "subject_information": {
+            "age": "32",
+            "asses": "No",
+            "comments": "GOOD",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "ENGLISH",
+            "problems": "NO"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1024,
+            "screenW": 1280
+        },
+        "time_in_minutes": 8.578033333333334,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545517633658
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545517635363
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545517669782
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545517669802
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545517672309
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545517673396
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545517675472
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545517675492
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545517678894
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545517680567
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "ABOUT TESTING",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "notebook": "SHE TOLD ME TO TEST THE BLICKETS",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.9,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "THEY NEVER LEFT THE RING",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 0.8185666666666667,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

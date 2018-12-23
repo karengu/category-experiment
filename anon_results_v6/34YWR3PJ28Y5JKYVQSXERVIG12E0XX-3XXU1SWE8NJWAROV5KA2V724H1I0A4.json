@@ -1,0 +1,99 @@
+{
+    "AcceptTime": "2018-12-22T15:43:43.000Z",
+    "AssignmentId": "3XXU1SWE8NJWAROV5KA2V724H1I0A4",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-23T15:49:29.000Z",
+    "HITId": "34YWR3PJ28Y5JKYVQSXERVIG12E0XX",
+    "SubmitTime": "2018-12-22T15:49:29.000Z",
+    "answers": {
+        "attention_check": "blinckets ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "42",
+            "asses": "Yes",
+            "comments": "no comments",
+            "education": "0",
+            "enjoyment": "2",
+            "fairprice": "yes",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 5.639366666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1545493619829
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1545493620970
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493668518
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493668549
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493669666
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493670426
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1545493674165
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1545493674190
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1545493677991
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1545493678950
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1545493679537
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "blickets ring",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "notebook": "this blicket rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.98,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 0,
+                "reasoning": "blickets are build for it",
+                "testResults": [
+                    false,
+                    false
+                ],
+                "timeExploring": 1.0767166666666668,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
