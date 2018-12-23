@@ -18,7 +18,7 @@ library(tidyboot)
 library("jsonlite")
 library("tidyverse")
 theme_set(theme_few())
-results.path <- "../anon_results_v3/"
+results.path <- "../results/anon_results_v3/"
 ```
 
 ```{r, echo=F, warning=F}

@@ -25,7 +25,7 @@ library(tidyboot)
 library("jsonlite")
 library("tidyverse")
 theme_set(theme_few())
-results.path <- "../anon_results_v4/"
+results.path <- "../results/anon_results_v4/"
 fig.path <- "~/Documents/talks/eccl-lab-mtg-1218/"
 ```
 
