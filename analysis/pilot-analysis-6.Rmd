@@ -37,7 +37,8 @@ for (anon_result in anon_results) {
       workerid = i,
       sound_check = result_json$answers$sound_check,
       attention_check = result_json$answers$attention_check,
-      utterance = result_json$answers$trials$utteranceType
+      utterance = result_json$answers$trials$utteranceType,
+      notebook = result_json$answers$trials$notebook
     )
   )
   
@@ -48,7 +49,7 @@ for (anon_result in anon_results) {
   
   df.trials = bind_rows(
     df.trials, 
-    result_json$answers$trials %>% select(-events, -testResults) %>% mutate(workerid = i)
+    result_json$answers$trials %>% select(-events, -testResults, -notebook) %>% mutate(workerid = i)
   )
 
   i = i + 1
@@ -58,20 +59,37 @@ for (anon_result in anon_results) {
 
 
 ```{r}
-failed.attention <- c(0, 3, 4, 8, 9, 11, 15, 16, 24, 28, 33, 35, 47, 49, 57, 58, 61, 73, 74, 80, 95, 100, 106)
-wrong.or.confused <- c(0, 23, 25,  32, 37, 42, 40, 52, 57, 63, 69, 73, 96, 100, 106, 107)
+# "all blickets squeak": 1, 52
+# no mention of ringing: 4, 8, 24, 35
+# no mention of squeaking: 57, 73, 95
+# specific to generic: 0, 7, 11, 28, 33, 61, 90
+# did not attempt to remember utterance: 47, 74, 106
+# only specific: 2, 9, 16, 80
+# failed sound check: 15, 100
+# do not ring: 17
+failed.attention <- c(0, 1, 2, 4, 7, 8, 9, 11, 15, 16, 17, 24, 28, 33, 35, 47, 52, 57, 61, 73, 74, 80, 90, 95, 100, 106)
+# wrong: 23, 25, 32, 37, 42, 52, 74, 96, 100, 107
+# confused: 0, 40, 57, 63, 69, 73, 106
+wrong.or.confused <- c(0, 23, 25, 32, 37, 40, 42, 52, 57, 62, 69, 73, 74, 96, 100, 106, 107)
+# confused static with ringing: 49
+bad.reasoning <- c(49)
+special.blicket <- c(5, 6, 10, 13, 16, 27, 29, 30, 41, 55, 72, 73, 76, 90, 92, 97, 98, 99, 101)
+low.probability <- c(1, 9, 12, 20, 31, 33, 37, 45, 52, 53, 56, 58, 60, 61, 65, 68, 70, 75, 79, 88, 91, 94, 96)
+special.conditions <- c(0, 59, 63, 64, 81, 104, 105) # includes blickets are defective or different
+speaker.error <- c(2, 11, 18, 19, 21, 22, 26, 32, 34, 39, 44, 46, 48, 67, 69, 82, 84, 95, 103) # includes that the box was not really blickets
+other <- c(3, 4, 7, 8, 17, 23, 24, 25, 28, 35, 36, 38, 40, 42, 43, 47, 50, 51, 54, 57, 62, 66, 71, 74, 77, 78, 80, 83, 85, 86, 87, 89, 93, 100, 102, 106, 107)
+# spanish/french: 81
+# no language: 92
 non.english <- c(81, 92)
 ```
-
-Subject 29 didn't report a language.
-
 
 ```{r}
 df.trials <- df.trials %>%
   mutate(fail_attention = workerid %in% failed.attention,
          non_english = workerid %in% non.english,
-         pass = !(workerid %in% c(failed.attention, non.english)),
-         genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+         wrong_confused = workerid %in% wrong.or.confused,
+         pass = !(workerid %in% c(failed.attention, non.english, wrong.or.confused)))
+df.trials <- df.trials %>% mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
          utteranceType = ifelse(utteranceType == "barePlural", 
                                 "generic", "specific")) %>%
   rename(trialNum = id)
@@ -81,13 +99,27 @@ df.trials <- df.trials %>%
 #### Number of subjects
 
 ```{r echo = T}
-df.trials %>%
+num.subjects <- df.trials %>%
   group_by(utteranceType, pass) %>%
-  count() %>%
+  count()
+num.subjects %>% 
   kable()
 ```
 
+### Reasoning type
 
+```{r}
+df.trials <- df.trials %>%
+  mutate(reasoningType = ifelse(workerid %in% special.blicket, "specialBlicket",
+                                ifelse(workerid %in% low.probability, "lowProb",
+                                       ifelse(workerid %in% special.conditions, "specialCond",
+                                              ifelse(workerid %in% speaker.error, "speakerErr", "other")))))
+reasoning <- df.trials %>%
+  group_by(utteranceType, reasoningType) %>%
+  count()
+reasoning %>%
+  kable()
+```
 
 
 ## Free response data (with other data)
@@ -105,8 +137,8 @@ Explanation of columns:
 - teach = what would you tell the children?
 
 ```{r, echo = F}
-df.trials %>%
-  select(workerid, utteranceType, pass, notebook, featureAgreement, reasoning, itemsTested, timeExploring,  probabilityOfFeature, genericEndorsement, freeResponse) %>%
+df.trials.pretty <- df.trials %>%
+  select(workerid, utteranceType, pass, featureAgreement, reasoning, itemsTested, timeExploring,  probabilityOfFeature, genericEndorsement, freeResponse) %>%
   rename( utterance = utteranceType,
           subj = workerid,
           worked = featureAgreement,
@@ -115,7 +147,8 @@ df.trials %>%
          gen = genericEndorsement,
          n = itemsTested, 
          t = timeExploring) %>%
-    mutate(t = round(t, 2)) %>%
+    mutate(t = round(t, 2))
+df.trials.pretty %>%
   kable()
 ```
 
@@ -131,7 +164,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = timeExploring)) +
   geom_histogram( bins = 30) +
   facet_grid(utteranceType ~ .)
@@ -145,7 +178,7 @@ df.trials %>%
 
 ```{r}
 fig.obj <- df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested))+
   geom_bar()+
   facet_grid(utteranceType ~ .)
@@ -157,7 +190,7 @@ fig.obj
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = probabilityOfFeature))+
   geom_histogram()+
   facet_grid(utteranceType ~ .)+
@@ -170,23 +203,23 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested, y = probabilityOfFeature, color = utteranceType,
                  label = workerid))+
-  #geom_point()+
-  geom_text()+
+  geom_point()+
+  #geom_text()+
   scale_color_solarized()+
   ylab("Probability judgment")+
   xlab("number of items tested")+
-  coord_fixed(ratio = 40)
+  coord_fixed(ratio = 45)
 
 #ggsave(paste(fig.path, "prob_vs_nItems_alt.pdf", sep = ""), width = 5, height = 4)
 ```
 
 ```{r}
 df.bs <- df.trials %>%
-  filter(!fail_attention, !non_english) %>%
-  # select(-freeResponse) %>%
+  filter(pass) %>%
+  #select(-freeResponse) %>%
   gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
   group_by(key, utteranceType, proportionSuccess) %>%
   tidyboot_mean(column = val)
