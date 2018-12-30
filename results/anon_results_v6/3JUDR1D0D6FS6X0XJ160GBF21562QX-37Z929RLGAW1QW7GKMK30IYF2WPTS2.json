@@ -1,0 +1,133 @@
+{
+    "AcceptTime": "2018-12-30T15:23:29.000Z",
+    "AssignmentId": "37Z929RLGAW1QW7GKMK30IYF2WPTS2",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T15:52:16.000Z",
+    "HITId": "3JUDR1D0D6FS6X0XJ160GBF21562QX",
+    "SubmitTime": "2018-12-30T15:52:16.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and Blickets ring.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "40",
+            "asses": "Yes",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "1",
+            "fairprice": "0.5",
+            "gender": "Male",
+            "language": "English",
+            "problems": "None"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 800,
+            "screenW": 1280
+        },
+        "time_in_minutes": 26.171766666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546184918011
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546184919032
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1546184952964
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546184954034
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546184954052
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546184955528
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546184956409
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546184958229
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546184958246
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546184959712
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546184960658
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546184962920
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546184962928
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546184963841
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546184964621
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546184974824
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546184974835
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546184975541
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546184976407
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets always squeak and ring.  If the object doesn't do one or the other or both, then it is likely not a Blicket.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Blickets squeak and Blickets ring.",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "I assume that all Blickets always ring and always sqeak.",
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 1.00985,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

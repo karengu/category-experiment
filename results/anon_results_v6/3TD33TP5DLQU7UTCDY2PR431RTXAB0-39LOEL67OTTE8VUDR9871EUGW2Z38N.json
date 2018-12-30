@@ -1,0 +1,112 @@
+{
+    "AcceptTime": "2018-12-30T14:09:07.000Z",
+    "AssignmentId": "39LOEL67OTTE8VUDR9871EUGW2Z38N",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T14:13:47.000Z",
+    "HITId": "3TD33TP5DLQU7UTCDY2PR431RTXAB0",
+    "SubmitTime": "2018-12-30T14:13:47.000Z",
+    "answers": {
+        "attention_check": "That the first blicket she showed me rings and squeaks.",
+        "condition": "double",
+        "sound_check": "Tiger",
+        "subject_information": {
+            "age": "30",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "$1.00",
+            "gender": "Male",
+            "language": "English",
+            "problems": "No bugs"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.598283333333334,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546179052402
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546179053874
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179100716
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179100722
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179102052
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179103259
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179106654
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179106660
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179107486
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179108355
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179111087
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179111090
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179111929
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179112709
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets squeak and ring.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "This Blicket squeaks and rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "They did ring because I believe all Blickets ring.",
+                "testResults": [
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 1.04275,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

@@ -1,0 +1,131 @@
+{
+    "AcceptTime": "2018-12-30T14:03:27.000Z",
+    "AssignmentId": "3L4PIM1GQU4L636XF37XIPLYVVHRYS",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T14:24:46.000Z",
+    "HITId": "3DGDV62G7OX76LZIJORBG6PSW9K2P6",
+    "SubmitTime": "2018-12-30T14:24:46.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and blickets ring.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "22",
+            "asses": "Confused",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "0.50",
+            "gender": "Male",
+            "language": "English",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.26945,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546179783328
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546179784087
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179813689
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179813713
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179814314
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179816290
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179817076
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179819052
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179819082
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179819536
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179820203
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179821438
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179821447
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179821972
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179822815
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179823237
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179823769
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179824133
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets squeak and blickets ring.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "Blickets squeak and blickets ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "I think it happened because the blickets will always squeak and ring.",
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.7203333333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

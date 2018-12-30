@@ -1,0 +1,116 @@
+{
+    "AcceptTime": "2018-12-30T14:22:11.000Z",
+    "AssignmentId": "3VP0C6EFSHKSQ3JZ4CGODZ7VQYR6ML",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T14:26:49.000Z",
+    "HITId": "3DGDV62G7OX76LZIJORBG6PSW9K2P6",
+    "SubmitTime": "2018-12-30T14:26:49.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and blickets ring ",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "24",
+            "asses": "No",
+            "comments": "Good length of hit for price, fairly straightforward and enjoyable. Would be willing to do more trials for more pay. ",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "n/a"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 4.589566666666666,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546179841367
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546179842802
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179877828
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1546179877838
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179879626
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179880277
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179882082
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179885352
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179885358
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179886442
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179887391
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179894193
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179894198
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179894850
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179895870
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets squeak and ring. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "Blickets squeak and blickets ring ",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "they are blickets, which by definition ring ",
+                "testResults": [
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 0.9232333333333334,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

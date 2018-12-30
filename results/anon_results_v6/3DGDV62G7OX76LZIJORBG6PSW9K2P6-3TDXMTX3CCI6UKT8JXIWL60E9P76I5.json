@@ -1,0 +1,120 @@
+{
+    "AcceptTime": "2018-12-30T14:21:56.000Z",
+    "AssignmentId": "3TDXMTX3CCI6UKT8JXIWL60E9P76I5",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T14:30:29.000Z",
+    "HITId": "3DGDV62G7OX76LZIJORBG6PSW9K2P6",
+    "SubmitTime": "2018-12-30T14:30:29.000Z",
+    "answers": {
+        "attention_check": "blickets squeak and ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "33",
+            "asses": "Yes",
+            "comments": "It was a lot of fun, very simple, thank you!",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "a little",
+            "gender": "Female",
+            "language": "english",
+            "problems": "It didn't work  on Firefox"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 3.224083333333333,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546180082157
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546180083139
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546180121142
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546180121152
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546180121707
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546180122609
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546180124413
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546180124421
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546180125012
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546180125897
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546180127358
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1546180127363
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1546180127388
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546180130893
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546180132875
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546180136298
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "blickets squeak and ring",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 3,
+                "notebook": "blickets squeak and ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.91,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "They were good blickets",
+                "testResults": [
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 1.2112,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

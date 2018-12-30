@@ -1,0 +1,86 @@
+{
+    "AcceptTime": "2018-12-30T13:22:33.000Z",
+    "AssignmentId": "3TY7ZAOG5G82M4XHHBNRPL50OQ5K0O",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T13:34:36.000Z",
+    "HITId": "3TD33TP5DLQU7UTCDY2PR431RTXAB0",
+    "SubmitTime": "2018-12-30T13:34:36.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and this blicket rings.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "63",
+            "asses": "Confused",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": "50 cents",
+            "gender": "Male",
+            "language": "English",
+            "problems": "I don't know. There was a big box of blickets, but it went dark after I moved 2 to the testing area."
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 11.976833333333333,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546176505160
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546176506814
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546176561174
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546176561189
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546176562788
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546176564733
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546176567859
+                    },
+                    {
+                        "event": "dropLoc",
+                        "time": 1546176567877
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Some blickets squeak, some squeak and ring, some don't do anything.",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 1,
+                "notebook": "Blickets squeak and this blicket rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.54,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "1 squeaked and rang, one wouldn't do anything and then I was not able to move any more blickets to the testing area.",
+                "testResults": [
+                    true
+                ],
+                "timeExploring": 1.6215,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

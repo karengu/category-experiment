@@ -1,0 +1,252 @@
+{
+    "AcceptTime": "2018-12-30T13:38:11.000Z",
+    "AssignmentId": "3C5W7UE9CGE59I3V5ZPEDCKFN2MMXR",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T13:44:32.000Z",
+    "HITId": "3EKZL9T8Y8ASRMTWX48CJAWNM9NCHK",
+    "SubmitTime": "2018-12-30T13:44:32.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "57",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Female",
+            "language": "english",
+            "problems": "I assume not since the sounds all worked properly during the testing"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 6.32525,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546177210023
+                    },
+                    {
+                        "event": "testDemo1",
+                        "time": 1546177211471
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546177219647
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177266124
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177266138
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177268322
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177271208
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177276531
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177276549
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177280220
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177282073
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177285954
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177285964
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177287803
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177289592
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177293298
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177293311
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177294879
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177296430
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177300484
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177300492
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177301931
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177303672
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177307251
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177307259
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177309019
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177310528
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177315523
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177315536
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177317338
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177318929
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177322624
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177322635
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177324418
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177325558
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177329042
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177329055
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177330346
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177331600
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177335228
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177335237
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177336878
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177338262
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546177343898
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546177343916
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546177345132
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546177346420
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets do not squeak or ring",
+                "genericEndorsement": "No",
+                "id": 0,
+                "itemsTested": 11,
+                "notebook": "Blickets squeak and ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "I think Ashley was mistaken",
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 2.22425,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

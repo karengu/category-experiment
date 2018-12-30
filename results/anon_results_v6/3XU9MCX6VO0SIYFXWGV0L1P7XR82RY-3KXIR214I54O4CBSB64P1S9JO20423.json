@@ -1,0 +1,129 @@
+{
+    "AcceptTime": "2018-12-30T13:30:47.000Z",
+    "AssignmentId": "3KXIR214I54O4CBSB64P1S9JO20423",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T14:19:52.000Z",
+    "HITId": "3XU9MCX6VO0SIYFXWGV0L1P7XR82RY",
+    "SubmitTime": "2018-12-30T14:19:52.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak and this blicket rings. ",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "45",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": ".80",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 720,
+            "screenW": 1280
+        },
+        "time_in_minutes": 3.858216666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546179445075
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546179446438
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179492545
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179492564
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179493711
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179495185
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179497169
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179497184
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179497974
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179499072
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179501123
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179501130
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179501741
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179502562
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546179505645
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546179505654
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546179506217
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546179507064
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "Blickets squeak and they will usually also ring. ",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 4,
+                "notebook": "Blickets squeak and this blicket rings. ",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.9,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "Because they are ringing blickets. ",
+                "testResults": [
+                    true,
+                    true,
+                    true,
+                    true
+                ],
+                "timeExploring": 1.0834,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

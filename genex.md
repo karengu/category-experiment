@@ -105,3 +105,23 @@ single trial, specific condition, 0% success
 n = 18
 0.50 each
 single trial, specific condition, 0% success
+
+## 12/22/2018
+n = 27
+0.50 each
+single trial, specific condition, 0% success
+
+## 12/22/2018
+n = 27
+0.50 each
+single trial, specific condition, 0% success
+
+## 12/30/2018
+n = 27
+0.50 each
+single trial, generic condition, 100% success
+
+## 12/30/2018
+n = 27
+0.50 each
+single trial, specific condition, 100% success

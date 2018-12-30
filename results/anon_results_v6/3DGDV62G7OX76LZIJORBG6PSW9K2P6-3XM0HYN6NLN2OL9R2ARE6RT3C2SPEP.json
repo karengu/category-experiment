@@ -1,0 +1,95 @@
+{
+    "AcceptTime": "2018-12-30T14:49:44.000Z",
+    "AssignmentId": "3XM0HYN6NLN2OL9R2ARE6RT3C2SPEP",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T14:55:52.000Z",
+    "HITId": "3DGDV62G7OX76LZIJORBG6PSW9K2P6",
+    "SubmitTime": "2018-12-30T14:55:52.000Z",
+    "answers": {
+        "attention_check": "that blickets sqeak and ring.",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "37",
+            "asses": "Yes",
+            "comments": "none",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "50 cents",
+            "gender": "Male",
+            "language": "english",
+            "problems": "i didnt see any"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 900,
+            "screenW": 1600
+        },
+        "time_in_minutes": 5.507466666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546181595679
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546181597268
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546181640817
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546181640836
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546181641563
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546181644142
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546181647798
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546181647811
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546181648859
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546181650247
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "blickets sqeak and ring.",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "notebook": "blickets sqeak and ring",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 1,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "because thats what she said would happen.",
+                "testResults": [
+                    true,
+                    true
+                ],
+                "timeExploring": 0.9921166666666666,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}

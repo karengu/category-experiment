@@ -1,0 +1,95 @@
+{
+    "AcceptTime": "2018-12-30T13:23:54.000Z",
+    "AssignmentId": "3NAPMVF0ZX3LNZTBD42W44TTF4Q72Q",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2018-12-31T13:28:53.000Z",
+    "HITId": "3XU9MCX6VO0SIYFXWGV0L1P7XR82RY",
+    "SubmitTime": "2018-12-30T13:28:53.000Z",
+    "answers": {
+        "attention_check": "blickets squeak and ring",
+        "condition": "double",
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "45",
+            "asses": "Yes",
+            "comments": "fun graphics and more fun to move around with sounds",
+            "education": "3",
+            "enjoyment": "2",
+            "fairprice": "no",
+            "gender": "Female",
+            "language": "egnlish",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 1200,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.92395,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "testDemo1",
+                        "time": 1546176362948
+                    },
+                    {
+                        "event": "testDemo2",
+                        "time": 1546176364364
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546176407479
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546176407495
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546176409820
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546176411344
+                    },
+                    {
+                        "event": "pickUp",
+                        "time": 1546176418383
+                    },
+                    {
+                        "event": "dropTest",
+                        "time": 1546176418398
+                    },
+                    {
+                        "event": "testItem1",
+                        "time": 1546176420093
+                    },
+                    {
+                        "event": "testItem2",
+                        "time": 1546176421305
+                    }
+                ],
+                "featureAgreement": "Yes",
+                "freeResponse": "blilckets squeak and ring",
+                "genericEndorsement": "Yes",
+                "id": 0,
+                "itemsTested": 2,
+                "notebook": "yellow squeaks and rings",
+                "objectName": "Blickets",
+                "probabilityOfFeature": 0.98,
+                "property1": "squeak",
+                "property2": "ring",
+                "proportionSuccess": 1,
+                "reasoning": "because they are supposed to ring",
+                "testResults": [
+                    true,
+                    true
+                ],
+                "timeExploring": 1.1252666666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
