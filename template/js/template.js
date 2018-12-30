@@ -1277,7 +1277,7 @@ function init() {
     }];
   }
     else if (exp.condition == 'double') {
-	const utteranceType = 'barePlural';
+	const utteranceType = 'specific';
 	const proportionSuccess = 1;
 	const alternativeProperty = 'ring';
 	exp.data_trials.push({
