@@ -1278,7 +1278,7 @@ function init() {
   }
     else if (exp.condition == 'double') {
 	const utteranceType = 'barePlural';
-	const proportionSuccess = 0;
+	const proportionSuccess = 1;
 	const alternativeProperty = 'ring';
 	exp.data_trials.push({
 	    id: 0,
