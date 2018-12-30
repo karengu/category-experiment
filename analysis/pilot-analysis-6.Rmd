@@ -59,18 +59,21 @@ for (anon_result in anon_results) {
 
 
 ```{r}
-# "all blickets squeak": 1, 52
-# no mention of ringing: 4, 8, 24, 35
-# no mention of squeaking: 57, 73, 95
-# specific to generic: 0, 7, 11, 28, 33, 61, 90
-# did not attempt to remember utterance: 47, 74, 106
-# only specific: 2, 9, 16, 80
-# failed sound check: 15, 100
-# do not ring: 17
-failed.attention <- c(0, 1, 2, 4, 7, 8, 9, 11, 15, 16, 17, 24, 28, 33, 35, 47, 52, 57, 61, 73, 74, 80, 90, 95, 100, 106)
-# wrong: 23, 25, 32, 37, 42, 52, 74, 96, 100, 107
-# confused: 0, 40, 57, 63, 69, 73, 106
-wrong.or.confused <- c(0, 23, 25, 32, 37, 40, 42, 52, 57, 62, 69, 73, 74, 96, 100, 106, 107)
+# "all": 1, 52, 119, 121, 129, 149
+# no mention of ringing: 4, 8, 24, 91
+# no mention of squeaking: 35, 66, 90, 124, 140
+# specific to generic: 0, 7, 11, 28, 33, 70, 123, 135, 148
+# did not attempt to remember utterance: 47, 92, 130, 160
+# only specific: 2, 9, 67, 98, 128, 150
+# failed sound check: 15, 154
+# do not ring: 17, 63, 117
+# "if it squeaks, it rings": 16
+# "blickets buzz and ring": 44
+# "some": 96, 142
+failed.attention <- c(0, 1, 2, 4, 7, 8, 9, 11, 15, 16, 17, 24, 28, 33, 35, 44, 47, 52, 63, 66, 67, 70, 90, 91, 92, 96, 98, 117, 119, 121, 123, 124, 128, 129, 130, 135, 140, 142, 148, 149, 150, 154, 160)
+# wrong: 23, 25, 32, 37, 42, 52, 59, 76, 80, 87, 92, 141, 154, 161
+# confused: 0, 40, 57, 63, 66, 73, 81, 91, 132, 160
+wrong.or.confused <- c(0, 23, 25, 32, 37, 40, 42, 52, 57, 59, 62, 66, 76, 80, 81, 87, 91, 92, 132, 141, 154, 160, 161)
 # confused static with ringing: 49
 bad.reasoning <- c(49)
 special.blicket <- c(5, 6, 10, 13, 16, 27, 29, 30, 41, 55, 72, 73, 76, 90, 92, 97, 98, 99, 101)
@@ -78,9 +81,13 @@ low.probability <- c(1, 9, 12, 20, 31, 33, 37, 45, 52, 53, 56, 58, 60, 61, 65, 6
 special.conditions <- c(0, 59, 63, 64, 81, 104, 105) # includes blickets are defective or different
 speaker.error <- c(2, 11, 18, 19, 21, 22, 26, 32, 34, 39, 44, 46, 48, 67, 69, 82, 84, 95, 103) # includes that the box was not really blickets
 other <- c(3, 4, 7, 8, 17, 23, 24, 25, 28, 35, 36, 38, 40, 42, 43, 47, 50, 51, 54, 57, 62, 66, 71, 74, 77, 78, 80, 83, 85, 86, 87, 89, 93, 100, 102, 106, 107)
-# spanish/french: 81
-# no language: 92
-non.english <- c(81, 92)
+# spanish/french: 108
+# no language: 123, 126, 137
+# spanish: 99, 131
+# "united states": 75, 76
+non.english <- c(75, 76, 81, 99, 108, 123, 126, 131, 137)
+
+# did not fill out last slide at all: 123, 126
 ```
 
 ```{r}
@@ -211,7 +218,7 @@ df.trials %>%
   scale_color_solarized()+
   ylab("Probability judgment")+
   xlab("number of items tested")+
-  coord_fixed(ratio = 45)
+  coord_fixed(ratio = 30)
 
 #ggsave(paste(fig.path, "prob_vs_nItems_alt.pdf", sep = ""), width = 5, height = 4)
 ```
