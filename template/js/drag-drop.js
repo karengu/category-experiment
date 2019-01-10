@@ -229,12 +229,12 @@ var drag_and_drop = {
     blicket.translate(finalX-x,finalY-y)
   },
 
-    makeGold: function(paper, x, y) {
-	paper.path(objectPaths["rectangle"](x, y)).attr({fill: "#FFDF00"});
+    makeGold: function(x, y) {
+	return {path: objectPaths["rectangle"](x, y), fill: "#FFDF00"};
     },
 
-    makeSilver: function(paper, x, y) {
-	paper.path(objectPaths["rectangle"](x, y)).attr({fill: "#C0C0C0"});
+    makeSilver: function(x, y) {
+	return {path: objectPaths["rectangle"](x, y), fill: "#C0C0C0"};
     },
     
     makeButton: function(startX, startY, color, buttonText, paper, length, width) {

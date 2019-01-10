@@ -283,6 +283,150 @@ function make_slides(f) {
     },
   });
 
+  slides.practice = slide({
+    name: "practice",
+    start: function() {
+      $('#practiceFinished').hide();
+      $('#practicePaper').show();
+      var paper = new Raphael(document.getElementById('practicePaper'), 800, 700);
+      exp.practicePaper = paper;
+	paper.customAttributes.goldMachine = paper.rect(200, 400, 400, 100).attr({fill:"#FFDF00"});
+	paper.text(400, 385, "Gold machine").attr("font-size", 16);
+      var testButtonGold = drag_and_drop.makeButton(400, 450, "#49e575", "Transform", paper, 90, 30);
+	paper.customAttributes.silverMachine = paper.rect(200, 550, 400, 100).attr({fill:"#C0C0C0"});
+	paper.text(400, 535, "Silver machine").attr("font-size", 16);
+      var testButtonSilver = drag_and_drop.makeButton(400, 600,"#e549ae", "Transform", paper, 90, 30);
+      var onClick = function() {
+        if (paper.customAttributes.testItem) {
+          paper.customAttributes.glow.remove();
+        }
+	if (paper.customAttributes.arrow) {
+          paper.customAttributes.arrow.remove();
+        }
+        paper.customAttributes.testItem = this;
+        paper.customAttributes.glow = this.glow();
+      }
+      var onTestGold = function() {
+        const testItem = paper.customAttributes.testItem;
+          if (testItem) {
+	    if (testItem.data("id") < 2) {
+              if (testItem.data("id") == 0) {
+                  testItem.animate(drag_and_drop.makeGold(testItem.data("x") - 25, testItem.data("y")), 2000, "linear");
+	      }
+		else {
+		    testItem.animate({opacity:0}, 1000, function() {this.hide()});
+		}
+	      demoIndex ++;
+		setTimeout(function() {demo(demoIndex)}, 2000);
+              paper.customAttributes.testItem = null;
+	      paper.customAttributes.glow.remove();
+	    }
+          }
+	};
+        var onTestSilver = function() {
+          const testItem = paper.customAttributes.testItem;
+          if (testItem) {
+	    if (testItem.data("id") > 1) {
+              if (testItem.data("id") == 2) {
+                  testItem.animate(drag_and_drop.makeSilver(testItem.data("x") - 25, testItem.data("y")), 2000, "linear");
+	      }
+		else {
+		    testItem.animate({opacity:0}, 1000, function() {this.hide()});
+		}
+	      if (testItem.data("id") < 3) {
+	        demoIndex ++;
+	          setTimeout(function() {demo(demoIndex)}, 2000);
+	      }
+	      else {
+	        $('#practiceFinished').show();
+	        if (paper.customAttributes.demoText) {
+	          paper.customAttributes.demoText.remove();
+	        }
+	        paper.customAttributes.demoText = paper.set();
+	        paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
+	        paper.customAttributes.demoText.push(paper.text(400, 80, "Now that you know how the machines work,").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	        paper.customAttributes.demoText.push(paper.text(400, 110, "hit the Continue button at the bottom of the screen to meet Ashley.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	        paper.customAttributes.demoText.forEach(function(elem) {
+	          elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
+	        });
+              }
+              paper.customAttributes.testItem = null;
+	      paper.customAttributes.glow.remove();
+            }
+	  }
+        };
+        var items = [
+	  drag_and_drop.objects[5],
+	  drag_and_drop.objects[2],
+	  drag_and_drop.objects[3],
+	  drag_and_drop.objects[4]
+        ];
+        var createNewItem = function(i, demo) {
+          var x = 100+200*i;
+	  var y = 250;
+	  var item = paper.path(objectPaths[items[i].shape](x,y)).attr("fill", items[i].color);
+          item.data("id", i);
+          item.data("x", x);
+          item.data("y", y);
+          item.click(onClick);
+          return item;
+	}
+        var demo = function(i) {
+          var description = "Try testing the object by dragging it to the testing stage and clicking both buttons.";
+	  var machineType = "machine";
+	  if (i == 0) {
+	    var description = "This object transforms to gold.";
+	    var machineType = "gold";
+          }
+	  else if (i == 1) {
+	    var description = "This object does not transform to gold.";
+	    var machineType = "gold";
+	  }
+	  else if (i == 2) {
+	    var description = "This object transforms to silver.";
+	    var machineType = "silver";
+	  }
+	  else if (i == 3) {
+	    var description = "This object does not transform to silver.";
+	    var machineType = "silver";
+	  }
+	  if (paper.customAttributes.demoText) {
+	    paper.customAttributes.demoText.remove();
+	  }
+	  paper.customAttributes.demoText = paper.set();
+	  paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
+	  paper.customAttributes.demoText.push(paper.text(400, 70, description).attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	  paper.customAttributes.demoText.push(paper.text(400, 100, "Try transforming it by clicking it to select and then clicking the Transform button").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	  paper.customAttributes.demoText.push(paper.text(400, 130, "on the "+machineType+" machine.").attr({"font-size":16, "fill": "white", "font-weight": "bold"}));
+	  paper.customAttributes.demoText.forEach(function(elem) {
+	    elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
+	  });
+	  const x = 100+200*i
+	  paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 4});
+	  createNewItem(i, true);
+	}
+	testButtonGold.buttonSet.click(onTestGold);
+	testButtonSilver.buttonSet.click(onTestSilver);
+	testButtonGold.buttonSet.mousedown(function() {
+          testButtonGold.button.animate({"fill":"#287f41"});
+        });
+        testButtonGold.buttonSet.mouseup(function() {
+          testButtonGold.button.animate({"fill": "#49e575"});
+        });
+	testButtonSilver.buttonSet.mousedown(function() {
+          testButtonSilver.button.animate({"fill":"#841559"});
+        });
+        testButtonSilver.buttonSet.mouseup(function() {
+          testButtonSilver.button.animate({"fill": "#e549ae"});
+        });
+        var demoIndex = 0;
+        demo(demoIndex);
+      },
+      button: function() {
+        exp.go();
+      }
+  });
+
   slides.drag_and_drop = slide({
     name: "drag_and_drop",
     present: exp.randomized_trials,
@@ -308,7 +452,7 @@ function make_slides(f) {
         }
         const paper = new Raphael(document.getElementById('demoPaper'), 800, 450);
         exp.paper = paper;
-        var investigator = paper.image('../_shared/images/ashley.jpg', 0, 0, 202, 400);
+        var investigator = paper.image('../_shared/images/ashley.png', 0, 0, 192, 380);
         var demoItem = paper.path(objectPaths[stim.shape](400,100)).attr("fill", stim.color);
         demoItem.click(function() {
           paper.customAttributes.glow = this.glow();
@@ -316,13 +460,19 @@ function make_slides(f) {
         });
         paper.customAttributes.machine = paper.rect(200, 200, 400, 100).attr({fill:"#FFDF00"});
         var testButton = drag_and_drop.makeButton(400, 250, "#49e575", "Transform", paper, 90, 30);
-        paper.text(400, 400, 'Try transforming the '+stim.objectNameSingular.toLowerCase()+' by clicking it to select it and then clicking on the Transform button.').attr({"font-size": 16});
+	if (stim.utteranceType == "barePlural") {
+            paper.text(400, 380, 'She says, "'+stim.objectNamePlural + ' ' + stim.property + ' when you use this machine on them.').attr({"font-size": 16});
+	}
+	else if (stim.utteranceType == "specific") {
+          paper.text(400, 380, 'She says, "This '+stim.objectNameSingular.toLowerCase() + ' '+stim.propertySpecific+' when you use this machine on it.').attr({"font-size": 16});
+        }
+        paper.text(400, 400, 'Try transforming the '+stim.objectNameSingular.toLowerCase()+' by clicking it to select it and then clicking on the Transform button."').attr({"font-size": 16});
         testButton.buttonSet.forEach(function(component) {
           component.click(function() {
-            if (paper.customAttributes.selectedItem) {
-	      demoItem.remove();
-	      paper.customAttributes.glow.remove();
-	      drag_and_drop.makeGold(paper, 375, 100);
+              if (paper.customAttributes.selectedItem) {
+		demoItem.animate(drag_and_drop.makeGold(375, 100), 2000, "linear");
+		paper.customAttributes.glow.remove();
+		;
 	    }
           });
         });
@@ -339,8 +489,6 @@ function make_slides(f) {
         $('.testFree').hide();
         $('.testReasoning').hide();
         $('.transition').hide();
-	$('.writeNotebook').hide();
-        $('.notebook').hide();
         $('.explore').show();
 	    
         this.stim = stim;
@@ -368,22 +516,23 @@ function make_slides(f) {
 	    });
         }
 
-        var onTest = function() { // always successful
+        var onTest = function() {
           const testItem = paper.customAttributes.testItem;
           if (testItem) {
             if (paper.customAttributes.itemsTested == 0) { // first item
               setTimeout(function() { // delay showing button to leave for 2 seconds
                 $('#ddbutton').show();
-                $('#ddbutton').text('Leave testing area');
+                $('#ddbutton').text('Switch machine');
               }, 2000);
             }
 	    if (testSequence[testSequenceIndex]) {
-              drag_and_drop.makeGold(paper,testItem.data("x") - 25, testItem.data("y"));
+		testItem.animate(drag_and_drop.makeGold(testItem.data("x") - 25, testItem.data("y")), 2000, "linear");
               paper.customAttributes.result = "Congratulations! You earned a gold bar!";
 	      exp.moreReward ++;
 	    }
-	    else {
-              paper.customAttributes.result = "Sorry! You didn't earn anything.";
+	      else {
+		  testItem.animate({opacity:0}, 1000, function() {this.remove()});
+              paper.customAttributes.result = "Sorry! That one didn't transform to gold.";
 	    }
             if (paper.customAttributes.resultText) {
 	      paper.customAttributes.resultText.animate({"fill-opacity": 0,"stroke-opacity":0},1000,"easeInOut");
@@ -396,7 +545,6 @@ function make_slides(f) {
               testSequence = _.shuffle(testSequence);
               testSequenceIndex = 0;
             }	
-	    testItem.remove();
             paper.customAttributes.testItem = null;
             paper.customAttributes.glow.remove();
 	    paper.customAttributes.itemsTested ++;
@@ -417,7 +565,7 @@ function make_slides(f) {
 	const platformLevel = drag_and_drop.platformLevel;
 	const labelLevel = platformLevel - 15;
         exp.paper = paper;
-        drag_and_drop.makeBlicketGrid(100,150,800,500, 20, paper, stim.color, stim.shape, stim.numRows);
+        drag_and_drop.makeBlicketGrid(100,50,800,500, 20, paper, stim.color, stim.shape, stim.numRows);
 	paper.blickets.forEach(function(blicket) {
           blicket.click(onClick);
         });
@@ -427,22 +575,14 @@ function make_slides(f) {
           component.click(onTest);
         });
 	// task information
-        paper.customAttributes.classroomIntro = paper.set();
-        paper.customAttributes.classroomIntro.push(paper.text(400, 30, stim.investigator+' gives you the '+stim.objectNamePlural.toLowerCase()+' and leaves to go do some other work.').attr({"font-size": 16}));
-	paper.customAttributes.classroomIntro.push(paper.text(400, 50, 'Test as many '+stim.objectNamePlural.toLowerCase()+' as you would like using the gold machine. When you are done using the gold machine ').attr({"font-size": 16}));
-	paper.customAttributes.classroomIntro.push(paper.text(400, 70, 'and want to move on to the silver machine, hit the Leave testing area button at the bottom of the screen.').attr({"font-size": 16}));
-	paper.customAttributes.classroomIntro.push(paper.text(400, 90, 'You must use the gold machine on at least one blicket.').attr({"font-size": 16}));
+        $('#infoParagraph').html(stim.investigator+' gives you the '+stim.objectNamePlural.toLowerCase()+' and leaves to go do some other work. Test as many '+stim.objectNamePlural.toLowerCase()+' as you would like using the gold machine. When you are done using the gold machine and want to move on to the silver machine, hit the <b>Switch machine</b> button at the bottom of the screen. You must use the gold machine on at least one blicket.')
       }
       else if (stim.type == 'end') {
-        $('#ddbutton').text('Leave testing area');
+        $('#ddbutton').text('Leave lab');
 	  
         var paper = exp.paper; // use same paper from previous trial
-        paper.customAttributes.classroomIntro.forEach(function(component) {
-          component.remove();
-	});
         paper.customAttributes.machine.remove();
-        paper.text(400, 30, 'Test as many '+stim.objectNamePlural.toLowerCase()+' as you would like using the silver machine. When you are done using the silver machine ').attr({"font-size":16});
-        paper.text(400, 50, 'and want to move on, hit the Leave testing area button at the bottom of the screen.').attr({"font-size": 16});
+        $('#infoParagraph').html('Test as many '+stim.objectNamePlural.toLowerCase()+' as you would like using the silver machine. When you are done using the silver machine and want to move on, hit the <b>Leave lab</b> button at the bottom of the screen.')
 
         exp.lessReward = 0;
         exp.events = [];
@@ -462,19 +602,19 @@ function make_slides(f) {
           const testItem = paper.customAttributes.testItem;
           if (testItem) {
             if (testSequence[testSequenceIndex]) {
-              drag_and_drop.makeSilver(paper,testItem.data("x") - 25, testItem.data("y"));
+		testItem.animate(drag_and_drop.makeSilver(testItem.data("x") - 25, testItem.data("y")), 2000, "linear");
 	      paper.customAttributes.result = "Congratulations! You earned a silver bar!";
 	      exp.lessReward ++;
 	    }
-	    else {
-              paper.customAttributes.result = "Sorry! You didn't earn anything.";
+	      else {
+		  testItem.animate({opacity:0}, 1000, function() {this.remove()});
+              paper.customAttributes.result = "Sorry! That one didn't transform to silver.";
 	    } 
             if (paper.customAttributes.resultText) {
 	      paper.customAttributes.resultText.animate({"fill-opacity": 0,"stroke-opacity":0},1000,"easeInOut");
 	      paper.customAttributes.resultText.remove();
             }
             paper.customAttributes.resultText = paper.text(400, 570, paper.customAttributes.result).attr({"font-size": 20, "font-weight": "bold"}).animate({"fill-opacity": 0,"stroke-opacity":0},5000,"easeInOut");
-	    testItem.remove();
             paper.customAttributes.testItem = null;
             paper.customAttributes.glow.remove();
 	    paper.customAttributes.itemsTested ++;
@@ -537,7 +677,7 @@ function make_slides(f) {
         $('.testGeneric').hide();
         $('.testFree').show();
         $('.testReasoning').hide();
-        $('#free_response_prompt').text('Please write down what you know about '+stim.objectNamePlural.toLowerCase()+'.');
+        $('#free_response_prompt').text('Please write down what you know about '+stim.objectNamePlural.toLowerCase()+' for your fellow alchemists.');
         $('#free_response').val('');
       }
       else if (stim.type == 'testReasoning') {
@@ -713,6 +853,7 @@ function init() {
   exp.structure=[
     'i0',
     'introduction',
+    'practice',
     'drag_and_drop',
     'attention_check',
     'subj_info', 'thanks'
