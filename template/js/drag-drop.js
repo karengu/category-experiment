@@ -16,7 +16,10 @@ var objectPaths = {
   },
   "cone": function(startX, startY) {
     return "M"+startX+","+startY+"m-20,15 a 20,10 0 0,0 40,0 l-20,-30 l-20,30 m40,0 a20,10 0 0,0 -40,0"
-  }
+  },
+    "rectangle": function(startX, startY) {
+	return "M"+startX+","+startY+"h50 l20,-10 l-20,10 v20 h-50 v-20 l20,-10 h50 v20 l-20,10 v-20";
+    }
 }
 
 var makeSphere = function(startX, startY, paper) {
@@ -203,12 +206,36 @@ var drag_and_drop = {
       paper.customAttributes.boxFront1 = boxFront1;
       paper.customAttributes.boxFront2 = boxFront2;
   },
+
+    makeBlicketGrid: function(startX, startY, endX, endY, numberBlickets, paper, color, type, numRows) {
+	paper.blickets = paper.set();
+	const numColumns = numberBlickets/numRows;
+	const spacingX = Math.floor((endX - startX)/numColumns);
+	const spacingY = Math.floor((endY - startY)/numRows);
+	for (i = 0; i < numberBlickets; i++) {
+	    var x = startX + (i % numColumns) * spacingX;
+	    var y = startY + Math.floor(i/numColumns) * spacingY;
+	    var newBlicket = paper.path(objectPaths[type](x, y)).attr({fill: color});
+	    newBlicket.data("x", x);
+	    newBlicket.data("y", y);
+	    newBlicket.data("id", i);
+	    paper.blickets.push(newBlicket);
+	}
+    },
     
   moveToGarbage: function(blicket, x, y) {
     const finalX = 60*Math.random()-30+630
     const finalY = 20*Math.random()-10+300
     blicket.translate(finalX-x,finalY-y)
   },
+
+    makeGold: function(paper, x, y) {
+	paper.path(objectPaths["rectangle"](x, y)).attr({fill: "#FFDF00"});
+    },
+
+    makeSilver: function(paper, x, y) {
+	paper.path(objectPaths["rectangle"](x, y)).attr({fill: "#C0C0C0"});
+    },
     
     makeButton: function(startX, startY, color, buttonText, paper, length, width) {
     var button = paper.rect(startX -length/2, startY-width/2, length, width, 8).attr("fill", color);
@@ -343,8 +370,8 @@ var drag_and_drop = {
     {
       plural: "Blickets",
       singular: "Blicket",
-      color: "#ff0",
-      greyed: "#999937",
+      color: "#f44248",
+      greyed: "#992a34",
       sound: "squeak",
       shape: "diamond",
       investigator: "Ashley",
@@ -353,8 +380,8 @@ var drag_and_drop = {
     {
       plural: "Daxes",
       singular: "Dax",
-      color: "#f44248",
-      greyed: "#992a34",
+      color: "#ff0",
+      greyed: "#999937",
       sound: "beep",
       shape: "cylinder",
       investigator: "Beth",
