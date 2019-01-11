@@ -144,8 +144,9 @@ df.trials <- df.trials %>%
                                        ifelse(workerid %in% special.conditions, "specialCond",
                                               ifelse(workerid %in% speaker.error, "speakerErr", "other")))))
 reasoning <- df.trials %>%
-  group_by(utteranceType, reasoningType) %>%
-  count()
+  group_by(utteranceType, reasoningType, proportionSuccess) %>%
+  count() %>%
+  spread(reasoningType, n)
 reasoning %>%
   kable()
 ```

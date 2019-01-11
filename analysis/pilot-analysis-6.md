@@ -34,17 +34,12 @@ num.subjects %>%
 
 ### Reasoning type
 
-| utteranceType | reasoningType  |    n|
-|:--------------|:---------------|----:|
-| generic       | lowProb        |    8|
-| generic       | other          |   55|
-| generic       | speakerErr     |   16|
-| generic       | specialBlicket |    2|
-| specific      | lowProb        |   21|
-| specific      | other          |   36|
-| specific      | speakerErr     |    6|
-| specific      | specialBlicket |   17|
-| specific      | specialCond    |    1|
+| utteranceType |  proportionSuccess|  lowProb|  other|  speakerErr|  specialBlicket|  specialCond|
+|:--------------|------------------:|--------:|------:|-----------:|---------------:|------------:|
+| generic       |                  0|        8|     30|          14|               2|           NA|
+| generic       |                  1|       NA|     25|           2|              NA|           NA|
+| specific      |                  0|       17|     17|           3|              16|            1|
+| specific      |                  1|        4|     19|           3|               1|           NA|
 
 Free response data (with other data)
 ------------------------------------
