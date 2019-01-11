@@ -62,6 +62,23 @@ for (anon_result in anon_results) {
 ```{r}
 failed.attention <- c(9, 11, 12,23, 25, 30, 48, 50, 68, 59, 61, 53, 64)
 non.english <- c()
+
+# 41: bad.blickets and low.probability
+bad.reasoning <- c()
+special.blicket <- c(43, 47, 66)
+low.probability <- c(14, 41, 44, 45, 52, 67)
+special.conditions <- c()
+bad.blickets <- c(5, 16, 33, 41, 60) # blickets in box defective or not really blickets or of a different type
+speaker.error <- c(70)
+definition <- c(46, 59) # "it's what they do" or similar
+said.so <- c() # because the speaker said so
+generic.appeal <- c(8) # responds with generic statement
+always.appeal <- c() # above, but with always
+good.box <- c() # the box contained blickets that rang
+different.sound <- c(0, 2, 3, 6, 7, 9, 10, 11, 15, 20, 21, 22, 24, 28, 31, 35, 37, 38, 40, 49, 53, 54, 55, 58, 62, 73)
+not.explanation <- c(1, 12, 13, 18, 19, 27, 32, 36, 42, 51, 56, 61, 68, 69, 72) # restated answer to above or didn't answer question or similar
+dont.know <- c(4, 17, 25, 26, 29, 34, 48, 57, 63, 64, 65, 71)
+other <- c(23, 30, 39, 50)
 ```
 
 

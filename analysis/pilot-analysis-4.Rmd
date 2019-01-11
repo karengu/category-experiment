@@ -70,6 +70,25 @@ for (anon_result in anon_results) {
 #failed.attention <- c(1, 11, 12, 44, 45, 50, 57, 64, 65, 66, 69)
 failed.attention <-c(11, 12, 1, 47, 36, 37, 38, 39, 40, 54, 55, 57, 60, 77, 84, 85, 86, 89)
 non.english <- c()
+
+# 9: bad.blickets and low.probability
+# 16: speaker error and bad.blickets
+# 30: couldn't do task
+# 69: bad.blickets and definition
+bad.reasoning <- c(30)
+special.blicket <- c(63)
+low.probability <- c(6, 7, 8, 9, 15, 23, 28, 41, 42, 46, 49, 52, 59, 60, 61, 73, 75, 81, 82, 85, 88)
+special.conditions <- c(74)
+bad.blickets <- c(0, 5, 9, 16, 21, 33, 34, 35, 64, 65, 69, 72, 89) # blickets in box defective or not really blickets or of a different type
+speaker.error <- c(16, 26)
+definition <- c(4, 18, 22, 69, 79) # "it's what they do" or similar
+said.so <- c() # because the speaker said so
+generic.appeal <- c() # responds with generic statement
+always.appeal <- c() # above, but with always
+good.box <- c() # the box contained blickets that rang
+not.explanation <- c(1, 3, 10, 11, 12, 13, 20, 25, 29, 36, 39, 40, 43, 45, 47, 48, 51, 56, 57, 62, 68, 77, 78, 80, 83, 87) # restated answer to above or didn't answer question or similar
+dont.know <- c(2, 14, 19, 24, 32, 37, 38, 50, 53, 54, 66, 67, 70, 71, 76, 84, 86)
+other <- c(17, 27, 31, 44, 55, 58)
 ```
 
 

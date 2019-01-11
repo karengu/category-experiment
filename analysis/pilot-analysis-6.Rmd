@@ -74,13 +74,35 @@ failed.attention <- c(0, 1, 2, 4, 7, 8, 9, 11, 15, 16, 17, 24, 28, 33, 35, 44, 4
 # wrong: 23, 25, 32, 37, 42, 52, 59, 76, 80, 87, 92, 141, 154, 161
 # confused: 0, 40, 57, 63, 66, 73, 81, 91, 132, 160
 wrong.or.confused <- c(0, 23, 25, 32, 37, 40, 42, 52, 57, 59, 62, 66, 76, 80, 81, 87, 91, 92, 132, 141, 154, 160, 161)
-# confused static with ringing: 49
-bad.reasoning <- c(49)
-special.blicket <- c(5, 6, 10, 13, 16, 27, 29, 30, 41, 55, 72, 73, 76, 90, 92, 97, 98, 99, 101)
-low.probability <- c(1, 9, 12, 20, 31, 33, 37, 45, 52, 53, 56, 58, 60, 61, 65, 68, 70, 75, 79, 88, 91, 94, 96)
-special.conditions <- c(0, 59, 63, 64, 81, 104, 105) # includes blickets are defective or different
-speaker.error <- c(2, 11, 18, 19, 21, 22, 26, 32, 34, 39, 44, 46, 48, 67, 69, 82, 84, 95, 103) # includes that the box was not really blickets
-other <- c(3, 4, 7, 8, 17, 23, 24, 25, 28, 35, 36, 38, 40, 42, 43, 47, 50, 51, 54, 57, 62, 66, 71, 74, 77, 78, 80, 83, 85, 86, 87, 89, 93, 100, 102, 106, 107)
+
+# 15: special.conditions and bad.blickets
+# 21: bad.blickets and speaker.error
+# 34: bad.blickets and special.blicket
+# 39: bad.blickets and speaker.error
+# 46: speaker.error and bad.blickets
+# 48: speaker.error and bad.blickets
+# 49: confused static with ringing
+# 53: low.probability and bad.blickets
+# 90: special.blicket and low.probability
+# 108: always.appeal and bad.blickets
+# 132: wasn't able to do task
+# 155: generic.appeal and speaker.error
+# 158: bad.blickets and speaker.error
+bad.reasoning <- c(49, 132)
+special.blicket <- c(5, 6, 10, 13, 16, 29, 30, 34, 45, 64, 90, 91, 94, 124, 135, 137, 142, 143, 153)
+low.probability <- c(0, 1, 9, 12, 14, 20, 27, 31, 33, 37, 52, 53, 65, 67, 69, 70, 83, 86, 88, 90, 93, 97, 115, 119, 126, 136, 139, 141, 144, 149)
+special.conditions <- c(15)
+bad.blickets <- c(15, 21, 34, 39, 41, 46, 48, 50, 53, 68, 81, 82, 87, 108, 134, 158, 159) # blickets in box defective or not really blickets or of a different type
+speaker.error <- c(2, 11, 18, 19, 21, 26, 39, 44, 46, 48, 73, 76, 85, 109, 111, 117, 131, 140, 146, 155, 157, 158)
+definition <- c(4, 23, 28, 35, 54, 55, 56, 57, 58, 59, 62, 72, 74, 77, 78, 101, 102, 106, 123, 125, 148) # "it's what they do" or similar
+said.so <- c(61, 96, 161) # because the speaker said so
+generic.appeal <- c(63, 66, 75, 79, 80, 84, 105, 107, 110, 113, 114, 116, 155) # responds with generic statement
+always.appeal <- c(99, 103, 108, 120, 127, 128) # above, but with always
+good.box <- c(118, 129, 147, 150, 151, 152) # the box contained blickets that rang
+not.explanation <- c(3, 8, 17, 22, 24, 32, 36, 38, 42, 47, 60, 92, 100, 112, 121, 122, 145, 154) # restated answer to above or didn't answer question or similar
+dont.know <- c(7, 25, 40, 43, 51, 71, 89, 98, 130, 138, 156, 160)
+other <- c(95, 104, 133)
+
 # spanish/french: 108
 # no language: 123, 126, 137
 # spanish: 99, 131
@@ -124,8 +146,9 @@ df.trials <- df.trials %>%
                                        ifelse(workerid %in% special.conditions, "specialCond",
                                               ifelse(workerid %in% speaker.error, "speakerErr", "other")))))
 reasoning <- df.trials %>%
-  group_by(utteranceType, reasoningType) %>%
-  count()
+  group_by(utteranceType, reasoningType, proportionSuccess) %>%
+  count() %>%
+  spread(reasoningType, n)
 reasoning %>%
   kable()
 ```
