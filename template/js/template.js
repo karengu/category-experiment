@@ -291,7 +291,7 @@ function make_slides(f) {
       exp.ring = new Audio('../_shared/audio/ring.mp3');
       exp.white = new Audio('../_shared/audio/white.mp3');
 
-      var paper = new Raphael(document.getElementById('practicePaper'), 800, 700);
+      var paper = new Raphael(document.getElementById('practicePaper'), 800, 550);
       exp.practicePaper = paper;
       var testButtonSqueak = drag_and_drop.makeButton(400, 450, "#49e575", "Test Squeaking", paper, 120, 30);
       var testButtonRing = drag_and_drop.makeButton(400, 500,"#e549ae", "Test Ringing", paper, 120, 30);
@@ -450,11 +450,12 @@ function make_slides(f) {
         $('.err').show();
       }
       else {
-        const pass = ($('#numberTimesTest').val() == "1" && $('#orderTest').val() == "squeakFirst" && $('#pointsTest').val() == "squeakMore");
+          const pass = ($('#numberTimesTest').val() == "1" && $('#orderTest').val() == "squeakFirst" && $('#pointsTest').val() == "squeakMore" && $('input[name="sameBlicket"]:checked').val() == "false");
         exp.comprehension = {
           "numberTimesTest": $('#numberTimesTest').val(),
 	  "orderTest":  $('#orderTest').val(),
-	  "pointsTest": $('#pointsTest').val(),
+	    "pointsTest": $('#pointsTest').val(),
+	    "sameBlicket": $('input[name="sameBlicket"]:checked').val(),
 	  "pass": pass
 	}
 	exp.go();
@@ -515,7 +516,7 @@ function make_slides(f) {
         $('.testReasoning').hide();
         $('.transition').hide();
         $('.explore').show();
-	           $('.reward').hide();
+	$('.reward').hide();
 
         this.stim = stim;
 	  
@@ -612,7 +613,7 @@ function make_slides(f) {
           paper.customAttributes.noteDisplay = paper.set();
 	  paper.customAttributes.noteDisplay.push(paper.rect(120, 40, 570, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
 	  paper.customAttributes.noteDisplay.push(paper.text(400, 70, exp.utterance).attr({"font-size": 18, "fill": "white", "font-weight": "bold"}));
-          paper.customAttributes.noteDisplay.push(paper.text(400, 110, "Try testing it for squeaking. To test an object,").attr({"font-size": 14, "fill": "white", "font-weight": "bold"}));
+          paper.customAttributes.noteDisplay.push(paper.text(400, 110, "Test this one first. To test an object,").attr({"font-size": 14, "fill": "white", "font-weight": "bold"}));
           paper.customAttributes.noteDisplay.push(paper.text(400, 130, "click on it to select it and then click on the button.").attr({"font-size": 14, "fill": "white", "font-weight": "bold"}));
           paper.customAttributes.noteDisplay.push(paper.text(400, 160, "Click anywhere inside this box to close.").attr({"font-size": 14, "fill": "white"}));
 	  paper.customAttributes.noteDisplay.forEach(function(elem) {
@@ -796,7 +797,7 @@ function make_slides(f) {
         $('.testFree').hide();
         $('.testReasoning').show();
         $('.reward').hide();
-        $('#reasoning_prompt').text('Did the '+stim.objectNamePlural.toLowerCase()+' that you tested after Ashley left '+stim.property+'?');
+        $('#reasoning_prompt').text('Other than the blicket with the note on it, did the blickets you tested squeak?');
       }
     },
     log_responses: function() {

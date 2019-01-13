@@ -77,7 +77,7 @@
   <div class="slide" id="i0" >
     <img src="../_shared/images/cpl.png" id="cocologo"></img>
     <p id="cocolab">MIT Computational Psycholinguistics Lab</p>
-    <p id="instruct-text">You will see <span id='1'>{{}}</span> and be asked a few questions about them. The HIT should take ~<span id='2'>{{}}</span> minutes. Please pay attention, thanks!</p>
+    <p id="instruct-text">You will learn about new objects on an alien planet and be asked a few questions about them. The HIT should take ~<span id='2'>{{}}</span> minutes. Please pay attention, thanks!</p>
     <button id="start_button" type="button">Start Experiment</button>
     <p id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the MIT Computational Psycholinguistics Lab. If you have questions about this research, please contact Karen Gu, at <a href="mailto://karengu@mit.edu">karengu@mit.edu</a>, or MH Tessler, at tessler@mit.edu. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>
    <!-- <p id="credit">Image used from <a href='https://zalarieunique.ru'>https://zalarieunique.ru</a>.</p> -->
@@ -91,7 +91,9 @@
 
   <div class="slide" id="instructions">
     <p>Your fellow astronaut-scientist has been studying some objects called blickets. She is giving you an opportunity to test 20 blickets. However, because blickets are in high demand, you can only test each blicket once. After you test a blicket, it will be taken away.</p>
-    <p>Because it is your job, you will test blickets for squeaking first. You will earn 3 points for every blicket that squeaks. Then, you can test your remaining blickets for ringing. You will earn 1 point for every blicket that rings. Afterwards, you will answer some questions about blickets to help your fellow astronaut-scientists.</p>
+    <p>Because it is your job, you will test blickets for squeaking first. You can test as many as you’d like. When you are done testing for squeaking, you can take whatever blickets remain and test them for ringing.</p>
+    <p>Because your main job is to test for squeaking, you will earn 3 points for every blicket that squeaks.  You can earn 1 point for every blicket that rings.</p>
+    <p>Afterwards, you will answer some questions about blickets to help your fellow astronaut-scientists.</p>
     <p><b>You will receive an MTurk bonus payment of $0.01 for every point you earn.</b></p>
     <button onclick="_s.button()" id="instButton">Continue</button>
   </div>
@@ -162,6 +164,9 @@
       <option value="1">1</option>
       <option value="2">2</option>
     </select>
+    <p>You can test the same blicket for both ringing and squeaking.</p>
+    <label><input type="radio" name="sameBlicket" value="true"/>True</label>
+    <label><input type="radio" name="sameBlicket" value="false"/>False</label>
     <p>What order can you test the blickets in?</p>
     <select id="orderTest">
       <option value="null">-----</option>
