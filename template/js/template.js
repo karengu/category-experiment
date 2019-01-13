@@ -410,10 +410,10 @@ function make_slides(f) {
 	  paper.customAttributes.demoText.remove();
 	}
 	paper.customAttributes.demoText = paper.set();
-	paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
-	paper.customAttributes.demoText.push(paper.text(400, 70, description).attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
-	paper.customAttributes.demoText.push(paper.text(400, 100, "Try testing it for both squeaking and ringing. To test an object,").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
-	paper.customAttributes.demoText.push(paper.text(400, 130, "click on it to select it and then click on the button for the property you wish to test.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	  paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
+	paper.customAttributes.demoText.push(paper.text(400, 70, description).attr({"font-size": 18, "fill": "white", "font-weight": "bold"}));
+	paper.customAttributes.demoText.push(paper.text(400, 110, "Try testing it for both squeaking and ringing. To test an object,").attr({"font-size": 14, "fill": "white"}));
+	paper.customAttributes.demoText.push(paper.text(400, 140, "click on it to select it and then click on the button for the property you wish to test.").attr({"font-size": 14, "fill": "white"}));
 	paper.customAttributes.demoText.forEach(function(elem) {
 	  elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
 	});
@@ -563,7 +563,9 @@ function make_slides(f) {
 		exp.squeak.play();
    	        exp.points += 3;
 		paper.customAttributes.pointsDisplay.remove();
-		paper.customAttributes.pointsDisplay = paper.text(400, 450, "Points: "+exp.points).attr({"font-size": 16});
+		  paper.customAttributes.pointsDisplay = paper.text(400, 450, "Points: "+exp.points).attr({"font-size": 16, "opacity": 0}).animate({"opacity": 1, "font-weight": "bold"}, 1000, function() {
+		      this.animate({"font-weight": "normal"}, 2000)
+		  });
 		testItem.remove();
 	        paper.customAttributes.itemsTested ++;
 	        paper.customAttributes.testItem = null;
@@ -613,8 +615,8 @@ function make_slides(f) {
           paper.customAttributes.noteDisplay = paper.set();
 	  paper.customAttributes.noteDisplay.push(paper.rect(120, 40, 570, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
 	  paper.customAttributes.noteDisplay.push(paper.text(400, 70, exp.utterance).attr({"font-size": 18, "fill": "white", "font-weight": "bold"}));
-          paper.customAttributes.noteDisplay.push(paper.text(400, 110, "Test this one first. To test an object,").attr({"font-size": 14, "fill": "white", "font-weight": "bold"}));
-          paper.customAttributes.noteDisplay.push(paper.text(400, 130, "click on it to select it and then click on the button.").attr({"font-size": 14, "fill": "white", "font-weight": "bold"}));
+          paper.customAttributes.noteDisplay.push(paper.text(400, 110, "Test this one first. To test an object,").attr({"font-size": 14, "fill": "white"}));
+          paper.customAttributes.noteDisplay.push(paper.text(400, 130, "click on it to select it and then click on the button.").attr({"font-size": 14, "fill": "white"}));
           paper.customAttributes.noteDisplay.push(paper.text(400, 160, "Click anywhere inside this box to close.").attr({"font-size": 14, "fill": "white"}));
 	  paper.customAttributes.noteDisplay.forEach(function(elem) {
             elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
