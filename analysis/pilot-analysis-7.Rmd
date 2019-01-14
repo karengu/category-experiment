@@ -1,0 +1,279 @@
+---
+title: "Analysis of pilot data 7 for genex"
+output: github_document
+---
+
+- 20 blickets
+- incentivized version
+- squeaking (3pt) before ringing (1pt)
+
+
+
+- bold and underline "squeak" in generic endorsment and probability questions
+- if subject fails comp, go back to instructions (2 more tries)
+- instrunctions 1: add points information
+- parallelize practice:
+  - test 2 on squeaking (they disapppear after testing)
+  - click on "move to ringing"
+  - test 2 on ringing
+  - have them get "practice points" and summarize how many points they would have gotten
+- instructions 2: rehash structure ("as in the practice, ...")
+
+
+Your fellow astronaut-scientist has been studying some objects called blickets. She is giving you an opportunity to test 20 blickets. Just as in the practice, you *can only test each blicket once* (after you test a blicket, it will be taken away.). 
+
+You get to choose for each blicket whether to try to make it *squeak (3 pts)* or *ring (1 pt)*.
+But (just as in the practice) you have to test blickets for *squeaking first*, and then you can test whatever blickets you have left for ringing. Remember: You get to decide how many you test for squeaking vs. for ringing. 
+
+These are all of the blickets you have to test. 
+When you want to switch to test for ringing (1 pt), click the Switch to Ringing Button. 
+(You will not be able to test for squeaking again.)
+
+
+```{r, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, fig.width = 6,
+                      fig.height =4, fig.asp = 0.5)
+library(knitr)
+library(ggthemes)
+library(tidyboot)
+library(jsonlite)
+library(tidyverse)
+theme_set(theme_few())
+results.path <- "../results/anon_results_v7/"
+# fig.path <- "~/projects/negant/"
+```
+
+- log soundcheck
+- log n_blickets for squeaking and ringing (separately)
+  - log time for both
+```{r, echo=F, warning=F}
+
+anon_results = list.files(results.path)
+
+i = 0
+df.subject <- data.frame()
+df.trials <- data.frame()
+df.attention <- data.frame()
+for (anon_result in anon_results) {
+  
+  result_json = fromJSON(paste(results.path, anon_result, sep =""))
+
+  df.attention = bind_rows(
+    df.attention, 
+    data.frame(
+      workerid = i,
+      #sound_check = result_json$answers$sound_check,
+      attention_check = result_json$answers$attention_check,
+      utterance = result_json$answers$trials$utteranceType,
+      comp_n_test = result_json$answers$comprehension$numberTimesTest,
+      comp_order_test = result_json$answers$comprehension$orderTest,
+      comp_points = result_json$answers$comprehension$pointsTest,
+      comp_same_test = result_json$answers$comprehension$sameBlicket,
+      comp_pass_all = result_json$answers$comprehension$pass
+      #notebook = result_json$answers$trials$notebook
+    ) %>%
+      mutate(
+        comp_pass_n = comp_n_test == "1",
+        comp_pass_order = comp_order_test == "squeakFirst",
+        comp_pass_points = comp_points == "squeakMore",
+        comp_pass_same = comp_same_test == "false"
+      )
+  )
+  
+  df.subject = bind_rows(
+    df.subject, 
+    data.frame(result_json$answers$subject_information) %>% mutate(workerid = i)
+  )
+  
+  df.trials = bind_rows(
+    df.trials, 
+    result_json$answers$trials %>% 
+      select(-events, -testResults, -remainderEvents) %>% 
+      mutate(workerid = i)
+  )
+
+  i = i + 1
+}
+```
+
+## Comprehension and attention checks
+
+```{r}
+df.attention %>%
+  select(starts_with("comp_pass")) %>%
+  gather(key, val) %>%
+  group_by(key) %>%
+  summarize(n = sum(val)) %>%
+  kable()
+```
+
+```{r}
+# df.trials <- df.trials %>%
+#   mutate(fail_attention = workerid %in% failed.attention,
+#          non_english = workerid %in% non.english,
+#          wrong_confused = workerid %in% wrong.or.confused,
+#          pass = !(workerid %in% c(failed.attention, non.english, wrong.or.confused)))
+
+df.trials <- df.trials %>% 
+  mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
+         utteranceType = ifelse(utteranceType == "barePlural", 
+                                "generic", "specific"))
+```
+
+
+#### Number of subjects
+
+```{r echo = T}
+num.subjects <- df.trials %>%
+  group_by(utteranceType, proportionSuccess) %>%
+  count()
+
+```
+
+### Reasoning type
+
+```{r}
+df.trials <- df.trials %>%
+  mutate(reasoningType = ifelse(workerid %in% special.blicket, "specialBlicket",
+                                ifelse(workerid %in% low.probability, "lowProb",
+                                       ifelse(workerid %in% special.conditions, "specialCond",
+                                              ifelse(workerid %in% speaker.error, "speakerErr", "other")))))
+reasoning <- df.trials %>%
+  group_by(utteranceType, reasoningType, proportionSuccess) %>%
+  count() %>%
+  spread(reasoningType, n)
+reasoning %>%
+  kable()
+```
+
+
+## Free response data (with other data)
+
+
+Explanation of columns:
+
+- pass = passed attention checks
+- worked = did the blickets you tested squeak?
+- reasoning = why or why not?
+- n = number of items tested
+- t = time exploring (in minutes)
+- prob = probability that next blicket will squeak
+- gen = "Blickets squeak" true or false?
+- teach = what would you tell the children?
+
+```{r, echo = F}
+df.trials.pretty <- df.trials %>%
+  select(workerid, utteranceType, #pass, 
+         featureAgreement, 
+         reasoning, itemsTested, timeExploring,  
+         probabilityOfFeature, genericEndorsement, freeResponse) %>%
+  rename( utterance = utteranceType,
+          subj = workerid,
+          worked = featureAgreement,
+          teach = freeResponse,
+          prob = probabilityOfFeature,
+         gen = genericEndorsement,
+         n = itemsTested, 
+         t = timeExploring) %>%
+    mutate(t = round(t, 2))
+
+
+
+left_join(
+  df.trials.pretty,
+  df.attention %>% select(
+    comp_pass_all, comp_n_test,
+    comp_order_test, comp_points, comp_same_test, workerid) %>%
+    rename(subj = workerid)
+)%>%
+  kable()
+```
+
+
+```{r eval = F}
+df.trials %>%
+  #filter(pass) %>%
+  ggplot(., aes( x = timeExploring))+
+  geom_histogram( bins = 30)
+```
+
+## Time exploring
+
+```{r}
+df.trials %>%
+  #filter(pass) %>%
+  ggplot(., aes( x = timeExploring)) +
+  geom_histogram( bins = 30) +
+  facet_grid(utteranceType ~ proportionSuccess)
+  #xlim(0, 2)
+
+#ggsave(paste(fig.path, "time_exploring_alt.pdf", sep = ""), width = 5, height = 3.5)
+
+```
+
+## Objects tested
+
+```{r}
+fig.obj <- df.trials %>%
+  #filter(pass) %>%
+  ggplot(., aes( x = itemsTested))+
+  geom_bar()+
+  facet_grid(utteranceType ~ proportionSuccess)
+fig.obj
+#ggsave(fig.obj, paste(fig.path, "obj_tested_alt.pdf", sep = ""), width = 5, height = 3.5)
+```
+
+## Probability judgment
+
+```{r}
+df.trials %>%
+  #filter(pass) %>%
+  ggplot(., aes( x = probabilityOfFeature))+
+  geom_histogram()+
+  facet_grid(utteranceType ~ .)+
+  xlab("Probability judgment")
+
+#ggsave(paste(fig.path, "prob_judgment_alt.pdf", sep = ""), width = 5, height = 3.5)
+```
+
+## Items tested vs. probability judgment
+
+```{r}
+df.trials %>%
+  #filter(pass) %>%
+  ggplot(., aes( x = itemsTested, y = probabilityOfFeature, color = utteranceType,
+                 label = workerid))+
+  #geom_point()+
+  geom_text()+
+  scale_color_solarized()+
+  ylab("Probability judgment")+
+  xlab("number of items tested")+
+  coord_fixed(ratio = 30)
+
+#ggsave(paste(fig.path, "prob_vs_nItems_alt.pdf", sep = ""), width = 5, height = 4)
+```
+
+```{r}
+df.bs <- df.trials %>%
+  #filter(pass) %>%
+  #select(-freeResponse) %>%
+  gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
+  group_by(key, utteranceType, proportionSuccess) %>%
+  tidyboot_mean(column = val)
+```
+
+## All measures (means and 95% CI)
+
+```{r}
+df.bs %>% 
+  ggplot(., aes( x = factor(proportionSuccess), fill = utteranceType,
+                 y = mean, ymin = ci_lower, ymax = ci_upper))+
+  geom_col(position = position_dodge(1), color = 'black')+
+  geom_errorbar(position = position_dodge(1), width =0.5)+
+  scale_fill_solarized()+
+  facet_wrap(~key, scales = 'free')+
+  xlab("true probability")
+
+#ggsave(paste(fig.path, "bootstrapped_measures_alt.pdf", sep = ""), width = 6, height = 4)
+
+```
