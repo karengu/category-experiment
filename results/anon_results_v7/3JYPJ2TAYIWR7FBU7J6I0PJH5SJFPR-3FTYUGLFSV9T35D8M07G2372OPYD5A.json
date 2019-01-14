@@ -1,0 +1,182 @@
+{
+    "AcceptTime": "2019-01-14T16:12:52.000Z",
+    "AssignmentId": "3FTYUGLFSV9T35D8M07G2372OPYD5A",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-15T16:39:24.000Z",
+    "HITId": "3JYPJ2TAYIWR7FBU7J6I0PJH5SJFPR",
+    "SubmitTime": "2019-01-14T16:39:24.000Z",
+    "answers": {
+        "attention_check": "Blickets Squeek",
+        "comprehension": {
+            "numberTimesTest": "1",
+            "orderTest": "both",
+            "pass": false,
+            "pointsTest": "ringMore",
+            "sameBlicket": "false"
+        },
+        "condition": "v2",
+        "reward": 12,
+        "subject_information": {
+            "age": "36",
+            "asses": "No",
+            "comments": "",
+            "education": "4",
+            "enjoyment": "2",
+            "fairprice": "10/hr",
+            "gender": "Female",
+            "language": "english",
+            "problems": ""
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 4.687866666666666,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547483814928
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547483816154
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 1,
+                        "time": 1547483818713
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547483820005
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 2,
+                        "time": 1547483822216
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547483823064
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547483824853
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547483826149
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547483827633
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets ring.",
+                "genericEndorsement": "No",
+                "itemsTested": 3,
+                "probabilityOfFeature": 0.37,
+                "proportionSuccess": 0,
+                "reasoning": "IIRC, only one of them squeaked and that was the one with the note...",
+                "remainderEvents": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547483831432
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483832355
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547483833691
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483834621
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547483835939
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483836622
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 16,
+                        "time": 1547483837880
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483838667
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 15,
+                        "time": 1547483839980
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483840858
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 10,
+                        "time": 1547483842142
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483842934
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547483843958
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483845160
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547483846567
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483848179
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 14,
+                        "time": 1547483850987
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547483851941
+                    }
+                ],
+                "testResults": [
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.4177,
+                "utteranceType": "barePlural"
+            }
+        ]
+    }
+}
