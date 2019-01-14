@@ -660,7 +660,7 @@ function make_slides(f) {
 	paper.customAttributes.firstItemId = 5;
 	paper.customAttributes.testedFirstItem = false;
 	// task information
-    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p><p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p><p>Test as many blickets for squeaking as you would like. Any blickets you don't test can be tested for ringing. When you want to switch, click the <b>Switch to ringing</b> button at the bottom of the screen, and you will be able to rest for ringing. (You will not be able to test for squeaking again.)");
+    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p><p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p><p>Test as many blickets for squeaking as you would like. (You must test at least one.) Any blickets you don't test can be tested for ringing. When you want to switch, click the <b>Switch to ringing</b> button at the bottom of the screen, and you will be able to rest for ringing. (You will not be able to test for squeaking again.)");
 	paper.customAttributes.note = paper.set();
 	paper.customAttributes.note.push(paper.rect(100,110,80,80).attr({"fill": "#ffff99"}));
 	paper.customAttributes.note.push(paper.rect(110,130, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
