@@ -493,7 +493,7 @@ function make_slides(f) {
           paper.customAttributes.glow = this.glow();
           paper.customAttributes.selectedItem = this;
         });
-        var testButton = drag_and_drop.makeButton(400, 250, "#49e575", "Test Squeaking", paper, 120, 30);
+          var testButton = drag_and_drop.makeButton(400, 250, "#49e575", "Test Squeaking", paper, 120, 30);
         paper.text(400, 400, 'Try testing the '+stim.objectNameSingular.toLowerCase()+' by clicking it to select it and then clicking on the Test Squeaking button.').attr({"font-size": 16});
         testButton.buttonSet.forEach(function(component) {
           component.click(function() {
@@ -555,6 +555,18 @@ function make_slides(f) {
 	  }
         }
 
+	  var e = this;
+
+	  const button = function() {
+	      if (confirm('Are you sure you would like to move on to testing ringing?')) { // check to make sure user wants to move on
+           exp.data_trials[0].itemsTested = exp.paper.customAttributes.itemsTested - 1;
+	exp.data_trials[0].timeExploring = (Date.now() - exp.startExploration)/60000;
+	exp.data_trials[0].events = exp.events;
+	exp.data_trials[0].testResults = exp.testResults; // to store order of successful/unsuccessful test results, since order is randomized
+          _stream.apply(e);
+        }
+	  };
+
         var onTest = function() {
           const testItem = paper.customAttributes.testItem;
 	  if (testItem) {
@@ -575,8 +587,10 @@ function make_slides(f) {
 	    }
 	    else {
 	      if (paper.customAttributes.itemsTested == 1) { // first item
-                $('#ddbutton').show();
-                $('#ddbutton').text('Switch to ringing');
+                  paper.customAttributes.switchButton = drag_and_drop.makeButton(600, 500, "#6699ff", "Switch to Ringing", paper, 150, 30);
+		  paper.customAttributes.switchButton.buttonSet.forEach(function(elem) {
+		      elem.click(function() {button()});
+		  })
 	      }
 	      exp.squeak.pause();
 	      exp.squeak.currentTime = 0;
@@ -646,14 +660,15 @@ function make_slides(f) {
 	paper.customAttributes.firstItemId = 5;
 	paper.customAttributes.testedFirstItem = false;
 	// task information
-    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p><p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p><p>Test as many blickets for squeaking as you would like. Any blickets you don't test can be tested for ringing. When you want to switch, click the <b>Swith to ringing</b> cutton at the bottom of the screen, and you will be able to rest for ringing. (You will not be able to test for squeaking again.)");
+    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p><p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p><p>Test as many blickets for squeaking as you would like. Any blickets you don't test can be tested for ringing. When you want to switch, click the <b>Switch to ringing</b> button at the bottom of the screen, and you will be able to rest for ringing. (You will not be able to test for squeaking again.)");
 	paper.customAttributes.note = paper.set();
 	paper.customAttributes.note.push(paper.rect(100,110,80,80).attr({"fill": "#ffff99"}));
 	paper.customAttributes.note.push(paper.rect(110,130, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
 	paper.customAttributes.note.push(paper.rect(110, 150, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
 	paper.customAttributes.note.forEach(function(elem) {elem.click(displayNote)});
       }
-      else if (stim.type == 'end') {
+	else if (stim.type == 'end') {
+	    $('#ddbutton').show();
         $('#ddbutton').text('Leave lab');
 
         var paper = exp.paper; // use same paper from previous trial
@@ -662,6 +677,9 @@ function make_slides(f) {
 	if (paper.customAttributes.noteDisplay) {
           paper.customAttributes.noteDisplay.remove();
         }
+	  if (paper.customAttributes.switchButton) {
+	      paper.customAttributes.switchButton.buttonSet.remove();
+	  }
         exp.events = [];
         paper.customAttributes.itemsTested = exp.points;
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
@@ -833,7 +851,7 @@ function make_slides(f) {
         _stream.apply(this);
       }
       else if (exp.type == 'explore') {
-        if (confirm('Are you sure you would like to move on to testing ringing?')) { // check to make sure user wants to move on
+          if (confirm('Are you sure you would like to move on to testing ringing?')) { // check to make sure user wants to move on
           this.log_responses();
           _stream.apply(this);
         }
