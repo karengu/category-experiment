@@ -1024,7 +1024,7 @@ function init() {
       greyedColor: drag_and_drop.objects[0].greyed,
 	numRows: 4,
 	property: propertyMore,
-	propertySpecificMore: propertySpecificMore,
+	propertySpecific: propertySpecificMore,
 	objectNameSingular: drag_and_drop.objects[0].singular,
     }, {
       type: "end",
