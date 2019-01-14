@@ -323,7 +323,7 @@ function make_slides(f) {
 	  }
 	  if (testItem.data("testedRinging")) {
 	    if (demoIndex == 3) {
-	      finishedPractice();
+		setTimeout(finishedPractice, 1200);;
 	    }
 	    else {
 	      demoIndex ++;
@@ -352,7 +352,7 @@ function make_slides(f) {
 	  }
 	  if (testItem.data("testedSqueaking")) {
 	    if (demoIndex == 3) {
-	      finishedPractice();
+		setTimeout(finishedPractice, 1200);;
 	  }
 	    else {
 	      demoIndex ++;
@@ -413,13 +413,25 @@ function make_slides(f) {
 	  paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
 	paper.customAttributes.demoText.push(paper.text(400, 70, description).attr({"font-size": 18, "fill": "white", "font-weight": "bold"}));
 	paper.customAttributes.demoText.push(paper.text(400, 110, "Try testing it for both squeaking and ringing. To test an object,").attr({"font-size": 14, "fill": "white"}));
-	paper.customAttributes.demoText.push(paper.text(400, 140, "click on it to select it and then click on the button for the property you wish to test.").attr({"font-size": 14, "fill": "white"}));
-	paper.customAttributes.demoText.forEach(function(elem) {
-	  elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
-	});
-	const x = 100+200*i
+	  paper.customAttributes.demoText.push(paper.text(400, 140, "click on it to select it and then click on the button for the property you wish to test.").attr({"font-size": 14, "fill": "white"}));
+	  if (i == 0) {
+	      paper.customAttributes.demoText.forEach(function(elem) {
+		  elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
+	      });
+	      const x = 100+200*i
 	paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 4});
 	createNewItem(i);
+	  }
+	      else {
+	paper.customAttributes.demoText.forEach(function(elem) {
+	    setTimeout(function() {elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut")}, 1200);
+	});
+		  setTimeout(function() {
+		  const x = 100+200*i
+	paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 4});
+		      createNewItem(i);
+		  }, 1700);
+	      }
       }
 	testButtonSqueak.buttonSet.click(onTestSqueak);
       testButtonRing.buttonSet.click(onTestRing);
@@ -582,7 +594,8 @@ function make_slides(f) {
 	        paper.customAttributes.itemsTested ++;
 	        paper.customAttributes.testItem = null;
 	        paper.customAttributes.glow.remove();
-		exp.events.push({time:Date.now(), event: "testDemo"});
+		  exp.events.push({time:Date.now(), event: "testDemo"});
+		  $('#infoParagraph').html("<p>Test as many blickets for squeaking as you would like. (You must test at least one.) Any blickets you don't test can be tested for ringing. When you want to switch, click the <b>Switch to ringing</b> button at the bottom of the screen, and you will be able to test for ringing. (You will not be able to test for squeaking again.)");
               }
 	    }
 	    else {
@@ -622,12 +635,13 @@ function make_slides(f) {
 	  }
         }
 
-	var displayNote = function() {
+	  var displayNote = function() {
+	      $('#infoParagraph').html("<p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p>");
           paper.customAttributes.demoArrow = paper.path("M100,100 v40").attr({'arrow-end': 'classic-narrow-long', "stroke-width": 4});
           paper.customAttributes.noteDisplay = paper.set();
 	  paper.customAttributes.noteDisplay.push(paper.rect(120, 40, 570, 140).attr({fill: "#ffff99", "fill-opacity": 0, "stroke-width": 0}));
-	  paper.customAttributes.noteDisplay.push(paper.text(400, 100, exp.utterance).attr({"font-size": 20, "fill": "black", "font-weight": "bold"}));
-          paper.customAttributes.noteDisplay.push(paper.text(400, 160, "Click anywhere inside this box to close.").attr({"font-size": 14, "fill": "black"}));
+	      paper.customAttributes.noteDisplay.push(paper.text(400, 100, exp.utterance).attr({"font-size": 20, "fill": "black", "font-weight": "bold", "fill-opacity": 0, "stroke-opacity": 0}));
+              paper.customAttributes.noteDisplay.push(paper.text(400, 160, "Click anywhere inside this box to close.").attr({"font-size": 14, "fill": "black", "fill-opacity": 0, "stroke-opacity": 0}));
 	  paper.customAttributes.noteDisplay.forEach(function(elem) {
             elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
             elem.click(function(elem) {paper.customAttributes.noteDisplay.remove()});
@@ -660,14 +674,16 @@ function make_slides(f) {
 	paper.customAttributes.firstItemId = 5;
 	paper.customAttributes.testedFirstItem = false;
 	// task information
-    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p><p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p><p>Test as many blickets for squeaking as you would like. (You must test at least one.) Any blickets you don't test can be tested for ringing. When you want to switch, click the <b>Switch to ringing</b> button at the bottom of the screen, and you will be able to rest for ringing. (You will not be able to test for squeaking again.)");
+    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p>");
 	paper.customAttributes.note = paper.set();
 	paper.customAttributes.note.push(paper.rect(100,110,80,80).attr({"fill": "#ffff99"}));
 	paper.customAttributes.note.push(paper.rect(110,130, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
 	paper.customAttributes.note.push(paper.rect(110, 150, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
-	paper.customAttributes.note.forEach(function(elem) {elem.click(displayNote)});
+	  paper.customAttributes.note.forEach(function(elem) {
+	      elem.click(displayNote);
+	  });
       }
-	else if (stim.type == 'end') {
+	else if (stim.type == 'end') { // RINGING PHASE
 	    $('#ddbutton').show();
         $('#ddbutton').text('Leave lab');
 
@@ -733,7 +749,7 @@ function make_slides(f) {
         $('.testFree').hide();
         $('.testReasoning').hide();
         $('.reward').show();
-        if (exp.reward >= 10) {
+        if (exp.points >= 10) {
           exp.payment = '$0.'+exp.points;
 	}
 	else {
