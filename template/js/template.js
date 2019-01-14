@@ -1000,7 +1000,7 @@ function init() {
     'subj_info', 'thanks'
   ];
 
-  const utteranceType = "barePlural";
+  const utteranceType = "specific";
   const proportionSuccess = 0;
   const propertyMore = "squeak";
   const propertySpecificMore = "squeaks";
