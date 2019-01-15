@@ -1,0 +1,264 @@
+{
+    "AcceptTime": "2019-01-15T14:58:18.000Z",
+    "AssignmentId": "3X65QVEQI1BX02AFERSCZMLHPR1CL0",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-22T15:38:10.000Z",
+    "HITId": "301KG0KX9C9FT41U0BJ67XN1A0W2HN",
+    "SubmitTime": "2019-01-15T15:38:10.000Z",
+    "answers": {
+        "attention_check": "not sure ",
+        "comprehension": [
+            {
+                "attemptNumber": 1,
+                "numberTimesTest": "2",
+                "orderTest": "squeakFirst",
+                "pass": false,
+                "pointsTest": "ringMore",
+                "sameBlicket": "true"
+            },
+            {
+                "attemptNumber": 2,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": false,
+                "pointsTest": "ringMore",
+                "sameBlicket": "false"
+            },
+            {
+                "attemptNumber": 3,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": true,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            }
+        ],
+        "condition": "v2",
+        "reward": 17,
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "23",
+            "asses": "Yes",
+            "comments": "",
+            "education": "1",
+            "enjoyment": "2",
+            "fairprice": "1.00",
+            "gender": "Male",
+            "language": "english",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Mac",
+            "screenH": 900,
+            "screenW": 1440
+        },
+        "time_in_minutes": 4.0596,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547566567339
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547566568290
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547566569870
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547566571220
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 3,
+                        "time": 1547566575369
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547566576446
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 9,
+                        "time": 1547566577429
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547566578493
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547566579903
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547566580757
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 6,
+                        "time": 1547566582895
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547566584139
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 7,
+                        "time": 1547566585977
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "most do not squeak but they do ring ",
+                "genericEndorsement": "Yes",
+                "itemsTested": 5,
+                "probabilityOfFeature": 0.11,
+                "proportionSuccess": 0,
+                "reasoning": "to see how long it takes to give up on the squeak ",
+                "remainderEvents": [
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566589132
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547566590220
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566590962
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547566591744
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566592590
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547566593381
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566594008
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 16,
+                        "time": 1547566595085
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566595809
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547566596857
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566597541
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 10,
+                        "time": 1547566598406
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566599166
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 15,
+                        "time": 1547566599879
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566600940
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 14,
+                        "time": 1547566602028
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566602769
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 19,
+                        "time": 1547566603832
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566604501
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 1,
+                        "time": 1547566607552
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566608367
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 0,
+                        "time": 1547566609237
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566610140
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 2,
+                        "time": 1547566610849
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566612170
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 4,
+                        "time": 1547566613426
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547566614153
+                    }
+                ],
+                "remainderItemsTested": 14,
+                "remainderTimeExploring": 0.4525666666666667,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.46603333333333335,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
