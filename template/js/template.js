@@ -1079,7 +1079,7 @@ function init() {
     'subj_info', 'thanks'
   ];
 
-  const utteranceType = "specific";
+  const utteranceType = "generic";
   const proportionSuccess = 0;
   const propertyMore = "squeak";
   const propertySpecificMore = "squeaks";
