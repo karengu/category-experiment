@@ -533,12 +533,14 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
       else {
           exp.pass = ($('#numberTimesTest').val() == "1" && $('#orderTest').val() == "squeakFirst" && $('#pointsTest').val() == "squeakMore" && $('input[name="sameBlicket"]:checked').val() == "false");
           exp.comprehension.push({
+	      "attemptNumber": exp.comp_attempt,
           "numberTimesTest": $('#numberTimesTest').val(),
 	  "orderTest":  $('#orderTest').val(),
 	    "pointsTest": $('#pointsTest').val(),
 	    "sameBlicket": $('input[name="sameBlicket"]:checked').val(),
 	  "pass": exp.pass
 	  });
+	  exp.comp_attempt ++;
 	exp.go();
       }
     }
@@ -1061,6 +1063,7 @@ function init() {
     exp.data_trials = [{}];
     exp.comprehension = [];
     exp.pass = null;
+    exp.comp_attempt = 1;
 
   //blocks of the experiment:
   exp.structure=[
