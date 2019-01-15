@@ -8,28 +8,6 @@ output: github_document
 - squeaking (3pt) before ringing (1pt)
 
 
-
-- bold and underline "squeak" in generic endorsment and probability questions
-- if subject fails comp, go back to instructions (2 more tries)
-- instrunctions 1: add points information
-- parallelize practice:
-  - test 2 on squeaking (they disapppear after testing)
-  - click on "move to ringing"
-  - test 2 on ringing
-  - have them get "practice points" and summarize how many points they would have gotten
-- instructions 2: rehash structure ("as in the practice, ...")
-
-
-Your fellow astronaut-scientist has been studying some objects called blickets. She is giving you an opportunity to test 20 blickets. Just as in the practice, you *can only test each blicket once* (after you test a blicket, it will be taken away.). 
-
-You get to choose for each blicket whether to try to make it *squeak (3 pts)* or *ring (1 pt)*.
-But (just as in the practice) you have to test blickets for *squeaking first*, and then you can test whatever blickets you have left for ringing. Remember: You get to decide how many you test for squeaking vs. for ringing. 
-
-These are all of the blickets you have to test. 
-When you want to switch to test for ringing (1 pt), click the Switch to Ringing Button. 
-(You will not be able to test for squeaking again.)
-
-
 ```{r, echo = F}
 knitr::opts_chunk$set(echo = F, warning = F, fig.width = 6,
                       fig.height =4, fig.asp = 0.5)
@@ -43,9 +21,6 @@ results.path <- "../results/anon_results_v7/"
 # fig.path <- "~/projects/negant/"
 ```
 
-- log soundcheck
-- log n_blickets for squeaking and ringing (separately)
-  - log time for both
 ```{r, echo=F, warning=F}
 
 anon_results = list.files(results.path)
