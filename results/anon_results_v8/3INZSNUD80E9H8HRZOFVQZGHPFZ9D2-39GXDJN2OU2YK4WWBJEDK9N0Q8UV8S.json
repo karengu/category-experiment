@@ -1,0 +1,239 @@
+{
+    "AcceptTime": "2019-01-16T15:57:25.000Z",
+    "AssignmentId": "39GXDJN2OU2YK4WWBJEDK9N0Q8UV8S",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-23T16:21:06.000Z",
+    "HITId": "3INZSNUD80E9H8HRZOFVQZGHPFZ9D2",
+    "SubmitTime": "2019-01-16T16:21:06.000Z",
+    "answers": {
+        "attention_check": "Blickets squeak",
+        "comprehension": [
+            {
+                "attemptNumber": 1,
+                "numberTimesTest": "1",
+                "orderTest": "ringFirst",
+                "pass": false,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            },
+            {
+                "attemptNumber": 2,
+                "numberTimesTest": "1",
+                "orderTest": "both",
+                "pass": false,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            },
+            {
+                "attemptNumber": 3,
+                "numberTimesTest": "1",
+                "orderTest": "both",
+                "pass": false,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "true"
+            }
+        ],
+        "condition": "v2",
+        "reward": 12,
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "37",
+            "asses": "Confused",
+            "comments": "You should have explained it better",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": "1",
+            "gender": "Female",
+            "language": "montenegrin",
+            "problems": "I was confused with the sound of squeak  "
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 864,
+            "screenW": 1536
+        },
+        "time_in_minutes": 11.53345,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547655235748
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547655237358
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547655244741
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655245980
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 19,
+                        "time": 1547655250202
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655251675
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 4,
+                        "time": 1547655262779
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655264028
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 7,
+                        "time": 1547655273160
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655274425
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 1,
+                        "time": 1547655277468
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655279215
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547655281891
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655283198
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547655285025
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547655286039
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets can squeaks or ring. My opinion is that mostly ring",
+                "genericEndorsement": "No",
+                "itemsTested": 7,
+                "probabilityOfFeature": 0.77,
+                "proportionSuccess": 0,
+                "reasoning": "Because it is their characteristic to ring",
+                "remainderEvents": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547655290030
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655291063
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 9,
+                        "time": 1547655294506
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655295488
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 14,
+                        "time": 1547655297326
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655298294
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 3,
+                        "time": 1547655299775
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655301479
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 6,
+                        "time": 1547655303550
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655304869
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 2,
+                        "time": 1547655305921
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655307018
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547655308641
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655309596
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 0,
+                        "time": 1547655314081
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655314859
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547655315394
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547655315937
+                    }
+                ],
+                "remainderItemsTested": 9,
+                "remainderTimeExploring": 0.4631166666666667,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.1600166666666667,
+                "utteranceType": "generic"
+            }
+        ]
+    }
+}

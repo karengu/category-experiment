@@ -76,6 +76,12 @@ df.trials %>%
   group_by(utteranceType, exclude) %>%
   count() %>%
   kable()
+df.trials %>%
+  ggplot(aes(x = !exclude)) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 ```
 
 

@@ -112,6 +112,12 @@ df.trials %>%
   group_by(utteranceType, pass) %>%
   count() %>%
   kable()
+df.trials %>%
+  ggplot(aes(x = pass)) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 ```
 
 
@@ -148,7 +154,7 @@ df.trials %>%
 
 ```{r eval = F}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = timeExploring))+
   geom_histogram( bins = 20)
 ```
@@ -157,7 +163,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = timeExploring))+
   geom_histogram( bins = 30)+
   facet_grid(utteranceType ~ ., scales = 'free')
@@ -171,7 +177,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested))+
   geom_bar()+
   facet_grid(utteranceType ~ .)
@@ -183,7 +189,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = probabilityOfFeature))+
   geom_histogram()+
   facet_grid(utteranceType ~ .)+
@@ -196,7 +202,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested, y = probabilityOfFeature, color = utteranceType))+
   geom_point()+
   scale_color_solarized()+
@@ -209,7 +215,7 @@ df.trials %>%
 
 ```{r}
 df.bs <- df.trials %>%
-  filter(!fail_attention, !non_english) %>%
+  filter(pass) %>%
   select(-freeResponse) %>%
   gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
   group_by(key, utteranceType, proportionSuccess) %>%

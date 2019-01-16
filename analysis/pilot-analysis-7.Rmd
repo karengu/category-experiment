@@ -37,7 +37,6 @@ for (anon_result in anon_results) {
     df.attention, 
     data.frame(
       workerid = i,
-      #sound_check = result_json$answers$sound_check,
       attention_check = result_json$answers$attention_check,
       utterance = result_json$answers$trials$utteranceType,
       comp_n_test = result_json$answers$comprehension$numberTimesTest,
@@ -45,7 +44,6 @@ for (anon_result in anon_results) {
       comp_points = result_json$answers$comprehension$pointsTest,
       comp_same_test = result_json$answers$comprehension$sameBlicket,
       comp_pass_all = result_json$answers$comprehension$pass
-      #notebook = result_json$answers$trials$notebook
     ) %>%
       mutate(
         comp_pass_n = comp_n_test == "1",
@@ -80,19 +78,23 @@ df.attention %>%
   group_by(key) %>%
   summarize(n = sum(val)) %>%
   kable()
+failed.attention <- c(7, 11, 12, 23, 24, 25, 27, 28, 29, 30, 31, 34, 35)
+non.english <- c(2, 12)
 ```
 
 ```{r}
-# df.trials <- df.trials %>%
-#   mutate(fail_attention = workerid %in% failed.attention,
-#          non_english = workerid %in% non.english,
-#          wrong_confused = workerid %in% wrong.or.confused,
-#          pass = !(workerid %in% c(failed.attention, non.english, wrong.or.confused)))
+df.trials <- df.trials %>%
+  mutate(fail_attention = workerid %in% failed.attention,
+         non_english = workerid %in% non.english,
+         exclude = (workerid %in% c(failed.attention, non.english))) %>%
+  left_join(df.attention %>% select(workerid, comp_pass_all)) %>%
+  mutate(pass = comp_pass_all)
 
 df.trials <- df.trials %>% 
   mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
          utteranceType = ifelse(utteranceType == "barePlural", 
-                                "generic", "specific"))
+                                "generic", "specific"),
+         include = !exclude & pass)
 ```
 
 
@@ -102,23 +104,13 @@ df.trials <- df.trials %>%
 num.subjects <- df.trials %>%
   group_by(utteranceType, proportionSuccess) %>%
   count()
+df.trials %>%
+  ggplot(aes(x = include)) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 
-```
-
-### Reasoning type
-
-```{r}
-df.trials <- df.trials %>%
-  mutate(reasoningType = ifelse(workerid %in% special.blicket, "specialBlicket",
-                                ifelse(workerid %in% low.probability, "lowProb",
-                                       ifelse(workerid %in% special.conditions, "specialCond",
-                                              ifelse(workerid %in% speaker.error, "speakerErr", "other")))))
-reasoning <- df.trials %>%
-  group_by(utteranceType, reasoningType, proportionSuccess) %>%
-  count() %>%
-  spread(reasoningType, n)
-reasoning %>%
-  kable()
 ```
 
 
@@ -167,7 +159,7 @@ left_join(
 
 ```{r eval = F}
 df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = timeExploring))+
   geom_histogram( bins = 30)
 ```
@@ -176,7 +168,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = timeExploring)) +
   geom_histogram( bins = 30) +
   facet_grid(utteranceType ~ proportionSuccess)
@@ -190,7 +182,7 @@ df.trials %>%
 
 ```{r}
 fig.obj <- df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested))+
   geom_bar()+
   facet_grid(utteranceType ~ proportionSuccess)
@@ -202,7 +194,7 @@ fig.obj
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = probabilityOfFeature))+
   geom_histogram()+
   facet_grid(utteranceType ~ .)+
@@ -215,23 +207,21 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested, y = probabilityOfFeature, color = utteranceType,
                  label = workerid))+
-  #geom_point()+
   geom_text()+
   scale_color_solarized()+
   ylab("Probability judgment")+
   xlab("number of items tested")+
-  coord_fixed(ratio = 30)
+  coord_fixed(ratio = 20)
 
 #ggsave(paste(fig.path, "prob_vs_nItems_alt.pdf", sep = ""), width = 5, height = 4)
 ```
 
 ```{r}
 df.bs <- df.trials %>%
-  #filter(pass) %>%
-  #select(-freeResponse) %>%
+  filter(pass) %>%
   gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
   group_by(key, utteranceType, proportionSuccess) %>%
   tidyboot_mean(column = val)

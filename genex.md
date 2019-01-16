@@ -125,3 +125,35 @@ single trial, generic condition, 100% success
 n = 27
 0.50 each
 single trial, specific condition, 100% success
+
+# Pilot 7
+
+## incentivized version, click to select and click to test, finite number of blickets
+
+## http://www.mit.edu/~karengu/genex_v7/category-experiment/template/template.html
+
+## 01/14/2019
+n = 18
+0.50 each
+single trial, specific condition, 0% success
+
+## 01/14/2019
+n = 18
+0.50 each
+single trial, generic condition, 0% success
+
+# Pilot 8
+
+## improve instructions and practice trial, allow multiple attempts at comprehension
+
+## http://www.mit.edu/~karengu/genex_v8/category-experiment/template/template.html
+
+## 01/15/2019
+n = 18
+0.50 each
+single trial, specific condition, 0% success
+
+## 01/16/2019
+n = 18
+0.50 each
+single trial, generic condition, 0% success

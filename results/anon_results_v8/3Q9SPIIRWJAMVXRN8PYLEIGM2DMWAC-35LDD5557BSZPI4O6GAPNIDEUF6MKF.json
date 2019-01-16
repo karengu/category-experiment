@@ -1,0 +1,137 @@
+{
+    "AcceptTime": "2019-01-16T15:24:40.000Z",
+    "AssignmentId": "35LDD5557BSZPI4O6GAPNIDEUF6MKF",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-23T15:38:22.000Z",
+    "HITId": "3Q9SPIIRWJAMVXRN8PYLEIGM2DMWAC",
+    "SubmitTime": "2019-01-16T15:38:22.000Z",
+    "answers": {
+        "attention_check": "tap the blicket to make it squeak",
+        "comprehension": [
+            {
+                "attemptNumber": 1,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": true,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            }
+        ],
+        "condition": "v2",
+        "reward": 8,
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "35",
+            "asses": "Yes",
+            "comments": "I hope I did the experiment correctly. I really did pay attention and did it as best as I could. Thanks",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Female",
+            "language": "English",
+            "problems": "no"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 5.394866666666666,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547652924478
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547652927477
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547652929046
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547652931352
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547652935867
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547652937152
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "blickets squeak and are a diamond shape",
+                "genericEndorsement": "Yes",
+                "itemsTested": 1,
+                "probabilityOfFeature": 0.57,
+                "proportionSuccess": 0,
+                "reasoning": "I think that was the only one that squeaked",
+                "remainderEvents": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547652943115
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547652944477
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 16,
+                        "time": 1547652946484
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547652947548
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547652949415
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547652951345
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547652952902
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547652955367
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547652957932
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547652958971
+                    }
+                ],
+                "remainderItemsTested": 5,
+                "remainderTimeExploring": 0.32056666666666667,
+                "testResults": [
+                    false
+                ],
+                "timeExploring": 0.36841666666666667,
+                "utteranceType": "generic"
+            }
+        ]
+    }
+}

@@ -102,6 +102,12 @@ df.trials %>%
   group_by(utteranceType, pass) %>%
   count() %>%
   kable()
+df.trials %>%
+  ggplot(aes(x = pass)) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 ```
 
 
@@ -154,7 +160,7 @@ df.trials %>%
   facet_grid(utteranceType ~ .)
   #xlim(0, 2)
 
-ggsave(paste(fig.path, "time_exploring_alt.pdf", sep = ""), width = 5, height = 3.5)
+#ggsave(paste(fig.path, "time_exploring_alt.pdf", sep = ""), width = 5, height = 3.5)
 
 ```
 
@@ -167,7 +173,7 @@ df.trials %>%
   geom_bar()+
   facet_grid(utteranceType ~ .)
 
-ggsave(paste(fig.path, "obj_tested_alt.pdf", sep = ""), width = 5, height = 3.5)
+#ggsave(paste(fig.path, "obj_tested_alt.pdf", sep = ""), width = 5, height = 3.5)
 ```
 
 ## Probability judgment
@@ -180,7 +186,7 @@ df.trials %>%
   facet_grid(utteranceType ~ .)+
   xlab("Probability judgment")
 
-ggsave(paste(fig.path, "prob_judgment_alt.pdf", sep = ""), width = 5, height = 3.5)
+#ggsave(paste(fig.path, "prob_judgment_alt.pdf", sep = ""), width = 5, height = 3.5)
 ```
 
 ## Items tested vs. probability judgment
@@ -195,7 +201,7 @@ df.trials %>%
   xlab("number of items tested")+
   coord_fixed(ratio = 15)
 
-ggsave(paste(fig.path, "prob_vs_nItems_alt.pdf", sep = ""), width = 5, height = 4)
+#ggsave(paste(fig.path, "prob_vs_nItems_alt.pdf", sep = ""), width = 5, height = 4)
 ```
 
 ```{r}
@@ -219,6 +225,6 @@ df.bs %>%
   facet_wrap(~key, scales = 'free')+
   xlab("true probability")
 
-ggsave(paste(fig.path, "bootstrapped_measures_alt.pdf", sep = ""), width = 6, height = 4)
+#ggsave(paste(fig.path, "bootstrapped_measures_alt.pdf", sep = ""), width = 6, height = 4)
 
 ```

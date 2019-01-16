@@ -117,7 +117,7 @@ df.trials <- df.trials %>%
   mutate(fail_attention = workerid %in% failed.attention,
          non_english = workerid %in% non.english,
          wrong_confused = workerid %in% wrong.or.confused,
-         pass = !(workerid %in% c(failed.attention, non.english, wrong.or.confused)))
+         pass = !(workerid %in% c(failed.attention, non.english)))
 df.trials <- df.trials %>% mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0),
          utteranceType = ifelse(utteranceType == "barePlural", 
                                 "generic", "specific")) %>%
@@ -135,6 +135,13 @@ num.subjects <- df.trials %>%
 num.subjects %>%
   spread(pass, n) %>%
   kable()
+
+df.trials %>%
+  ggplot(aes(x = pass)) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 ```
 
 ### Reasoning type
@@ -196,7 +203,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = timeExploring)) +
   geom_histogram( bins = 30) +
   facet_grid(utteranceType ~ proportionSuccess)
@@ -210,7 +217,7 @@ df.trials %>%
 
 ```{r}
 fig.obj <- df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   ggplot(., aes( x = itemsTested))+
   geom_bar()+
   facet_grid(utteranceType ~ proportionSuccess)
@@ -250,7 +257,7 @@ df.trials %>%
 
 ```{r}
 df.bs <- df.trials %>%
-  #filter(pass) %>%
+  filter(pass) %>%
   #select(-freeResponse) %>%
   gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
   group_by(key, utteranceType, proportionSuccess) %>%

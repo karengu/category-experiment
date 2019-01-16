@@ -70,14 +70,23 @@ for (anon_result in anon_results) {
 ## Comprehension and attention checks
 
 ```{r}
-
-df.attention %>% filter(pass) %>%
-  group_by(attemptNumber) %>% count()
-
-first.attempt.pass <- df.attention %>% filter(pass, attemptNumber == 1) %>% pull(workerid)
-
-pass.workers <- df.attention %>% filter(pass) %>% pull(workerid)
+df.attention %>%
+  group_by(attemptNumber, utterance, pass) %>%
+  ggplot(., aes(x = pass)) +
+  geom_bar() +
+  facet_grid(utterance ~ .) +
+  xlab("Passed")
+  ggtitle("Comprehension checks")
   
+df.attention %>%
+  filter(pass) %>%
+  group_by(attemptNumber, utterance) %>%
+  ggplot(., aes(x = attemptNumber)) +
+  geom_bar() +
+  facet_grid(utterance ~ .) +
+  xlab("Attempt number")
+  ggtitle("Passed comprehension checks")
+
 df.attention %>%
   select(starts_with("comp_pass")) %>%
   gather(key, val) %>%
@@ -87,14 +96,14 @@ df.attention %>%
 ```
 
 ```{r}
-failed.attention <- c(0, 1, 6, 7, 8, 11, 21, 23, 27, 30)
-non.english <- c(21, 35)
-wrong.or.confused <- c(0, 21, 23, 27, 35)
+failed.attention <- c(0, 1, 6, 7, 8, 10, 11, 15, 16, 17, 20, 29, 33, 35, 36, 39, 41, 45, 48, 54, 55, 62, 66, 67, 68, 70, 71)
+non.english <- c(30, 39, 53)
+wrong.or.confused <- c(0, 30, 33, 39, 41, 45, 53, 71)
 df.trials <- df.trials %>%
   mutate(fail_attention = workerid %in% failed.attention,
          non_english = workerid %in% non.english,
          wrong_confused = workerid %in% wrong.or.confused,
-         exclude = (workerid %in% c(failed.attention, non.english, wrong.or.confused)))
+         exclude = (workerid %in% c(failed.attention, non.english)))
 
 df.trials <- df.trials %>% 
   mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0)) %>%
@@ -103,13 +112,18 @@ df.trials <- df.trials %>%
 ```
 
 
-#### Number of subjects
+## Number of subjects
 
 ```{r echo = T}
 num.subjects <- df.trials %>%
   group_by(utteranceType, proportionSuccess, include) %>%
   count()
-num.subjects
+df.trials %>%
+  ggplot(aes(x = include)) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 ```
 
 ## Free response data (with other data)

@@ -17,7 +17,7 @@ theme_set(theme_few())
 ```
 
 ```{r echo=F, warning=F}
-data.path <- "../anon_results_v1/"
+data.path <- "../results/anon_results_v1/"
 anon_results = list.files(data.path)
 summary <- data.frame(
   participantId = integer(),
@@ -99,6 +99,12 @@ df.check %>%
 
 ```{r}
 problem.subjects <- c(0, 29, 15, 23)
+df %>%
+  ggplot(aes(x = !(workerid %in% problem.subjects))) +
+  geom_bar() +
+  facet_grid(utteranceType ~ proportionSuccess) +
+  xlab("included")
+  ggtitle("Included participants")
 ```
 
 4 subjects excluded for either not reporting a sensible summary of the experiment (2) or not inputting the sound check word "tiger" (2)
