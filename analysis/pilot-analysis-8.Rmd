@@ -6,7 +6,6 @@ output: github_document
 - 20 blickets
 - incentivized version
 - squeaking (3pt) before ringing (1pt)
-
 - better instructions, parallel practice
 
 ```{r, echo = F}
@@ -39,14 +38,17 @@ for (anon_result in anon_results) {
     data.frame(result_json$answers$comprehension) %>%
     mutate(
       workerid = i,
-      #sound_check = result_json$answers$sound_check,
+      sound_check = result_json$answers$sound_check,
       attention_check = result_json$answers$attention_check,
       utterance = result_json$answers$trials$utteranceType,
         comp_pass_n = numberTimesTest == "1",
         comp_pass_order = orderTest == "squeakFirst",
         comp_pass_points = pointsTest == "squeakMore",
         comp_pass_same = sameBlicket == "false"
-      )
+      ) %>%
+      group_by(workerid) %>%
+      mutate(last_attempt = max(attemptNumber)) %>%
+      filter(attemptNumber == last_attempt)
   )
   
   df.subject = bind_rows(
@@ -69,38 +71,35 @@ for (anon_result in anon_results) {
 
 ```{r}
 
-df.attention %>% filter(pass) %>% 
+df.attention %>% filter(pass) %>%
   group_by(attemptNumber) %>% count()
 
 first.attempt.pass <- df.attention %>% filter(pass, attemptNumber == 1) %>% pull(workerid)
 
 pass.workers <- df.attention %>% filter(pass) %>% pull(workerid)
-# left_join(
-#   data.frame(workerid = unique(df.attention$workerid)),
-#   df.attention %>% filter(pass)
-# )
-# 
-# 
-# 
-#   group_by(workerid) %>%
-#   
-# df.attention %>%
-#   select(starts_with("comp_pass")) %>%
-#   gather(key, val) %>%
-#   group_by(key) %>%
-#   summarize(n = sum(val)) %>%
-#   kable()
+  
+df.attention %>%
+  select(starts_with("comp_pass")) %>%
+  gather(key, val) %>%
+  group_by(key) %>%
+  summarize(n = sum(val)) %>%
+  kable()
 ```
 
 ```{r}
-# df.trials <- df.trials %>%
-#   mutate(fail_attention = workerid %in% failed.attention,
-#          non_english = workerid %in% non.english,
-#          wrong_confused = workerid %in% wrong.or.confused,
-#          pass = !(workerid %in% c(failed.attention, non.english, wrong.or.confused)))
+failed.attention <- c(0, 6, 7, 8, 11)
+non.english <- c(15)
+wrong.or.confused <- c(0, 15)
+df.trials <- df.trials %>%
+  mutate(fail_attention = workerid %in% failed.attention,
+         non_english = workerid %in% non.english,
+         wrong_confused = workerid %in% wrong.or.confused,
+         exclude = (workerid %in% c(failed.attention, non.english, wrong.or.confused)))
 
 df.trials <- df.trials %>% 
-  mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0))
+  mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0)) %>%
+  left_join(by = "workerid", df.attention %>% select(pass, workerid)) %>%
+  mutate(include = (!exclude) & (pass))
 ```
 
 
@@ -108,7 +107,7 @@ df.trials <- df.trials %>%
 
 ```{r echo = T}
 num.subjects <- df.trials %>%
-  group_by(utteranceType, proportionSuccess) %>%
+  group_by(utteranceType, proportionSuccess, include) %>%
   count()
 num.subjects
 ```
@@ -129,7 +128,7 @@ Explanation of columns:
 
 ```{r, echo = F}
 df.trials.pretty <- df.trials %>%
-  select(workerid, utteranceType, #pass, 
+  select(workerid, utteranceType, include, 
          featureAgreement, 
          reasoning, itemsTested, timeExploring,  
          probabilityOfFeature, genericEndorsement, freeResponse) %>%
@@ -146,21 +145,20 @@ df.trials.pretty <- df.trials %>%
 
 
 left_join(
-  df.trials.pretty#
-  # df.attention %>% select(
-  #   comp_pass_all, comp_n_test,
-  #   comp_order_test, comp_points, comp_same_test, workerid) %>%
-  #   rename(subj = workerid)
+  df.trials.pretty,
+  df.attention %>% select(
+    comp_pass_n,
+    comp_pass_order, comp_pass_points, comp_pass_same, workerid) %>%
+    rename(subj = workerid)
 )%>%
   kable()
 
-df.trials.pretty %>% kable()
 ```
 
 
 ```{r eval = F}
 df.trials %>%
-  #filter(pass) %>%
+  filter(include) %>%
   ggplot(., aes( x = timeExploring))+
   geom_histogram( bins = 30)
 ```
@@ -169,7 +167,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(include) %>%
   ggplot(., aes( x = timeExploring)) +
   geom_histogram( bins = 30) +
   facet_grid(utteranceType ~ proportionSuccess)
@@ -183,7 +181,7 @@ df.trials %>%
 
 ```{r}
 fig.obj <- df.trials %>%
-  filter(workerid %in% first.attempt.pass) %>%
+  filter(include) %>%
   ggplot(., aes( x = itemsTested))+
   geom_bar()+
   facet_grid(utteranceType ~ proportionSuccess)
@@ -195,7 +193,7 @@ fig.obj
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(include) %>%
   ggplot(., aes( x = probabilityOfFeature))+
   geom_histogram()+
   facet_grid(utteranceType ~ .)+
@@ -208,7 +206,7 @@ df.trials %>%
 
 ```{r}
 df.trials %>%
-  #filter(pass) %>%
+  filter(include) %>%
   ggplot(., aes( x = itemsTested, y = probabilityOfFeature, color = utteranceType,
                  label = workerid))+
   #geom_point()+
@@ -223,8 +221,8 @@ df.trials %>%
 
 ```{r}
 df.bs <- df.trials %>%
-  #filter(pass) %>%
-  #select(-freeResponse) %>%
+  filter(include) %>%
+  select(-freeResponse) %>%
   gather(key, val, itemsTested, timeExploring, probabilityOfFeature, genericEndorsement) %>%
   group_by(key, utteranceType, proportionSuccess) %>%
   tidyboot_mean(column = val)

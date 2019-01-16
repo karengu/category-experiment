@@ -1,0 +1,247 @@
+{
+    "AcceptTime": "2019-01-15T18:59:48.000Z",
+    "AssignmentId": "3NKQQ8O39ZTAOK3NN1FOAFZINK1UDB",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-22T19:03:57.000Z",
+    "HITId": "3E22YV8GG1U3V7OB57PV8USQ7M0NP7",
+    "SubmitTime": "2019-01-15T19:03:57.000Z",
+    "answers": {
+        "attention_check": "This blicket squeaks",
+        "comprehension": [
+            {
+                "attemptNumber": 1,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": true,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            }
+        ],
+        "condition": "v2",
+        "reward": 18,
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "24",
+            "asses": "Yes",
+            "comments": "",
+            "education": "2",
+            "enjoyment": "2",
+            "fairprice": ".75",
+            "gender": "Female",
+            "language": "English",
+            "problems": "NA"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 1080,
+            "screenW": 1920
+        },
+        "time_in_minutes": 3.8592166666666667,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547578933484
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547578934732
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 10,
+                        "time": 1547578936499
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547578937212
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547578938450
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547578939179
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 16,
+                        "time": 1547578940090
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547578940898
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 3,
+                        "time": 1547578942955
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547578943842
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "I think the blickets ring more often then they squeak",
+                "genericEndorsement": "No",
+                "itemsTested": 4,
+                "probabilityOfFeature": 0.19,
+                "proportionSuccess": 0,
+                "reasoning": "A general mutation in one of them but not the rest ",
+                "remainderEvents": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 15,
+                        "time": 1547578947113
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578947792
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547578948380
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578948733
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547578949489
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578949910
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 19,
+                        "time": 1547578950361
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578950914
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 14,
+                        "time": 1547578951428
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578952014
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547578952720
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578953292
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547578953850
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578954365
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 6,
+                        "time": 1547578954970
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578955509
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 7,
+                        "time": 1547578956017
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578956564
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547578957155
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578957745
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 9,
+                        "time": 1547578959107
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578959656
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 4,
+                        "time": 1547578960212
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578960724
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 2,
+                        "time": 1547578961342
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578962414
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 1,
+                        "time": 1547578966282
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578967029
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 0,
+                        "time": 1547578967750
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547578968510
+                    }
+                ],
+                "remainderItemsTested": 15,
+                "remainderTimeExploring": 0.38743333333333335,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 0.35335,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
