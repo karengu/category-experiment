@@ -87,9 +87,9 @@ df.attention %>%
 ```
 
 ```{r}
-failed.attention <- c(0, 6, 7, 8, 11)
-non.english <- c(15)
-wrong.or.confused <- c(0, 15)
+failed.attention <- c(0, 1, 6, 7, 8, 11, 21, 23, 27, 30)
+non.english <- c(21, 35)
+wrong.or.confused <- c(0, 21, 23, 27, 35)
 df.trials <- df.trials %>%
   mutate(fail_attention = workerid %in% failed.attention,
          non_english = workerid %in% non.english,
