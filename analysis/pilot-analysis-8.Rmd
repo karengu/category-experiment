@@ -109,7 +109,7 @@ df.trials <- df.trials %>%
 df.trials <- df.trials %>% 
   mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0)) %>%
   left_join(by = "workerid", df.attention %>% select(pass, workerid)) %>%
-  mutate(include = (!exclude) & (pass))
+  mutate(include = (!exclude) & pass)
 ```
 
 
