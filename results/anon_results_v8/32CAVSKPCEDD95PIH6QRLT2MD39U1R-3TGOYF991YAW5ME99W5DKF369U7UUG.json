@@ -1,0 +1,263 @@
+{
+    "AcceptTime": "2019-01-16T23:04:23.000Z",
+    "AssignmentId": "3TGOYF991YAW5ME99W5DKF369U7UUG",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-23T23:19:48.000Z",
+    "HITId": "32CAVSKPCEDD95PIH6QRLT2MD39U1R",
+    "SubmitTime": "2019-01-16T23:19:48.000Z",
+    "answers": {
+        "attention_check": "this blicket squeaks",
+        "comprehension": [
+            {
+                "attemptNumber": 1,
+                "numberTimesTest": "1",
+                "orderTest": "ringFirst",
+                "pass": false,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            },
+            {
+                "attemptNumber": 2,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": false,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "true"
+            },
+            {
+                "attemptNumber": 3,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": true,
+                "pointsTest": "squeakMore",
+                "sameBlicket": "false"
+            }
+        ],
+        "condition": "v2",
+        "reward": 18,
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "47",
+            "asses": "Yes",
+            "comments": "The instructions were confusing, it took me a few times reading through to get it to 'stick' in my brain. If the way it was worded was intentional ( to create frustration) it worked. ",
+            "education": "2",
+            "enjoyment": "1",
+            "fairprice": "",
+            "gender": "Female",
+            "language": "english",
+            "problems": "no bugs"
+        },
+        "system": {
+            "Browser": "Chrome",
+            "OS": "Windows",
+            "screenH": 768,
+            "screenW": 1366
+        },
+        "time_in_minutes": 15.0209,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547680455724
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547680457204
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 9,
+                        "time": 1547680478446
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547680480132
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547680486174
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547680487549
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 2,
+                        "time": 1547680509081
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547680510587
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 15,
+                        "time": 1547680514756
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547680515825
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "some blickets squeak, most blickets ring",
+                "genericEndorsement": "Yes",
+                "itemsTested": 4,
+                "probabilityOfFeature": 0.49,
+                "proportionSuccess": 0,
+                "reasoning": "i think there was only one blicket that squeaked in the grid, the one that had the note. The rest probably didn't squeak",
+                "remainderEvents": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547680524208
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680525102
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547680526654
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680527580
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547680528480
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680529113
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 14,
+                        "time": 1547680529987
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680530934
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 19,
+                        "time": 1547680531747
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680532462
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 16,
+                        "time": 1547680533614
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680534318
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547680535037
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680535801
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 10,
+                        "time": 1547680536699
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680537429
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 6,
+                        "time": 1547680538263
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680539149
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 7,
+                        "time": 1547680539969
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680540761
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547680541865
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680542595
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 3,
+                        "time": 1547680543388
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680544164
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 4,
+                        "time": 1547680545043
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680546119
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 1,
+                        "time": 1547680546978
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680547862
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 0,
+                        "time": 1547680548790
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547680549731
+                    }
+                ],
+                "remainderItemsTested": 15,
+                "remainderTimeExploring": 0.5461166666666667,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.8445166666666666,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}

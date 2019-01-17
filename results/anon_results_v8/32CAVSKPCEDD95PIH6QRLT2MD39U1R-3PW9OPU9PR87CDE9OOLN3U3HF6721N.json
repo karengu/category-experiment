@@ -1,0 +1,276 @@
+{
+    "AcceptTime": "2019-01-16T20:51:34.000Z",
+    "AssignmentId": "3PW9OPU9PR87CDE9OOLN3U3HF6721N",
+    "AssignmentStatus": "Submitted",
+    "AutoApprovalTime": "2019-01-23T21:01:04.000Z",
+    "HITId": "32CAVSKPCEDD95PIH6QRLT2MD39U1R",
+    "SubmitTime": "2019-01-16T21:01:04.000Z",
+    "answers": {
+        "attention_check": "This one squeaks",
+        "comprehension": [
+            {
+                "attemptNumber": 1,
+                "numberTimesTest": "2",
+                "orderTest": "squeakFirst",
+                "pass": false,
+                "pointsTest": "ringMore",
+                "sameBlicket": "true"
+            },
+            {
+                "attemptNumber": 2,
+                "numberTimesTest": "1",
+                "orderTest": "squeakFirst",
+                "pass": false,
+                "pointsTest": "ringMore",
+                "sameBlicket": "false"
+            },
+            {
+                "attemptNumber": 3,
+                "numberTimesTest": "2",
+                "orderTest": "squeakFirst",
+                "pass": false,
+                "pointsTest": "ringMore",
+                "sameBlicket": "true"
+            }
+        ],
+        "condition": "v2",
+        "reward": 5,
+        "sound_check": "tiger",
+        "subject_information": {
+            "age": "36",
+            "asses": "Yes",
+            "comments": "",
+            "education": "3",
+            "enjoyment": "1",
+            "fairprice": ".50",
+            "gender": "Male",
+            "language": "english",
+            "problems": "There were no prolems"
+        },
+        "system": {
+            "Browser": "Firefox",
+            "OS": "Windows",
+            "screenH": 720,
+            "screenW": 1280
+        },
+        "time_in_minutes": 9.41665,
+        "trials": [
+            {
+                "events": [
+                    {
+                        "event": "selectItem",
+                        "itemId": 5,
+                        "time": 1547672172411
+                    },
+                    {
+                        "event": "testDemo",
+                        "time": 1547672174116
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 0,
+                        "time": 1547672185331
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672188584
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 15,
+                        "time": 1547672190856
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672192213
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 16,
+                        "time": 1547672193650
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672194727
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 17,
+                        "time": 1547672196039
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672196983
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 18,
+                        "time": 1547672198473
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672199631
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 19,
+                        "time": 1547672201061
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672202287
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 14,
+                        "time": 1547672203561
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672204890
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 13,
+                        "time": 1547672206327
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672208255
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 12,
+                        "time": 1547672209441
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672210488
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 11,
+                        "time": 1547672211705
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672213143
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 10,
+                        "time": 1547672214411
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672215621
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 6,
+                        "time": 1547672217531
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672222804
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 7,
+                        "time": 1547672224447
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672227904
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 8,
+                        "time": 1547672229728
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672231056
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 9,
+                        "time": 1547672232627
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672233941
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 4,
+                        "time": 1547672237554
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672240127
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 3,
+                        "time": 1547672242974
+                    },
+                    {
+                        "event": "testItem",
+                        "time": 1547672246227
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 2,
+                        "time": 1547672249062
+                    }
+                ],
+                "featureAgreement": "No",
+                "freeResponse": "Blickets may squeak, ring, or make no noise. First check to see if they squeak, then check to see if they ring. ",
+                "genericEndorsement": "Yes",
+                "itemsTested": 17,
+                "probabilityOfFeature": 0.01,
+                "proportionSuccess": 0,
+                "reasoning": "That was the only one that was a squeaker which is why the note was placed on it.",
+                "remainderEvents": [
+                    {
+                        "event": "testRemainder",
+                        "time": 1547672264356
+                    },
+                    {
+                        "event": "selectItem",
+                        "itemId": 1,
+                        "time": 1547672266177
+                    },
+                    {
+                        "event": "testRemainder",
+                        "time": 1547672267477
+                    }
+                ],
+                "remainderItemsTested": 2,
+                "remainderTimeExploring": 0.20938333333333334,
+                "testResults": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "timeExploring": 1.7977833333333333,
+                "utteranceType": "specific"
+            }
+        ]
+    }
+}
