@@ -295,20 +295,19 @@ function make_slides(f) {
       $('#practiceFinished').hide();
       $('#practicePaper').show();
 
-      exp.squeak = new Audio('../_shared/audio/squeak.mp3');
-      exp.ring = new Audio('../_shared/audio/ring.mp3');
+	exp.beep = new Audio('../_shared/audio/beep.mp3');
       exp.white = new Audio('../_shared/audio/white.mp3');
 
       var paper = new Raphael(document.getElementById('practicePaper'), 800, 550);
       exp.practicePaper = paper;
-	paper.customAttributes.testButtonSqueak = drag_and_drop.makeButton(400, 450, "#49e575", "Test Squeaking", paper, 120, 30);
+	paper.customAttributes.testButton = drag_and_drop.makeButton(400, 450, "#ff0", "Test Beeping", paper, 120, 30);
 	paper.customAttributes.points = 0;
 	paper.customAttributes.pointsDisplay = paper.text(400,400, 'Practice points: '+paper.customAttributes.points).attr({"font-size": 16});
 	var onClick = function() {
 	    if (paper.customAttributes.pointsExplanation) {
 		paper.customAttributes.pointsExplanation.remove();
 	    }
-	    if (this.data("id") == demoIndex) {
+	    if (this.data("id") == demoIndex || demoIndex > 1) {
         if (paper.customAttributes.testItem) {
           paper.customAttributes.glow.remove();
         }
@@ -319,106 +318,41 @@ function make_slides(f) {
 		paper.customAttributes.glow = this.glow();
 	    }
       }
-      var onTestSqueak = function() {
+      var onTest = function() {
         const testItem = paper.customAttributes.testItem;
           if (testItem) {
 	      if (paper.customAttributes.arrow) {
           paper.customAttributes.arrow.remove();
         }
-	  exp.squeak.pause();
-	  exp.squeak.currentTime = 0;
-	  exp.ring.pause();
-	  exp.ring.currentTime = 0;
+	  exp.beep.pause();
+	  exp.beep.currentTime = 0;
 	  exp.white.pause();
 	  exp.white.currentTime = 0;
 	  if (testItem.data("id") % 2 == 0) {
-              exp.squeak.play();
-	      paper.customAttributes.points += 3;
+              exp.beep.play();
+	      paper.customAttributes.points ++;
 	      paper.customAttributes.pointsDisplay.remove();
 	      	paper.customAttributes.pointsDisplay = paper.text(400, 400, "Practice points: "+paper.customAttributes.points).attr({"font-size": 16, "opacity": 0}).animate({"opacity": 1, "font-weight": "bold"}, 1000, function() {
 		      this.animate({"font-weight": "normal"}, 2000)
 		  });
-	      paper.customAttributes.pointsExplanation = paper.text(400, 500, "You earned 3 practice points because the object squeaked.").attr({"font-size": 14});
+	      paper.customAttributes.pointsExplanation = paper.text(400, 500, "You earned 1 practice point because the object beeped.").attr({"font-size": 14});
           }
 	  else {
 	      exp.white.play();
-	      paper.customAttributes.pointsExplanation = paper.text(400, 500, "You did not earn any points because the object did not squeak.").attr({"font-size": 14});
+	      paper.customAttributes.pointsExplanation = paper.text(400, 500, "You did not earn any points because the object did not beep.").attr({"font-size": 14});
 	  }
-	  if (demoIndex == 1) {
-	    paper.customAttributes.demoText.remove();
-            paper.customAttributes.demoText = paper.set();
-	    paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
-	    paper.customAttributes.demoText.push(paper.text(400, 80, "Now you will switch to testing ringing.").attr({"font-size": 18, "fill": "white", "font-weight": "bold"}));
-	    paper.customAttributes.demoText.push(paper.text(400, 120, "To switch to testing ringing, click on the Switch to ringing button below.").attr({"font-size": 14, "fill": "white"}));
-	    paper.customAttributes.demoText.forEach(function(elem) {
-		setTimeout(function() {elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut")}, 1200);
-	    });
-		paper.customAttributes.switchButton = drag_and_drop.makeButton(600, 450, "#6699ff", "Switch to Ringing", paper, 150, 30);
-		paper.customAttributes.switchButton.buttonSet.forEach(function(elem) {
-		    elem.click(function() {
-			if (demoIndex == 1) {
-		    demoIndex = 2;
-			    demo(demoIndex);
-			}
-			paper.customAttributes.pointsExplanation.remove();
-			if (paper.customAttributes.arrow) {
-          paper.customAttributes.arrow.remove();
-        }
-		    });
-		     paper.customAttributes.switchButton.buttonSet.mousedown(function() {
-	paper.customAttributes.switchButton.button.animate({"fill":"#287f41"});
-      });
-      paper.customAttributes.switchButton.buttonSet.mouseup(function() {
-	paper.customAttributes.switchButton.button.animate({"fill": "#49e575"});
-      });
-		});
-	    }
-	    else {
+	      if (demoIndex == 1) {
+		  demoIndex ++;
+		  finishedPractice();
+	  }
+	      else if (demoIndex == 0) {
 		demoIndex ++;
 		demo(demoIndex);
 	    }
 	    paper.customAttributes.testItem = null;
-	    testItem.remove();
 	  paper.customAttributes.glow.remove();
 	}
 	};
-      var onTestRing = function() {
-	const testItem = paper.customAttributes.testItem;
-	  if (testItem) {
-	      if (paper.customAttributes.arrow) {
-          paper.customAttributes.arrow.remove();
-        }
-	  exp.squeak.pause();
-	  exp.squeak.currentTime = 0;
-	  exp.ring.pause();
-	  exp.ring.currentTime = 0;
-	  exp.white.pause();
-	  exp.white.currentTime = 0;
-	  if (testItem.data("id") == 1 || testItem.data("id") == 2) {
-	      exp.ring.play();
-	       paper.customAttributes.points += 1;
-	      paper.customAttributes.pointsDisplay.remove();
-	      	paper.customAttributes.pointsDisplay = paper.text(400, 400, "Practice points: "+paper.customAttributes.points).attr({"font-size": 16, "opacity": 0}).animate({"opacity": 1, "font-weight": "bold"}, 1000, function() {
-		      this.animate({"font-weight": "normal"}, 2000)
-		});
-	      paper.customAttributes.pointsExplanation = paper.text(400, 500, "You earned 1 practice point because the object rang.").attr({"font-size": 14});
-	  }
-	  else {
-	      exp.white.play();
-	      	      paper.customAttributes.pointsExplanation = paper.text(400, 500, "You did not earn any points because the object did not ring.").attr({"font-size": 14});
-	  }
-	    if (demoIndex == 3) {
-		setTimeout(finishedPractice, 1200);;
-	  }
-	    else {
-	      demoIndex ++;
-	      demo(demoIndex);
-	    }
-	    paper.customAttributes.testItem = null;
-	    testItem.remove();
-	  paper.customAttributes.glow.remove();
-	}
-      };
       var finishedPractice = function() {
 	$('#practiceFinished').show();
 	if (paper.customAttributes.demoText) {
@@ -426,20 +360,19 @@ function make_slides(f) {
 	}
 	paper.customAttributes.demoText = paper.set();
 	paper.customAttributes.demoText.push(paper.rect(20, 40, 770, 140).attr({fill: "gray", "fill-opacity": 0, "stroke-width": 0}));
-	paper.customAttributes.demoText.push(paper.text(400, 90, "Now that you know how the laboratory materials work,").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
-	paper.customAttributes.demoText.push(paper.text(400, 120, "hit the Continue button at the bottom of the screen to continue to the lab.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	paper.customAttributes.demoText.push(paper.text(400, 80, "Now that you know how the laboratory materials work,").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	  paper.customAttributes.demoText.push(paper.text(400, 110, "click on the Continue button at the bottom of the screen to continue to the lab.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
+	  paper.customAttributes.demoText.push(paper.text(400, 140, "You can also continue to practice.").attr({"font-size": 16, "fill": "white", "font-weight": "bold"}));
 	paper.customAttributes.demoText.forEach(function(elem) {
 	  elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
 	});
       }
       var items = [
 	drag_and_drop.objects[5],
-	drag_and_drop.objects[2],
-	drag_and_drop.objects[3],
-	drag_and_drop.objects[4]
+	drag_and_drop.objects[2]
       ];
       var createNewItem = function(i) {
-	var x = 100+200*i;
+	var x = 300+200*i;
 	var y = 250;
 	var item = paper.path(objectPaths[items[i].shape](x,y)).attr("fill", items[i].color);
 	item.data("id", i);
@@ -451,16 +384,10 @@ function make_slides(f) {
 	var demo = function(i) {
 	var description = "";
 	if (i == 0) {
-	  var description = "This object squeaks.";
+	  var description = "This object beeps.";
 	}
 	else if (i == 1) {
-	  var description = "This object does not squeak.";
-	}
-	else if (i == 2) {
-	  var description = "This object rings.";
-	}
-	else if (i == 3) {
-	  var description = "This object does not ring.";
+	  var description = "This object does not beep.";
 	}
 	if (paper.customAttributes.demoText) {
 	  paper.customAttributes.demoText.remove();
@@ -474,7 +401,7 @@ function make_slides(f) {
 	      paper.customAttributes.demoText.forEach(function(elem) {
 		  elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
 	      });
-	      const x = 100+200*i
+	      const x = 300+200*i
 	      paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 4});
 	      setTimeout(function() {paper.customAttributes.arrow.remove()}, 5000);
 	  }
@@ -483,32 +410,20 @@ function make_slides(f) {
 	    setTimeout(function() {elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut")}, 1200);
 	});
 		  setTimeout(function() {
-		  const x = 100+200*i
+		  const x = 300+200*i
 	paper.customAttributes.arrow = paper.path("M"+x+",185 v40").attr({'arrow-end': 'classic-wide-long', "stroke-width": 4});
 		  }, 1200);
 		  	 setTimeout(function() {paper.customAttributes.arrow.remove()}, 5000);
 	      }
-	     if (i == 2) {
-	      	 paper.customAttributes.testButtonSqueak.buttonSet.remove();
-		 paper.customAttributes.switchButton.buttonSet.remove();
-var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing", paper, 120, 30);
-	      testButtonRing.buttonSet.forEach(function(elem) {elem.click(onTestRing)});
-					        testButtonRing.buttonSet.mousedown(function() {
-	testButtonRing.button.animate({"fill":"#841559"});
-      });
-      testButtonRing.buttonSet.mouseup(function() {
-	testButtonRing.button.animate({"fill": "#e549ae"});
-      });
-	  }
       }
-	  paper.customAttributes.testButtonSqueak.buttonSet.forEach(function(elem) {elem.click(onTestSqueak)});
-      paper.customAttributes.testButtonSqueak.buttonSet.mousedown(function() {
-	paper.customAttributes.testButtonSqueak.button.animate({"fill":"#287f41"});
+	  paper.customAttributes.testButton.buttonSet.forEach(function(elem) {elem.click(onTest)});
+      paper.customAttributes.testButton.buttonSet.mousedown(function() {
+	paper.customAttributes.testButton.button.animate({"fill":"#999937"});
       });
-      paper.customAttributes.testButtonSqueak.buttonSet.mouseup(function() {
-	paper.customAttributes.testButtonSqueak.button.animate({"fill": "#49e575"});
+      paper.customAttributes.testButton.buttonSet.mouseup(function() {
+	paper.customAttributes.testButton.button.animate({"fill": "#ff0"});
       });
-	for (i = 0; i<4; i++) {
+	for (i = 0; i<2; i++) {
 	    createNewItem(i);
 	}
       var demoIndex = 0;
@@ -569,6 +484,9 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
         else if (stim.utteranceType == "specific") {
           $('#utterance').text('This '+stim.objectNameSingular.toLowerCase()+' '+stim.propertySpecific+'.');
         }
+
+	exp.squeak = new Audio('../_shared/audio/squeak.mp3');
+
         const paper = new Raphael(document.getElementById('demoPaper'), 800, 450);
         exp.paper = paper;
         var demoItem = paper.path(objectPaths[stim.shape](400,100)).attr("fill", stim.color);
@@ -580,7 +498,9 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
         paper.text(400, 400, 'Try testing the '+stim.objectNameSingular.toLowerCase()+' by clicking it to select it and then clicking on the Test Squeaking button.').attr({"font-size": 16});
         testButton.buttonSet.forEach(function(component) {
           component.click(function() {
-            if (paper.customAttributes.selectedItem) {
+              if (paper.customAttributes.selectedItem) {
+		  exp.squeak.pause();
+		  exp.squeak.currentTime = 0;
 	      exp.squeak.play();
 	      paper.customAttributes.glow.remove();
 	    }
@@ -621,7 +541,6 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
 	}
 
           var onClick = function() {
-          if (paper.customAttributes.itemsTested > 0 || this.data("id") == paper.customAttributes.firstItemId) {
             if (paper.customAttributes.demoArrow) {
 	      paper.customAttributes.demoArrow.remove();
 	    }
@@ -632,17 +551,15 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
             paper.customAttributes.glow = this.glow();
 	    exp.events.push({
 	      time: Date.now(),
-	      event: "selectItem",
-	      itemId: this.data("id")
+	      event: "selectItem"
 	    });
-	  }
         }
 
 	  var e = this;
 
 	  const button = function() {
-	      if (confirm('Are you sure you would like to move on to testing ringing?')) { // check to make sure user wants to move on
-           exp.data_trials[0].itemsTested = exp.paper.customAttributes.itemsTested - 1;
+	      if (confirm('Are you sure you would like to permanently change the machine to test ringing?')) { // check to make sure user wants to move on
+           exp.data_trials[0].attempts = exp.attempts;
 	exp.data_trials[0].timeExploring = (Date.now() - exp.startExploration)/60000;
 	exp.data_trials[0].events = exp.events;
 	exp.data_trials[0].testResults = exp.testResults; // to store order of successful/unsuccessful test results, since order is randomized
@@ -652,72 +569,42 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
 
         var onTest = function() {
           const testItem = paper.customAttributes.testItem;
-	  if (testItem) {
-	    if (paper.customAttributes.itemsTested == 0) { // demo item
-	      if (testItem.data("id") == paper.customAttributes.firstItemId) {
-		exp.squeak.play();
-   	        exp.points += 3;
-		paper.customAttributes.pointsDisplay.remove();
-		  paper.customAttributes.pointsDisplay = paper.text(400, 450, "Points: "+exp.points).attr({"font-size": 16, "opacity": 0}).animate({"opacity": 1, "font-weight": "bold"}, 1000, function() {
-		      this.animate({"font-weight": "normal"}, 2000)
-		  });
-		testItem.remove();
-	        paper.customAttributes.itemsTested ++;
-	        paper.customAttributes.testItem = null;
-	        paper.customAttributes.glow.remove();
-		  exp.events.push({time:Date.now(), event: "testDemo"});
-		  $('#infoParagraph').html("<p>These are all of the blickets you have to test. You must test at least one other blicket for squeaking.</p><p>When you want to switch to test for ringing (1 pt), click the <b>Switch to Ringing</b> button. (You will not be able to test for squeaking again.)</p>");
-              }
+	    if (testItem && exp.coins >= 0) {
+		exp.coins --;
+		paper.customAttributes.coinsDisplay.remove();
+		paper.customAttributes.coinsDisplay = paper.text(400, 100, "Coins Left: "+exp.coins).attr({"font-size": 16});
+	    if (exp.attempts == 0) { // first item
+              paper.customAttributes.switchButton = drag_and_drop.makeButton(400, 500, "#6699ff", "Switch to Ringing", paper, 150, 30);
+	      paper.customAttributes.switchButton.buttonSet.forEach(function(elem) {
+	        elem.click(function() {button()});
+	      })
+	    }
+	    exp.squeak.pause();
+	    exp.squeak.currentTime = 0;
+	    exp.ring.pause();
+	    exp.ring.currentTime = 0;
+	    exp.white.pause();
+	    exp.white.currentTime = 0;
+	    if (testSequence[testSequenceIndex]) {
+	      exp.squeak.play();
+	      exp.points += 3;
+	      paper.customAttributes.pointsDisplay.remove();
+	      paper.customAttributes.pointsDisplay = paper.text(400, 50, "Points: "+exp.points).attr({"font-size": 16});
 	    }
 	    else {
-	      if (paper.customAttributes.itemsTested == 1) { // first item
-                  paper.customAttributes.switchButton = drag_and_drop.makeButton(600, 500, "#6699ff", "Switch to Ringing", paper, 150, 30);
-		  paper.customAttributes.switchButton.buttonSet.forEach(function(elem) {
-		      elem.click(function() {button()});
-		  })
-	      }
-	      exp.squeak.pause();
-	      exp.squeak.currentTime = 0;
-	      exp.ring.pause();
-	      exp.ring.currentTime = 0;
-	      exp.white.pause();
-	      exp.white.currentTime = 0;
-	      if (testSequence[testSequenceIndex]) {
-		exp.squeak.play();
-	        exp.points += 3;
-		paper.customAttributes.pointsDisplay.remove();
-		paper.customAttributes.pointsDisplay = paper.text(400, 450, "Points: "+exp.points).attr({"font-size": 16});
-	      }
-	      else {
-	        exp.white.play();
-	      }
-	      testItem.remove();
-              exp.testResults.push(testSequence[testSequenceIndex]);
-              testSequenceIndex ++;
-              if (testSequenceIndex == stim.binSize) {
-                testSequence = _.shuffle(testSequence);
-                testSequenceIndex = 0;
-              }
-              paper.customAttributes.testItem = null;
-              paper.customAttributes.glow.remove();
-	      paper.customAttributes.itemsTested ++;
-	      exp.events.push({time:Date.now(), event:"testItem"});
+	      exp.white.play();
 	    }
+            exp.testResults.push(testSequence[testSequenceIndex]);
+            testSequenceIndex ++;
+            if (testSequenceIndex == stim.binSize) {
+              testSequence = _.shuffle(testSequence);
+              testSequenceIndex = 0;
+            }
+            paper.customAttributes.testItem = null;
+            paper.customAttributes.glow.remove();
+	    exp.attempts ++;
+	    exp.events.push({time:Date.now(), event:"testItem"});
 	  }
-        }
-
-	  var displayNote = function() {
-	      $('#infoParagraph').html("<p>Test the blicket with the note first. To test: click on a blicket, then click <b>Test squeaking</b>.</p>");
-          paper.customAttributes.demoArrow = paper.path("M100,100 v40").attr({'arrow-end': 'classic-narrow-long', "stroke-width": 4});
-          paper.customAttributes.noteDisplay = paper.set();
-	  paper.customAttributes.noteDisplay.push(paper.rect(120, 40, 570, 140).attr({fill: "#ffff99", "fill-opacity": 0, "stroke-width": 0}));
-	      paper.customAttributes.noteDisplay.push(paper.text(400, 100, exp.utterance).attr({"font-size": 20, "fill": "black", "font-weight": "bold", "fill-opacity": 0, "stroke-opacity": 0}));
-              paper.customAttributes.noteDisplay.push(paper.text(400, 160, "Click anywhere inside this box to close.").attr({"font-size": 14, "fill": "black", "fill-opacity": 0, "stroke-opacity": 0}));
-	  paper.customAttributes.noteDisplay.forEach(function(elem) {
-            elem.animate({"fill-opacity": 1, "stroke-opacity": 1}, 1000, "easeInOut");
-            elem.click(function(elem) {paper.customAttributes.noteDisplay.remove()});
-	  });
-          paper.customAttributes.note.remove();
         }
 	  
 	// DATA COLLECTION SETUP
@@ -725,51 +612,46 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
         exp.testResults = [];
         exp.proportionSuccess = stim.proportionSuccess;
         exp.startExploration = Date.now();
+	  exp.attempts = 0;
+	  exp.coins = 20;
+
+      exp.ring = new Audio('../_shared/audio/ring.mp3');
+      exp.white = new Audio('../_shared/audio/white.mp3');
 
 	// CREATE SCENE
         var paper = new Raphael(document.getElementById('paper'), 800, 580);
-        paper.customAttributes.itemsTested = 0;
 	const platformLevel = drag_and_drop.platformLevel;
 	const labelLevel = platformLevel - 15;
-        exp.paper = paper;
-        drag_and_drop.makeBlicketGrid(100,50,800,500, 20, paper, stim.color, stim.shape, stim.numRows);
-	paper.blickets.forEach(function(blicket) {
-          blicket.click(onClick);
-        });
-        paper.customAttributes.testButton = drag_and_drop.makeButton(400, 500, "#49e575", "Test Squeaking", paper, 120, 30);
+          exp.paper = paper;
+	  paper.customAttributes.machine = paper.rect(150,350,500,100).attr({"fill": "#602784"});;
+	  paper.customAttributes.counterexample = paper.path(objectPaths[stim.shape](400,200)).attr({fill: stim.color});
+	  paper.customAttributes.counterexample.click(onClick);
+        paper.customAttributes.testButton = drag_and_drop.makeButton(400, 400, "#49e575", "Test Squeaking", paper, 120, 30);
         paper.customAttributes.testButton.buttonSet.forEach(function(component) {
           component.click(onTest);
         });
 	exp.points = 0;
-	paper.customAttributes.pointsDisplay = paper.text(400, 450, "Points: "+exp.points).attr({"font-size": 16});
-	paper.customAttributes.firstItemId = 5;
-	paper.customAttributes.testedFirstItem = false;
+	paper.customAttributes.pointsDisplay = paper.text(400, 50, "Points: "+exp.points).attr({"font-size": 16});
+	  paper.customAttributes.testedFirstItem = false;
+	  paper.customAttributes.coinsDisplay = paper.text(400, 100, "Coins Left: "+exp.coins).attr({"font-size": 16});
 	// task information
-    $('#infoParagraph').html("<p>These are the 20 blickets that your colleague left for you to test. First take a look at the note she left you. (Click on the yellow note to read it.)</p>");
-	paper.customAttributes.note = paper.set();
-	paper.customAttributes.note.push(paper.rect(100,110,80,80).attr({"fill": "#ffff99"}));
-	paper.customAttributes.note.push(paper.rect(110,130, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
-	paper.customAttributes.note.push(paper.rect(110, 150, 60, 8).attr({"fill": "gray", "stroke-width": 0}));
-	  paper.customAttributes.note.forEach(function(elem) {
-	      elem.click(displayNote);
-	  });
+    $('#infoParagraph').html("<p>This is the blicket that your colleague left for you to use in your testing. Remember: you only have 20 coins to use.</p>");
       }
 	else if (stim.type == 'end') { // RINGING PHASE
 	    $('#ddbutton').show();
         $('#ddbutton').text('Leave lab');
 
         var paper = exp.paper; // use same paper from previous trial
-        $('#infoParagraph').html('Test as many '+stim.objectNamePlural.toLowerCase()+' for ringing as you would like. When you are done testing, click the <b>Leave lab</b> button at the bottom of the screen.')
+        $('#infoParagraph').html('Test for ringing for as long as you would like. When you are done testing, click the <b>Leave lab</b> button at the bottom of the screen.')
 
-	if (paper.customAttributes.noteDisplay) {
-          paper.customAttributes.noteDisplay.remove();
-        }
 	  if (paper.customAttributes.switchButton) {
 	      paper.customAttributes.switchButton.buttonSet.remove();
 	  }
+	    paper.customAttributes.testButton.buttonSet.remove();
+	    paper.customAttributes.machine.attr({"fill":"#43e8e8"});
             exp.events = [];
 	    exp.startExploration = Date.now();
-        paper.customAttributes.remainderItemsTested = 0;
+        exp.remainderAttempts = 0;
 	var testSequence = []; // create bins with desired proportion of successes, to be randomized below
 	for (i = 0; i < stim.binSize*stim.proportionSuccess; i++) {
 	  testSequence.push(true);
@@ -781,7 +663,10 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
         var testSequenceIndex = 0;
         var onTest = function() {
           const testItem = paper.customAttributes.testItem;
-          if (testItem) {
+            if (testItem && exp.coins >= 0) {
+		exp.coins --;
+		paper.customAttributes.coinsDisplay.remove();
+		paper.customAttributes.coinsDisplay = paper.text(400, 100, "Coins Left: "+exp.coins).attr({"font-size": 16});
             exp.squeak.pause();
 	    exp.squeak.currentTime = 0;
 	    exp.ring.pause();
@@ -792,19 +677,18 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
 	      exp.ring.play();
 	      exp.points += 1;
 	      paper.customAttributes.pointsDisplay.remove();
-	      paper.customAttributes.pointsDisplay = paper.text(400, 450, "Points: "+exp.points).attr({"font-size": 16});
+	      paper.customAttributes.pointsDisplay = paper.text(400, 50, "Points: "+exp.points).attr({"font-size": 16});
 	    }
 	    else {
 	      exp.white.play();
 	    }
-	    testItem.remove();
             paper.customAttributes.testItem = null;
             paper.customAttributes.glow.remove();
-	    paper.customAttributes.remainderItemsTested ++;
+	    exp.remainderAttempts ++;
 	    exp.events.push({time:Date.now(), event:"testRemainder"});
 	  }
 	};
-	var remainderButton = drag_and_drop.makeButton(400, 500,"#e549ae", "Test Ringing", paper, 120, 30);
+	var remainderButton = drag_and_drop.makeButton(400, 400,"#e549ae", "Test Ringing", paper, 120, 30);
         remainderButton.buttonSet.forEach(function(component) {
           component.click(onTest);
 	});
@@ -906,14 +790,14 @@ var testButtonRing = drag_and_drop.makeButton(400, 450,"#e549ae", "Test Ringing"
     },
     log_responses: function() {
       if (exp.type == 'explore') {
-        exp.data_trials[0].itemsTested = exp.paper.customAttributes.itemsTested - 1;
+        exp.data_trials[0].attempts = exp.attempts;
 	exp.data_trials[0].timeExploring = (Date.now() - exp.startExploration)/60000;
 	exp.data_trials[0].events = exp.events;
 	exp.data_trials[0].testResults = exp.testResults; // to store order of successful/unsuccessful test results, since order is randomized
       }
       else if (exp.type == 'end') {
           exp.data_trials[0].remainderEvents = exp.events;
-	  exp.data_trials[0].remainderItemsTested = exp.paper.customAttributes.remainderItemsTested,
+	  exp.data_trials[0].remainderAttempts = exp.remainderAttempts,
 	  exp.data_trials[0].remainderTimeExploring = (Date.now() - exp.startExploration)/60000;
       }
       else if (exp.type == 'testProb') {
@@ -1069,14 +953,8 @@ function init() {
   exp.structure=[
       'i0',
       'check_sound',
-    'introduction',
+      'introduction',
       'practice',
-      'instructions',
-      'comprehension',
-      'instructions',
-      'comprehension',
-      'instructions',
-      'comprehension',
       'drag_and_drop',
     'attention_check',
     'subj_info', 'thanks'
@@ -1091,7 +969,16 @@ function init() {
   exp.data_trials[0].proportionSuccess = proportionSuccess;
   exp.data_trials[0].utteranceType = utteranceType;
 
-  exp.randomized_trials = [{
+    exp.randomized_trials = [{
+	type: "transition",
+	objectNameSingular: drag_and_drop.objects[0].singular,
+	investigator: drag_and_drop.objects[0].investigator,
+	utteranceType: utteranceType,
+	objectNamePlural: drag_and_drop.objects[0].plural,
+	property: propertyMore,
+	color: drag_and_drop.objects[0].color,
+	shape: drag_and_drop.objects[0].shape
+    },{
       type: "explore",
       numObjects: 20,
       objectNameSingular: drag_and_drop.objects[0].singular,
@@ -1104,10 +991,8 @@ function init() {
       property: propertyMore,
       color: drag_and_drop.objects[0].color,
       greyedColor: drag_and_drop.objects[0].greyed,
-	numRows: 4,
-	property: propertyMore,
+	//numRows: 4,
 	propertySpecific: propertySpecificMore,
-	objectNameSingular: drag_and_drop.objects[0].singular,
     }, {
       type: "end",
       binSize: 6,

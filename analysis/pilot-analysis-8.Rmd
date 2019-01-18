@@ -29,9 +29,19 @@ i = 0
 df.subject <- data.frame()
 df.trials <- data.frame()
 df.attention <- data.frame()
+df.flag <- data.frame()
+df.check <- data.frame()
 for (anon_result in anon_results) {
   
   result_json = fromJSON(paste(results.path, anon_result, sep =""))
+  
+  df.check = bind_rows(
+    df.check,
+    data.frame(result_json$answers$comprehension) %>%
+      mutate(
+        workerid = i
+      )
+  )
 
   df.attention = bind_rows(
     df.attention, 
@@ -41,20 +51,34 @@ for (anon_result in anon_results) {
       sound_check = result_json$answers$sound_check,
       attention_check = result_json$answers$attention_check,
       utterance = result_json$answers$trials$utteranceType,
-        comp_pass_n = numberTimesTest == "1",
-        comp_pass_order = orderTest == "squeakFirst",
-        comp_pass_points = pointsTest == "squeakMore",
-        comp_pass_same = sameBlicket == "false"
-      ) %>%
-      group_by(workerid) %>%
-      mutate(last_attempt = max(attemptNumber)) %>%
-      filter(attemptNumber == last_attempt) %>%
-      mutate(pass = pass | (comp_pass_n & comp_pass_order & (comp_pass_points | pointsTest == "ringMore") & comp_pass_same))
+      comp_pass_n = numberTimesTest == "1",
+      comp_pass_order = orderTest == "squeakFirst",
+      comp_pass_points = pointsTest == "squeakMore",
+      comp_pass_same = sameBlicket == "false"
+    ) %>%
+    group_by(workerid) %>%
+    mutate(last_attempt = max(attemptNumber)) %>%
+    filter(attemptNumber == last_attempt) %>%
+    mutate(pass = pass | (comp_pass_n & comp_pass_order & (comp_pass_points | pointsTest == "ringMore") & comp_pass_same))
   )
   
   df.subject = bind_rows(
     df.subject, 
     data.frame(result_json$answers$subject_information) %>% mutate(workerid = i)
+  )
+  
+  df.checker <- df.check %>%
+    left_join(df.subject) %>%
+    group_by(asses, pointsTest) %>%
+    count()
+  
+  df.flag <- bind_rows(
+    df.flag,
+    data.frame(result_json$answers$comprehension) %>%
+      mutate(workerid = i) %>%
+      group_by(workerid) %>%
+      mutate(last_attempt = max(attemptNumber)) %>%
+      filter(attemptNumber == last_attempt)
   )
   
   df.trials = bind_rows(
@@ -66,6 +90,9 @@ for (anon_result in anon_results) {
 
   i = i + 1
 }
+df.flag %>%
+  group_by(pointsTest) %>%
+  count()
 ```
 
 ## Comprehension and attention checks
@@ -104,11 +131,11 @@ df.trials <- df.trials %>%
   mutate(fail_attention = workerid %in% failed.attention,
          non_english = workerid %in% non.english,
          wrong_confused = workerid %in% wrong.or.confused,
-         exclude = (workerid %in% c(failed.attention, non.english)))
+         exclude = (workerid %in% c(failed.attention, non.english, wrong.or.confused)))
 
 df.trials <- df.trials %>% 
   mutate(genericEndorsement = ifelse(genericEndorsement == "Yes", 1, 0)) %>%
-  left_join(by = "workerid", df.attention %>% select(pass, workerid)) %>%
+  left_join(by = "workerid", df.attention %>% select(pass, workerid, attemptNumber)) %>%
   mutate(include = (!exclude) & pass)
 ```
 

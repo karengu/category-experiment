@@ -20,6 +20,133 @@ Analysis of pilot data 8 for genex
     ## ✖ purrr::flatten() masks jsonlite::flatten()
     ## ✖ dplyr::lag()     masks stats::lag()
 
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+    ## Joining, by = "workerid"
+
 Comprehension and attention checks
 ----------------------------------
 
@@ -139,8 +266,8 @@ Explanation of columns:
 |    44| specific  | FALSE   | No     | Probably because this was a psychology experiment.                                                                                                              |    4|  0.47|  0.39|    1| Some blickets squeak, but more often than not they ring.                                                                                                                                       | TRUE          | TRUE              | TRUE               | TRUE             |
 |    45| specific  | TRUE    | No     | It was based on chance. But of course the major majority of them ring.                                                                                          |   11|  0.94|  0.10|    1| While the odd blicket squeaks, the vast majority of them ring.                                                                                                                                 | TRUE          | TRUE              | TRUE               | TRUE             |
 |    46| specific  | TRUE    | No     | they were already tested                                                                                                                                        |    7|  0.53|  0.21|    0| Most of them ring                                                                                                                                                                              | TRUE          | TRUE              | TRUE               | TRUE             |
-|    47| specific  | TRUE    | No     | I think they weren't the type that squeak. Perhaps the squeaking one was planted to throw me off.                                                               |    7|  0.95|  0.08|    1| Some blickets squeak and some ring. Some do neither.                                                                                                                                           | TRUE          | TRUE              | TRUE               | TRUE             |
-|    48| specific  | TRUE    | No     | I'm really not sure.                                                                                                                                            |    4|  0.48|  0.25|    0| Some squeak and all bling.                                                                                                                                                                     | TRUE          | TRUE              | FALSE              | TRUE             |
+|    47| specific  | FALSE   | No     | I think they weren't the type that squeak. Perhaps the squeaking one was planted to throw me off.                                                               |    7|  0.95|  0.08|    1| Some blickets squeak and some ring. Some do neither.                                                                                                                                           | TRUE          | TRUE              | TRUE               | TRUE             |
+|    48| specific  | FALSE   | No     | I'm really not sure.                                                                                                                                            |    4|  0.48|  0.25|    0| Some squeak and all bling.                                                                                                                                                                     | TRUE          | TRUE              | FALSE              | TRUE             |
 |    49| specific  | FALSE   | No     | Because it was programmed.                                                                                                                                      |   10|  1.14|  0.02|    0| It's hard. They are hard objects. Don't trust them.                                                                                                                                            | TRUE          | FALSE             | FALSE              | TRUE             |
 |    50| specific  | FALSE   | Yes    | to earn point                                                                                                                                                   |    1|  0.86|  0.94|    1| get one point                                                                                                                                                                                  | TRUE          | TRUE              | FALSE              | FALSE            |
 |    51| specific  | TRUE    | No     | To test how the financial incentive alters choice selection.                                                                                                    |    4|  0.76|  0.10|    0| Only 1 out of the 20 blickets squeaked.                                                                                                                                                        | TRUE          | TRUE              | TRUE               | TRUE             |
@@ -170,7 +297,7 @@ Explanation of columns:
 |    75| generic   | FALSE   | No     | Because it is their characteristic to ring                                                                                                                      |    7|  1.16|  0.77|    0| Blickets can squeaks or ring. My opinion is that mostly ring                                                                                                                                   | TRUE          | FALSE             | TRUE               | FALSE            |
 |    76| generic   | TRUE    | Yes    | don't know                                                                                                                                                      |    5|  1.11|  0.28|    1| blickets squeek                                                                                                                                                                                | TRUE          | TRUE              | TRUE               | TRUE             |
 |    77| generic   | FALSE   | No     | It was the only one marked                                                                                                                                      |    6|  0.69|  0.06|    0| While a blicket can squeak it is much more likely to ring                                                                                                                                      | TRUE          | TRUE              | TRUE               | TRUE             |
-|    78| generic   | TRUE    | No     | It was just random that they didn't squeak                                                                                                                      |   19|  1.17|  0.07|    1| A vast majority of them don't squeak                                                                                                                                                           | TRUE          | TRUE              | TRUE               | TRUE             |
+|    78| generic   | FALSE   | No     | It was just random that they didn't squeak                                                                                                                      |   19|  1.17|  0.07|    1| A vast majority of them don't squeak                                                                                                                                                           | TRUE          | TRUE              | TRUE               | TRUE             |
 |    79| generic   | FALSE   | Yes    | I think more investigation was needed before the general statement on the note could be made accurately.                                                        |    7|  0.63|  0.15|    0| Very few blickets actually squeak.                                                                                                                                                             | FALSE         | TRUE              | FALSE              | FALSE            |
 |    80| generic   | FALSE   | No     | May have been a special case which is why it had a note on it.                                                                                                  |   10|  0.82|  0.00|    0| Blickets ring more often than they squeak.                                                                                                                                                     | TRUE          | TRUE              | FALSE              | TRUE             |
 |    81| specific  | TRUE    | No     | I think it may have been the only one to squeak of the bunch.                                                                                                   |    5|  0.60|  0.22|    1| Some squeak whiles most others ring.                                                                                                                                                           | TRUE          | TRUE              | TRUE               | TRUE             |
@@ -182,7 +309,7 @@ Explanation of columns:
 |    87| specific  | TRUE    | No     | I think most blickets do not squeak, which is why my fellow astronaut left me a note for the one that did.                                                      |   18|  1.39|  0.03|    0| I tested 19 blickets for squeaking, and only the first one squeaked.                                                                                                                           | TRUE          | TRUE              | TRUE               | TRUE             |
 |    88| specific  | TRUE    | No     | I presume squeaking is just very rare.                                                                                                                          |    4|  1.13|  0.07|    0| The vast majority of blickets ring, while very few squeak.                                                                                                                                     | TRUE          | TRUE              | TRUE               | TRUE             |
 |    89| specific  | TRUE    | No     | I think that was a rarity, the squeaking.                                                                                                                       |    7|  1.02|  0.17|    0| Most blickets ring                                                                                                                                                                             | TRUE          | TRUE              | TRUE               | TRUE             |
-|    90| generic   | TRUE    | No     | I have no idea.                                                                                                                                                 |    3|  0.55|  0.62|    1| They squeak.                                                                                                                                                                                   | TRUE          | TRUE              | TRUE               | TRUE             |
+|    90| generic   | FALSE   | No     | I have no idea.                                                                                                                                                 |    3|  0.55|  0.62|    1| They squeak.                                                                                                                                                                                   | TRUE          | TRUE              | TRUE               | TRUE             |
 |    91| generic   | FALSE   | No     | It just wasn't the one                                                                                                                                          |    1|  0.49|  0.40|    1| one did then one didn't                                                                                                                                                                        | TRUE          | TRUE              | TRUE               | TRUE             |
 |    92| generic   | FALSE   | No     | unsure                                                                                                                                                          |   19|  0.68|  0.67|    1| they are weird and make noise                                                                                                                                                                  | TRUE          | TRUE              | FALSE              | TRUE             |
 |    93| generic   | TRUE    | No     | Because someone selected them to do that                                                                                                                        |   12|  0.99|  0.04|    0| Nearly all of them ring                                                                                                                                                                        | TRUE          | TRUE              | TRUE               | TRUE             |

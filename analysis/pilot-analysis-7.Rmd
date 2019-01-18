@@ -49,7 +49,8 @@ for (anon_result in anon_results) {
         comp_pass_n = comp_n_test == "1",
         comp_pass_order = comp_order_test == "squeakFirst",
         comp_pass_points = comp_points == "squeakMore",
-        comp_pass_same = comp_same_test == "false"
+        comp_pass_same = comp_same_test == "false",
+        comp_pass_all = comp_pass_all | (comp_pass_n & comp_pass_order & comp_pass_same & (comp_pass_points | comp_points == "ringMore"))
       )
   )
   
