@@ -90,10 +90,16 @@
     <button onclick="_s.button()" id="intrButton">Continue</button>
   </div>
 
+  <div class="slide" id="overview">
+    <p>Your fellow astronaut-scientist has been studying some objects called blickets. She also has a machine that can be used to test squeaking.
+    <div><button onclick="_s.button()" id="overButton">Continue</button></div>
+  </div>
+
   <div class="slide" id="instructions">
     <h4 id="failedComp"></h4>
-    <p>Your fellow astronaut-scientist has been studying some objects called blickets. She is giving you an opportunity to test a blicket. She also has a machine that can be used to test squeaking. However, the machine requires coins to make it work, and she will only give you <b>20 coins</b>.</p>
-    <p>But (just as in the practice) you have to test blickets for <b>squeaking first</b>, and then you can test whatever blickets you have left for ringing. Remember: You get to decide how many you test for squeaking vs. for ringing. </p>
+    <p>Your colleauge is giving you an opportunity to test a blicket. Remember that she has a machine that can be used to test squeaking. However, the machine requires coins to make it work, and she will only give you 20 coins. This means that you can only test the blicket <b>20 times</b>.</p>
+    <p>The machine has another setting that can be used to test ringing. However, changing the setting is permanent, which means that you cannot change the machine from ringing mode back to squeaking mode. You have to test blickets for <b>squeaking first</b>, and then you can test whatever blickets you have left for ringing.</p>
+    <p>You will earn <b>1 point for squeaking</b> and <b>1 point for ringing</b>. Remember: You get to decide how many you test for squeaking vs. for ringing.</p>
     <p>Afterwards, you will answer some questions about blickets to help your fellow astronaut-scientists.</p>
     <p><b>You will receive an MTurk bonus payment of $0.01 for every point you earn.</b></p>
     <button onclick="_s.button()" id="instButton">Continue</button>
@@ -158,17 +164,15 @@
   </div>
 
   <div class="slide" id ="comprehension">
-    <p>How many times can you test a single blicket?</p>
+    <p>How many times can you use the machine?</p>
     <select id="numberTimesTest">
       <option value="null">-----</option>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="inf">as many as you want</option>
     </select>
-    <p>You can test the same blicket for both ringing and squeaking.</p>
-    <label><input type="radio" name="sameBlicket" value="true"/>True</label>
-    <label><input type="radio" name="sameBlicket" value="false"/>False</label>
-    <p>What order can you test the blickets in?</p>
+    <p>What order can you test the blicket in?</p>
     <select id="orderTest">
       <option value="null">-----</option>
       <option value="both">You can test squeaking and ringing at the same time.</option>
@@ -178,7 +182,7 @@
     <p>How many points will you earn?</p>
     <select id="pointsTest">
       <option value="null">-----</option>
-      <option value="same">5 points for squeaking and 5 points for ringing</option>
+      <option value="same">1 point for squeaking and 1 point for ringing</option>
       <option value="ringMore">1 point for squeaking and 3 points for ringing</option>
       <option value="squeakMore">3 points for squeaking and 1 point for ringing</option>
     </select>
@@ -186,6 +190,13 @@
       <button onclick="_s.button()">Continue</button>
       <p class="err">Please answer all questions.</p>
     </div>
+  </div>
+
+  <div class="slide" id="demo">
+    <p id="testStatement"></p>
+    <h3 id="utterance"></h3>
+    <div class="demoPaper" id="demoPaper"></div>
+    <button onclick="_s.button()" id="demoButton" class="button">Continue</button>
   </div>
 
   <div class="slide" id="drag_and_drop">

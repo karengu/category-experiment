@@ -434,4 +434,16 @@ var drag_and_drop = {
     },
 
     platformLevel: 380,
+
+    squeakMachineColor: "#754668",
+    squeakButtonColor: "#C6D8AF",
+    squeakButtonColorGrey: "#9fad8c",
+    ringMachineColor: "#EAEBED",
+    ringButtonColor: "#8EDCE6",
+    ringButtonColorGrey: "#7bbec6",
+    practiceMachineColor: "#988B8E",
+    practiceButtonColor: "#EF798A",
+    practiceButtonColorGrey: "#c46472",
+    switchButtonColor: "#6699ff",
+    switchButtonColorGrey: "#517acc"
 }
