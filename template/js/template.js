@@ -57,53 +57,76 @@ function make_slides(f) {
 		$('#response').hide();
 		$('#demoButton').show();
 		$('#demoPaper').show();
+		$('.button').hide();
 		$('#testStatement').text('When you enter the lab, you see that there is a scientist already working in there. He says: ');
-		if (stim.trialType == "generic") {
-		    $('#utterance').text('This is a '+stim.singular.toLowerCase()+'. '+stim.plural+' '+stim.sound+'.')
-		} else if (stim.trialType == "pedagogical") {
-		    $('#utterance').text("I have something to show you. Let me know when you're ready.");
-		}
+		$('#utterance').text('This is a '+stim.singular.toLowerCase()+'. Select another '+stim.singular.toLowerCase()+' from the ones below.')
 
 		exp.sound = new Audio('../_shared/audio/'+stim.sound+'.mp3');
+		exp.distractorClicks = 0;
 
 		const paper = new Raphael(document.getElementById('paper'), 800, 450);
+		const positions = _.shuffle([[300,200],[500,200],[300,300],[500,300]])
 		exp.paper = paper;
 		paper.image('../_shared/images/man.png', 0,0,250,430);
 		const button = paper.path();
 		var demoItem = paper.path(objectPaths[stim.shape](400,100)).attr("fill", stim.color);
-		if (stim.trialType == "pedagogical") {
-		    const speech = paper.set();
-		    speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
-		    speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
-		    speech.mouseover(function() {
-			speech.attr('cursor', 'pointer');
-		    })
-		    speech.click(function() {
-			speech.remove();
-			$('#utterance').text("This is a "+stim.singular.toLowerCase()+". Check it out!");
-			setTimeout(function() {
-			    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
-			    pointer.animate({x:360, y:110}, 1000, 'linear');
+		var activeItem = paper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
+		const distractors = paper.set();
+		stim.distractors.forEach(function(distractor, i) {
+		    distractors.push(paper.path(objectPaths[distractor.shape](positions[i+1][0], positions[i+1][1])).attr("fill", distractor.color).click(function() {
+			exp.distractorClicks ++;
+		    }));
+		});
+		activeItem.click(function() {
+		    distractors.remove();
+		    activeItem.remove();
+		    if (stim.trialType == "pedagogical") {
+			$('#utterance').text('Good work! Now I have something to show you.');
+			const speech = paper.set();
+			speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
+			speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
+			speech.mouseover(function() {
+			    speech.attr('cursor', 'pointer');
+			})
+			speech.click(function() {
+			    speech.remove();
+			    $('#utterance').text("This is a "+stim.singular.toLowerCase()+". Check it out!");
 			    setTimeout(function() {
-				paper.customAttributes.glow = demoItem.glow();
-				exp.sound.play();
+				const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
+				pointer.animate({x:360, y:110}, 1000, 'linear');
 				setTimeout(function() {
-				    paper.customAttributes.glow.remove();
-				},1000);
-			    }, 1000);
-			}, 1500
-				  )
-		    });
-		    
-		}
+				    paper.customAttributes.glow = demoItem.glow();
+				    exp.sound.play();
+				    $('.button').show();
+				    setTimeout(function() {
+					paper.customAttributes.glow.remove();
+				    },1000);
+				}, 1000);
+			    }, 1500
+				      )
+			});	
+		    } else {
+			$('#utterance').text('Good work! Now I have something to tell you.');
+			const speech = paper.set();
+			speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
+			speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
+			speech.mouseover(function() {
+			    speech.attr('cursor', 'pointer');
+			})
+			speech.click(function() {
+			    speech.remove();
+			    $('.button').show();
+			    $('#utterance').text(stim.plural+' '+stim.sound+'!');
+			});
+		    }
+		});
 	    } else if (stim.type == "response") {
 		$('#trial').hide();
 		$('#response').show();
 		$('.prompt').html('Imagine that you have another '+stim.singular.toLowerCase()+'. What are the chances that it '+stim.sound+'s?');
 		this.init_sliders();
 		exp.sliderPost = null;
-	    }
-	},
+	    } },
 	init_sliders : function() {
 	    utils.make_slider("#single_slider", function(event, ui) {
 		exp.sliderPost = ui.value;
@@ -117,7 +140,7 @@ function make_slides(f) {
 		if (exp.sliderPost === null) {
 		    $('.err').show();
 		} else {
-		    exp.data_trials.push(_.extend(this.stim, {response: exp.sliderPost}));
+		    exp.data_trials.push(_.extend(this.stim, {response: exp.sliderPost, distractorClicks: exp.distractorClicks}));
 		    _stream.apply(this);
 		}
 	    } else if (this.stim.type == "trial") {
@@ -205,7 +228,11 @@ function init() {
 
     exp.trials_data = [
 	_.extend(
-	    {trialType: exp.condition, type: "trial"},
+	    {
+		trialType: exp.condition,
+		type: "trial",
+		distractors: drag_and_drop.objects.slice(1,4)
+	    },
 	    drag_and_drop.objects[0],
 	),
 	_.extend(
