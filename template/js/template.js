@@ -123,7 +123,7 @@ function make_slides(f) {
 					}, 1500);
 				    });
 				}, 4000);
-			    } else {
+			    } else if (stim.trialType == "generic") {
 				$('#utterance').text('Now I have something to tell you. Are you ready?');
 				setTimeout(function() {
 				    const readyGeneric = new Audio('../_shared/audio/readyGeneric.m4a');
@@ -147,6 +147,28 @@ function make_slides(f) {
 					genericUtterance.play();
 				    });
 				}, 4000);
+			    } else if (stim.trialType == "accidental") {
+				$('#utterance').text("Now let's move on to something else. Are you ready?");
+				const speech = paper.set();
+				setTimeout(function() {
+				    speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
+				    speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
+				    speech.mouseover(function() {
+					speech.attr('cursor', 'pointer');
+				    })
+				    $('#instruct').text(bubbleText);
+				    speech.click(function() {
+					speech.remove();
+					$('.button').show();
+					$('#instruct').hide();
+					$('#utterance').text('Oops!');
+					console.log(demoItem);
+					demoItem.animate({path: objectPaths[stim.shape](270,400)}, 1000, 'linear');
+					setTimeout(function() {
+					    exp.sound.play();
+					}, 1000);
+				    });
+				}, 1000);
 			    }
 			});
 		    }, 2000);
@@ -237,7 +259,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["pedagogical","generic"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["pedagogical","generic", "accidental"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
