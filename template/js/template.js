@@ -59,7 +59,7 @@ function make_slides(f) {
 		$('#demoPaper').show();
 		$('.button').hide();
 		$('#testStatement').text('When you enter the lab, you see that there is a scientist already working in there. He says: ');
-		$('#utterance').text('This is a '+stim.singular.toLowerCase()+'. Select another '+stim.singular.toLowerCase()+' from the ones below.')
+		$('#utterance').text('This is a '+stim.singular.toLowerCase()+'.')
 
 		exp.sound = new Audio('../_shared/audio/'+stim.sound+'.mp3');
 		exp.distractorClicks = 0;
@@ -69,57 +69,88 @@ function make_slides(f) {
 		exp.paper = paper;
 		paper.image('../_shared/images/man.png', 0,0,250,430);
 		const button = paper.path();
-		var demoItem = paper.path(objectPaths[stim.shape](400,100)).attr("fill", stim.color);
-		var activeItem = paper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
+		var demoItem = paper.path(objectPaths[stim.shape](270,80)).attr("fill", stim.color);
+		let activeItem; 
 		const distractors = paper.set();
-		stim.distractors.forEach(function(distractor, i) {
-		    distractors.push(paper.path(objectPaths[distractor.shape](positions[i+1][0], positions[i+1][1])).attr("fill", distractor.color).click(function() {
-			exp.distractorClicks ++;
-		    }));
-		});
-		activeItem.click(function() {
-		    distractors.remove();
-		    activeItem.remove();
-		    if (stim.trialType == "pedagogical") {
-			$('#utterance').text('Good work! Now I have something to show you.');
-			const speech = paper.set();
-			speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
-			speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
-			speech.mouseover(function() {
-			    speech.attr('cursor', 'pointer');
-			})
-			speech.click(function() {
-			    speech.remove();
-			    $('#utterance').text("This is a "+stim.singular.toLowerCase()+". Check it out!");
-			    setTimeout(function() {
-				const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
-				pointer.animate({x:360, y:110}, 1000, 'linear');
-				setTimeout(function() {
-				    paper.customAttributes.glow = demoItem.glow();
-				    exp.sound.play();
-				    $('.button').show();
-				    setTimeout(function() {
-					paper.customAttributes.glow.remove();
-				    },1000);
-				}, 1000);
-			    }, 1500
-				      )
-			});	
-		    } else {
-			$('#utterance').text('Good work! Now I have something to tell you.');
-			const speech = paper.set();
-			speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
-			speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
-			speech.mouseover(function() {
-			    speech.attr('cursor', 'pointer');
-			})
-			speech.click(function() {
-			    speech.remove();
-			    $('.button').show();
-			    $('#utterance').text(stim.plural+' '+stim.sound+'!');
+		const bubbleText = '(Click on the speech bubble when you are ready.)';
+		setTimeout(function() {
+		    const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
+		    itemId.play();
+		    setTimeout(function() {
+			const instructions = paper.text(400, 130, 'Which one of these other ones is a '+stim.singular.toLowerCase()+'?').attr({"font-size": 20, "font-family": "Times New Roman"});
+			stim.distractors.forEach(function(distractor, i) {
+			    distractors.push(paper.path(objectPaths[distractor.shape](positions[i+1][0], positions[i+1][1])).attr("fill", distractor.color).click(function() {
+				exp.distractorClicks ++;
+			    }));
 			});
-		    }
-		});
+			activeItem = paper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
+			activeItem.click(function() {
+			    distractors.remove();
+			    activeItem.remove();
+			    instructions.remove();
+			    if (stim.trialType == "pedagogical") {
+				$('#utterance').text('Now I have something to show you. Are you ready?');
+				$('#instruct').show();
+				setTimeout(function() {
+				    const readyPedagogical = new Audio('../_shared/audio/readyPedagogical.m4a');
+				    readyPedagogical.play();
+				}, 500);
+				const speech = paper.set();
+				setTimeout(function() {
+				    speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
+				    speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
+				    speech.mouseover(function() {
+					speech.attr('cursor', 'pointer');
+				    })
+				    $('#instruct').text(bubbleText);
+				    speech.click(function() {
+					speech.remove();
+					$('#utterance').text("Watch this!");
+					$('#instruct').hide();
+					const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
+					pedagogical.play();
+					setTimeout(function() {
+					    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
+					    pointer.animate({x:230, y:90}, 1000, 'linear');
+					    setTimeout(function() {
+						paper.customAttributes.glow = demoItem.glow();
+						exp.sound.play();
+						$('.button').show();
+						setTimeout(function() {
+						    paper.customAttributes.glow.remove();
+						},1000);
+					    }, 1000);
+					}, 1500);
+				    });
+				}, 4000);
+			    } else {
+				$('#utterance').text('Now I have something to tell you. Are you ready?');
+				setTimeout(function() {
+				    const readyGeneric = new Audio('../_shared/audio/readyGeneric.m4a');
+				    readyGeneric.play();
+				}, 500);
+				const speech = paper.set();
+				setTimeout(function() {
+				    speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
+				    speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
+				    speech.mouseover(function() {
+					speech.attr('cursor', 'pointer');
+				    })
+				    $('#instruct').text(bubbleText);
+
+				    speech.click(function() {
+					speech.remove();
+					$('.button').show();
+					$('#utterance').text(stim.plural+' '+stim.sound+'!');
+					$('#instruct').hide();
+					const genericUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Generic.m4a');
+					genericUtterance.play();
+				    });
+				}, 4000);
+			    }
+			});
+		    }, 2000);
+		}, 1000);
 	    } else if (stim.type == "response") {
 		$('#trial').hide();
 		$('#response').show();
