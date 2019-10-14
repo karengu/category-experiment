@@ -80,7 +80,7 @@ function make_slides(f) {
 		    if (!accidental) {
 			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
 			pedagogical.play();
-			$('#utterance').text('Watch this!');
+			$('#utterance').text('Look at this!');
 		    }
 		    if (stim.sound) {
 			if (accidental) {
