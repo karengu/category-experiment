@@ -70,10 +70,10 @@ function make_slides(f) {
 		
 		let demoItem;
 		if (stim.singular.toLowerCase() === 'blicket') {
-		    demoItem = paper.path(objectPaths[stim.shape](270,80)).attr("fill", stim.color);
+		    demoItem = paper.path(objectPaths[stim.shape](270,100)).attr("fill", stim.color);
 		}
 		else {
-		    demoItem = paper.image('../_shared/images/'+stim.image, 230, 30, 80, 80);
+		    demoItem = paper.image('../_shared/images/'+stim.image, 230, 60, 80, 80);
 		}
 
 		function demo(accidental) {
@@ -106,7 +106,7 @@ function make_slides(f) {
 			} else {
 			    x = 230;
 			}
-			demoItem.animate({width: 320, height: 320, x: x}, 1000, 'linear', function() {
+			demoItem.animate({width: 320, height: 320, x: x, y:30}, 1000, 'linear', function() {
 			    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100).rotate(270);
 			    function animatePointer() {
 				$('.button').show();
@@ -187,10 +187,10 @@ function make_slides(f) {
 		    $('#utterance').text('Oh! This is a '+stim.singular.toLowerCase()+'.')
 		    const accidentalUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Accidental.m4a');
 		    accidentalUtterance.play();
-		    const cover = paper.rect(230, 30, 90, 90).attr({"fill": '#a3a399'});
+		    const cover = paper.image('../_shared/images/cover.png', 210, -40, 150, 230);
 		    const label = paper.set();
-		    label.push(paper.rect(315, 50, 50, 25).attr({"fill": '#fcfac2'}));
-		    label.push(paper.text(340, 65, stim.singular));
+		    label.push(paper.rect(305, 50, 50, 25).attr({"fill": '#fcfac2'}));
+		    label.push(paper.text(330, 65, stim.singular));
 		    setTimeout(function() {
 			if (stim.sound) {
 			    $('#utterance').text('Oops!');
@@ -219,7 +219,7 @@ function make_slides(f) {
 		    genericUtterance.play();
 		    setTimeout(function() {
 			$('.button').show();
-		    }, 1000)
+		    }, 2000)
 		}
 	    } else if (stim.type == "response") {
 		$('#trial').hide();
@@ -233,58 +233,6 @@ function make_slides(f) {
 		}
 		this.init_sliders();
 		exp.sliderPost = null;
-	    } else if (stim.type == "id") {
-		$('#trial').hide();
-		$('#response').hide();
-		$('#identification').show();
-		$('.err').hide();
-		$('.button').show();
-		$('#instructId').text('Which one of these other ones is a '+stim.singular.toLowerCase()+'?');
-		const paper = new Raphael(document.getElementById('paperId'), 800, 450);
-		exp.distractorPaper = paper;
-		const distractors = paper.set();
-		const positions = _.shuffle([[300,200],[500,200],[300,300],[500,300]])
-		let activeItem;
-		exp.correctId = false;
-		exp.distractorClicks = 0;
-		exp.selected = null;
-		const expScope = this;
-		let selection = null;
-
-		stim.distractors.forEach(function(distractor, i) {
-		    if (stim.image) {
-			distractors.push(paper.image('../_shared/images/'+distractor, positions[i+1][0]-50, positions[i+1][1]-50, 80, 80).click(function() {
-			    exp.distractorClicks ++;
-			    exp.correctId = false;
-			    exp.selected = distractor;
-			    if (selection !== null) {
-				selection.remove();
-			    }
-			    selection = paper.rect(positions[i+1][0]-50, positions[i+1][1]-50, 90, 90);
-			}));
-		    } else {
-			distractors.push(paper.path(objectPaths[distractor.shape](positions[i+1][0], positions[i+1][1])).attr("fill", distractor.color).click(function() {
-			    exp.distractorClicks ++;
-			    exp.correctId = false;
-			    exp.selected = distractor;
-			    if (selection !== null) {
-				selection.remove();
-			    }
-			    selection = paper.rect(positions[i+1][0]-50, positions[i+1][1]-50, 90, 90);			}));
-		    }
-		});
-		if (stim.image) {
-		    activeItem = paper.image('../_shared/images/'+stim.image, positions[0][0]-50, positions[0][1]-50, 80, 80);
-		} else {
-		    activeItem = paper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
-		}
-		activeItem.click(function() {
-		    exp.correctId = true;
-		    exp.selected = "correct";
-		    if (selection !== null) {
-			selection.remove();
-		    }
-		    selection = paper.rect(positions[0][0]-50, positions[0][1]-50, 90, 90);		});
 	    }
 	},
 	init_sliders : function() {
@@ -305,20 +253,79 @@ function make_slides(f) {
 		if (exp.paper) {
 		    exp.paper.remove();
 		}
-	    } else if (this.stim.type == "id") {
-		if (exp.selected === null) {
-		    $('.err').text('Please select a choice above.')
-		    $('.err').show();
-		} else {
-		    exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId}));
-		    _stream.apply(this);
-		    if (exp.distractorPaper) {
-			exp.distractorPaper.remove();
-		    }
-		}
 	    }
 	}
-    })
+    });
+
+    slides.identification = slide({
+	name: "identification",
+	present: exp.id_trials,
+	present_handle: function(stim) {
+	    $('.err').hide();
+	    $('.button').show();
+	    $('#instructId').text('Which one of these other ones is a '+stim.singular.toLowerCase()+'?');
+	    if (exp.distractorPaper) {
+		exp.distractorPaper.clear();
+	    } else {
+		const paper = new Raphael(document.getElementById('paperId'), 800, 450);
+		exp.distractorPaper = paper;
+	    }
+	    const distractors = exp.distractorPaper.set();
+	    const positions = _.shuffle([[300,200],[500,200],[300,300],[500,300]])
+	    let activeItem;
+	    exp.correctId = false;
+	    exp.distractorClicks = 0;
+	    exp.selected = null;
+	    const expScope = this;
+	    let selection = null;
+	    this.stim = stim;
+
+	    stim.distractors.forEach(function(distractor, i) {
+		if (stim.image) {
+		    distractors.push(exp.distractorPaper.image('../_shared/images/'+distractor, positions[i+1][0]-50, positions[i+1][1]-50, 80, 80).click(function() {
+			exp.distractorClicks ++;
+			exp.correctId = false;
+			exp.selected = distractor;
+			if (selection !== null) {
+			    selection.remove();
+			}
+			selection = exp.distractorPaper.rect(positions[i+1][0]-50, positions[i+1][1]-50, 90, 90);
+		    }));
+		} else {
+		    distractors.push(exp.distractorPaper.path(objectPaths[distractor.shape](positions[i+1][0], positions[i+1][1])).attr("fill", distractor.color).click(function() {
+			exp.distractorClicks ++;
+			exp.correctId = false;
+			exp.selected = distractor;
+			if (selection !== null) {
+			    selection.remove();
+			}
+			selection = exp.distractorPaper.rect(positions[i+1][0]-50, positions[i+1][1]-50, 90, 90);
+		    }));
+		}
+	    });
+	    if (stim.image) {
+		activeItem = exp.distractorPaper.image('../_shared/images/'+stim.image, positions[0][0]-50, positions[0][1]-50, 80, 80);
+	    } else {
+		activeItem = exp.distractorPaper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
+	    }
+	    activeItem.click(function() {
+		exp.correctId = true;
+		exp.selected = "correct";
+		if (selection !== null) {
+		    selection.remove();
+		}
+		selection = exp.distractorPaper.rect(positions[0][0]-50, positions[0][1]-50, 90, 90);
+	    });
+	},
+	button: function() {
+	    if (exp.selected === null) {
+		$('.err').show();
+	    } else {
+		exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId}));
+		_stream.apply(this);
+	    }
+	}
+    });
 
     slides.attention_check = slide({
 	name: "attention_check",
@@ -377,7 +384,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["accidental", "pedagogical", "pedageneric", "generic"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["accidental", "pedagogical", "pedageneric", "accidental"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
@@ -394,6 +401,7 @@ function init() {
 	'sound_check',
 	'introduction',
 	'trials',
+	'identification',
 	'subj_info', 'thanks'
     ];
 
@@ -423,8 +431,12 @@ function init() {
 		trial,
 	    )
 	]);
+    });
+
+    exp.id_trials = [];
+    trials.forEach(function(trial) {
 	if (exp.condition != "generic") {
-	    exp.trials_data = exp.trials_data.concat([
+	    exp.id_trials = exp.id_trials.concat([
 		_.extend(
 		    {type: "id"},
 		    trial,
