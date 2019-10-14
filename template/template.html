@@ -14,10 +14,10 @@
     <script type="text/javascript">
       function USOnly() {var accessKey = 'b487843addca6e9ec32e6ae28aeaa022';
 			 $.ajax({
-			     url: 'http://api.ipstack.com/check?access_key='+accessKey,
+			     url: 'https://geo.ipify.org/api/v1?apiKey=at_nuIzsEIQJAft6sr1WH67UTfFDeMIO',
 			     dataType: 'jsonp',
 			     success: function(json) {
-				 if (json.country_code != 'US') {
+				 if (json.location.country != 'US') {
 				     var slides = document.getElementsByClassName('slide');
 				     for (i=0; i<slides.length; i++) {
 					 slides[i].style.display = 'none';
@@ -32,7 +32,7 @@
     <script src="https://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
     <script type="text/javascript">
       function uniqueTurker() {
-          var ut_id = "abff21292ee266bce1b7f9540ab127c2";
+          var ut_id = "a926686853a963c1a6ebce41753ec6f2";
           if (UTWorkerLimitReached(ut_id)) {
               var slides = document.getElementsByClassName('slide');
               for (i=0; i<slides.length; i++) {
