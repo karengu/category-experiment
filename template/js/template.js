@@ -58,8 +58,6 @@ function make_slides(f) {
 		$('#identification').hide();
 		$('.err').hide();
 
-		$('#demoButton').show();
-		$('#demoPaper').show();
 		$('.button').hide();
 		$('#testStatement').text('When you enter the lab, you see that there is a scientist already working in there. He says: ');
 		if (stim.sound) {
@@ -86,7 +84,7 @@ function make_slides(f) {
 		    }
 		    if (stim.sound) {
 			if (accidental) {
-			    demoItem.animate({path:objectPaths[stim.shape](230,350)}, 1000, 'linear', function() {
+			    demoItem.animate({path:objectPaths[stim.shape](270,380)}, 1000, 'linear', function() {
 				exp.sound.play();
 				$('.button').show();
 			    });
@@ -126,10 +124,8 @@ function make_slides(f) {
 		    $('#utterance').text('This is a '+stim.singular.toLowerCase()+'.')
 		    const button = paper.path();
 		    const bubbleText = '(Click on the speech bubble when you are ready.)';
-		    if (stim.singular.toLowerCase() === 'blicket') {
-			const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
-			itemId.play();
-		    }
+		    const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
+		    itemId.play();
 		    setTimeout(function() {
 			$('#utterance').text('Now I have something to show you. Are you ready?');
 			$('#instruct').show();
@@ -148,23 +144,22 @@ function make_slides(f) {
 				demo(false);
 				$('#instruct').hide();
 			    });
-			}, 3000);
+			}, 4000);
 		    }, 2000);
 		}
 		else if (stim.trialType == "pedageneric") {
 		    $('#utterance').text('This is a '+stim.singular.toLowerCase()+'.')
 		    const button = paper.path();
 		    const bubbleText = '(Click on the speech bubble when you are ready.)';
-		    if (stim.singular.toLowerCase() === 'blicket') {
-			const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
-			itemId.play();
-		    }
+		    const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
+		    itemId.play();
 		    setTimeout(function() {
 			$('#utterance').text('Now I have something to tell you. Are you ready?');
 			const readyGeneric = new Audio('../_shared/audio/readyGeneric.m4a');
 			readyGeneric.play();
 			const speech = paper.set();
 			setTimeout(function() {
+			    $('#instruct').text(bubbleText);
 			    speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
 			    speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
 			    speech.mouseover(function() {
@@ -174,24 +169,24 @@ function make_slides(f) {
 
 			    speech.click(function() {
 				speech.remove();
-				$('.button').show();
+				setTimeout(function() {
+				    $('.button').show();
+				}, 2000);
 				if (stim.sound) {
 				    $('#utterance').text(stim.plural+' '+stim.sound+'!');
 				} else {
 				    $('#utterance').text(stim.plural+' '+stim.featurePlural+'!');
 				}
 				$('#instruct').hide();
-				if (stim.singular.toLowerCase() === 'blicket') {
-				    const genericUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Generic.m4a');
-				    genericUtterance.play();
-				}
+				const genericUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Generic.m4a');
+				genericUtterance.play();
 			    });
 			}, 4000);
 		    }, 2000);
 		} else if (stim.trialType == "accidental") {
 		    $('#utterance').text('Oh! This is a '+stim.singular.toLowerCase()+'.')
-		    const button = paper.path();
-		    const bubbleText = '(Click on the speech bubble when you are ready.)';
+		    const accidentalUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Accidental.m4a');
+		    accidentalUtterance.play();
 		    const cover = paper.rect(230, 30, 90, 90).attr({"fill": '#a3a399'});
 		    const label = paper.set();
 		    label.push(paper.rect(315, 50, 50, 25).attr({"fill": '#fcfac2'}));
@@ -199,9 +194,13 @@ function make_slides(f) {
 		    setTimeout(function() {
 			if (stim.sound) {
 			    $('#utterance').text('Oops!');
+			    const oops = new Audio('../_shared/audio/oops.m4a');
+			    oops.play();
 			}
 			else {
 			    $('#utterance').text("Oh! Look at that!");
+			    const accidental = new Audio('../_shared/audio/accidental.m4a');
+			    accidental.play();
 			}
 			cover.remove();
 			label.remove();
@@ -216,10 +215,8 @@ function make_slides(f) {
 			$('#utterance').text(stim.plural+' '+stim.featurePlural+'!');
 		    }
 		    $('#paper').hide();
-		    if (stim.singular.toLowerCase() === 'blicket') {
-			const genericUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Generic.m4a');
-			genericUtterance.play();
-		    }
+		    const genericUtterance = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Generic.m4a');
+		    genericUtterance.play();
 		    setTimeout(function() {
 			$('.button').show();
 		    }, 1000)
@@ -240,31 +237,40 @@ function make_slides(f) {
 		$('#trial').hide();
 		$('#response').hide();
 		$('#identification').show();
+		$('.err').hide();
+		$('.button').show();
 		$('#instructId').text('Which one of these other ones is a '+stim.singular.toLowerCase()+'?');
 		const paper = new Raphael(document.getElementById('paperId'), 800, 450);
-		exp.paper = paper;
+		exp.distractorPaper = paper;
 		const distractors = paper.set();
 		const positions = _.shuffle([[300,200],[500,200],[300,300],[500,300]])
 		let activeItem;
 		exp.correctId = false;
 		exp.distractorClicks = 0;
+		exp.selected = null;
 		const expScope = this;
+		let selection = null;
 
 		stim.distractors.forEach(function(distractor, i) {
 		    if (stim.image) {
-			distractors.push(paper.image('../_shared/images/'+distractor, positions[i+1][0]-50, positions[i+1][1]-50, 80, 80)).click(function() {
-			    paper.clear();
+			distractors.push(paper.image('../_shared/images/'+distractor, positions[i+1][0]-50, positions[i+1][1]-50, 80, 80).click(function() {
 			    exp.distractorClicks ++;
-			    exp.data_trials.push(_.extend(stim, {correctId: false}));
-			    _stream.apply(expScope);
-			});
+			    exp.correctId = false;
+			    exp.selected = distractor;
+			    if (selection !== null) {
+				selection.remove();
+			    }
+			    selection = paper.rect(positions[i+1][0]-50, positions[i+1][1]-50, 90, 90);
+			}));
 		    } else {
 			distractors.push(paper.path(objectPaths[distractor.shape](positions[i+1][0], positions[i+1][1])).attr("fill", distractor.color).click(function() {
-			    paper.clear();
 			    exp.distractorClicks ++;
-			    exp.data_trials.push(_.extend(stim, {correctId: false}));
-			    _stream.apply(expScope);
-			}));
+			    exp.correctId = false;
+			    exp.selected = distractor;
+			    if (selection !== null) {
+				selection.remove();
+			    }
+			    selection = paper.rect(positions[i+1][0]-50, positions[i+1][1]-50, 90, 90);			}));
 		    }
 		});
 		if (stim.image) {
@@ -273,11 +279,12 @@ function make_slides(f) {
 		    activeItem = paper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
 		}
 		activeItem.click(function() {
-		    paper.clear();
 		    exp.correctId = true;
-		    exp.data_trials.push(_.extend(stim, {correctId: true}));
-		    _stream.apply(expScope);
-		});
+		    exp.selected = "correct";
+		    if (selection !== null) {
+			selection.remove();
+		    }
+		    selection = paper.rect(positions[0][0]-50, positions[0][1]-50, 90, 90);		});
 	    }
 	},
 	init_sliders : function() {
@@ -286,9 +293,6 @@ function make_slides(f) {
 	    });
 	},
 	button: function() {
-	    if (exp.paper) {
-		exp.paper.remove();
-	    }
 	    if (this.stim.type == "response") {
 		if (exp.sliderPost === null) {
 		    $('.err').show();
@@ -298,6 +302,20 @@ function make_slides(f) {
 		}
 	    } else if (this.stim.type == "trial") {
 		_stream.apply(this);
+		if (exp.paper) {
+		    exp.paper.remove();
+		}
+	    } else if (this.stim.type == "id") {
+		if (exp.selected === null) {
+		    $('.err').text('Please select a choice above.')
+		    $('.err').show();
+		} else {
+		    exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId}));
+		    _stream.apply(this);
+		    if (exp.distractorPaper) {
+			exp.distractorPaper.remove();
+		    }
+		}
 	    }
 	}
     })
