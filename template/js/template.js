@@ -68,7 +68,8 @@ function make_slides(f) {
 
 		const paper = new Raphael(document.getElementById('paper'), 800, 450);
 		exp.paper = paper;
-		paper.image('../_shared/images/man.png', 0,0,250,430);
+		const man = paper.image('../_shared/images/man.png', 0,0,250,430);
+		
 		let demoItem;
 		if (stim.singular.toLowerCase() === 'blicket') {
 		    demoItem = paper.path(objectPaths[stim.shape](270,80)).attr("fill", stim.color);
@@ -76,6 +77,51 @@ function make_slides(f) {
 		else {
 		    demoItem = paper.image('../_shared/images/'+stim.image, 230, 30, 80, 80);
 		}
+
+		function demo(accidental) {
+		    if (!accidental) {
+			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
+			pedagogical.play();
+			$('#utterance').text('Watch this!');
+		    }
+		    if (stim.sound) {
+			if (accidental) {
+			    demoItem.animate({path:objectPaths[stim.shape](230,350)}, 1000, 'linear', function() {
+				exp.sound.play();
+				$('.button').show();
+			    });
+			} else {
+			    setTimeout(function() {
+				const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
+				pointer.animate({x:230, y:90}, 1000, 'linear');
+				setTimeout(function() {
+				    exp.sound.play();
+				    $('.button').show();
+				}, 1000);
+			    }, 1500);
+			}
+		    } else {
+			man.remove();
+			let x;
+			if (stim.singular.toLowerCase() == 'dax') {
+			    x = 300;
+			} else {
+			    x = 230;
+			}
+			demoItem.animate({width: 320, height: 320, x: x}, 1000, 'linear', function() {
+			    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100).rotate(270);
+			    function animatePointer() {
+				$('.button').show();
+				pointer.animate({x:600, y:0}, 500, 'linear', function() {
+				    pointer.animate({x:600, y:100}, 500, 'linear', animatePointer);
+				});
+				
+			    }
+			    animatePointer();
+			});
+		    }
+		}
+		
 		if (stim.trialType == "pedagogical") {
 		    $('#utterance').text('This is a '+stim.singular.toLowerCase()+'.')
 		    const button = paper.path();
@@ -99,24 +145,10 @@ function make_slides(f) {
 			    $('#instruct').text(bubbleText);
 			    speech.click(function() {
 				speech.remove();
-				if (stim.sound) {
-				    $('#utterance').text("Look at this! It "+stim.sound+"s!");
-				} else {
-				    $('#utterance').text("Look at this! It "+stim.featureSingular+"!");
-				}
+				demo(false);
 				$('#instruct').hide();
-				setTimeout(function() {
-				    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
-				    pointer.animate({x:230, y:90}, 1000, 'linear');
-				    setTimeout(function() {
-					if (stim.sound) {
-					    exp.sound.play();
-					}
-					$('.button').show();
-				    }, 1000);
-				}, 1500);
 			    });
-			}, 2000);
+			}, 3000);
 		    }, 2000);
 		}
 		else if (stim.trialType == "pedageneric") {
@@ -157,40 +189,26 @@ function make_slides(f) {
 			}, 4000);
 		    }, 2000);
 		} else if (stim.trialType == "accidental") {
-		    $('#utterance').text('Oh! This must be a '+stim.singular.toLowerCase()+'.')
+		    $('#utterance').text('Oh! This is a '+stim.singular.toLowerCase()+'.')
 		    const button = paper.path();
 		    const bubbleText = '(Click on the speech bubble when you are ready.)';
+		    const cover = paper.rect(230, 30, 90, 90).attr({"fill": '#a3a399'});
 		    const label = paper.set();
 		    label.push(paper.rect(315, 50, 50, 25).attr({"fill": '#fcfac2'}));
 		    label.push(paper.text(340, 65, stim.singular));
 		    setTimeout(function() {
-			$('#utterance').text("I noticed something. Are you ready?");
-			const speech = paper.set();
+			if (stim.sound) {
+			    $('#utterance').text('Oops!');
+			}
+			else {
+			    $('#utterance').text("Oh! Look at that!");
+			}
+			cover.remove();
+			label.remove();
 			setTimeout(function() {
-			    speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
-			    speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
-			    speech.mouseover(function() {
-				speech.attr('cursor', 'pointer');
-			    })
-			    $('#instruct').text(bubbleText);
-			    speech.click(function() {
-				speech.remove();
-				$('.button').show();
-				$('#instruct').hide();
-				$('#utterance').text('');
-				setTimeout(function() {
-				    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
-				    pointer.animate({x:230, y:90}, 1000, 'linear');
-				    setTimeout(function() {
-					if (stim.sound) {
-					    exp.sound.play();
-					}
-					$('.button').show();
-				    }, 1000);
-				}, 500);
-			    });
+			    demo(true);
 			}, 1000);
-		    }, 2000);
+		    }, 3000);
 		} else if (stim.trialType == "generic") {
 		    if (stim.sound) {
 			$('#utterance').text(stim.plural+' '+stim.sound+'!');
@@ -224,6 +242,7 @@ function make_slides(f) {
 		$('#identification').show();
 		$('#instructId').text('Which one of these other ones is a '+stim.singular.toLowerCase()+'?');
 		const paper = new Raphael(document.getElementById('paperId'), 800, 450);
+		exp.paper = paper;
 		const distractors = paper.set();
 		const positions = _.shuffle([[300,200],[500,200],[300,300],[500,300]])
 		let activeItem;
@@ -340,7 +359,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["pedagogical", "pedageneric", "generic", "accidental"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["accidental", "pedagogical", "pedageneric", "generic"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
