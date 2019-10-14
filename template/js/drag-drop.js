@@ -426,7 +426,24 @@ var drag_and_drop = {
       shape: "cone",
       investigator: "Paul",
       pronoun: "He"
-    }
+    }],
+    biologics: [
+	{
+	    plural: "Feps",
+	    singular: "Fep",
+	    image: 'animaltarget.png',
+	    featurePlural: 'have white wings',
+	    featureSingular: 'has white wings',
+	    distractors: ['animaldistractor1.png', 'animaldistractor2.png', 'animaldistractor3.png']
+	},
+	{
+	    plural: "Daxes",
+	    singular: "Dax",
+	    image: "planttarget.png",
+	    featurePlural: 'have spikes',
+	    featureSingular: 'has spikes',
+	    distractors: ['plantdistractor1.png', 'plantdistractor2.png', 'plantdistractor3.png']
+	}
     ],
 
     clone: function(shape, paper) { 
