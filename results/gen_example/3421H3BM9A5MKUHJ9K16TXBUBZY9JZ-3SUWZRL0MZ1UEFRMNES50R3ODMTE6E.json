@@ -1,0 +1,108 @@
+{
+ "AssignmentId": "3SUWZRL0MZ1UEFRMNES50R3ODMTE6E",
+ "WorkerId": "e40220da68a1619ff5900d32036179d9",
+ "HITId": "3421H3BM9A5MKUHJ9K16TXBUBZY9JZ",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-15T23:30:46.000Z",
+ "AcceptTime": "2019-10-14T23:29:57.000Z",
+ "SubmitTime": "2019-10-14T23:30:46.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 1
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 1
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 1
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 1440,
+   "screenW": 2560
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "",
+   "enjoyment": "-1",
+   "asses": "Yes",
+   "age": "",
+   "gender": "",
+   "education": "-1",
+   "comments": "",
+   "problems": "",
+   "fairprice": ""
+  },
+  "time_in_minutes": 0.7736833333333333,
+  "sound_check": {
+   "response": "tiger",
+   "test_word": "tiger"
+  }
+ }
+}
