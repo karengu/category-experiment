@@ -67,16 +67,18 @@ function make_slides(f) {
 		const paper = new Raphael(document.getElementById('paper'), 800, 450);
 		exp.paper = paper;
 		const man = paper.image('../_shared/images/man.png', 0,0,250,430);
+		const bubbleText = '(Click on the speech bubble when you are ready.)';
+
 		
 		let demoItem;
 		if (stim.singular.toLowerCase() === 'blicket') {
 		    demoItem = paper.path(objectPaths[stim.shape](270,100)).attr("fill", stim.color);
 		}
 		else {
-		    demoItem = paper.image('../_shared/images/'+stim.image, 230, 60, 80, 80);
+		    demoItem = paper.image('../_shared/images/'+stim.image, 250, 60, 80, 80);
 		}
 
-		function demo(accidental) {
+		function demo(accidental, item, xcoord, pointerLeft) {
 		    if (!accidental) {
 			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
 			pedagogical.play();
@@ -84,46 +86,90 @@ function make_slides(f) {
 		    }
 		    if (stim.sound) {
 			if (accidental) {
-			    demoItem.animate({path:objectPaths[stim.shape](270,380)}, 1000, 'linear', function() {
+			    item.animate({path:objectPaths[stim.shape](xcoord,380)}, 1000, 'linear', function() {
 				exp.sound.play();
 				$('.button').show();
 			    });
 			} else {
 			    setTimeout(function() {
-				const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
-				pointer.animate({x:230, y:90}, 1000, 'linear');
+				paper.pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
+				paper.pointer.animate({x:xcoord-40, y:90}, 1000, 'linear');
 				setTimeout(function() {
 				    exp.sound.play();
-				    $('.button').show();
 				}, 1000);
 			    }, 1500);
 			}
 		    } else {
-			man.remove();
-			let x;
-			if (stim.singular.toLowerCase() == 'dax') {
-			    x = 300;
-			} else {
-			    x = 230;
-			}
-			demoItem.animate({width: 320, height: 320, x: x, y:30}, 1000, 'linear', function() {
-			    const pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100).rotate(270);
-			    function animatePointer() {
-				$('.button').show();
-				pointer.animate({x:600, y:0}, 500, 'linear', function() {
-				    pointer.animate({x:600, y:100}, 500, 'linear', animatePointer);
-				});
-				
+			item.animate({width: 320, height: 320, x: xcoord, y:30}, 1000, 'linear', function() {
+			    if (!accidental) {
+				if (pointerLeft) {
+				     paper.pointer = paper.image('../_shared/images/pointer.png', 320, 100, 100, 100).rotate(90);
+				    function animatePointer() {
+					paper.pointer.animate({x:320, y:0}, 500, 'linear', function() {
+					    paper.pointer.animate({x:320, y:100}, 500, 'linear', animatePointer);
+					});
+					
+				    }
+				    animatePointer();
+				} else {
+				    paper.pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100).rotate(270);
+				    function animatePointer() {
+					paper.pointer.animate({x:600, y:0}, 500, 'linear', function() {
+					    paper.pointer.animate({x:600, y:100}, 500, 'linear', animatePointer);
+					});
+					
+				    }
+				    animatePointer();
+				}
 			    }
-			    animatePointer();
 			});
 		    }
+		}
+
+		function showPedagogical(item, xcoord, callback, pointerLeft) {
+		    $('#utterance').text('Now I have something to show you. Are you ready?');
+		    $('#instruct').show();
+		    const readyPedagogical = new Audio('../_shared/audio/readyPedagogical.m4a');
+		    readyPedagogical.play();
+		    const speech = paper.set();
+		    setTimeout(function() {
+			speech.push(paper.path(speech_bubble(600, 120)).attr({"stroke": 2, "fill": '#fcfac2'}));
+			speech.push(paper.text(600,150, "I'm ready!").attr({"font-size": 14}));
+			speech.mouseover(function() {
+			    speech.attr('cursor', 'pointer');
+			})
+			$('#instruct').text(bubbleText);
+			speech.click(function() {
+			    speech.remove();
+			    demo(false, item, xcoord, pointerLeft);
+			    $('#instruct').hide();
+			    callback();
+			});
+		    }, 4000);
+		}
+
+		function showAccidental(item, xcoord, callback) {
+		    if (stim.sound) {
+			$('#utterance').text('Oops!');
+			const oops = new Audio('../_shared/audio/oops.m4a');
+			oops.play();
+		    }
+		    else {
+			$('#utterance').text("Oh! Look at that!");
+			const accidental = new Audio('../_shared/audio/accidental.m4a');
+			accidental.play();
+		    }
+		    setTimeout(function() {
+			demo(true, item, xcoord);
+			setTimeout(function() {
+			    callback();
+			}, 3000);
+		    }, 1000);
 		}
 		
 		if (stim.trialType == "pedagogical") {
 		    $('#utterance').text('This is a '+stim.singular.toLowerCase()+'.')
 		    const button = paper.path();
-		    const bubbleText = '(Click on the speech bubble when you are ready.)';
 		    const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
 		    itemId.play();
 		    setTimeout(function() {
@@ -141,7 +187,13 @@ function make_slides(f) {
 			    $('#instruct').text(bubbleText);
 			    speech.click(function() {
 				speech.remove();
-				demo(false);
+				let x;
+				if (stim.singular.toLowerCase() == 'dax') {
+				    x = 300;
+				} else {
+				    x = 230;
+				}
+				demo(false, demoItem, x);
 				$('#instruct').hide();
 			    });
 			}, 4000);
@@ -150,7 +202,6 @@ function make_slides(f) {
 		else if (stim.trialType == "pedageneric") {
 		    $('#utterance').text('This is a '+stim.singular.toLowerCase()+'.')
 		    const button = paper.path();
-		    const bubbleText = '(Click on the speech bubble when you are ready.)';
 		    const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
 		    itemId.play();
 		    setTimeout(function() {
@@ -205,9 +256,102 @@ function make_slides(f) {
 			cover.remove();
 			label.remove();
 			setTimeout(function() {
-			    demo(true);
+			    let x;
+			    if (stim.sound) {
+				x = 270;
+			    } else if (stim.singular.toLowerCase() == 'dax') {
+				x = 300;
+			    } else {
+				x = 230;
+			    }
+			    demo(true, demoItem, x);
 			}, 1000);
 		    }, 3000);
+		} else if (stim.trialType == "2accidental") {
+		    let demoItem2;
+		    $('.button').hide();
+		    if (stim.singular.toLowerCase() === 'blicket') {
+			demoItem2 = paper.path(objectPaths[stim.shape](370,100)).attr("fill", stim.color);
+		    }
+		    else {
+			demoItem2 = paper.image('../_shared/images/'+stim.image, 330, 60, 80, 80);
+		    }
+
+		    
+		    $('#utterance').text('Oh! These are two '+stim.plural.toLowerCase()+'.');
+		    const cover1 = paper.image('../_shared/images/cover.png', 210, -40, 150, 230);
+		    const label1 = paper.set();
+		    label1.push(paper.rect(305, 50, 50, 25).attr({"fill": '#fcfac2'}));
+		    label1.push(paper.text(330, 65, stim.singular));
+		    const cover2 = paper.image('../_shared/images/cover.png', 310, -40, 150, 230);
+		    const label2 = paper.set();
+		    label2.push(paper.rect(405, 50, 50, 25).attr({"fill": '#fcfac2'}));
+		    label2.push(paper.text(430, 65, stim.singular));
+		    setTimeout(function() {
+			cover2.remove();
+			label2.remove();
+			let x;
+			if (stim.sound) {
+			    x = 370;
+			} else if (stim.singular.toLowerCase() == 'dax') {
+			    x = 330;
+			} else {
+			    x = 350;
+			}
+			showAccidental(demoItem2, x, function() {
+			    cover1.remove();
+			    label1.remove();
+			    demoItem2.remove();
+			    let x;
+			    if (stim.sound) {
+				x = 270;
+			    } else if (stim.singular.toLowerCase() == 'dax') {
+				x = 330;
+			    } else {
+				x = 350;
+			    }
+			    showAccidental(demoItem, x, function() {
+				$('.button').show();
+			    });
+			});
+		    }, 3000);
+		} else if (stim.trialType == "2pedagogical") {
+		    let demoItem2;
+		    if (stim.singular.toLowerCase() === 'blicket') {
+			demoItem2 = paper.path(objectPaths[stim.shape](370,100)).attr("fill", stim.color);
+		    }
+		    else {
+			demoItem2 = paper.image('../_shared/images/'+stim.image, 330, 60, 80, 80);
+		    }
+		    $('#utterance').text('These are two '+stim.plural.toLowerCase()+'.');
+		    $('.button').hide();
+		    setTimeout(function() {
+			let x;
+			if (stim.sound) {
+			    x = 370;
+			} else if (stim.singular.toLowerCase() == 'dax') {
+			    x = 330;
+			} else {
+			    x = 350;
+			}
+			showPedagogical(demoItem2, x, function() {
+			    setTimeout(function() {
+				demoItem2.remove();
+				let x;
+				if (stim.sound) {
+				    x = 270;
+				} else if (stim.singular.toLowerCase() == 'dax') {
+				    x = 330;
+				} else {
+				    x = 350;
+				}
+				paper.pointer.remove();
+				showPedagogical(demoItem, x, function() {
+				    $('.button').show();
+				}, stim.singular.toLowerCase() === 'fep');
+			    }, 5000);
+			}, stim.singular.toLowerCase() === 'fep');
+		    }, 2000);
 		} else if (stim.trialType == "generic") {
 		    if (stim.sound) {
 			$('#utterance').text(stim.plural+' '+stim.sound+'!');
@@ -245,12 +389,15 @@ function make_slides(f) {
 		if (exp.sliderPost === null) {
 		    $('.err').show();
 		} else {
-		    exp.data_trials.push(_.extend(this.stim, {response: exp.sliderPost}));
+		    exp.data_trials.push(_.extend(this.stim, {response: exp.sliderPost, condition: exp.condition}));
 		    _stream.apply(this);
 		}
 	    } else if (this.stim.type == "trial") {
 		_stream.apply(this);
 		if (exp.paper) {
+		    if (exp.paper.pointer) {
+			exp.paper.pointer.remove();
+		    }
 		    exp.paper.remove();
 		}
 	    }
@@ -321,7 +468,7 @@ function make_slides(f) {
 	    if (exp.selected === null) {
 		$('.err').show();
 	    } else {
-		exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId}));
+		exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId, condition: exp.condition}));
 		_stream.apply(this);
 	    }
 	}
@@ -384,7 +531,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["generic"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["2pedagogical", "2accidental"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
@@ -408,9 +555,10 @@ function init() {
     const trials = _.shuffle([
 	_.extend(
 	    {
-		distractors: drag_and_drop.objects.slice(1,4)
+		distractors: drag_and_drop.objects.slice(1,4),
+		featureSingular: drag_and_drop.objects[0].sound+"s",
 	    },
-	    drag_and_drop.objects[0]
+	    drag_and_drop.objects[0],
 	),
 	drag_and_drop.biologics[0],
 	drag_and_drop.biologics[1]    
