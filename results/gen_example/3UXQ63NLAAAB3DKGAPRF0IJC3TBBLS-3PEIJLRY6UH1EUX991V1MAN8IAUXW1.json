@@ -1,29 +1,15 @@
 {
- "AssignmentId": "3ZOTGHDK5JZLD428O5Y468TUZCDSOX",
- "WorkerId": "1f28a7cf89714d261c716240ba471f48",
- "HITId": "3XJOUITW8UFMQWUA2GQWHYOSJ1TTQA",
+ "AssignmentId": "3PEIJLRY6UH1EUX991V1MAN8IAUXW1",
+ "WorkerId": "06da494ca1f2daefe69ac25ae1ea1e35",
+ "HITId": "3UXQ63NLAAAB3DKGAPRF0IJC3TBBLS",
  "AssignmentStatus": "Submitted",
- "AutoApprovalTime": "2019-10-15T20:09:30.000Z",
- "AcceptTime": "2019-10-14T19:57:01.000Z",
- "SubmitTime": "2019-10-14T20:09:30.000Z",
+ "AutoApprovalTime": "2019-10-17T14:04:30.000Z",
+ "AcceptTime": "2019-10-16T13:41:38.000Z",
+ "SubmitTime": "2019-10-16T14:04:30.000Z",
  "answers": {
   "trials": [
    {
     "type": "response",
-    "plural": "Feps",
-    "singular": "Fep",
-    "image": "animaltarget.png",
-    "featurePlural": "have white wings",
-    "featureSingular": "has white wings",
-    "distractors": [
-     "animaldistractor1.png",
-     "animaldistractor2.png",
-     "animaldistractor3.png"
-    ],
-    "response": 0.98
-   },
-   {
-    "type": "response",
     "plural": "Daxes",
     "singular": "Dax",
     "image": "planttarget.png",
@@ -34,7 +20,23 @@
      "plantdistractor2.png",
      "plantdistractor3.png"
     ],
-    "response": 0.64
+    "response": 0.58,
+    "condition": "2accidental"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.69,
+    "condition": "2accidental"
    },
    {
     "type": "response",
@@ -70,6 +72,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -78,23 +81,8 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "response": 0.68
-   },
-   {
-    "type": "id",
-    "plural": "Feps",
-    "singular": "Fep",
-    "image": "animaltarget.png",
-    "featurePlural": "have white wings",
-    "featureSingular": "has white wings",
-    "distractors": [
-     "animaldistractor1.png",
-     "animaldistractor2.png",
-     "animaldistractor3.png"
-    ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "response": 0.4,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -110,7 +98,25 @@
     ],
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2accidental"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -146,6 +152,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -154,9 +161,19 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "distractorClicks": 1,
+    "selected": {
+     "plural": "Griffs",
+     "singular": "Griff",
+     "color": "#8b36c1",
+     "greyed": "#602784",
+     "sound": "whistle",
+     "shape": "hexagon",
+     "investigator": "James",
+     "pronoun": "He"
+    },
+    "correctId": false,
+    "condition": "2accidental"
    }
   ],
   "system": {
@@ -165,21 +182,21 @@
    "screenH": 768,
    "screenW": 1366
   },
-  "condition": "pedageneric",
+  "condition": "2accidental",
   "subject_information": {
-   "language": "English",
-   "enjoyment": "1",
+   "language": "ENGLISH ",
+   "enjoyment": "2",
    "asses": "Yes",
-   "age": "40",
-   "gender": "Female",
-   "education": "3",
-   "comments": "Make more hits like this ",
-   "problems": "no",
-   "fairprice": "Yeah somewhat"
+   "age": "30",
+   "gender": "Male",
+   "education": "4",
+   "comments": "GOOD",
+   "problems": "NO",
+   "fairprice": "0.75"
   },
-  "time_in_minutes": 3.32085,
+  "time_in_minutes": 6.2556666666666665,
   "sound_check": {
-   "response": "EVERGREEN",
+   "response": "skyscraper",
    "test_word": "evergreen"
   }
  }

@@ -1,11 +1,11 @@
 {
- "AssignmentId": "3ZOTGHDK5JZLD428O5Y468TUZCDSOX",
- "WorkerId": "1f28a7cf89714d261c716240ba471f48",
- "HITId": "3XJOUITW8UFMQWUA2GQWHYOSJ1TTQA",
+ "AssignmentId": "3RU7GD8VPPH3Y4E935BJV8YKAYPSPT",
+ "WorkerId": "29a6929fdba0408762326f36329f3245",
+ "HITId": "3P7QK0GJ3T91KP1O6XPD74R6OW5Z2W",
  "AssignmentStatus": "Submitted",
- "AutoApprovalTime": "2019-10-15T20:09:30.000Z",
- "AcceptTime": "2019-10-14T19:57:01.000Z",
- "SubmitTime": "2019-10-14T20:09:30.000Z",
+ "AutoApprovalTime": "2019-10-17T13:53:51.000Z",
+ "AcceptTime": "2019-10-16T13:41:31.000Z",
+ "SubmitTime": "2019-10-16T13:53:51.000Z",
  "answers": {
   "trials": [
    {
@@ -20,21 +20,8 @@
      "animaldistractor2.png",
      "animaldistractor3.png"
     ],
-    "response": 0.98
-   },
-   {
-    "type": "response",
-    "plural": "Daxes",
-    "singular": "Dax",
-    "image": "planttarget.png",
-    "featurePlural": "have black centers",
-    "featureSingular": "has a black center",
-    "distractors": [
-     "plantdistractor1.png",
-     "plantdistractor2.png",
-     "plantdistractor3.png"
-    ],
-    "response": 0.64
+    "response": 0.91,
+    "condition": "2pedagogical"
    },
    {
     "type": "response",
@@ -70,6 +57,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -78,7 +66,23 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "response": 0.68
+    "response": 0.9,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.89,
+    "condition": "2pedagogical"
    },
    {
     "type": "id",
@@ -94,23 +98,8 @@
     ],
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
-   },
-   {
-    "type": "id",
-    "plural": "Daxes",
-    "singular": "Dax",
-    "image": "planttarget.png",
-    "featurePlural": "have black centers",
-    "featureSingular": "has a black center",
-    "distractors": [
-     "plantdistractor1.png",
-     "plantdistractor2.png",
-     "plantdistractor3.png"
-    ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2pedagogical"
    },
    {
     "type": "id",
@@ -146,6 +135,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -156,7 +146,25 @@
     "pronoun": "She",
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2pedagogical"
    }
   ],
   "system": {
@@ -165,21 +173,21 @@
    "screenH": 768,
    "screenW": 1366
   },
-  "condition": "pedageneric",
+  "condition": "2pedagogical",
   "subject_information": {
    "language": "English",
    "enjoyment": "1",
    "asses": "Yes",
-   "age": "40",
-   "gender": "Female",
-   "education": "3",
-   "comments": "Make more hits like this ",
+   "age": "26",
+   "gender": "Male",
+   "education": "2",
+   "comments": "",
    "problems": "no",
-   "fairprice": "Yeah somewhat"
+   "fairprice": ".60"
   },
-  "time_in_minutes": 3.32085,
+  "time_in_minutes": 3.7902,
   "sound_check": {
-   "response": "EVERGREEN",
+   "response": "evergreen",
    "test_word": "evergreen"
   }
  }

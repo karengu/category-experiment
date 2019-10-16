@@ -1,11 +1,11 @@
 {
- "AssignmentId": "3ZOTGHDK5JZLD428O5Y468TUZCDSOX",
- "WorkerId": "1f28a7cf89714d261c716240ba471f48",
- "HITId": "3XJOUITW8UFMQWUA2GQWHYOSJ1TTQA",
+ "AssignmentId": "3HUTX6F6VVBS85LAUQJYFQGQ2ZV2OK",
+ "WorkerId": "e8c8de1749bd15d2b9fe2c04aa943dca",
+ "HITId": "36KM3FWE3R0B45S48FTGXW5SH5970T",
  "AssignmentStatus": "Submitted",
- "AutoApprovalTime": "2019-10-15T20:09:30.000Z",
- "AcceptTime": "2019-10-14T19:57:01.000Z",
- "SubmitTime": "2019-10-14T20:09:30.000Z",
+ "AutoApprovalTime": "2019-10-17T14:22:59.000Z",
+ "AcceptTime": "2019-10-16T13:41:31.000Z",
+ "SubmitTime": "2019-10-16T14:22:59.000Z",
  "answers": {
   "trials": [
    {
@@ -20,7 +20,8 @@
      "animaldistractor2.png",
      "animaldistractor3.png"
     ],
-    "response": 0.98
+    "response": 0.51,
+    "condition": "2accidental"
    },
    {
     "type": "response",
@@ -34,7 +35,8 @@
      "plantdistractor2.png",
      "plantdistractor3.png"
     ],
-    "response": 0.64
+    "response": 0.86,
+    "condition": "2accidental"
    },
    {
     "type": "response",
@@ -70,6 +72,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -78,7 +81,8 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "response": 0.68
+    "response": 0.97,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -94,7 +98,8 @@
     ],
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -110,7 +115,8 @@
     ],
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -146,6 +152,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -156,30 +163,31 @@
     "pronoun": "She",
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2accidental"
    }
   ],
   "system": {
    "Browser": "Chrome",
    "OS": "Windows",
-   "screenH": 768,
-   "screenW": 1366
+   "screenH": 1080,
+   "screenW": 1920
   },
-  "condition": "pedageneric",
+  "condition": "2accidental",
   "subject_information": {
    "language": "English",
    "enjoyment": "1",
    "asses": "Yes",
-   "age": "40",
-   "gender": "Female",
+   "age": "37",
+   "gender": "Male",
    "education": "3",
-   "comments": "Make more hits like this ",
+   "comments": "",
    "problems": "no",
-   "fairprice": "Yeah somewhat"
+   "fairprice": "0.75"
   },
-  "time_in_minutes": 3.32085,
+  "time_in_minutes": 17.28655,
   "sound_check": {
-   "response": "EVERGREEN",
+   "response": "evergreen",
    "test_word": "evergreen"
   }
  }

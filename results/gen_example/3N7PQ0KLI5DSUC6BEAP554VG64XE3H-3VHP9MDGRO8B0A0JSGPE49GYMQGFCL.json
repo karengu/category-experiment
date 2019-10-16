@@ -1,29 +1,15 @@
 {
- "AssignmentId": "3ZOTGHDK5JZLD428O5Y468TUZCDSOX",
- "WorkerId": "1f28a7cf89714d261c716240ba471f48",
- "HITId": "3XJOUITW8UFMQWUA2GQWHYOSJ1TTQA",
+ "AssignmentId": "3VHP9MDGRO8B0A0JSGPE49GYMQGFCL",
+ "WorkerId": "56fa903bda74c5ab4f7898c52a9fb341",
+ "HITId": "3N7PQ0KLI5DSUC6BEAP554VG64XE3H",
  "AssignmentStatus": "Submitted",
- "AutoApprovalTime": "2019-10-15T20:09:30.000Z",
- "AcceptTime": "2019-10-14T19:57:01.000Z",
- "SubmitTime": "2019-10-14T20:09:30.000Z",
+ "AutoApprovalTime": "2019-10-17T15:31:52.000Z",
+ "AcceptTime": "2019-10-16T15:25:40.000Z",
+ "SubmitTime": "2019-10-16T15:31:52.000Z",
  "answers": {
   "trials": [
    {
     "type": "response",
-    "plural": "Feps",
-    "singular": "Fep",
-    "image": "animaltarget.png",
-    "featurePlural": "have white wings",
-    "featureSingular": "has white wings",
-    "distractors": [
-     "animaldistractor1.png",
-     "animaldistractor2.png",
-     "animaldistractor3.png"
-    ],
-    "response": 0.98
-   },
-   {
-    "type": "response",
     "plural": "Daxes",
     "singular": "Dax",
     "image": "planttarget.png",
@@ -34,7 +20,8 @@
      "plantdistractor2.png",
      "plantdistractor3.png"
     ],
-    "response": 0.64
+    "response": 0.56,
+    "condition": "2pedagogical"
    },
    {
     "type": "response",
@@ -70,6 +57,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -78,10 +66,11 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "response": 0.68
+    "response": 0.87,
+    "condition": "2pedagogical"
    },
    {
-    "type": "id",
+    "type": "response",
     "plural": "Feps",
     "singular": "Fep",
     "image": "animaltarget.png",
@@ -92,9 +81,8 @@
      "animaldistractor2.png",
      "animaldistractor3.png"
     ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "response": 0.71,
+    "condition": "2pedagogical"
    },
    {
     "type": "id",
@@ -108,9 +96,10 @@
      "plantdistractor2.png",
      "plantdistractor3.png"
     ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "distractorClicks": 1,
+    "selected": "plantdistractor1.png",
+    "correctId": false,
+    "condition": "2pedagogical"
    },
    {
     "type": "id",
@@ -146,6 +135,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -154,9 +144,36 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "distractorClicks": 1,
+    "selected": {
+     "plural": "Feps",
+     "singular": "Fep",
+     "color": "#f45042",
+     "greyed": "#c14136",
+     "sound": "ring",
+     "shape": "pyramid",
+     "investigator": "Julie",
+     "pronoun": "She"
+    },
+    "correctId": false,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "distractorClicks": 1,
+    "selected": "animaldistractor2.png",
+    "correctId": false,
+    "condition": "2pedagogical"
    }
   ],
   "system": {
@@ -165,22 +182,22 @@
    "screenH": 768,
    "screenW": 1366
   },
-  "condition": "pedageneric",
+  "condition": "2pedagogical",
   "subject_information": {
    "language": "English",
-   "enjoyment": "1",
+   "enjoyment": "2",
    "asses": "Yes",
-   "age": "40",
-   "gender": "Female",
-   "education": "3",
-   "comments": "Make more hits like this ",
-   "problems": "no",
-   "fairprice": "Yeah somewhat"
+   "age": "28",
+   "gender": "Male",
+   "education": "4",
+   "comments": "",
+   "problems": "",
+   "fairprice": "1"
   },
-  "time_in_minutes": 3.32085,
+  "time_in_minutes": 4.2577,
   "sound_check": {
-   "response": "EVERGREEN",
-   "test_word": "evergreen"
+   "response": "tiger",
+   "test_word": "tiger"
   }
  }
 }

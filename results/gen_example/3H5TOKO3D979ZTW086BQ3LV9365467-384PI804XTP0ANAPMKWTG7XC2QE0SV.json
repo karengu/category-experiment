@@ -1,11 +1,11 @@
 {
- "AssignmentId": "3ZOTGHDK5JZLD428O5Y468TUZCDSOX",
- "WorkerId": "1f28a7cf89714d261c716240ba471f48",
- "HITId": "3XJOUITW8UFMQWUA2GQWHYOSJ1TTQA",
+ "AssignmentId": "384PI804XTP0ANAPMKWTG7XC2QE0SV",
+ "WorkerId": "01636a7bf35ed05c9efac81b10b12fcf",
+ "HITId": "3H5TOKO3D979ZTW086BQ3LV9365467",
  "AssignmentStatus": "Submitted",
- "AutoApprovalTime": "2019-10-15T20:09:30.000Z",
- "AcceptTime": "2019-10-14T19:57:01.000Z",
- "SubmitTime": "2019-10-14T20:09:30.000Z",
+ "AutoApprovalTime": "2019-10-17T14:22:24.000Z",
+ "AcceptTime": "2019-10-16T13:41:34.000Z",
+ "SubmitTime": "2019-10-16T14:22:24.000Z",
  "answers": {
   "trials": [
    {
@@ -20,21 +20,8 @@
      "animaldistractor2.png",
      "animaldistractor3.png"
     ],
-    "response": 0.98
-   },
-   {
-    "type": "response",
-    "plural": "Daxes",
-    "singular": "Dax",
-    "image": "planttarget.png",
-    "featurePlural": "have black centers",
-    "featureSingular": "has a black center",
-    "distractors": [
-     "plantdistractor1.png",
-     "plantdistractor2.png",
-     "plantdistractor3.png"
-    ],
-    "response": 0.64
+    "response": 0.48,
+    "condition": "2accidental"
    },
    {
     "type": "response",
@@ -70,6 +57,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -78,7 +66,23 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "response": 0.68
+    "response": 0.84,
+    "condition": "2accidental"
+   },
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.75,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -94,23 +98,8 @@
     ],
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
-   },
-   {
-    "type": "id",
-    "plural": "Daxes",
-    "singular": "Dax",
-    "image": "planttarget.png",
-    "featurePlural": "have black centers",
-    "featureSingular": "has a black center",
-    "distractors": [
-     "plantdistractor1.png",
-     "plantdistractor2.png",
-     "plantdistractor3.png"
-    ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2accidental"
    },
    {
     "type": "id",
@@ -146,6 +135,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -156,31 +146,49 @@
     "pronoun": "She",
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2accidental"
+   },
+   {
+    "type": "id",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2accidental"
    }
   ],
   "system": {
    "Browser": "Chrome",
-   "OS": "Windows",
-   "screenH": 768,
-   "screenW": 1366
+   "OS": "Mac",
+   "screenH": 1080,
+   "screenW": 1920
   },
-  "condition": "pedageneric",
+  "condition": "2accidental",
   "subject_information": {
-   "language": "English",
+   "language": "english",
    "enjoyment": "1",
-   "asses": "Yes",
-   "age": "40",
-   "gender": "Female",
-   "education": "3",
-   "comments": "Make more hits like this ",
-   "problems": "no",
-   "fairprice": "Yeah somewhat"
+   "asses": "No",
+   "age": "33",
+   "gender": "Male",
+   "education": "1",
+   "comments": "",
+   "problems": "",
+   "fairprice": ".75"
   },
-  "time_in_minutes": 3.32085,
+  "time_in_minutes": 4.183983333333333,
   "sound_check": {
-   "response": "EVERGREEN",
-   "test_word": "evergreen"
+   "response": "tiger",
+   "test_word": "tiger"
   }
  }
 }

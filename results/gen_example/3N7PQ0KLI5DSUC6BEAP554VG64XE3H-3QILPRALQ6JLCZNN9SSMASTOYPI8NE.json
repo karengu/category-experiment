@@ -1,43 +1,15 @@
 {
- "AssignmentId": "3ZOTGHDK5JZLD428O5Y468TUZCDSOX",
- "WorkerId": "1f28a7cf89714d261c716240ba471f48",
- "HITId": "3XJOUITW8UFMQWUA2GQWHYOSJ1TTQA",
+ "AssignmentId": "3QILPRALQ6JLCZNN9SSMASTOYPI8NE",
+ "WorkerId": "3ec20d17524d426c0493d3f046921bee",
+ "HITId": "3N7PQ0KLI5DSUC6BEAP554VG64XE3H",
  "AssignmentStatus": "Submitted",
- "AutoApprovalTime": "2019-10-15T20:09:30.000Z",
- "AcceptTime": "2019-10-14T19:57:01.000Z",
- "SubmitTime": "2019-10-14T20:09:30.000Z",
+ "AutoApprovalTime": "2019-10-17T13:44:42.000Z",
+ "AcceptTime": "2019-10-16T13:41:36.000Z",
+ "SubmitTime": "2019-10-16T13:44:42.000Z",
  "answers": {
   "trials": [
    {
     "type": "response",
-    "plural": "Feps",
-    "singular": "Fep",
-    "image": "animaltarget.png",
-    "featurePlural": "have white wings",
-    "featureSingular": "has white wings",
-    "distractors": [
-     "animaldistractor1.png",
-     "animaldistractor2.png",
-     "animaldistractor3.png"
-    ],
-    "response": 0.98
-   },
-   {
-    "type": "response",
-    "plural": "Daxes",
-    "singular": "Dax",
-    "image": "planttarget.png",
-    "featurePlural": "have black centers",
-    "featureSingular": "has a black center",
-    "distractors": [
-     "plantdistractor1.png",
-     "plantdistractor2.png",
-     "plantdistractor3.png"
-    ],
-    "response": 0.64
-   },
-   {
-    "type": "response",
     "distractors": [
      {
       "plural": "Daxes",
@@ -70,6 +42,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -78,10 +51,11 @@
     "shape": "diamond",
     "investigator": "Ashley",
     "pronoun": "She",
-    "response": 0.68
+    "response": 1,
+    "condition": "2pedagogical"
    },
    {
-    "type": "id",
+    "type": "response",
     "plural": "Feps",
     "singular": "Fep",
     "image": "animaltarget.png",
@@ -92,12 +66,11 @@
      "animaldistractor2.png",
      "animaldistractor3.png"
     ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "response": 1,
+    "condition": "2pedagogical"
    },
    {
-    "type": "id",
+    "type": "response",
     "plural": "Daxes",
     "singular": "Dax",
     "image": "planttarget.png",
@@ -108,9 +81,8 @@
      "plantdistractor2.png",
      "plantdistractor3.png"
     ],
-    "distractorClicks": 0,
-    "selected": "correct",
-    "correctId": true
+    "response": 1,
+    "condition": "2pedagogical"
    },
    {
     "type": "id",
@@ -146,6 +118,7 @@
       "pronoun": "She"
      }
     ],
+    "featureSingular": "squeaks",
     "plural": "Blickets",
     "singular": "Blicket",
     "color": "#f44248",
@@ -156,31 +129,66 @@
     "pronoun": "She",
     "distractorClicks": 0,
     "selected": "correct",
-    "correctId": true
+    "correctId": true,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2pedagogical"
    }
   ],
   "system": {
    "Browser": "Chrome",
-   "OS": "Windows",
+   "OS": "Linux",
    "screenH": 768,
    "screenW": 1366
   },
-  "condition": "pedageneric",
+  "condition": "2pedagogical",
   "subject_information": {
    "language": "English",
-   "enjoyment": "1",
+   "enjoyment": "2",
    "asses": "Yes",
-   "age": "40",
+   "age": "35",
    "gender": "Female",
-   "education": "3",
-   "comments": "Make more hits like this ",
+   "education": "2",
+   "comments": "This was fun",
    "problems": "no",
-   "fairprice": "Yeah somewhat"
+   "fairprice": ".50"
   },
-  "time_in_minutes": 3.32085,
+  "time_in_minutes": 2.747733333333333,
   "sound_check": {
-   "response": "EVERGREEN",
-   "test_word": "evergreen"
+   "response": "tiger",
+   "test_word": "tiger"
   }
  }
 }
