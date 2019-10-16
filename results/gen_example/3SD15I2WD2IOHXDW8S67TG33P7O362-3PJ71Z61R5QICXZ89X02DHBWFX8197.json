@@ -1,0 +1,112 @@
+{
+ "AssignmentId": "3PJ71Z61R5QICXZ89X02DHBWFX8197",
+ "WorkerId": "cbb140de1834c495fa3642f1e32e142f",
+ "HITId": "3SD15I2WD2IOHXDW8S67TG33P7O362",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T20:44:30.000Z",
+ "AcceptTime": "2019-10-16T20:20:33.000Z",
+ "SubmitTime": "2019-10-16T20:44:30.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 1,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.98,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.97,
+    "condition": "generic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 864,
+   "screenW": 1536
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "25",
+   "gender": "Male",
+   "education": "3",
+   "comments": "",
+   "problems": "",
+   "fairprice": "0.75"
+  },
+  "time_in_minutes": 1.66645,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

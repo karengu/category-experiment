@@ -1,0 +1,112 @@
+{
+ "AssignmentId": "3YDGXNSEO0IZQRDHRNDQBJNO7B048Y",
+ "WorkerId": "1fa68b0e7666f022dae6304d9dec4bb9",
+ "HITId": "3UEBBGULPFC4ZKJQO55CAV6GVJBFUP",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T20:28:07.000Z",
+ "AcceptTime": "2019-10-16T20:23:47.000Z",
+ "SubmitTime": "2019-10-16T20:28:07.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.89,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.91,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.87,
+    "condition": "generic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 864,
+   "screenW": 1536
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "38",
+   "gender": "Male",
+   "education": "3",
+   "comments": "",
+   "problems": "no",
+   "fairprice": ".75"
+  },
+  "time_in_minutes": 1.7340166666666668,
+  "sound_check": {
+   "response": "Tiger",
+   "test_word": "tiger"
+  }
+ }
+}

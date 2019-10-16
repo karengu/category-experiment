@@ -1,0 +1,193 @@
+{
+ "AssignmentId": "3ZGVPD4G6U5YR8TUFEEBWBWKMJNTZN",
+ "WorkerId": "5f09ca5a6ec6ebbc4f8a5af97f1d87df",
+ "HITId": "36KM3FWE3R0B45S48FTGXW5SH5970T",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T20:36:58.000Z",
+ "AcceptTime": "2019-10-16T20:20:38.000Z",
+ "SubmitTime": "2019-10-16T20:36:58.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.66,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.68,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.72,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "2pedagogical"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 1080,
+   "screenW": 1920
+  },
+  "condition": "2pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "-1",
+   "age": "28",
+   "gender": "Female",
+   "education": "1",
+   "comments": "",
+   "problems": "",
+   "fairprice": ""
+  },
+  "time_in_minutes": 16.292,
+  "sound_check": {
+   "response": "tiger",
+   "test_word": "tiger"
+  }
+ }
+}

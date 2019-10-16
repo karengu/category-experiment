@@ -1,0 +1,194 @@
+{
+ "AssignmentId": "3VJ40NV2QJBMS4FND53UGDPG2FKOTG",
+ "WorkerId": "78edc713a850c9cff859275c35b583b2",
+ "HITId": "3UEBBGULPFC4ZKJQO55CAV6GVJBFUP",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T21:31:01.000Z",
+ "AcceptTime": "2019-10-16T21:21:01.000Z",
+ "SubmitTime": "2019-10-16T21:31:01.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.54,
+    "condition": "pedagogical"
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.98,
+    "condition": "pedagogical"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.54,
+    "condition": "pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "pedagogical"
+   },
+   {
+    "type": "id",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "pedagogical"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "pedagogical"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 900,
+   "screenW": 1440
+  },
+  "condition": "pedagogical",
+  "subject_information": {
+   "language": "Italian",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "42",
+   "gender": "Female",
+   "education": "2",
+   "comments": "",
+   "problems": "NO",
+   "fairprice": "yes"
+  },
+  "time_in_minutes": 3.6535,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

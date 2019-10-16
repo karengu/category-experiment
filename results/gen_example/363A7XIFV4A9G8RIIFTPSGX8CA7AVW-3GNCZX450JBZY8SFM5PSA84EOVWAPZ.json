@@ -1,0 +1,112 @@
+{
+ "AssignmentId": "3GNCZX450JBZY8SFM5PSA84EOVWAPZ",
+ "WorkerId": "d1338b2812359f06a72f0aeda647bfef",
+ "HITId": "363A7XIFV4A9G8RIIFTPSGX8CA7AVW",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T20:27:06.000Z",
+ "AcceptTime": "2019-10-16T20:23:57.000Z",
+ "SubmitTime": "2019-10-16T20:27:06.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 1,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 1,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.8,
+    "condition": "generic"
+   }
+  ],
+  "system": {
+   "Browser": "Firefox",
+   "OS": "Windows",
+   "screenH": 1080,
+   "screenW": 1920
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "30",
+   "gender": "Male",
+   "education": "1",
+   "comments": "I didn't necessarily understand the experiment or what it was testing for, but it was interesting",
+   "problems": "none",
+   "fairprice": ".75"
+  },
+  "time_in_minutes": 2.26515,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

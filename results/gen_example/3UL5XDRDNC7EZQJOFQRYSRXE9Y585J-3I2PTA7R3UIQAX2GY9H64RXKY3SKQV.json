@@ -1,0 +1,112 @@
+{
+ "AssignmentId": "3I2PTA7R3UIQAX2GY9H64RXKY3SKQV",
+ "WorkerId": "58b513783ee33c3c4182ca6d4b173fc9",
+ "HITId": "3UL5XDRDNC7EZQJOFQRYSRXE9Y585J",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T22:43:13.000Z",
+ "AcceptTime": "2019-10-16T22:21:29.000Z",
+ "SubmitTime": "2019-10-16T22:43:13.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.49,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.72,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.34,
+    "condition": "generic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 900,
+   "screenW": 1440
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "1",
+   "asses": "No",
+   "age": "25",
+   "gender": "Male",
+   "education": "3",
+   "comments": "good",
+   "problems": "nothing",
+   "fairprice": "very"
+  },
+  "time_in_minutes": 2.8421833333333333,
+  "sound_check": {
+   "response": "hi",
+   "test_word": "tiger"
+  }
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "AssignmentId": "3AMYWKA6YCAGQ64BHSV153X2I7A6OO",
+ "WorkerId": "3c1d3dced02667537f6e8124b33cf77f",
+ "HITId": "3BFNCI9LYKE7LXR1R2BZZU3ZKI8371",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T20:39:19.000Z",
+ "AcceptTime": "2019-10-16T20:20:41.000Z",
+ "SubmitTime": "2019-10-16T20:39:19.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.76,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.76,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 0.96,
+    "condition": "generic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 665,
+   "screenW": 1182
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "1",
+   "asses": "Yes",
+   "age": "45",
+   "gender": "Female",
+   "education": "2",
+   "comments": "The test word was really odd, and I still don't know if it was right.",
+   "problems": "",
+   "fairprice": "0.75"
+  },
+  "time_in_minutes": 1.8329833333333334,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "AssignmentId": "3P1L2B7AD2DY9R7I4W13UMFZ82YOLD",
+ "WorkerId": "8db6d93600cd1f7a16462698465b66fd",
+ "HITId": "3BFNCI9LYKE7LXR1R2BZZU3ZKI8371",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2019-10-17T20:32:40.000Z",
+ "AcceptTime": "2019-10-16T20:20:31.000Z",
+ "SubmitTime": "2019-10-16T20:32:40.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Daxes",
+    "singular": "Dax",
+    "image": "planttarget.png",
+    "featurePlural": "have black centers",
+    "featureSingular": "has a black center",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "response": 0.97,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "image": "animaltarget.png",
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "response": 1,
+    "condition": "generic"
+   },
+   {
+    "type": "response",
+    "distractors": [
+     {
+      "plural": "Daxes",
+      "singular": "Dax",
+      "color": "#ff0",
+      "greyed": "#999937",
+      "sound": "beep",
+      "shape": "cylinder",
+      "investigator": "Beth",
+      "pronoun": "She"
+     },
+     {
+      "plural": "Griffs",
+      "singular": "Griff",
+      "color": "#8b36c1",
+      "greyed": "#602784",
+      "sound": "whistle",
+      "shape": "hexagon",
+      "investigator": "James",
+      "pronoun": "He"
+     },
+     {
+      "plural": "Feps",
+      "singular": "Fep",
+      "color": "#f45042",
+      "greyed": "#c14136",
+      "sound": "ring",
+      "shape": "pyramid",
+      "investigator": "Julie",
+      "pronoun": "She"
+     }
+    ],
+    "featureSingular": "squeaks",
+    "plural": "Blickets",
+    "singular": "Blicket",
+    "color": "#f44248",
+    "greyed": "#992a34",
+    "sound": "squeak",
+    "shape": "diamond",
+    "investigator": "Ashley",
+    "pronoun": "She",
+    "response": 0.98,
+    "condition": "generic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 768,
+   "screenW": 1366
+  },
+  "condition": "generic",
+  "subject_information": {
+   "language": "english",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "67",
+   "gender": "Female",
+   "education": "2",
+   "comments": "",
+   "problems": "no, except the recorded word on the first page was not a real word, but I assume it was intentional",
+   "fairprice": "75"
+  },
+  "time_in_minutes": 3.59545,
+  "sound_check": {
+   "response": "abergreen",
+   "test_word": "evergreen"
+  }
+ }
+}
