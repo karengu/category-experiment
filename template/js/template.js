@@ -88,7 +88,6 @@ function make_slides(f) {
 			if (accidental) {
 			    item.animate({path:objectPaths[stim.shape](xcoord,380)}, 1000, 'linear', function() {
 				exp.sound.play();
-				$('.button').show();
 			    });
 			} else {
 			    setTimeout(function() {
@@ -143,7 +142,9 @@ function make_slides(f) {
 			    speech.remove();
 			    demo(false, item, xcoord, pointerLeft);
 			    $('#instruct').hide();
-			    callback();
+			    setTimeout(function() {
+				callback();
+			    }, 5000);
 			});
 		    }, 4000);
 		}
@@ -271,10 +272,10 @@ function make_slides(f) {
 		    let demoItem2;
 		    $('.button').hide();
 		    if (stim.singular.toLowerCase() === 'blicket') {
-			demoItem2 = paper.path(objectPaths[stim.shape](370,100)).attr("fill", stim.color);
+			demoItem2 = paper.path(objectPaths[stim.shape](450,100)).attr("fill", stim.color);
 		    }
 		    else {
-			demoItem2 = paper.image('../_shared/images/'+stim.image, 330, 60, 80, 80);
+			demoItem2 = paper.image('../_shared/images/'+stim.image, 410, 60, 80, 80);
 		    }
 
 		    
@@ -283,16 +284,16 @@ function make_slides(f) {
 		    const label1 = paper.set();
 		    label1.push(paper.rect(305, 50, 50, 25).attr({"fill": '#fcfac2'}));
 		    label1.push(paper.text(330, 65, stim.singular));
-		    const cover2 = paper.image('../_shared/images/cover.png', 310, -40, 150, 230);
+		    const cover2 = paper.image('../_shared/images/cover.png', 390, -40, 150, 230);
 		    const label2 = paper.set();
-		    label2.push(paper.rect(405, 50, 50, 25).attr({"fill": '#fcfac2'}));
-		    label2.push(paper.text(430, 65, stim.singular));
+		    label2.push(paper.rect(485, 50, 50, 25).attr({"fill": '#fcfac2'}));
+		    label2.push(paper.text(510, 65, stim.singular));
 		    setTimeout(function() {
 			cover2.remove();
 			label2.remove();
 			let x;
 			if (stim.sound) {
-			    x = 370;
+			    x = 460;
 			} else if (stim.singular.toLowerCase() == 'dax') {
 			    x = 330;
 			} else {
@@ -335,21 +336,19 @@ function make_slides(f) {
 			    x = 350;
 			}
 			showPedagogical(demoItem2, x, function() {
-			    setTimeout(function() {
-				demoItem2.remove();
-				let x;
-				if (stim.sound) {
-				    x = 270;
-				} else if (stim.singular.toLowerCase() == 'dax') {
-				    x = 330;
-				} else {
-				    x = 350;
-				}
-				paper.pointer.remove();
-				showPedagogical(demoItem, x, function() {
-				    $('.button').show();
-				}, stim.singular.toLowerCase() === 'fep');
-			    }, 5000);
+			    demoItem2.remove();
+			    let x;
+			    if (stim.sound) {
+				x = 270;
+			    } else if (stim.singular.toLowerCase() == 'dax') {
+				x = 330;
+			    } else {
+				x = 350;
+			    }
+			    paper.pointer.remove();
+			    showPedagogical(demoItem, x, function() {
+				$('.button').show();
+			    }, stim.singular.toLowerCase() === 'fep');
 			}, stim.singular.toLowerCase() === 'fep');
 		    }, 2000);
 		} else if (stim.trialType == "generic") {
