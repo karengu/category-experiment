@@ -102,7 +102,7 @@ function make_slides(f) {
 			item.animate({width: 320, height: 320, x: xcoord, y:30}, 1000, 'linear', function() {
 			    if (!accidental) {
 				if (pointerLeft) {
-				     paper.pointer = paper.image('../_shared/images/pointer.png', 320, 100, 100, 100).rotate(90);
+				    paper.pointer = paper.image('../_shared/images/pointer.png', 320, 100, 100, 100).rotate(90);
 				    function animatePointer() {
 					paper.pointer.animate({x:320, y:0}, 500, 'linear', function() {
 					    paper.pointer.animate({x:320, y:100}, 500, 'linear', animatePointer);
@@ -144,7 +144,7 @@ function make_slides(f) {
 			    $('#instruct').hide();
 			    setTimeout(function() {
 				callback();
-			    }, 5000);
+			    }, 4000);
 			});
 		    }, 4000);
 		}
@@ -162,9 +162,7 @@ function make_slides(f) {
 		    }
 		    setTimeout(function() {
 			demo(true, item, xcoord);
-			setTimeout(function() {
-			    callback();
-			}, 3000);
+			callback();
 		    }, 1000);
 		}
 		
@@ -269,6 +267,8 @@ function make_slides(f) {
 			}, 1000);
 		    }, 3000);
 		} else if (stim.trialType == "2accidental") {
+		    const accidentalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Accidental.m4a');
+		    accidentalUtterance.play();
 		    let demoItem2;
 		    $('.button').hide();
 		    if (stim.singular.toLowerCase() === 'blicket') {
@@ -289,34 +289,60 @@ function make_slides(f) {
 		    label2.push(paper.rect(485, 50, 50, 25).attr({"fill": '#fcfac2'}));
 		    label2.push(paper.text(510, 65, stim.singular));
 		    setTimeout(function() {
-			cover2.remove();
-			label2.remove();
 			let x;
+			let item;
 			if (stim.sound) {
-			    x = 460;
-			} else if (stim.singular.toLowerCase() == 'dax') {
-			    x = 330;
-			} else {
-			    x = 350;
-			}
-			showAccidental(demoItem2, x, function() {
+			    item = demoItem;
 			    cover1.remove();
 			    label1.remove();
-			    demoItem2.remove();
-			    let x;
-			    if (stim.sound) {
-				x = 270;
-			    } else if (stim.singular.toLowerCase() == 'dax') {
+			    x = 270;
+			} else {
+			    item = demoItem2;
+			    cover2.remove();
+			    label2.remove();
+			    if (stim.singular.toLowerCase() == 'dax') {
 				x = 330;
 			    } else {
 				x = 350;
 			    }
-			    showAccidental(demoItem, x, function() {
-				$('.button').show();
-			    });
+			}
+			showAccidental(item, x, function() {
+			    let x;
+			    let item;
+			    if (stim.sound) {
+				item = demoItem2;
+				setTimeout(function() {
+				    man.animate({x:150}, 1000, 'linear');
+				    demoItem.remove();
+				}, 2000);
+				setTimeout(function() {
+				    cover2.remove();
+				    label2.remove();
+				}, 3000);
+				x = 460;
+			    } else {
+				item = demoItem;
+				setTimeout(function() {
+				    cover1.remove();
+				    label1.remove();
+				    demoItem2.remove();
+				}, 3000);
+				if (stim.singular.toLowerCase() == 'dax') {
+				    x = 330;
+				} else {
+				    x = 350;
+				}
+			    }
+			    setTimeout(function() {
+				showAccidental(item, x, function() {
+				    $('.button').show();
+				});
+			    }, 3000);
 			});
 		    }, 3000);
 		} else if (stim.trialType == "2pedagogical") {
+		    const pedagogicalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Id.m4a');
+		    pedagogicalUtterance.play();
 		    let demoItem2;
 		    if (stim.singular.toLowerCase() === 'blicket') {
 			demoItem2 = paper.path(objectPaths[stim.shape](370,100)).attr("fill", stim.color);
@@ -328,29 +354,46 @@ function make_slides(f) {
 		    $('.button').hide();
 		    setTimeout(function() {
 			let x;
+			let item;
 			if (stim.sound) {
-			    x = 370;
-			} else if (stim.singular.toLowerCase() == 'dax') {
-			    x = 330;
+			    item = demoItem;
+			    x = 270;
 			} else {
-			    x = 350;
-			}
-			showPedagogical(demoItem2, x, function() {
-			    demoItem2.remove();
-			    let x;
-			    if (stim.sound) {
-				x = 270;
-			    } else if (stim.singular.toLowerCase() == 'dax') {
+			    item = demoItem2
+			    if (stim.singular.toLowerCase() == 'dax') {
 				x = 330;
 			    } else {
 				x = 350;
 			    }
-			    paper.pointer.remove();
-			    showPedagogical(demoItem, x, function() {
+			}
+			showPedagogical(item, x, function() {
+			    let x;
+			    let item;
+			    if (stim.sound) {
+				item = demoItem2;
+				if (paper.pointer) {
+				    paper.pointer.remove();
+				}
+				demoItem.remove();
+				man.animate({x:80}, 1000, 'linear');
+				x = 370;
+			    } else {
+				item = demoItem;
+				if (paper.pointer) {
+				    paper.pointer.remove();
+				}
+				demoItem2.remove();
+				if (stim.singular.toLowerCase() == 'dax') {
+				    x = 330;
+				} else {
+				    x = 350;
+				}
+			    }
+			    showPedagogical(item, x, function() {
 				$('.button').show();
 			    }, stim.singular.toLowerCase() === 'fep');
 			}, stim.singular.toLowerCase() === 'fep');
-		    }, 2000);
+		    }, 3000);
 		} else if (stim.trialType == "generic") {
 		    if (stim.sound) {
 			$('#utterance').text(stim.plural+' '+stim.sound+'!');
