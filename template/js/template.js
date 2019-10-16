@@ -187,13 +187,22 @@ function make_slides(f) {
 			    speech.click(function() {
 				speech.remove();
 				let x;
-				if (stim.singular.toLowerCase() == 'dax') {
-				    x = 300;
+				let pointerLeft;
+				if (stim.sound) {
+				    x = 270;
+				    pointerLeft = false;
 				} else {
-				    x = 230;
+				    if (stim.singular.toLowerCase() == 'dax') {
+					x = 330;
+					pointerLeft = false;
+				    } else {
+					x = 330;
+					pointerLeft = true;
+				    }
 				}
-				demo(false, demoItem, x);
+				demo(false, demoItem, x, pointerLeft);
 				$('#instruct').hide();
+				$('.button').show();
 			    });
 			}, 4000);
 		    }, 2000);
@@ -573,7 +582,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["2pedagogical", "2accidental"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["pedagogical", "pedageneric", "generic", "2accidental", "2pedagogical"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
