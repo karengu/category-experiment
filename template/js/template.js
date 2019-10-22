@@ -330,84 +330,58 @@ function make_slides(f) {
 			}, 1000);
 		    }, 3000);
 		} else if (stim.trialType == "2accidental") {
-		    const startCoords = {
+		     const startCoords = {
 			"blicket": [270, 100],
 			"dax": [250, 60],
 			"fep": [250, 60]
 		    };
-		    const offset = 180;
+		    const offsetX = 180;
+		    const offsetY = 120;
 		    const coverCoords = [210, -40, 150, 230];
 		    const labelCoords = [305, 50, 50, 25];
-		    const accidentalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Accidental.m4a');
 		    const manCoord = 0;
 		    const pointerOffset = 80;
+		    
+		    const accidentalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Accidental.m4a');
 		    accidentalUtterance.play();
 		    $('.button').hide();
 		    
 		    $('#utterance').text('Oh! These are two '+stim.plural.toLowerCase()+'.');
 		    const demoItems = [];
 		    for (i=0;i<2;i++) {
-			x = startCoords[stim.singular.toLowerCase()][0]+i*offset;
 			if (stim.singular.toLowerCase() === 'blicket') {
-			    demoItems.push(paper.path(objectPaths[stim.shape](x,startCoords['blicket'][1])).attr("fill", stim.color));
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.color));
 			} else {
-			    demoItems.push(paper.image('../_shared/images/'+stim.image, x, startCoords[stim.singular.toLowerCase()][1], 80, 80));
+			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80));
 			}
 		    };
 		    const coverSets = [];
 		    for (i=0;i<2;i++) {
-			x = startCoords[stim.singular.toLowerCase()][0]+i*offset;
+			x = startCoords[stim.singular.toLowerCase()][0]+i*offsetX;
 			const set = paper.set();
-			set.push(paper.image('../_shared/images/cover.png', coverCoords[0]+i*offset, coverCoords[1], coverCoords[2], coverCoords[3]));
-			set.push(paper.rect(labelCoords[0]+i*offset, labelCoords[1], labelCoords[2], labelCoords[3]).attr({"fill": '#fcfac2'}));
-			set.push(paper.text(labelCoords[0]+i*offset+labelCoords[1]/2, labelCoords[1]+15, stim.singular));
+			if (stim.singular.toLowerCase() === 'blicket') {
+			    set.push(paper.image('../_shared/images/cover.png', coverCoords[0]+i*offsetX, coverCoords[1], coverCoords[2], coverCoords[3]));
+			    set.push(paper.rect(labelCoords[0]+i*offsetX, labelCoords[1], labelCoords[2], labelCoords[3]).attr({"fill": '#fcfac2'}));
+			    set.push(paper.text(labelCoords[0]+i*offsetX+labelCoords[1]/2, labelCoords[1]+15, stim.singular));
+			} else {
+			    set.push(paper.image('../_shared/images/cover.png', coverCoords[0], coverCoords[1]+i*offsetY, coverCoords[2], coverCoords[3]));
+			    set.push(paper.rect(labelCoords[0], labelCoords[1]+i*offsetY, labelCoords[2], labelCoords[3]).attr({"fill": '#fcfac2'}));
+			    set.push(paper.text(labelCoords[0]+labelCoords[1]/2, labelCoords[1]+15+i*offsetY, stim.singular));
+			}
 			coverSets.push(set);
 		    }
 		    
 		    setTimeout(function() {
-			let x;
-			let item;
-			if (stim.sound) {
-			    item = demoItems[0];
-			    coverSets[0].remove();
-			    coverSets[0].remove();
-			    x = startCoords[stim.singular.toLowerCase()][0]+0*offset;
-			} else {
-			    item = demoItems[1];
-			    coverSets[1].remove();
-			    coverSets[1].remove();
-			    x = startCoords[stim.singular.toLowerCase()][0]+1*offset;
-			}
-			showAccidental(item, x, function() {
-			    let x;
-			    let item;
-			    if (stim.sound) {
-				item = demoItems[1];
-				setTimeout(function() {
-				    man.animate({x:manCoord+1*offset}, 1000, 'linear');
-				    demoItems[0].remove();
-				}, 2000);
-				setTimeout(function() {
-				    coverSets[1].remove();
-				    coverSets[1].remove();
-				}, 3000);
-				x = startCoords[stim.singular.toLowerCase()][0]+1*offset;
-			    } else {
-				item = demoItems[0];
-				setTimeout(function() {
-				    coverSets[0].remove();
-				    coverSets[0].remove();
-				    demoItems[1].remove();
-				}, 3000);
-				x = startCoords[stim.singular.toLowerCase()][0]+0*offset+pointerOffset;
-			    }
+			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+			showAccidental(nextItemData1[1], nextItemData1[0], function() {
+			    const nextItemData2 = setNextItem(1, 2, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
 			    setTimeout(function() {
-				showAccidental(item, x, function() {
+				showAccidental(nextItemData2[1], nextItemData2[0], function() {
 				    $('.button').show();
 				});
 			    }, 3000);
 			});
-		    }, 3000);
+		    }, 4000);
 		} else if (stim.trialType == "3accidental") {
 		    const startCoords = {
 			"blicket": [270, 100],
@@ -466,55 +440,37 @@ function make_slides(f) {
 			});
 		    }, 4000);
 		} else if (stim.trialType == "2pedagogical") {
+		    const startCoords = {
+			"blicket": [270, 100],
+			"dax": [250, 60],
+			"fep": [250, 60]
+		    };
+		    const offsetX = 100;
+		    const offsetY = 120;
+		    const coverCoords = [210, -40, 150, 230];
+		    const labelCoords = [305, 50, 50, 25];
+		    const manCoord = 0;
+		    const pointerOffset = 100;
+		    
 		    const pedagogicalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Id.m4a');
 		    pedagogicalUtterance.play();
-		    let demoItem2;
-		    if (stim.singular.toLowerCase() === 'blicket') {
-			demoItem2 = paper.path(objectPaths[stim.shape](370,100)).attr("fill", stim.color);
-		    }
-		    else {
-			demoItem2 = paper.image('../_shared/images/'+stim.image, 330, 60, 80, 80);
-		    }
 		    $('#utterance').text('These are two '+stim.plural.toLowerCase()+'.');
 		    $('.button').hide();
-		    setTimeout(function() {
-			let x;
-			let item;
-			if (stim.sound) {
-			    item = demoItem;
-			    x = 270;
+
+		    const demoItems = [];
+		    for (i=0;i<2;i++) {
+			if (stim.singular.toLowerCase() === 'blicket') {
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.color));
 			} else {
-			    item = demoItem2
-			    if (stim.singular.toLowerCase() == 'dax') {
-				x = 330;
-			    } else {
-				x = 350;
-			    }
+			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
-			showPedagogical(item, x, function() {
-			    let x;
-			    let item;
-			    if (stim.sound) {
-				item = demoItem2;
-				if (paper.pointer) {
-				    paper.pointer.remove();
-				}
-				demoItem.remove();
-				man.animate({x:80}, 1000, 'linear');
-				x = 370;
-			    } else {
-				item = demoItem;
-				if (paper.pointer) {
-				    paper.pointer.remove();
-				}
-				demoItem2.remove();
-				if (stim.singular.toLowerCase() == 'dax') {
-				    x = 330;
-				} else {
-				    x = 350;
-				}
-			    }
-			    showPedagogical(item, x, function() {
+		    };
+		    
+		    setTimeout(function() {
+			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
+			    const nextItemData2 = setNextItem(1, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			    showPedagogical(nextItemData2[1], nextItemData2[0], function() {
 				$('.button').show();
 			    }, stim.singular.toLowerCase() === 'fep');
 			}, stim.singular.toLowerCase() === 'fep');
@@ -529,10 +485,11 @@ function make_slides(f) {
 		    const offsetY = 120;
 		    const coverCoords = [210, -40, 150, 230];
 		    const labelCoords = [305, 50, 50, 25];
-		    const pedagogicalUtterance = new Audio('../_shared/audio/3'+stim.plural.toLowerCase()+'Id.m4a');
-		    pedagogicalUtterance.play();
 		    const manCoord = 0;
 		    const pointerOffset = 100;
+		    
+		    const pedagogicalUtterance = new Audio('../_shared/audio/3'+stim.plural.toLowerCase()+'Id.m4a');
+		    pedagogicalUtterance.play();
 		    $('.button').hide();
 		    
 		    $('#utterance').text('These are three '+stim.plural.toLowerCase()+'.');
