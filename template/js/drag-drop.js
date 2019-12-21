@@ -434,7 +434,7 @@ var drag_and_drop = {
 	{
 	    plural: "Feps",
 	    singular: "Fep",
-	    image: 'animaltarget.png',
+	    images: ['animaltarget0.png', 'animaltarget1.png', 'animaltarget2.png'],
 	    featurePlural: 'have white wings',
 	    featureSingular: 'has white wings',
 	    distractors: ['animaldistractor1.png', 'animaldistractor2.png', 'animaldistractor3.png']
@@ -442,7 +442,7 @@ var drag_and_drop = {
 	{
 	    plural: "Daxes",
 	    singular: "Dax",
-	    image: "planttarget.png",
+	    images: ["planttarget0.png", 'planttarget1.png', 'planttarget2.png'],
 	    featurePlural: 'have black centers',
 	    featureSingular: 'has a black center',
 	    distractors: ['plantdistractor1.png', 'plantdistractor2.png', 'plantdistractor3.png']

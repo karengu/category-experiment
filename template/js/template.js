@@ -94,10 +94,10 @@ function make_slides(f) {
 			    item.animate({width: 320, height: 320, x: 400, y:30}, 500, 'linear', function() {
 				if (!accidental) {
 				    if (pointerLeft) {
-					paper.pointer = paper.image('../_shared/images/pointer.png', 400, 100, 100, 100).rotate(90);
+					paper.pointer = paper.image('../_shared/images/pointer.png', 400,120, 100, 100).rotate(90);
 					function animatePointer() {
-					    paper.pointer.animate({x:400, y:0}, 500, 'linear', function() {
-						paper.pointer.animate({x:400, y:100}, 500, 'linear', animatePointer);
+					    paper.pointer.animate({x:400, y:20}, 500, 'linear', function() {
+						paper.pointer.animate({x:400, y:120}, 500, 'linear', animatePointer);
 					    });
 					    
 					}
@@ -402,9 +402,9 @@ function make_slides(f) {
 		    const demoItems = [];
 		    for (i=0;i<3;i++) {
 			if (stim.singular.toLowerCase() === 'blicket') {
-			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.color));
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
 			} else {
-			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80));
+			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80));
 			}
 		    };
 		    const coverSets = [];
@@ -496,9 +496,9 @@ function make_slides(f) {
 		    const demoItems = [];
 		    for (i=0;i<3;i++) {
 			if (stim.singular.toLowerCase() === 'blicket') {
-			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.color));
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
 			} else {
-			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
+			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
 		    setTimeout(function() {
@@ -589,7 +589,7 @@ function make_slides(f) {
 	    this.stim = stim;
 
 	    stim.distractors.forEach(function(distractor, i) {
-		if (stim.image) {
+		if (stim.images) {
 		    distractors.push(exp.distractorPaper.image('../_shared/images/'+distractor, positions[i+1][0]-50, positions[i+1][1]-50, 80, 80).click(function() {
 			exp.distractorClicks ++;
 			exp.correctId = false;
@@ -611,8 +611,9 @@ function make_slides(f) {
 		    }));
 		}
 	    });
-	    if (stim.image) {
-		activeItem = exp.distractorPaper.image('../_shared/images/'+stim.image, positions[0][0]-50, positions[0][1]-50, 80, 80);
+	    if (stim.images) {
+		const i = _.sample([0, 1, 2])
+		activeItem = exp.distractorPaper.image('../_shared/images/'+stim.images[i], positions[0][0]-50, positions[0][1]-50, 80, 80);
 	    } else {
 		activeItem = exp.distractorPaper.path(objectPaths[stim.shape](positions[0][0], positions[0][1])).attr("fill", stim.color);
 	    }
@@ -718,6 +719,7 @@ function init() {
 	    {
 		distractors: drag_and_drop.objects.slice(1,4),
 		featureSingular: drag_and_drop.objects[0].sound+"s",
+		colors: ["#f44248","#43e8e8","#ff00cb"]
 	    },
 	    drag_and_drop.objects[0],
 	),
