@@ -43,6 +43,34 @@ function make_slides(f) {
 	}
     });
 
+    slides.naming = slide({
+	name: "naming",
+	present: exp.naming_data,
+	show_next_example: function(i) {
+	    if (this.paper.currentImage) {
+		this.paper.currentImage.remove();
+	    }
+	    this.paper.currentImage = this.paper.image('../_shared/images/'+this.stim.images[i],320, 60, 150, 150).attr({"fill-opacity": 0, "opacity": 0}).animate({"fill-opacity": 1, "opacity": 1}, 1000, 'linear');
+	    this.i += 1;
+	},
+	present_handle: function(stim) {
+	    const paper = new Raphael(document.getElementById('naming_paper', 800, 450));
+	    this.paper = paper;
+	    this.stim = stim;
+	    this.i = 0;
+	    $('#naming_label').text('This is a '+stim.name+'.');
+	    this.paper.currentImage = null;
+	    this.show_next_example(this.i);
+	},
+	button: function() {
+	    if (this.i >= this.stim.images.length) {
+		_stream.apply(this);
+	    } else {
+		this.show_next_example(this.i);
+	    }
+	}
+    });
+
     slides.trials = slide({
 	name: "trials",
 	present: exp.trials_data,
@@ -69,7 +97,10 @@ function make_slides(f) {
 		const man = paper.image('../_shared/images/man.png', 0,0,250,430);
 		const bubbleText = '(Click on the speech bubble when you are ready.)';
 
-		function demo(accidental, item, xcoord, pointerLeft) {
+		function demo(accidental, item, xcoord, pointerLeft, pointerOffset) {
+		    if (pointerOffset === null) {
+			pointerOffset = 40;
+		    }
 		    if (!accidental) {
 			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
 			pedagogical.play();
@@ -83,7 +114,7 @@ function make_slides(f) {
 			} else {
 			    setTimeout(function() {
 				paper.pointer = paper.image('../_shared/images/pointer.png', 600, 100, 100, 100);
-				paper.pointer.animate({x:xcoord-40, y:90}, 1000, 'linear');
+				paper.pointer.animate({x:xcoord-pointerOffset, y:90}, 1000, 'linear');
 				setTimeout(function() {
 				    exp.sound.play();
 				}, 1000);
@@ -120,7 +151,7 @@ function make_slides(f) {
 		    }
 		}
 
-		function showPedagogical(item, xcoord, callback, pointerLeft) {
+		function showPedagogical(item, xcoord, callback, pointerLeft, pointerOffset) {
 		    $('#utterance').text('Now I have something to show you. Are you ready?');
 		    $('#instruct').show();
 		    const readyPedagogical = new Audio('../_shared/audio/readyPedagogical.m4a');
@@ -135,7 +166,7 @@ function make_slides(f) {
 			$('#instruct').text(bubbleText);
 			speech.click(function() {
 			    speech.remove();
-			    demo(false, item, xcoord, pointerLeft);
+			    demo(false, item, xcoord, pointerLeft, pointerOffset);
 			    $('#instruct').hide();
 			    setTimeout(function() {
 				callback();
@@ -172,7 +203,7 @@ function make_slides(f) {
 			    }
 			    man.animate({x:manCoord+i*offsetX}, 1000, 'linear');
 			    if (i - 1 >= 0) {
-				demoItems[i-1].remove();
+				//demoItems[i-1].remove();
 			    }
 			}, timeout1);
 			setTimeout(function() {
@@ -479,7 +510,7 @@ function make_slides(f) {
 		    const startCoords = {
 			"blicket": [270, 100],
 			"dax": [250, 60],
-			"fep": [250, 60]
+			"fep": [250, 70]
 		    };
 		    const offsetX = 100;
 		    const offsetY = 120;
@@ -497,8 +528,10 @@ function make_slides(f) {
 		    for (i=0;i<3;i++) {
 			if (stim.singular.toLowerCase() === 'blicket') {
 			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
+			} else if (stim.singular.toLowerCase() === 'fep') {
+	demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0]+i*offsetX, startCoords[stim.singular.toLowerCase()][1], 80, 80).toBack());		    
 			} else {
-			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
+			   demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
 		    setTimeout(function() {
@@ -509,9 +542,52 @@ function make_slides(f) {
 				const nextItemData3 = setNextItem(2, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 				showPedagogical(nextItemData3[1], nextItemData3[0], function() {
 				    $('button').show();
-				}, stim.singular.toLowerCase() === 'fep');
-			    }, stim.singular.toLowerCase() === 'fep');
-			}, stim.singular.toLowerCase() === 'fep');
+				}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+			    }, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+			}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+		    }, 3000);
+		} else if (stim.trialType == "4pedagogical") {
+		    const startCoords = {
+			"blicket": [270, 100],
+			"dax": [250, 60],
+			"fep": [250, 70]
+		    };
+		    const offsetX = 100;
+		    const offsetY = 120;
+		    const coverCoords = [210, -40, 150, 230];
+		    const labelCoords = [305, 50, 50, 25];
+		    const manCoord = 0;
+		    const pointerOffset = 100;
+		    
+		    const pedagogicalUtterance = new Audio('../_shared/audio/3'+stim.plural.toLowerCase()+'Id.m4a');
+		    pedagogicalUtterance.play();
+		    $('.button').hide();
+		    
+		    $('#utterance').text('These are four '+stim.plural.toLowerCase()+'.');
+		    const demoItems = [];
+		    for (i=0;i<4;i++) {
+			if (stim.singular.toLowerCase() === 'blicket') {
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
+			} else if (stim.singular.toLowerCase() === 'fep') {
+	demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0]+i*offsetX, startCoords[stim.singular.toLowerCase()][1], 80, 80).toBack());		    
+			} else {
+			   demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
+			}
+		    };
+		    setTimeout(function() {
+			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
+			    const nextItemData2 = setNextItem(1, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			    showPedagogical(nextItemData2[1], nextItemData2[0], function() {
+				const nextItemData3 = setNextItem(2, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+				showPedagogical(nextItemData3[1], nextItemData3[0], function() {
+				    const nextItemData4 = setNextItem(3, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+				    showPedagogical(nextItemData4[1], nextItemData4[0], function() {
+					$('button').show();
+				    }, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+				}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+			    }, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+			}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
 		    }, 3000);
 		} else if (stim.trialType == "generic") {
 		    if (stim.sound) {
@@ -693,7 +769,8 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["3pedagogical", "3accidental"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["4pedagogical"]); //can randomize between subject conditions here
+    exp.level = _.sample(["super", "basic", "sub"]);
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
@@ -709,23 +786,40 @@ function init() {
 	'i0',
 	'sound_check',
 	'introduction',
+	'naming',
 	'trials',
 	'identification',
 	'subj_info', 'thanks'
     ];
 
+    const superImages = ['super1.png', 'super2.png', 'animaltarget0.png'];
+    const basicImages = ['basic1.png', 'basic2.png', 'animaltarget0.png'];
+    const subImages = ['animaltarget0.png', 'animaltarget0.png', 'animaltarget0.png'];
+    const superDistractors = ['plantdistractor1.png', 'plantdistractor2.png', 'plantdistractor3.png'];
+    const basicDistractors = ['animaldistractor1.png', 'animaldistractor2.png', 'animaldistractor3.png'];
+    const subDistractors = ['animaltarget1.png', 'animaltarget2.png', 'basic1.png'];
+
+    
     const trials = _.shuffle([
-	_.extend(
-	    {
-		distractors: drag_and_drop.objects.slice(1,4),
-		featureSingular: drag_and_drop.objects[0].sound+"s",
-		colors: ["#f44248","#43e8e8","#ff00cb"]
-	    },
-	    drag_and_drop.objects[0],
-	),
-	drag_and_drop.biologics[0],
-	drag_and_drop.biologics[1]    
+	// _.extend(
+	//     {
+	// 	distractors: drag_and_drop.objects.slice(1,4),
+	// 	featureSingular: drag_and_drop.objects[0].sound+"s",
+	// 	colors: ["#f44248","#43e8e8","#ff00cb"]
+	//     },
+	//     drag_and_drop.objects[0],
+	// ),
+	_.extend(drag_and_drop.biologics[0], {distractors: exp.level === 'super' ? superDistractors : exp.level === 'basic' ? basicDistractors : subDistractors}),
+	//drag_and_drop.biologics[1]    
     ])
+
+    
+    exp.naming_data = [
+	{
+	    name: 'fep',
+	    images: exp.level === "super" ? superImages : exp.level === "basic" ? basicImages : subImages
+	}
+    ];
 
     exp.trials_data = [];
     trials.forEach(function(trial) {
