@@ -54,7 +54,7 @@ function make_slides(f) {
 	    $('#naming_label').text('These are all '+stim.name+'.');
 	},
 	button: function() {
-		_stream.apply(this);
+	    _stream.apply(this);
 	}
     });
 
@@ -112,8 +112,8 @@ function make_slides(f) {
 			const y = item.attr('y');
 			item.animate({x:400}, 500, 'linear', function() {
 			    item.animate({width: 320, height: 320, x: 400, y: 30}, 500, 'linear', function() {
+				exp.sound.play();
 				setTimeout(function() {
-				    exp.sound.play();
 				    item.animate({width:80, height:80, y:y}, 500, 'linear', function() {
 					item.animate({x:250}, 500, 'linear');
 				    });
@@ -361,7 +361,7 @@ function make_slides(f) {
 			}, 1000);
 		    }, 3000);
 		} else if (stim.trialType == "2accidental") {
-		     const startCoords = {
+		    const startCoords = {
 			"blicket": [270, 100],
 			"dax": [250, 60],
 			"fep": [250, 60]
@@ -529,9 +529,9 @@ function make_slides(f) {
 			if (stim.singular.toLowerCase() === 'blicket') {
 			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
 			} else if (stim.singular.toLowerCase() === 'fep') {
-	demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());		    
+			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());		    
 			} else {
-			   demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
+			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
 		    setTimeout(function() {
@@ -569,9 +569,9 @@ function make_slides(f) {
 			if (stim.singular.toLowerCase() === 'blicket') {
 			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
 			} else if (stim.singular.toLowerCase() === 'fep') {
-	demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0]+i*offsetX, startCoords[stim.singular.toLowerCase()][1], 80, 80).toBack());		    
+			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0]+i*offsetX, startCoords[stim.singular.toLowerCase()][1], 80, 80).toBack());		    
 			} else {
-			   demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
+			    demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
 		    setTimeout(function() {
