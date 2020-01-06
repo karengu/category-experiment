@@ -626,7 +626,7 @@ function make_slides(f) {
 		if (exp.sliderPost === null) {
 		    $('.err').show();
 		} else {
-		    exp.data_trials.push(_.extend(this.stim, {response: exp.sliderPost, condition: exp.condition}));
+		    exp.data_trials.push(_.extend(this.stim, {response: exp.sliderPost, condition: exp.condition, level: exp.level}));
 		    _stream.apply(this);
 		}
 	    } else if (this.stim.type == "trial") {
@@ -706,7 +706,7 @@ function make_slides(f) {
 	    if (exp.selected === null) {
 		$('.err').show();
 	    } else {
-		exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId, condition: exp.condition}));
+		exp.data_trials.push(_.extend(this.stim, {distractorClicks: exp.distractorClicks, selected: exp.selected, correctId: exp.correctId, condition: exp.condition, level: exp.level}));
 		_stream.apply(this);
 	    }
 	}
