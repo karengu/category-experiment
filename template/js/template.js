@@ -46,28 +46,15 @@ function make_slides(f) {
     slides.naming = slide({
 	name: "naming",
 	present: exp.naming_data,
-	show_next_example: function(i) {
-	    if (this.paper.currentImage) {
-		this.paper.currentImage.remove();
-	    }
-	    this.paper.currentImage = this.paper.image('../_shared/images/'+this.stim.images[i],320, 60, 150, 150).attr({"fill-opacity": 0, "opacity": 0}).animate({"fill-opacity": 1, "opacity": 1}, 1000, 'linear');
-	    this.i += 1;
-	},
 	present_handle: function(stim) {
 	    const paper = new Raphael(document.getElementById('naming_paper', 800, 450));
-	    this.paper = paper;
-	    this.stim = stim;
-	    this.i = 0;
-	    $('#naming_label').text('This is a '+stim.name+'.');
-	    this.paper.currentImage = null;
-	    this.show_next_example(this.i);
+	    stim.images.forEach(function(im,i) {
+		paper.image('../_shared/images/'+im, 50+150*(i%5), 150*(Math.floor(i/5)), 100, 100)
+	    });
+	    $('#naming_label').text('These are all '+stim.name+'.');
 	},
 	button: function() {
-	    if (this.i >= this.stim.images.length) {
 		_stream.apply(this);
-	    } else {
-		this.show_next_example(this.i);
-	    }
 	}
     });
 
@@ -97,16 +84,16 @@ function make_slides(f) {
 		const man = paper.image('../_shared/images/man.png', 0,0,250,430);
 		const bubbleText = '(Click on the speech bubble when you are ready.)';
 
-		function demo(accidental, item, xcoord, pointerLeft, pointerOffset) {
+		function demo(accidental, item, xcoord, pointerLeft, pointerOffset, name) {
 		    if (pointerOffset === null) {
 			pointerOffset = 40;
 		    }
 		    if (!accidental) {
 			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
 			pedagogical.play();
-			$('#utterance').text('Look at this!');
+			$('#utterance').text('Listen to this!');
 		    }
-		    if (stim.sound) {
+		    if (name === 'blicket') {
 			if (accidental) {
 			    item.animate({path:objectPaths[stim.shape](xcoord,380)}, 1000, 'linear', function() {
 				exp.sound.play();
@@ -120,6 +107,19 @@ function make_slides(f) {
 				}, 1000);
 			    }, 1500);
 			}
+		    } else if (name === 'fep' && !accidental) {
+			const x = item.attr('x');
+			const y = item.attr('y');
+			item.animate({x:400}, 500, 'linear', function() {
+			    item.animate({width: 320, height: 320, x: 400, y: 30}, 500, 'linear', function() {
+				setTimeout(function() {
+				    exp.sound.play();
+				    item.animate({width:80, height:80, y:y}, 500, 'linear', function() {
+					item.animate({x:250}, 500, 'linear');
+				    });
+				}, 1000);
+			    });
+			});
 		    } else {
 			item.animate({x:400}, 500, 'linear', function() {
 			    item.animate({width: 320, height: 320, x: 400, y:30}, 500, 'linear', function() {
@@ -151,7 +151,7 @@ function make_slides(f) {
 		    }
 		}
 
-		function showPedagogical(item, xcoord, callback, pointerLeft, pointerOffset) {
+		function showPedagogical(item, xcoord, callback, pointerLeft, pointerOffset, name) {
 		    $('#utterance').text('Now I have something to show you. Are you ready?');
 		    $('#instruct').show();
 		    const readyPedagogical = new Audio('../_shared/audio/readyPedagogical.m4a');
@@ -166,7 +166,7 @@ function make_slides(f) {
 			$('#instruct').text(bubbleText);
 			speech.click(function() {
 			    speech.remove();
-			    demo(false, item, xcoord, pointerLeft, pointerOffset);
+			    demo(false, item, xcoord, pointerLeft, pointerOffset, name);
 			    $('#instruct').hide();
 			    setTimeout(function() {
 				callback();
@@ -192,10 +192,10 @@ function make_slides(f) {
 		    }, 1000);
 		}
 
-		function setNextItem(i, n, timeout1, timeout2, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord) {
+		function setNextItem(i, n, timeout1, timeout2, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord,name) {
 		    let x;
 		    let item;
-		    if (stim.sound) {
+		    if (name === 'blicket') {
 			item = demoItems[i];
 			setTimeout(function() {
 			    if (paper.pointer) {
@@ -223,7 +223,7 @@ function make_slides(f) {
 				coverSets[n-i-1].remove();
 				coverSets[n-i-1].remove();
 			    }
-			    demoItems[n-i].remove();
+			    //demoItems[n-i].remove();
 			}, timeout2);
 			x = startCoords[stim.singular.toLowerCase()][0]+(n-i-1)*offsetX+pointerOffset;
 		    }
@@ -403,9 +403,9 @@ function make_slides(f) {
 		    }
 		    
 		    setTimeout(function() {
-			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			showAccidental(nextItemData1[1], nextItemData1[0], function() {
-			    const nextItemData2 = setNextItem(1, 2, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+			    const nextItemData2 = setNextItem(1, 2, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			    setTimeout(function() {
 				showAccidental(nextItemData2[1], nextItemData2[0], function() {
 				    $('.button').show();
@@ -455,12 +455,12 @@ function make_slides(f) {
 		    }
 		    
 		    setTimeout(function() {
-			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			showAccidental(nextItemData1[1], nextItemData1[0], function() {
-			    const nextItemData2 = setNextItem(1, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord); 
+			    const nextItemData2 = setNextItem(1, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase()); 
 			    setTimeout(function() {
 				showAccidental(nextItemData2[1], nextItemData2[0], function() {
-				    const nextItemData3 = setNextItem(2, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+				    const nextItemData3 = setNextItem(2, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 				    setTimeout(function() {
 					showAccidental(nextItemData3[1], nextItemData3[0], function() {
 					    $('.button').show();
@@ -498,9 +498,9 @@ function make_slides(f) {
 		    };
 		    
 		    setTimeout(function() {
-			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
-			    const nextItemData2 = setNextItem(1, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			    const nextItemData2 = setNextItem(1, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			    showPedagogical(nextItemData2[1], nextItemData2[0], function() {
 				$('.button').show();
 			    }, stim.singular.toLowerCase() === 'fep');
@@ -510,7 +510,7 @@ function make_slides(f) {
 		    const startCoords = {
 			"blicket": [270, 100],
 			"dax": [250, 60],
-			"fep": [250, 70]
+			"fep": [250, 60]
 		    };
 		    const offsetX = 100;
 		    const offsetY = 120;
@@ -529,22 +529,22 @@ function make_slides(f) {
 			if (stim.singular.toLowerCase() === 'blicket') {
 			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.colors[i]));
 			} else if (stim.singular.toLowerCase() === 'fep') {
-	demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0]+i*offsetX, startCoords[stim.singular.toLowerCase()][1], 80, 80).toBack());		    
+	demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());		    
 			} else {
 			   demoItems.push(paper.image('../_shared/images/'+stim.images[i], startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
 		    setTimeout(function() {
-			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
-			    const nextItemData2 = setNextItem(1, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			    const nextItemData2 = setNextItem(1, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			    showPedagogical(nextItemData2[1], nextItemData2[0], function() {
-				const nextItemData3 = setNextItem(2, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+				const nextItemData3 = setNextItem(2, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 				showPedagogical(nextItemData3[1], nextItemData3[0], function() {
 				    $('button').show();
-				}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
-			    }, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
-			}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40);
+				}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40, stim.singular.toLowerCase());
+			    }, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40, stim.singular.toLowerCase());
+			}, false, stim.singular.toLowerCase() === 'fep' ? 0 : 40, stim.singular.toLowerCase());
 		    }, 3000);
 		} else if (stim.trialType == "4pedagogical") {
 		    const startCoords = {
@@ -769,7 +769,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["3pedagogical", "4pedagogical"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["3pedagogical"]); //can randomize between subject conditions here
     exp.level = _.sample(["super", "basic", "sub"]);
     exp.system = {
 	Browser : BrowserDetect.browser,
@@ -792,9 +792,9 @@ function init() {
 	'subj_info', 'thanks'
     ];
 
-    const superImages = ['super1.png', 'super2.png', 'animaltarget0.png'];
-    const basicImages = ['basic1.png', 'basic2.png', 'animaltarget0.png'];
-    const subImages = ['animaltarget0.png', 'animaltarget0.png', 'animaltarget0.png'];
+    const superImages = _.shuffle(['super1.png', 'super2.png', 'super3.png', 'super4.png', 'super5.png', 'super6.png', 'super7.png', 'super8.png', 'basic1.png', 'animaltarget0.png']);
+    const basicImages = _.shuffle(['basic1.png', 'basic2.png', 'basic3.png', 'basic4.png', 'basic5.png', 'basic6.png', 'basic7.png', 'basic8.png', 'basic9.png', 'animaltarget0.png']);
+    const subImages = _.times(10, function() { return 'animaltarget0.png'; });;
     const superDistractors = ['plantdistractor1.png', 'plantdistractor2.png', 'plantdistractor3.png'];
     const basicDistractors = ['animaldistractor1.png', 'animaldistractor2.png', 'animaldistractor3.png'];
     const subDistractors = ['animaltarget1.png', 'animaltarget2.png', 'basic1.png'];
@@ -816,7 +816,7 @@ function init() {
     
     exp.naming_data = [
 	{
-	    name: 'fep',
+	    name: 'feps',
 	    images: exp.level === "super" ? superImages : exp.level === "basic" ? basicImages : subImages
 	}
     ];
