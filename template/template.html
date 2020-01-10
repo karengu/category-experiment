@@ -84,6 +84,27 @@
       <!-- <p id="credit">Image used from <a href='https://zalarieunique.ru'>https://zalarieunique.ru</a>.</p> -->
     </div>
 
+     <div class="slide" id="botcaptcha">
+      <h3>Are you a bot?</h3>
+      <p id="story"></p>
+      <p id="question"></p>
+      <textarea id="listener-response" rows="1" cols="30"></textarea>
+
+      <button onclick="_s.button()" id="next">Continue</button>
+      <section class="answer-container">
+	<p class="text" id="error_incorrect" style="color: #7CB637">This is incorrect.</p>
+	<p class="text" id="error_2more" style="color: #7CB637">You have 2 more trials.</p>
+	<p class="text" id="error_1more" style="color: #7CB637">You have 1 more trial.</p>
+	<p class="text" id="error" style="color: #7CB637">Error: You failed to enter the correct response. Please return the HIT.</p>
+      </section>
+      <div id="fail">
+	You have failed the comprehension questions too many times. You are not permitted to complete the HIT. Please
+	click 'Return HIT' to avoid any impact on your approval rating. <br><br>
+	If you believe you are recieving this
+	message in error, please email <a href="mailto:karengu@mit.edu">karengu@mit.edu</a>.
+      </div>
+    </div>
+
     <div class="slide" id="introduction">
       <h3>Introduction</h3>
       <p>You are an astronaut-scientist working on a recently discovered planet outside of the solar system. You have recently started a new job at a scientific laboratory. Your job is to catalogue and describe new kinds of plants, animals, and objects that have been discovered on the planet.</p>
