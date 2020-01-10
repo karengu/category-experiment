@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "369J354OFEYSYTNDT9IT0UO19UK6G4",
+ "WorkerId": "4ded11b75aa9c8ca0e28022052f4cc39",
+ "HITId": "3W9XHF7WGKJ0FTWFPB6ZLCCKO27TK8",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T03:13:58.000Z",
+ "AcceptTime": "2020-01-10T03:09:50.000Z",
+ "SubmitTime": "2020-01-10T03:13:58.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.84,
+    "condition": "3pedagogical",
+    "level": "basic"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "basic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 768,
+   "screenW": 1366
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "english",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "47",
+   "gender": "Female",
+   "education": "3",
+   "comments": "Great survey to participate in. Thank you",
+   "problems": "no issues",
+   "fairprice": "0.75"
+  },
+  "time_in_minutes": 3.8817833333333334,
+  "sound_check": {
+   "response": "title",
+   "test_word": "tiger"
+  }
+ }
+}

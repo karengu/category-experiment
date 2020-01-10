@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "3UWN2HHPUZT3VJ2WNQYRRJTQSV3NSF",
+ "WorkerId": "b7a0f578004095fc43326ea6c9efe18a",
+ "HITId": "3W9XHF7WGKJ0FTWFPB6ZLCCKO27TK8",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T02:12:39.000Z",
+ "AcceptTime": "2020-01-10T02:09:24.000Z",
+ "SubmitTime": "2020-01-10T02:12:39.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.94,
+    "condition": "3pedagogical",
+    "level": "super"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "super"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 768,
+   "screenW": 1366
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "31",
+   "gender": "Male",
+   "education": "2",
+   "comments": "",
+   "problems": "",
+   "fairprice": ".50"
+  },
+  "time_in_minutes": 3.128233333333333,
+  "sound_check": {
+   "response": "tiger",
+   "test_word": "tiger"
+  }
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "34S6N1K2ZW7OHALV0J6DADIZEPNLHR",
+ "WorkerId": "57783eb8423bb93a3e449819fef87506",
+ "HITId": "3L2OEKSTW9YC1ET8QSWV3OV884VY8J",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T03:23:42.000Z",
+ "AcceptTime": "2020-01-10T03:20:47.000Z",
+ "SubmitTime": "2020-01-10T03:23:42.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.99,
+    "condition": "3pedagogical",
+    "level": "super"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "super"
+   }
+  ],
+  "system": {
+   "Browser": "Firefox",
+   "OS": "Windows",
+   "screenH": 900,
+   "screenW": 1600
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "32",
+   "gender": "Male",
+   "education": "3",
+   "comments": "I would love to do more HITs like this.",
+   "problems": "There were no issues.",
+   "fairprice": "The price is fair."
+  },
+  "time_in_minutes": 2.48375,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

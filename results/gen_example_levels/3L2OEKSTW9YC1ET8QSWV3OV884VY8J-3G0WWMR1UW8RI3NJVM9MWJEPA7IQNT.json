@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "3G0WWMR1UW8RI3NJVM9MWJEPA7IQNT",
+ "WorkerId": "662e76a0ee642e3d1766d093583c0a70",
+ "HITId": "3L2OEKSTW9YC1ET8QSWV3OV884VY8J",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T06:09:59.000Z",
+ "AcceptTime": "2020-01-10T05:10:56.000Z",
+ "SubmitTime": "2020-01-10T06:09:59.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 1,
+    "condition": "3pedagogical",
+    "level": "super"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "super"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 1080,
+   "screenW": 1920
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "29",
+   "gender": "Male",
+   "education": "3",
+   "comments": "It was as simple and straightforward as possible.",
+   "problems": "Everything worked perfectly.",
+   "fairprice": "0.75"
+  },
+  "time_in_minutes": 2.8385333333333334,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

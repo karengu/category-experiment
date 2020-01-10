@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "3IFS6Q0HJJ7BHIR5QALZMBX96W9ISU",
+ "WorkerId": "418b219bb354f47f13f56eac8302bb1c",
+ "HITId": "37M4O367VJ6TKFLS9R1HX9YAX4GM5F",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T02:23:50.000Z",
+ "AcceptTime": "2020-01-10T02:18:04.000Z",
+ "SubmitTime": "2020-01-10T02:23:50.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.97,
+    "condition": "3pedagogical",
+    "level": "super"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "super"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 720,
+   "screenW": 1280
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "36",
+   "gender": "Female",
+   "education": "3",
+   "comments": "Very Nice Align Language Survey....",
+   "problems": "No",
+   "fairprice": ".75"
+  },
+  "time_in_minutes": 5.399266666666667,
+  "sound_check": {
+   "response": "tiger",
+   "test_word": "tiger"
+  }
+ }
+}
