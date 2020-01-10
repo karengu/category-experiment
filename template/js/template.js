@@ -51,7 +51,7 @@ function make_slides(f) {
 	    stim.images.forEach(function(im,i) {
 		paper.image('../_shared/images/'+im, 50+150*(i%5), 150*(Math.floor(i/5)), 100, 100)
 	    });
-	    $('#naming_label').text('These are all '+stim.name+'.');
+	    $('#naming_label').text('All of these are '+stim.name+'.');
 	},
 	button: function() {
 	    _stream.apply(this);
@@ -89,7 +89,7 @@ function make_slides(f) {
 			pointerOffset = 40;
 		    }
 		    if (!accidental) {
-			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
+			const pedagogical = new Audio('../_shared/audio/listen_to_this.m4a');
 			pedagogical.play();
 			$('#utterance').text('Listen to this!');
 		    }
@@ -110,16 +110,20 @@ function make_slides(f) {
 		    } else if (name === 'fep' && !accidental) {
 			const x = item.attr('x');
 			const y = item.attr('y');
-			item.animate({x:400}, 500, 'linear', function() {
-			    item.animate({width: 320, height: 320, x: 400, y: 30}, 500, 'linear', function() {
-				exp.sound.play();
-				setTimeout(function() {
-				    item.animate({width:80, height:80, y:y}, 500, 'linear', function() {
-					item.animate({x:250}, 500, 'linear');
-				    });
-				}, 1000);
+			setTimeout(function() {
+			    item.animate({x:400}, 500, 'linear', function() {
+				item.animate({width: 320, height: 320, x: 400, y: 30}, 500, 'linear', function() {
+				    paper.music = paper.image('../_shared/images/music.png', 600, 50, 50, 50);
+				    paper.music.animate({x:800, y:0}, 1000, 'linear');
+				    exp.sound.play();
+				    setTimeout(function() {
+					item.animate({width:80, height:80, y:y}, 500, 'linear', function() {
+					    item.animate({x:250}, 500, 'linear');
+					});
+				    }, 1000);
+				});
 			    });
-			});
+			}, 2000);
 		    } else {
 			item.animate({x:400}, 500, 'linear', function() {
 			    item.animate({width: 320, height: 320, x: 400, y:30}, 500, 'linear', function() {
@@ -770,7 +774,7 @@ function make_slides(f) {
 /// init ///
 function init() {
     exp.condition = _.sample(["3pedagogical"]); //can randomize between subject conditions here
-    exp.level = _.sample(["super", "basic", "sub"]);
+    exp.level = _.sample(["super", "basic"]);
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
