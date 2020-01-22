@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "30X31N5D64EWB087EMTM5D9QTO4ASI",
+ "WorkerId": "b3512bb55654d48d467d02903cca565c",
+ "HITId": "3538U0YQ1FIK0Q679L9BNMGHM7E3F0",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T02:29:46.000Z",
+ "AcceptTime": "2020-01-10T02:13:20.000Z",
+ "SubmitTime": "2020-01-10T02:29:46.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.91,
+    "condition": "3pedagogical",
+    "level": "super"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "super"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 1080,
+   "screenW": 1920
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "33",
+   "gender": "Male",
+   "education": "1",
+   "comments": "I like how quick and easy the experiment was.",
+   "problems": "No",
+   "fairprice": "0.75"
+  },
+  "time_in_minutes": 3.5242,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

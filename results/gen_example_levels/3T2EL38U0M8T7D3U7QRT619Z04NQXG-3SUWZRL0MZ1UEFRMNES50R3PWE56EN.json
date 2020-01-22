@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "3SUWZRL0MZ1UEFRMNES50R3PWE56EN",
+ "WorkerId": "650e3c87309e5ad1a17c7ab4c5272d65",
+ "HITId": "3T2EL38U0M8T7D3U7QRT619Z04NQXG",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T02:14:08.000Z",
+ "AcceptTime": "2020-01-10T02:09:18.000Z",
+ "SubmitTime": "2020-01-10T02:14:08.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.67,
+    "condition": "3pedagogical",
+    "level": "super"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "plantdistractor1.png",
+     "plantdistractor2.png",
+     "plantdistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "super"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Mac",
+   "screenH": 900,
+   "screenW": 1440
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "1",
+   "asses": "Yes",
+   "age": "32",
+   "gender": "Female",
+   "education": "3",
+   "comments": "It was confusing whether the other fep we answered the question about was another fep that looked like an owl or another fep that looked like something else.",
+   "problems": "No",
+   "fairprice": "0.75"
+  },
+  "time_in_minutes": 4.763466666666667,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

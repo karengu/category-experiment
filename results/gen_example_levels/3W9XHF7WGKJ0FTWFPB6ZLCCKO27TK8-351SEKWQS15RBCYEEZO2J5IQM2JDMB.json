@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "351SEKWQS15RBCYEEZO2J5IQM2JDMB",
+ "WorkerId": "74245e1bfd08009ea80d7fe38bf9cdfe",
+ "HITId": "3W9XHF7WGKJ0FTWFPB6ZLCCKO27TK8",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T02:34:01.000Z",
+ "AcceptTime": "2020-01-10T02:09:43.000Z",
+ "SubmitTime": "2020-01-10T02:34:01.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.94,
+    "condition": "3pedagogical",
+    "level": "basic"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "basic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Linux",
+   "screenH": 864,
+   "screenW": 1536
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "1",
+   "asses": "Yes",
+   "age": "32",
+   "gender": "Male",
+   "education": "3",
+   "comments": "",
+   "problems": "it was hard to make out the word in the beginning before the experiment started to check if the sound was on. It sounded like \"evergreen\" or evergrin it was hard to tell.",
+   "fairprice": "0.50"
+  },
+  "time_in_minutes": 24.254,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}

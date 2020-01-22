@@ -1,0 +1,82 @@
+{
+ "AssignmentId": "3I2PTA7R3UIQAX2GY9H64RXLGCDQKO",
+ "WorkerId": "f506109d0390eaf4aa9f008fcb7e1f2b",
+ "HITId": "37M4O367VJ6TKFLS9R1HX9YAX4GM5F",
+ "AssignmentStatus": "Submitted",
+ "AutoApprovalTime": "2020-01-11T02:13:58.000Z",
+ "AcceptTime": "2020-01-10T02:09:24.000Z",
+ "SubmitTime": "2020-01-10T02:13:58.000Z",
+ "answers": {
+  "trials": [
+   {
+    "type": "response",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "sound": "whistle",
+    "response": 0.48,
+    "condition": "3pedagogical",
+    "level": "basic"
+   },
+   {
+    "type": "id",
+    "plural": "Feps",
+    "singular": "Fep",
+    "images": [
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png",
+     "animaltarget0.png"
+    ],
+    "featurePlural": "have white wings",
+    "featureSingular": "has white wings",
+    "distractors": [
+     "animaldistractor1.png",
+     "animaldistractor2.png",
+     "animaldistractor3.png"
+    ],
+    "sound": "whistle",
+    "distractorClicks": 0,
+    "selected": "correct",
+    "correctId": true,
+    "condition": "3pedagogical",
+    "level": "basic"
+   }
+  ],
+  "system": {
+   "Browser": "Chrome",
+   "OS": "Windows",
+   "screenH": 768,
+   "screenW": 1366
+  },
+  "condition": "3pedagogical",
+  "subject_information": {
+   "language": "English",
+   "enjoyment": "2",
+   "asses": "Yes",
+   "age": "25",
+   "gender": "Female",
+   "education": "3",
+   "comments": "",
+   "problems": "None at all",
+   "fairprice": "1.00"
+  },
+  "time_in_minutes": 4.240683333333333,
+  "sound_check": {
+   "response": "evergreen",
+   "test_word": "evergreen"
+  }
+ }
+}
