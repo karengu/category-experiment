@@ -465,6 +465,68 @@ function make_slides(f) {
 			    }, 3000);
 			});
 		    }, 4000);
+		} else if (stim.trialType == "4accidental") {
+		    const startCoords = {
+			"blicket": [270, 100],
+			"dax": [250, 10],
+			"fep": [250, 10]
+		    };
+		    const offsetX = 120;
+		    const offsetY = 100;
+		    const coverCoords = [210, -90, 150, 230];
+		    const labelCoords = [305, 50, 50, 25];
+		    const accidentalUtterance = new Audio('../_shared/audio/4'+stim.plural.toLowerCase()+'Accidental.m4a');
+		    const manCoord = 0;
+		    const pointerOffset = 80;
+		    accidentalUtterance.play();
+		    $('.button').hide();
+		    
+		    $('#utterance').text('Oh! These are four '+stim.plural.toLowerCase()+'.');
+		    const demoItems = [];
+		    for (i=0;i<4;i++) {
+			if (stim.singular.toLowerCase() === 'blicket') {
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.color));
+			} else {
+			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 70, 70));
+			}
+		    };
+		    const coverSets = [];
+		    for (i=0;i<4;i++) {
+			x = startCoords[stim.singular.toLowerCase()][0]+i*offsetX;
+			const set = paper.set();
+			if (stim.singular.toLowerCase() === 'blicket') {
+			    set.push(paper.image('../_shared/images/cover.png', 210+i*offsetX, -50, coverCoords[2], coverCoords[3]));
+			    set.push(paper.rect(labelCoords[0]+i*offsetX, labelCoords[1], labelCoords[2], labelCoords[3]).attr({"fill": '#fcfac2'}));
+			    set.push(paper.text(labelCoords[0]+i*offsetX+labelCoords[1]/2, labelCoords[1]+15, stim.singular));
+			} else {
+			    set.push(paper.image('../_shared/images/cover.png', coverCoords[0], coverCoords[1]+i*offsetY, coverCoords[2], coverCoords[3]));
+			    set.push(paper.rect(labelCoords[0], labelCoords[1]+i*offsetY, labelCoords[2], labelCoords[3]).attr({"fill": '#fcfac2'}));
+			    set.push(paper.text(labelCoords[0]+labelCoords[1]/2, labelCoords[1]+15+i*offsetY, stim.singular));
+			}
+			coverSets.push(set);
+		    }
+		    
+		    setTimeout(function() {
+			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+			showAccidental(nextItemData1[1], nextItemData1[0], function() {
+			    const nextItemData2 = setNextItem(1, 4, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord); 
+			    setTimeout(function() {
+				showAccidental(nextItemData2[1], nextItemData2[0], function() {
+				    const nextItemData3 = setNextItem(2, 4, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+				    setTimeout(function() {
+					showAccidental(nextItemData3[1], nextItemData3[0], function() {
+					    const nextItemData4 = setNextItem(3, 4, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
+					    setTimeout(function() {
+						showAccidental(nextItemData4[1], nextItemData4[0], function() {
+						    $('.button').show();
+						});
+					    }, 3000);
+					})
+				    }, 3000);
+				});
+			    }, 3000);
+			});
+		    }, 4500);
 		} else if (stim.trialType == "2pedagogical") {
 		    const pedagogicalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Id.m4a');
 		    pedagogicalUtterance.play();
@@ -552,6 +614,46 @@ function make_slides(f) {
 				const nextItemData3 = setNextItem(2, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 				showPedagogical(nextItemData3[1], nextItemData3[0], function() {
 				    $('button').show();
+				}, stim.singular.toLowerCase() === 'fep');
+			    }, stim.singular.toLowerCase() === 'fep');
+			}, stim.singular.toLowerCase() === 'fep');
+		    }, 3000);
+		} else if (stim.trialType == "4pedagogical") {
+		    const startCoords = {
+			"blicket": [270, 100],
+			"dax": [250, 0],
+			"fep": [250, 0]
+		    };
+		    const offsetX = 100;
+		    const offsetY = 120;
+		    const coverCoords = [210, -40, 150, 230];
+		    const labelCoords = [305, 50, 50, 25];
+		    const pedagogicalUtterance = new Audio('../_shared/audio/4'+stim.plural.toLowerCase()+'Id.m4a');
+		    pedagogicalUtterance.play();
+		    const manCoord = 0;
+		    const pointerOffset = 100;
+		    $('.button').hide();
+		    
+		    $('#utterance').text('These are four '+stim.plural.toLowerCase()+'.');
+		    const demoItems = [];
+		    for (i=0;i<4;i++) {
+			if (stim.singular.toLowerCase() === 'blicket') {
+			    demoItems.push(paper.path(objectPaths[stim.shape](startCoords[stim.singular.toLowerCase()][0]+i*offsetX,startCoords['blicket'][1])).attr("fill", stim.color));
+			} else {
+			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
+			}
+		    };
+		    setTimeout(function() {
+			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
+			    const nextItemData2 = setNextItem(1, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+			    showPedagogical(nextItemData2[1], nextItemData2[0], function() {
+				const nextItemData3 = setNextItem(2, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+				showPedagogical(nextItemData3[1], nextItemData3[0], function() {
+				    const nextItemData4 = setNextItem(3, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
+				    showPedagogical(nextItemData4[1], nextItemData4[0], function() {
+					$('button').show();
+				    });
 				}, stim.singular.toLowerCase() === 'fep');
 			    }, stim.singular.toLowerCase() === 'fep');
 			}, stim.singular.toLowerCase() === 'fep');
@@ -735,7 +837,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["3pedagogical", "3accidental"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["4pedagogical", "4accidental"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
