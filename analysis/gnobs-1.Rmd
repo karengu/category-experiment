@@ -1,0 +1,550 @@
+---
+title: "observation-1"
+author: "MH Tessler"
+date: "7/31/2019"
+output: pdf_document
+---
+
+
+```{r}
+library(tidyverse)
+library(jsonlite)
+library(viridis)
+library(tidyboot)
+library(brms)
+library(lme4)
+library(lmerTest)
+library(ggridges)
+library(ggstance)
+library(rwebppl)
+```
+
+```{r load.data}
+data.paths <- c("~/projects/genex/results/gen_example/")
+
+df.subject <- data.frame()
+df.trials <- data.frame()
+df.attention <- data.frame()
+for (data.path in data.paths){
+  result.files <- list.files(data.path, pattern="json")
+
+  expt.id <- match(data.path, data.paths)
+  for (result_file in result.files) {
+    result_json = fromJSON(paste(data.path, result_file, sep ="/"))
+    worker.id = result_json$WorkerId
+    condition = result_json$answers$condition
+    
+    df.attention = bind_rows(
+      df.attention, 
+      data.frame(result_json$answers$sound_check) %>%
+        mutate(exptid = expt.id,
+               workerid = worker.id)
+               #tested_on = as.character(tested_on),
+               #response = as.character(response))
+    )
+      
+    df.subject = bind_rows(
+      df.subject, 
+      data.frame(result_json$answers$subject_information) %>% 
+        mutate(
+          exptid = expt.id,
+          workerid = worker.id,
+          language = gsub("\"", "", language),
+          enjoyment = gsub("\"", "", enjoyment),
+          age = gsub("\"", "", age),
+          gender = gsub("\"", "", gender),
+          problems = gsub("\"", "", problems),
+          comments = gsub("\"", "", comments)
+        ) 
+    )
+    
+    data.worker <- data.frame(result_json$answers$trials)
+    d.condition <- data.frame(result_json$answers$condition)
+    names(d.condition) <- "condition"
+    
+    if (d.condition$condition == "generic") {
+      data.worker$correctId = NA
+    }
+    
+    df.trials = bind_rows(
+      df.trials, 
+      data.worker %>%
+        select(type, singular, featureSingular, response, correctId) %>%
+        mutate(exptid = expt.id,
+               workerid = worker.id,
+               condition = d.condition$condition, 
+               level = "subordinate")
+        
+    )
+  }
+}
+
+```
+
+
+```{r load.data super}
+data.paths <- c("~/projects/genex/results/gen_example_levels/")
+
+df.subject <- data.frame()
+df.trials <- data.frame()
+df.attention <- data.frame()
+for (data.path in data.paths){
+  result.files <- list.files(data.path, pattern="json")
+
+  expt.id <- match(data.path, data.paths)
+  for (result_file in result.files) {
+    result_json = fromJSON(paste(data.path, result_file, sep ="/"))
+    worker.id = result_json$WorkerId
+    condition = result_json$answers$condition
+    
+    df.attention = bind_rows(
+      df.attention, 
+      data.frame(result_json$answers$sound_check) %>%
+        mutate(exptid = expt.id,
+               workerid = worker.id)
+               #tested_on = as.character(tested_on),
+               #response = as.character(response))
+    )
+      
+    df.subject = bind_rows(
+      df.subject, 
+      data.frame(result_json$answers$subject_information) %>% 
+        mutate(
+          exptid = expt.id,
+          workerid = worker.id,
+          language = gsub("\"", "", language),
+          enjoyment = gsub("\"", "", enjoyment),
+          age = gsub("\"", "", age),
+          gender = gsub("\"", "", gender),
+          problems = gsub("\"", "", problems),
+          comments = gsub("\"", "", comments)
+        ) 
+    )
+    
+    data.worker <- data.frame(result_json$answers$trials)
+    d.condition <- data.frame(result_json$answers$condition)
+    names(d.condition) <- "condition"
+    
+    if (d.condition$condition == "generic") {
+      data.worker$correctId = NA
+    }
+    
+    df.trials = bind_rows(
+      df.trials, 
+      data.worker %>%
+        select(type, singular, featureSingular, response, correctId, level) %>%
+        mutate(exptid = expt.id,
+               workerid = worker.id,
+               condition = d.condition$condition)
+        
+    )
+  }
+}
+
+```
+
+## Correct ID (attention check)
+
+```{r}
+df.trials %>%
+  filter(type == 'id') %>%
+  group_by(workerid, condition, level) %>%
+  summarize(n_correct = sum(correctId)) %>%
+  ungroup() %>%
+  group_by(n_correct) %>%
+  count()
+```
+
+### Correct ID by item
+
+```{r}
+df.trials %>%
+  filter(type == 'id') %>%
+  group_by(singular) %>%
+  summarize(n_correct = sum(correctId) / n())# %>%
+  # ungroup() %>%
+  # group_by(n_correct) %>%
+  # count()
+```
+
+Participants per condition
+
+```{r}
+df.trials %>% 
+  select(workerid, condition, singular, type) %>%
+  filter(singular == "Fep", type == "response") %>%
+  group_by(condition) %>%
+  count()
+```
+
+
+### Workers pass Correct ID
+
+
+
+```{r}
+df.id.catch <- df.trials %>%
+  filter(type == 'id') %>%
+  group_by(workerid, condition) %>%
+  summarize(n_correct = sum(correctId),
+            #pass = n_correct >= 1)
+            pass = n_correct == 3)
+```
+
+### Filter out failures to pass attention check
+
+```{r}
+df.trials.generics <- df.trials %>%
+  filter(condition == "generic")
+
+df.trials.filtered <- df.trials %>%
+  left_join(., df.id.catch) %>%
+  filter(pass) %>%
+  bind_rows(., df.trials.generics)
+
+df.trials.filtered %>%
+  group_by(condition, level) %>%
+  summarize(n_responses = n()) %>%
+  ungroup() %>%
+  mutate(n_subj = ifelse(condition =="generic", 
+                         n_responses / 3, n_responses / 6)) %>%
+  select(-n_responses)
+  
+#, n_trials = n(),
+ #           n = ifelse(condition == "generic", n_trials / 3,  n_trials / 6))
+```
+
+# Visualization and analysis
+
+```{r}
+df.trials.filtered.recoded <- df.trials.filtered %>%
+  filter(type == 'response') %>%
+  mutate(featureSingular = ifelse(is.na(featureSingular), "squeaks", featureSingular)) %>%
+  mutate(condition = factor(condition,
+                            levels = c("accidental",
+                                       "2accidental",
+                                       "3accidental",
+                                       "4accidental",
+                                       "pedagogical",
+                                       "2pedagogical",
+                                       "3pedagogical",
+                                       "4pedagogical",
+                                       "generic",
+                                       "pedageneric"),
+                            labels = c("1x Accidental",
+                                       "2x Accidental",
+                                       "3x Accidental",
+                                       "4x Accidental",
+                                       "1x Pedagogical",
+                                       "2x Pedagogical",
+                                       "3x Pedagogical",
+                                       "4x Pedagogical",
+                                       "Generic",
+                                       "Generic \n+ 1x Pedagogical")),
+         number = 1) %>%
+  group_by(workerid) %>%
+  mutate(trial_num = cumsum(number)) %>%
+  filter(trial_num <= 3)
+```
+
+Number of responses per subject
+
+```{r}
+df.trials.filtered.recoded %>%
+  group_by(workerid) %>%
+  summarize(n = n()) %>%
+  ungroup() %>%
+  group_by(n) %>%
+  count()
+```
+
+
+## Histograms
+
+```{r}
+df.trials.filtered %>%
+  ggplot(., aes(x = response))+
+  geom_histogram()+
+  facet_wrap(~condition + level, nrow = 1)+
+  scale_x_continuous(breaks = c(0, 1))
+```
+
+
+```{r}
+df.trials.filtered.recoded %>%
+  ggplot(., aes(x = response))+
+  geom_histogram()+
+  facet_grid(featureSingular~condition)
+```
+Trail order
+
+```{r}
+df.trials.filtered.recoded %>%
+  ggplot(., aes(x = response))+
+  geom_histogram()+
+  facet_grid(trial_num~condition)
+```
+
+
+## 95 CIs
+
+```{r}
+df.bs <- df.trials.filtered.recoded %>%
+  group_by(condition, level) %>%
+  tidyboot_mean(column = response)
+```
+
+```{r}
+df.bs %>%
+  ggplot(., aes(x = condition, y = mean, ymin = ci_lower,
+                ymax = ci_upper)) +
+  geom_col(color = 'black', fill = 'white')+
+  geom_linerange()
+```
+
+### Ridge distribution plots
+
+```{r}
+ggplot(df.trials.filtered.recoded, 
+       aes(x = response, y = condition, fill = ..x..)) +
+  geom_density_ridges_gradient(
+    jittered_points = T, alpha = 0.8, scale = 0.95,
+    position = position_points_jitter(width = 0.01, height = 0),
+    point_shape = '|', point_size = 2.5, point_alpha = 0.3,
+    rel_min_height = 0.01, gradient_lwd = 1,
+    stat = 'binline', bins = 25, draw_baseline = F
+  ) +
+  geom_linerangeh(data = df.bs,
+    inherit.aes = F,
+    aes(xmin = ci_lower, xmax = ci_upper, 
+        y = as.numeric(condition)+0.4),
+    size = 1.25, color = 'black')+
+  geom_point(data = df.bs,
+    inherit.aes = F,
+    aes(x = mean,
+        y = as.numeric(condition)+0.4),
+    size = 3, color = 'black', shape = 3)+
+  scale_x_continuous(expand = c(0.01, 0), 
+                     limits = c(0, 1.02), 
+                     breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_fill_viridis(name = "Implied Prevalence", option = "D",
+                     breaks = c(0, 1)) +
+  guides(fill = F)+
+  #labs(title = 'Temperatures in Lincoln NE in 2016') +
+  #theme_ridges(font_size = 13, grid = T) + 
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_text(hjust = 0.5, vjust = 0))+
+  labs(x = "P(Feature | Category)")
+
+# ggsave("~/projects/generic-interpretation/posters/genex-pilots_8conditions_reordered.pdf",
+#        width = 5, height = 5)
+```
+
+
+
+#### Pedagogical and Generic only
+
+```{r}
+generic.and.pedagogical <-  c("1x Pedagogical",
+                              "2x Pedagogical",
+                              "3x Pedagogical",
+                              "Generic",
+                              "Generic \n+ 1x Pedagogical")
+
+
+
+df.trials.filtered.recoded.ped <- df.trials.filtered.recoded %>% 
+  filter(condition %in% generic.and.pedagogical) %>%
+  ungroup() %>% 
+  mutate(condition = factor(condition, levels = generic.and.pedagogical))
+
+df.bs.ped <- df.bs %>% 
+  filter(condition %in% generic.and.pedagogical) %>%
+  ungroup() %>% 
+  mutate(condition = factor(condition, levels = generic.and.pedagogical))
+
+ggplot(df.trials.filtered.recoded.ped, 
+       aes(x = response, y = condition, fill = ..x..)) +
+  geom_density_ridges_gradient(
+    jittered_points = T, alpha = 0.8, scale = 0.95,
+    position = position_points_jitter(width = 0.01, height = 0),
+    point_shape = '|', point_size = 2.5, point_alpha = 0.3,
+    rel_min_height = 0.01, gradient_lwd = 1,
+    stat = 'binline', bins = 25, draw_baseline = F
+  ) +
+  geom_linerangeh(data =df.bs.ped,
+    inherit.aes = F,
+    aes(xmin = ci_lower, xmax = ci_upper, 
+        y = as.numeric(condition)+0.4),
+    size = 1.25, color = 'black')+
+  geom_point(data = df.bs.ped,
+    inherit.aes = F,
+    aes(x = mean,
+        y = as.numeric(condition)+0.4),
+    size = 4, color = 'black', shape = 3)+
+  scale_x_continuous(expand = c(0.01, 0), 
+                     limits = c(0, 1.02), 
+                     breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_fill_viridis(name = "Implied Prevalence", option = "D",
+                     breaks = c(0, 1)) +
+  guides(fill = F)+
+  #labs(title = 'Temperatures in Lincoln NE in 2016') +
+  #theme_ridges(font_size = 13, grid = T) + 
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_text(hjust = 0.5, vjust = 0))+
+  labs(x = "P(Feature | Category)")
+
+ggsave("~/projects/generic-interpretation/posters/genex-pilots_ped.png",
+       width = 5, height =4 )
+```
+
+#### Accidental and Generic only
+
+```{r}
+generic.and.accidental <-  c("1x Accidental",
+                              "2x Accidental",
+                              "3x Accidental",
+                              "Generic",
+                              "Generic \n+ 1x Pedagogical")
+
+df.trials.filtered.recoded.acc <- df.trials.filtered.recoded %>% 
+  filter(condition %in% generic.and.accidental) %>%
+  ungroup() %>% 
+  mutate(condition = factor(condition, levels = generic.and.accidental))
+
+df.bs.acc <- df.bs %>% 
+  filter(condition %in% generic.and.accidental) %>%
+  ungroup() %>% 
+  mutate(condition = factor(condition, levels = generic.and.accidental))
+
+ggplot(df.trials.filtered.recoded.acc, 
+       aes(x = response, y = condition, fill = ..x..)) +
+  geom_density_ridges_gradient(
+    jittered_points = T, alpha = 0.8, scale = 0.95,
+    position = position_points_jitter(width = 0.01, height = 0),
+    point_shape = '|', point_size = 2.5, point_alpha = 0.3,
+    rel_min_height = 0.01, gradient_lwd = 1,
+    stat = 'binline', bins = 25, draw_baseline = F
+  ) +
+  geom_linerangeh(data =df.bs.acc,
+    inherit.aes = F,
+    aes(xmin = ci_lower, xmax = ci_upper, 
+        y = as.numeric(condition)+0.4),
+    size = 1.25, color = 'black')+
+  geom_point(data = df.bs.acc,
+    inherit.aes = F,
+    aes(x = mean,
+        y = as.numeric(condition)+0.4),
+    size = 4, color = 'black', shape = 3)+
+  scale_x_continuous(expand = c(0.01, 0), 
+                     limits = c(0, 1.02), 
+                     breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_fill_viridis(name = "Implied Prevalence", option = "D",
+                     breaks = c(0, 1)) +
+  guides(fill = F)+
+  #labs(title = 'Temperatures in Lincoln NE in 2016') +
+  #theme_ridges(font_size = 13, grid = T) + 
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_text(hjust = 0.5, vjust = 0))+
+  labs(x = "P(Feature | Category)")
+
+ggsave("~/projects/generic-interpretation/posters/genex-pilots_acc.png",
+       width = 5, height = 4)
+```
+
+
+# Regression
+
+### Forward difference
+
+
+```{r}
+
+my.forward.diff = matrix(
+  c(7/8, -1/8, -1/8, -1/8, -1/8, -1/8, -1/8, -1/8, 
+    6/8, 2/8, -(4/3)/8, -(4/3)/8, -(4/3)/8, -(4/3)/8, -(4/3)/8, -(4/3)/8, 
+    5/8, 3/8, 3/8, -11/40, -11/40, -11/40, -11/40, -11/40,
+    1/2, 1/2, 1/2, 1/2, -1/2, -1/2, -1/2, -1/2,
+    11/40, 11/40, 11/40, 11/40, 11/40, -3/8, -3/8, -5/8,
+    (4/3)/8, (4/3)/8, (4/3)/8, (4/3)/8, (4/3)/8, (4/3)/8, -2/8, -6/8,
+    1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, -7/8),
+      ncol = 7)
+
+
+contrasts(df.trials.filtered.recoded$condition) <- my.forward.diff
+
+
+rs.lm <- lmer(response ~ 
+       condition + (1 | workerid) + (1 | singular), data = df.trials.filtered.recoded)
+
+summary(rs.lm)
+```
+
+### Dummy coding
+
+```{r}
+df.trials.filtered.recoded.genDummy <- df.trials.filtered.recoded %>%
+  mutate(condition = factor(condition,
+                            levels = c("Generic",
+                                       "1x Accidental",
+                                       "1x Pedagogical",
+                                       "2x Accidental",
+                                       "2x Pedagogical",
+                                       "3x Accidental",
+                                       "3x Pedagogical",
+                                       "Generic \n+ 1x Pedagogical")))
+
+contrasts(df.trials.filtered.recoded.genDummy$condition) 
+
+rs.lm.dummy <- lmer(response ~ condition + (1 | workerid) + 
+                      (1 | singular), data = df.trials.filtered.recoded.genDummy)
+
+summary(rs.lm.dummy)
+```
+
+
+```{r}
+rs.brm.dummy <- brm(response ~ condition + (1 | workerid) + 
+                      (1 | singular), 
+                    data = df.trials.filtered.recoded.genDummy,
+                    chains = 2, cores = 2)
+summary(rs.brm.dummy)
+```
+
+```{r}
+rs.brm.dummy <- brm(response ~ condition + (1 | workerid) + 
+                      (1 | singular), 
+                    data = df.trials.filtered.recoded.genDummy,
+                    chains = 2, cores = 2)
+summary(rs.brm.dummy)
+```
+
+```{r}
+rs.brm.dummy.beta <- brm(response ~ condition + (1 | workerid) + 
+                      (1 | singular), 
+                    data = df.trials.filtered.recoded.genDummy %>%
+                      mutate(response = ifelse(response == 1, 0.999, 
+                                               ifelse(response == 0, 0.001, response))),
+                    chains = 2, cores = 2, family = Beta()
+                    )
+summary(rs.brm.dummy.beta)
+```
+
+```{r}
+rs.brm.dummy.betaInfl <- brm(response ~ condition + (1 | workerid) + 
+                      (1 | singular), 
+                    data = df.trials.filtered.recoded.genDummy,
+                    chains = 2, cores = 2, family = zero_one_inflated_beta()
+                    )
+summary(rs.brm.dummy.betaInfl)
+```
+
+# WebPPL
+
+```{r}
+webppl(program_file = "ana")
+```
+
