@@ -1,0 +1,249 @@
+% 
+% Annual Cognitive Science Conference
+% Sample LaTeX Paper -- Proceedings Format
+% 
+
+% Original : Ashwin Ram (ashwin@cc.gatech.edu)       04/01/1994
+% Modified : Johanna Moore (jmoore@cs.pitt.edu)      03/17/1995
+% Modified : David Noelle (noelle@ucsd.edu)          03/15/1996
+% Modified : Pat Langley (langley@cs.stanford.edu)   01/26/1997
+% Latex2e corrections by Ramin Charles Nakisa        01/28/1997 
+% Modified : Tina Eliassi-Rad (eliassi@cs.wisc.edu)  01/31/1998
+% Modified : Trisha Yannuzzi (trisha@ircs.upenn.edu) 12/28/1999 (in process)
+% Modified : Mary Ellen Foster (M.E.Foster@ed.ac.uk) 12/11/2000
+% Modified : Ken Forbus                              01/23/2004
+% Modified : Eli M. Silk (esilk@pitt.edu)            05/24/2005
+% Modified : Niels Taatgen (taatgen@cmu.edu)         10/24/2006
+% Modified : David Noelle (dnoelle@ucmerced.edu)     11/19/2014
+% Modified : Roger Levy (rplevy@mit.edu)     12/31/2018
+
+
+
+%% Change "letterpaper" in the following line to "a4paper" if you must.
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{cogsci}
+\usepackage{color}
+%\cogscifinalcopy % Uncomment this line for the final submission 
+
+
+\usepackage{pslatex}
+\usepackage{apacite}
+\usepackage{float} % Roger Levy added this and changed figure/table
+                   % placement to [H] for conformity to Word template,
+                   % though floating tables and figures to top is
+                   % still generally recommended!
+
+%\usepackage[none]{hyphenat} % Sometimes it can be useful to turn off
+%hyphenation for purposes such as spell checking of the resulting
+%PDF.  Uncomment this block to turn off hyphenation.
+
+
+%\setlength\titlebox{4.5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 4.5cm (the original size).
+%%If you do, we reserve the right to require you to change it back in
+%%the camera-ready version, which could interfere with the timely
+%%appearance of your paper in the Proceedings.
+
+\definecolor{Red}{RGB}{255,0,0}
+\definecolor{Green}{RGB}{10,200,100}
+\definecolor{Blue}{RGB}{10,100,200}
+\definecolor{Orange}{RGB}{255,153,0}
+
+\newcommand{\denote}[1]{\mbox{ $[\![ #1 ]\!]$}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\red}[1]{\textcolor{Red}{#1}}  
+\newcommand{\ndg}[1]{\textcolor{Green}{[ndg: #1]}}  
+\newcommand{\mht}[1]{\textcolor{Blue}{[mht: #1]}}  
+\newcommand{\mlb}[1]{\textcolor{Orange}{[mlb: #1]}}
+
+\title{How many observations is one generic worth?}
+ 
+\author{{\large \bf M. H. Tessler^{1} (tessler@mit.edu)}, {\large \bf Sophie Bridgers^{2} (sbridge@stanford.edu)}, and {\large \bf Joshua B. Tenenbaum^{1} (jbt@mit.edu)} \ \\
+  ^{1}Department of Brain and Cognitive Sciences, MIT \\
+    ^{2}Department of Psychology, Stanford University}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+Include no author information in the initial submission, to facilitate
+blind review.  The abstract should be one paragraph, indented 1/8~inch on both sides,
+in 9~point font with single spacing. The heading ``{\bf Abstract}''
+should be 10~point, bold, centered, with one line of space below
+it. This one-paragraph abstract section is required only for standard
+six page proceedings papers. Following the abstract should be a blank
+line, followed by the header ``{\bf Keywords:}'' and a list of
+descriptive keywords separated by semicolons, all in 9~point font, as
+shown below.
+
+\textbf{Keywords:} 
+add your choice of indexing terms or keywords; kindly use a
+semicolon; between each term
+\end{abstract}
+
+
+\section{Introduction}
+
+The world is a confusing and confounding place, but the right kind of generalizations allow us to navigate the world with ease.
+We understand the lightning tends to strike tall objects and that smoking causes cancer, but how do we come to know these generalizations?
+We come to know these generalizations either by experience or by learning from others.
+
+We know that infants and young children draw strong generalizations from just a few examples \red{(cite devo/infant research}).
+When these examples are presented in a pedagogical manner---via an act intended by another agent to change the learner's beliefs---stronger generalizations often result \red{(cite: butler, ...)}. 
+Beyond learning from experience, however, language provides simple ways to convey generalizations in the form of \emph{generic language} (e.g., \emph{Swans are white}), often defined as being exactly those linguistic expressions that convey generalizations \red{(cite: Carlson, Leslie, Tessler}).
+What is the relationship between inductive generalizations drawn from observations (either those presented pedagogically vs. not) and generic language?
+In particular, how many observations---in terms of the inductive generalizations implied by them---is one generic worth?
+
+Articulating the precise relationship between learning from examples and learning from language is difficult because linguistic utterances update beliefs via truth conditions, which are often difficult to specify. 
+That is, while cognitive scientists for a long time have been concerned with the precise computations that underly learning from examples---most prominently explored in a Bayesian setting these days---and even how difficult sampling assumptions of those examples (i.e., a learner assuming a pedagogically sampling rule) can strengthen this belief updating mechanism, learning from language has received comparatively little attention. 
+The reason is that the meanings of even the simplest linguistic expressions can change dramatically depending on the context and the content. 
+Generics are a clear case of this:  while \emph{Triangles have three sides} should be taken to mean that exactly 100\% of triangles have three sides, \emph{Swans are white} is more tolerating of exceptions (i.e., there are black swans); \emph{Mosquitos carry malaria} is an example of a generic that conveys a very weak generalization: the vast majority of real-world mosquitos do not carry the virus. 
+Despite this heterogeneity, \cite{Tessler2019psychrev} proposed a Bayesian formulation to interpreting generics, where a generic acts as a \emph{vague quantifier}, \emph{a la} \emph{some}, \emph{most}, \emph{all} but in which the truth functional threshold for a generic (a la how \emph{most} literally means more than half; or how \emph{all} literally means 100\%) is underspecified or vague (represented formally by a prior distribution over thresholds). 
+
+There are two suggestions for how learning from examples might relate to learning from generics.
+The first is derived via the comptuational model of \cite{Tessler2019psychrev}: We show how the vague quantifier model relates to Bayesian belief-updating from observations. 
+Under the most minimal of assumptions, the literal listener component of   \cite{Tessler2019psychrev}reduces to belief-updating given a \emph{single, positive example} and the pragmatic listener model introduced by  \cite{Tessler2020genint} would amount to a belief-updating model given a pedagogically presented single example.
+Independently, \citeA{Csibra2015} proposed that, at least for infants, generics are equivalent to a pedagogically sampled observation. Because infants conceive of objects as instances of kinds, pedagogical reference to an individual can act as a symbolic reference to the kind. Then, any demonstration that may result in this pedagogical episode would be understood as predicating the kind, and hence, a kind of non-verbal generic.
+Thus, from two rather different theoretical frameworks---one from computational cognitive science and the other from infant cognitive development---there is an idea that a generic might be equivalent to a single, pedagogically-sampled example. 
+
+We take an empirical approach to investigate the relationship between learning from examples and learning from generic language.
+We develop an empirical paradigm where participants can learn about a novel category either from examples or from language and ask them to judge the likelihood that a future instance of a category would have the property \cite<cf.,>{gelman2003; cimpian2010; brandone2014; tessler2020genint}.
+We titrate the number of examples participants learn in order to determine the point at which the strength of the generalization implied by examples is equal to the strength of the generalization implied by a generic statement. 
+We find that, contra the theoretical proposals out in the literature, a generic is worth about three, pedagogically sampled examples. 
+The implications of this relationship, as well as its potential context-sensitivity and development, are discussed.
+
+
+
+\section{Theoretical Background}
+
+We highlight two proposals in the literature concerning the precise relationship of learning from observations and learning from generics.  The first comes from computational cognitive science, and in particular, the model of generic language as a vague quantifier proposed by Tessler2019. The second comes from cognitive development and in particular a view of infants' understanding of objects and kinds proposed by Csibra2015. 
+
+\subsection{Generics as vague quantifier}
+
+Tessler2019 proposed a Bayesian model for understanding generic language by drawing on the tools of truth-functional semantics and treating a generic as a kind of vague quantifier.
+The truth conditions of quantifiers can be formalized as threshold functions on the property prevalence (e.g., $\denote{some} = p > 0$; $\emph{most}= p > 0.5$; $\denote{all} = p = 1$). The model is similar in their truth conditions---$\denote{\emph{gen}} = p > \theta$---but treats the  
+semantic threshold variable as underspecified in the semantics but inferred in context. Formally, their model puts a probability distribution over the threshold variable---$\theta \sim P(\theta)$---following format treatment of gradable adjectives like \emph{tall} \red{(cite Lassiter)}. Combining this underspecified, threshold semantics with the prior knowledge a listener would bring to the table $P(x)$ yields the following model of generic interpretation
+$$
+L(x, \theta) \propto P(x) P(\theta) \delta_{x > \theta}
+$$
+
+The prior distribution $P(x)$ is an object of theoretical interest in its own right and has been investigated extensively in the original presentation of this model \red{(cite Tessler2019, Tessler2020)}. 
+Of particular interest for our purposes is a mathematical relationship pointed out Tessler2020, which can be seen by integrating out the listener's uncertainty about the threshold variable. 
+
+\mht{insert math}
+
+What we see here is that the original model of Tessler2019 can be reformulated in terms of belief-updating from observations. 
+The exact number of observations depends upon the prior distribution over the semantic threshold $P(\theta)$.  
+Tessler2019 used a uniform prior $\theta \sim Uniform(0,1)$ (i.e, \emph{a priori}, anything could count as a true generic, without regard to the actual prevalence of the feature).
+Integrating out the threshold using this prior yields a model of belief-updating given a single example. 
+
+It is important to note that this relationship is only manifested at the level of a literal listener.
+Tessler2020 argue that the strength of generic interpretation should be understood not as a literal listener interpretation but as a pragmatic interpretation of a weak semantics (see also \red{vanRooij2019} for a similar argument). 
+If this is the case, we would expect a generic to be equivalent to a single, pragmatically-enriched (or, pedagogically understood) example. 
+
+
+\subsection{Non-verbal generics}
+
+A second proposal for the relationship between belief updating from generic language and belief updating from observations comes from \citeA{Csibra2015}. Csibra argues that preverbal infants view objects as instances of kinds. That is, when observing an instance of a novel category (call it a \emph{blicket}), they not only have the capacity to individuate this object as a singular entity (i.e., \emph{this is a blicket}) but also have the capacity to see the object as an index to the kind (i.e., \emph{this blicket is a pointer to the kind \textsc{blickets}}) .  When an object is presented to an infant with ostensive, pedagogical cues (a la \emph{natural pedagogy} \cite{CsibraGereley}), the infant will interpret the object, not as a singular entity, but as an index to the kind; then, if a property is predicated (i.e., demonstrated) of that object (e.g., the blicket is shown to squeak), it will be taken by the infant to apply to the kind. That is, the pedagogical demonstration will be understood as a (non-verbal) generic: \emph{Blickets squeak}. Thus, this account draws a direct connection between generics and a single, pedagogical example. \footnote{It should be noted that the account of \citeA{Csibra2015} is intended to be applied to infant cognition. There is no direct or indirect link proposed for this view to be applied to adult cognition or even the cognition of young children who have acquired their first language. \red{In fact, there may be empirical bases to believe this account would not apply to cognition broadly (Baldwin ...).} Thus, this argument should be understood as an application of the account of \citeA{Csibra2015} and not a direct theoretic consequence of it.} 
+
+\section{Experiment}
+
+\subsection{Method}
+
+\subsubsection{Participants}
+
+We recruited \red{XXX} adult participants from Amazon's Mechanical Turk. 
+Participants were restricted to those with U.S. IP addresses with at least a 95\% work approval rating. 
+In addition, participants were required to pass a simple language comprehension test that we deployed in order to weed out bots and other bad-faith participants. 
+The test involved a sentence in which a named speaker (e.g., Joseph) says to a named listener (e.g., Elizabeth) ``It's a beautiful day, isn't it?''. 
+Participants were asked to type in a text box to whom the speaker (in this case: Joseph) is talking (i.e., Elizabeth).
+Speaker and listener names were randomized in a way that could not be read off the source .html file.
+Participants were given three attempts to correctly identify the listener. 
+If they did not succeed within 3 attempts, they would be unable to proceed with the experiment.
+Since participants who fail this check are required to exit the experiment before completing the task, we do not have an estimate for how many participants fail this check. 
+
+\subsubsection{Materials}
+
+We used exemplars from four, semi-novel natural categories and one artifact category.
+The basic-level categories from which our novel categories were created were birds, bugs, fish, and flowers. 
+The instances presented in a category had the same general physical features but each example had a unique shape, size, and color that was randomly sampled from an underlying distribution with relatively small variance (i.e., the examples were heterogeneous, but tightly clustered in perceptual space).
+
+The feature to be learned for all categories was presented auditorially. 
+The features are shown in Table 1. 
+
+\subsubsection{Procedure}
+
+Participants competed three trials. 
+
+\subsection{Results}
+
+\mht{trial order effects?}
+
+\mht{item effects?}
+
+\section{Discussion}
+
+Successfully navigating the environment requires anticipating what is to come, and abstract generalizations allow us to reason flexibly about instances of categories and events that we have not yet experienced. 
+These generalizations can be constructed both by directly observing instances in the world and by being told the generalization in the form of a generic sentence. 
+But what is the relationship between learning from examples and learning from generics? 
+Here we ask a simple question: How many observations is one generic worth?
+We find that, contra extant theoretical proposals, the strength of the generalization implied by a generic is equivalent to roughly three pedagogically-sampled examples. 
+
+\subsection{Generics about other predicates}
+
+In our experiment, we used predicates that are directly observable---sounds that an animal or object could make---and that could plausibly be construed as idiosyncratic properties of individuals (e.g., \emph{This fep squawks}) or characteristic properties of categories (e.g., it is typical of feps to squawk).
+Observing different kinds of properties in general should lead to different strengths of generalization implied by examples \cite{Nisbett1983}. 
+Does this imply that the examples---generics exchange rate is different for generalizing different properties?
+Not necessarily.
+It is also the case that the strength of generalization implied by a generic varies by the type of property \cite{Tessler2020}. 
+In fact, it is a prediction of the theory of \citeA{Tessler2019, Tessler2020} that the exchange rate will be the same across properties. (What is different across properties, according to the Tessler2019, is the prior knowledge.)
+
+\subsection{Generics about superordinate categories}
+
+In our experiment, we used novel categories that would plausibly be construed as subordinate level categories.
+We focus on subordinate level categories to isolate the contribution of the number of examples without concern as to the differences or variability among the examples with respect to the extension of the category.
+That is, the examples--generics exchange rate will, in general, depend upon the level of abstraction of the category. 
+Learning from examples the same kind of generalization as that conveyed with a generic about a superordinate category (e.g., \emph{Mammals are worm-blooded}) will be much more difficult than the subordinate categories we used. 
+In particular, to make a strong generalization to the category of mammals, a learner would benefit from a diverse set of examples (e.g., bears, cats, whales, ...) and significantly benefited from the prior knowledge that different animal families have a consistent kind of bloodedness. 
+The power of generics then scales with the level of abstraction of the category: Generics about more abstract, superordinate categories will, in general, be harder to learn from examples than generics about basic level or subordinate level categories. 
+
+\subsection{Relationship to children}
+
+\mht{Changes from infancy to early childhood?}
+
+\mht{Changes across childhood?}
+
+\subsection{Relation to other tasks}
+
+Our experiment method is similar but distinct from other studies investigating the interpretation of generics vis a vis examples or statistics.
+\citeA{Cimpian2010} compared the strength of generalization implied by a generic (what they called \emph{implied prevalence}) to the statistics of the feature in terms of its prevalence in the category that led participants to endorse the generic (what they call \emph{truth conditions}). They found that generics (at least, generics about the kinds of predicates they tasted) tend to be interpreted more strongly than what one would expect given the statistical information that lead people to endorse generics. 
+
+\citeA{Kushnir2016} examined the strength of generalizations and trust in informants after jointly hearing generic language and observing some number relevant instances of the category with/without the property (e.g., hearing \emph{Blickets squeak} and then observing 2 out of 10 blickets squeak.
+
+\subsection{Other limitations of this study}
+
+One other limitation of our paradigm that we wish to highlight is that our paradigm does not evoke uninhibited, automatic, bonafide communicative reasoning but rather is embedded in a story book that depicts certain communicative acts \red{(cite Clark?)}. 
+For example, the incidental condition is not really incidental: We designed the task in order to depict an accident, and our participants are presumably aware of this. 
+We find that participants interpret the evidence presented in the accidental condition in some way weaker than the same evidence presented in the pedagogical condition, which provides evidence that participants represent these as different events and perhaps recognize our intention to display different events. Thus, what we are tapping into is plausibly not the generalization implied by an incidental observation but rather the generalization that participants believe that others (e.g., the experimenter, the community) might draw from incidental observations. 
+We are currently working on an interactive paradigm where participants learn about the world through self-directed, not experimentally supplied, learning events. 
+
+
+%\section{Acknowledgments}
+
+
+\bibliographystyle{apacite}
+
+\setlength{\bibleftmargin}{.125in}
+\setlength{\bibindent}{-\bibleftmargin}
+
+\bibliography{CogSci_Template}
+
+
+\end{document}
