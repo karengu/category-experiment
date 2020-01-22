@@ -719,7 +719,7 @@ function make_slides(f) {
 				    const nextItemData4 = setNextItem(3, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 				    showPedagogical(nextItemData4[1], nextItemData4[0], function() {
 					$('button').show();
-				    });
+				    }, stim.singular.toLowerCase() === 'fep');
 				}, stim.singular.toLowerCase() === 'fep');
 			    }, stim.singular.toLowerCase() === 'fep');
 			}, stim.singular.toLowerCase() === 'fep');
