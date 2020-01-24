@@ -1,5 +1,5 @@
 ---
-title: "observation-1"
+title: "Generics = n_obs?"
 author: "MH Tessler"
 date: "7/31/2019"
 output: pdf_document
@@ -17,6 +17,7 @@ library(lmerTest)
 library(ggridges)
 library(ggstance)
 library(rwebppl)
+library(knitr)
 ```
 
 ```{r load.data}
@@ -544,7 +545,281 @@ summary(rs.brm.dummy.betaInfl)
 
 # WebPPL
 
+First, we determine what the right linking function is, within the family of a mixture of Betas. 
+- Specfically, how many components do we need? (hypothesis: 2)
+- We compute the marginal (log) likelihood of the data for each condition separately, assuming different n_components for the Beta
+- we then logsumexp those loglikelihoods to compute a Bayes Factor for each hypothesis (n_component) to decide upon a fixed link function
+
+Second, we take that link function and compute the marginal likelihood of the data for pairwise conditions, assuming that those conditions come from the same vs. different distributions (where each distribution could be a multimodal distribution)
+
+## Marginal Likelihood
+
+### What is the right link function?
+
 ```{r}
-webppl(program_file = "ana")
+n_components <- c(1, 2, 3)
+# steps = 25k --> 30s
+rs.wp.ais <- data.frame()
+
+df.filtered.toPass <- df.trials.filtered %>%
+  filter(type == "response") %>%
+  rowwise() %>%
+  mutate(avoided_endval = ifelse(response == 1, 0.999, 
+                                 ifelse (response == 0, 0.001, response)))
+
+all_conditions <- unique(df.filtered.toPass$condition)
+
+for (cndtn in all_conditions){
+  print(cndtn)
+  
+  df.filtered.toPass.condition <- df.filtered.toPass %>%
+    filter(condition == cndtn)
+
+  for (n_c in n_components){
+    t1 <- Sys.time()
+    
+    rs.wp.ais.i <- webppl(
+      program_file = "webppl/mixture_of_betas.wppl",
+      data = list(responses = df.filtered.toPass.condition,
+                  n_components = n_c,
+                  ais = T,
+                  ais_samples = 1,
+                  ais_steps = 50000),
+      chains = 3,
+      cores = 3
+      )
+    
+    bind_rows(rs.wp.ais, 
+              data.frame(marg_ll = rs.wp.ais.i, n_c = n_c, condition = cndtn, row.names = NULL) %>%
+                  mutate(iter = row_number())) -> rs.wp.ais 
+    t2 <- Sys.time()
+    print(paste("n components =", n_c, " time=", t2-t1))
+  }
+  
+}
+
+rs.wp.ais
+
+write_csv(rs.wp.ais, path = "webppl/output/ais_allConds_nComponents_50k.csv")
 ```
 
+```{r}
+rs.wp.ais %>%
+  rowwise() %>%
+  mutate(ll = exp(marg_ll)) %>%
+  ungroup() %>%
+  group_by(condition, n_c) %>%
+  summarize(mean_ll = mean(ll),
+            log_mean_llh = log(mean_ll)) %>% # average likelihood over chains
+  ungroup() %>%
+  group_by(n_c) %>%
+  summarize(marg_llh = sum(log_mean_llh)) # sum likelihoods over conditions
+  
+
+rs.wp.ais %>% 
+  group_by(n_c, iter) %>%
+  summarize(marg_llh = sum(marg_ll)) %>% View()
+```
+
+### How many observations is one generic worth?
+
+Above, we have the marginal likelihoods for fitting 2 component Mixtures of Betas to each condition. Now we examine the marginal likelihoods for fitting a single 2-component Mixture-of-Betas to the generic condition + other condition. This will tell us how well the generic + [other] conditions are modeled by the same generative process.
+
+```{r}
+n_c <- 2
+# steps = 25k --> 30s
+rs.wp.ais_2cond <- data.frame()
+
+df.filtered.toPass <- df.trials.filtered %>%
+  filter(type == "response") %>%
+  rowwise() %>%
+  mutate(avoided_endval = ifelse(response == 1, 0.999, 
+                                 ifelse (response == 0, 0.001, response)))
+
+all_conditions <- unique(df.filtered.toPass$condition)
+non_generic_conditions <- all_conditions[all_conditions != "generic"]
+
+for (cndtn in non_generic_conditions){
+  t1 <- Sys.time()
+  print(cndtn)
+  
+  df.filtered.toPass.condition <- df.filtered.toPass %>%
+    filter(condition %in% c(cndtn, "generic"))
+
+  rs.wp.ais.i <- webppl(
+    program_file = "webppl/mixture_of_betas.wppl",
+    data = list(responses = df.filtered.toPass.condition,
+                n_components = n_c,
+                ais = T,
+                ais_samples = 1,
+                ais_steps = 250000),
+    chains = 3,
+    cores = 3
+    )
+    
+    bind_rows(rs.wp.ais_2cond, 
+              data.frame(marg_ll = rs.wp.ais.i, n_c = n_c, condition = cndtn, row.names = NULL) %>%
+                  mutate(iter = row_number())) -> rs.wp.ais_2cond 
+    t2 <- Sys.time()
+    print(paste("n components =", n_c, " time=", t2-t1))
+
+}
+
+write_csv(rs.wp.ais_2cond, path = "webppl/output/ais_2conds_allConds_nComponents_250k.csv")
+
+```
+
+```{r}
+rs.wp.ais_2cond %>%
+  group_by(condition, n_c) %>%
+  summarize(mean_marg_ll = mean(marg_ll)) -> rs.ml.same_distribution
+
+rs.wp.ais %>%
+  filter(n_c == 2) %>%
+  group_by(condition) %>%
+  summarize(mean_marg_ll = mean(marg_ll)) -> rs.ml.ind_distribution
+
+cbind(rs.ml.ind_distribution %>%
+  filter(condition != "generic"),
+  rs.ml.ind_distribution %>%
+    filter(condition == "generic") %>%
+    rename(gen = mean_marg_ll) %>%
+    select(-condition)) %>%
+  mutate(total_marg_ll = mean_marg_ll + gen) -> rs.sum_ml.ind_distribution
+
+
+left_join(
+  rs.ml.same_distribution %>%
+    rename(same_dist = mean_marg_ll),
+  rs.sum_ml.ind_distribution %>%
+    rename(diff_dist = total_marg_ll)
+) %>%
+  rowwise() %>%
+  mutate(log_bf = same_dist - diff_dist,
+         bf_gen_equal_obs = exp(log_bf)) %>%
+  kable()
+```
+
+
+## Posterior Inference
+
+
+```{r}
+
+
+jsonlite::toJSON(head(df.filtered.toPass.condition), pretty = T)
+
+n_samples = 20
+
+rs.wp.condition <- webppl(
+  program_file = "webppl/mixture_of_betas.wppl",
+  data = list(responses = df.filtered.toPass.condition,
+              n_components = 3,
+              ais = T,
+              ais_samples = 1,
+              ais_steps = 1),
+  # inference_opts = list(
+  #   method = "MCMC", 
+  #   samples = n_samples, 
+  #   burn = n_samples/2, 
+  #   verbose = T),
+  chains = 1,
+  cores = 1
+  )
+```
+
+### Parameter posteriors
+
+```{r}
+rs.wp.condition %>%
+  ggplot(., aes( x =  value ))+
+  geom_histogram()+
+  facet_wrap(~Parameter, scales = 'free', nrow = 1)
+```
+
+### Posterior predictives
+
+```{r}
+rs.wp.condition.predictives <- rs.wp.condition %>%
+  spread(Parameter, value) %>% 
+  rowwise() %>%
+  mutate(component1 = rbernoulli(n = 1, p = phi),
+         sample1 = rbeta(n = 1, shape1 = a1, shape2 = b1),
+         sample2 = rbeta(n = 1, shape1 = a2, shape2 = b2),
+         predictive = ifelse(component1, sample1, sample2))
+
+rs.wp.condition.predictives %>%
+  ggplot(., aes ( x = predictive))+
+  geom_histogram()
+```
+
+#### Empirical CDFs
+
+```{r}
+
+bind_rows(
+  rs.wp.condition.predictives %>%
+    mutate(src = 'model') %>%
+    select(src, predictive) %>%
+    rename(val = predictive),
+  df.filtered.toPass.condition %>%
+    mutate(src = 'data') %>%
+    select(src, avoided_endval) %>%
+    rename(val = avoided_endval)
+) %>%
+  ggplot(., aes( x = val, color = src))+
+    stat_ecdf()+
+    #scale_color_solarized()+
+    scale_x_continuous(limits = c(-0.01,1.01), breaks = c(0, 0.5, 1)) +
+    scale_y_continuous(limits = c(-0.01,1.01), breaks = c(0, 0.5, 1)) +
+    theme(strip.text.y = element_text(angle = 0))+
+    coord_fixed()
+```
+## Bayes Factors
+
+
+
+
+### AIS TESTING
+
+```{r}
+
+test.data <- data.frame(
+  avoided_endval = c(rbeta(n = 100, shape1 = 10, shape2 = 10), rbeta(n = 100, shape1 = 50, shape2 = 1))
+)
+
+qplot(data = test.data, x = avoided_endval, geom = 'histogram')
+
+n_components <- c(1, 2, 3)
+# steps = 25k --> 30s
+rs.wp.ais <- data.frame()
+for (n_c in n_components){
+  t1 <- Sys.time()
+  
+  rs.wp.ais.i <- webppl(
+    program_file = "webppl/mixture_of_betas.wppl",
+    data = list(responses = test.data,
+                n_components = n_c,
+                ais = T,
+                ais_samples = 1,
+                ais_steps = 25000),
+    chains = 3,
+    cores = 3
+    )
+  
+  bind_rows(rs.wp.ais, 
+            data.frame(marg_ll = rs.wp.ais.i, n_c = n_c, row.names = NULL) %>%
+                mutate(iter = row_number())) -> rs.wp.ais 
+  t2 <- Sys.time()
+  print(paste("n components =", n_c, " time=", t2-t1))
+}
+rs.wp.ais
+
+#write_csv(rs.wp.ais, path = "webppl/output/ais_generic_nComponents_500k.csv")
+```
+
+```{r}
+rs.wp.ais %>% 
+  group_by(n_c) %>%
+  summarize(m = mean(marg_ll))
+```

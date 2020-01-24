@@ -49,16 +49,6 @@ var marg_likehood = data.ais[0],
 
 var model = function() {
   var phi = sample_mixture(n_components);
-  // if (n_components == 1) {
-  //   display(n_components)
-  //   var phi = 1;
-  // } else if (n_components == 2) {
-  //   var phi = sample_mixture_component();
-  // } else {
-  //   var phi = normalize(repeat(n_components, sample_mixture_component));
-  // }
-  // var phi = normalize(repeat(n_components, sample_mixture_component))
-
   var componentParameters = repeat(n_components, sample_beta_params)
   var transformedComponentParams = map(transform_beta_params, componentParameters)
 
