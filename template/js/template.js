@@ -903,7 +903,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["4pedagogical", "4accidental"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["4pedagogical"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
