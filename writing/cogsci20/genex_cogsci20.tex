@@ -26,7 +26,9 @@
 \usepackage{cogsci}
 \usepackage{color}
 %\cogscifinalcopy % Uncomment this line for the final submission 
-
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
 
 \usepackage{pslatex}
 \usepackage{apacite}
@@ -111,8 +113,9 @@ The idea that a generic may in some way be analogous to a single, pedagogically-
 The main idea is that because infants conceive of objects as instances of kinds, pedagogical reference to an individual can act as a symbolic reference to the kind. 
 Then, any demonstration that may result in this pedagogical episode would be understood as predicating the kind, and hence, a kind of non-verbal generic.
 
-Thus, proposals from two rather different theoretical frameworks---Bayesian models of semantics and infant cognitive development---point to the hypothesis that a generic might be equivalent to a single, pedagogically-sampled example. 
-On the other hand, ...
+Thus, proposals from two rather different theoretical frameworks---Bayesian models of semantics and infant cognitive development---point to the hypothesis that a generic might be equivalent to a single, pedagogically-sampled example.\footnote{Of course, the pedagogical context must signal an event wherein the teacher is aiming to inform the learner about the category and not, say, about a special member of the category. We return to this point in the Discussion.}
+On the other hand, the relationship between generics and pedagogical examples that \citeA{Csibra2015} proposes for preverbal infants may not be the same throughout development; indeed, 3- and 4-year-olds can interpret the ostensive cue of pointing as a signal that the information conveys is not generalizable, but specific to the examplars referenced by her point \cite{meyer2013}.
+Furthermore, the prediction from the vague quantifier model of generics is contingent on the assumption that the prior distribution over possible, truth-functional thresholds is uniform (i.e., a generic, in the abstract, could carry any quantificational strength, and all are equally likely \emph{a priori}); if that prior distribution is instead skewed towards higher thresholds (e.g., a generic, in the abstract, is more likely to imply \emph{most} than imply \emph{some}), then it would be worth a larger number of examples. 
 
 %That is, while cognitive scientists for a long time have been concerned with the precise computations that underly learning from examples---most prominently explored in a Bayesian setting these days---and even how difficult sampling assumptions of those examples (i.e., a learner assuming a pedagogically sampling rule) can strengthen this belief updating mechanism, learning from language has received comparatively little attention. 
 
@@ -191,11 +194,61 @@ The features are shown in Table 1.
 
 Participants competed three trials. 
 
-\subsection{Results}
+\subsection{Behavioral results}
 
 \mht{trial order effects?}
 
 \mht{item effects?}
+
+
+\subsection{Bayesian data analysis}
+
+We approach the question of how many observations one generic is worth from a Bayesian perspective. 
+We formalize this question by asking when the distribution of responses for a given experimental condition is more likely to come from the same distribution of responses for the generic condition than from a different distribution. 
+
+In order to characterize the distribution of responses in each of the experimental conditions, we first perform a Bayesian analysis to determine the best function that characterizes our response variable, since they are clearly not normally distributed.
+The slider bar ratings we acquire are values between 0 and 1, we assume the distribution of responses is a mixture of some number of Beta distributions (which have support defined over 0 and 1).\footnote{The Beta distribution is defined over the open interval (0, 1), whereas our response variable could contain the endpoints 0 and 1. To accommodate responses that are exactly 0 or exactly 1, we adjust these end-point responses to be equal to 0.001 and 0.999, respectively.}
+We fit the data for each condition independently with either a single Beta distribution (for each condition), a mixture of two Betas, or a mixture of three Betas. 
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{tabular}{cc}
+\begin{tikzpicture}
+
+  \node[obs]          (d)   {$d_i$}; %
+  \node[latent, above=0.15cm of d, xshift=-1.5cm] (mx) {$\boldsymbol{\phi}^N$} ; %
+  \node[latent, above=1.5cm of d, xshift=-1cm]  (sx) {$\gamma_n$} ; %
+  \node[latent, above=1.5cm of d, xshift=0cm]  (dx) {$\delta_n$} ; %
+  \factor[above=of d] {x-f} {right:$\text{mixture of Betas}$} {mx,sx,dx} {d} ; %
+
+\plate{data} {
+(d)
+}{$i \in \mathcal{P}$};
+
+\plate{mix} {
+(sx)(dx)
+}{$n \in N$};
+
+\node[] at (4.1,1.0) {$\gamma \sim \text{Uniform(0, 1)}$};
+\node[] at (4.25,0.5) {$\delta \sim \text{Uniform(0, 100)}$};
+\node[] at (3.95,0) {$\boldsymbol{\phi}^N \sim \text{Dirichlet(}\boldsymbol{1}^N)$};
+
+
+\end{tikzpicture}
+
+    \end{tabular}
+  \end{center}
+  \caption{Bayesian data analysis model for a single experimental condition. Individual responses ($d_i$) for all participants $\mathcal{P}$ are assumed to be generated by a mixture of Beta distributions. Each Beta is parameterized by a mean $\gamma_n$ and concentration (or, inverse-variance) $\delta_n$ parameter. The number of mixture components is given by $N$. Priors over parameters are shown on the right.}
+  \label{fig:bayesnet}
+\end{figure}
+
+We find that the data is much more likely to come from a mixture of Beta distributions than a single distribution, though the data is inconclusive as to whether or not it is a mixture of two distributions or of three. \mht{table of Bayes Factors for this analysis}
+Since the data is inclusive between two- and three- mixture components, we use a mixture of two distributions to characterize the response distributions for computational simplicity. 
+
+
+
+
+
 
 \section{Discussion}
 
@@ -235,6 +288,9 @@ Our experiment method is similar but distinct from other studies investigating t
 \citeA{Cimpian2010} compared the strength of generalization implied by a generic (what they called \emph{implied prevalence}) to the statistics of the feature in terms of its prevalence in the category that led participants to endorse the generic (what they call \emph{truth conditions}). They found that generics (at least, generics about the kinds of predicates they tasted) tend to be interpreted more strongly than what one would expect given the statistical information that lead people to endorse generics. 
 
 \citeA{Kushnir2016} examined the strength of generalizations and trust in informants after jointly hearing generic language and observing some number relevant instances of the category with/without the property (e.g., hearing \emph{Blickets squeak} and then observing 2 out of 10 blickets squeak.
+This paradigm is a little direct measure of the number of the observations that a single generic is worth because it incorporates the additional variable of trust in testimony.
+That is, a learner can explain away conflicting observations and testimony through two means: (a) weakening the generalization strength implied by the generic (e.g., \emph{the speaker did not mean most the property but only some}) and (b) weakening trust in the speaker (e.g., \emph{the speaker was ill-informed}). 
+This interplay between the vagueness of generics and speaker trust is a complex problem that should receive more attention on its own right. 
 
 \subsection{Other limitations of this study}
 
