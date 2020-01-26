@@ -209,30 +209,6 @@ Participants competed three trials.
 We approach the question of how many observations one generic is worth from a Bayesian perspective. 
 We formalize this question by asking when the distribution of responses for a given experimental condition is more likely to come from the same distribution of responses for the generic condition than from a different distribution. 
 
-In order to characterize the distribution of responses in each of the experimental conditions, we first perform a Bayesian analysis to determine the best function that characterizes our response variable, since they are clearly not normally distributed.
-The slider bar ratings we acquire are values between 0 and 1, we assume the distribution of responses is a mixture of some number of Beta distributions (which have support defined over 0 and 1).\footnote{The Beta distribution is defined over the open interval (0, 1), whereas our response variable could contain the endpoints 0 and 1. To accommodate responses that are exactly 0 or exactly 1, we adjust these end-point responses to be equal to 0.001 and 0.999, respectively.}
-We fit the data for each condition independently with either a single Beta distribution (for each condition), a mixture of two Betas, or a mixture of three Betas (Figure \ref{fig:bayesnet}). 
-We compute Bayes Factors by comparing the marginal likelihood of the data under each hypothesis about the number of mixture components ($N = \{1, 2, 3\}$).
-We find that the data is much more likely to come from a mixture of Beta distributions than a single distribution, though the data is inconclusive as to whether or not it is a mixture of two distributions or of three (Table~\ref{tab:componentBF}). 
-Since the data is inclusive between two- and three- mixture components, we use a mixture of two distributions to characterize the response distributions for computational simplicity. 
-
-
-\begin{center}
-  \begin{table}[h]
-    \centering
-    \pgfplotstabletypeset[sci zerofill,
-    col sep = comma,
-    every head row/.style={before row = \toprule, after row = \midrule},
-    every last row/.style={after row = \bottomrule},
-    columns/Model Comparison/.style={string type, column name={Comparison}, column type = l},
-    columns/BF/.style={column name={Bayes Factor}, dec sep align},
-    columns/Log BF. Error/.style={column name={log BF}, sci sep align, sci}]
-    {output_from_r/n_component_bf.csv}
-    \caption{Bayes Factors comparing different linking functions for the experimental data.}
-    \label{tab:componentBF}
-  \end{table}
-\end{center}
-
 \begin{figure}[ht]
   \begin{center}
     \begin{tabular}{cc}
@@ -266,6 +242,54 @@ Since the data is inclusive between two- and three- mixture components, we use a
 \end{figure}
 
 
+In order to characterize the distribution of responses in each of the experimental conditions, we first perform a Bayesian analysis to determine the best function that characterizes our response variable, since they are clearly not normally distributed.
+Since the slider bar ratings we acquire are values between 0 and 1, we assume the distribution of responses is a mixture of some number of Beta distributions (which have support defined over 0 and 1).\footnote{The Beta distribution is defined over the open interval (0, 1), whereas our response variable could contain the endpoints 0 and 1. To accommodate responses that are exactly 0 or exactly 1, we adjust these end-point responses to be equal to 0.001 and 0.999, respectively.}
+We fit the data with either a single Beta distribution, a mixture of two Betas, or a mixture of three Betas, with a new mixture for each condition independently (Figure \ref{fig:bayesnet}). 
+We compute Bayes Factors by comparing the marginal likelihood of the data under each hypothesis about the number of mixture components ($N = \{1, 2, 3\}$).
+We find that the data is much more likely to come from a mixture of Beta distributions than a single distribution, though the data is inconclusive as to whether or not it is a mixture of two distributions or of three (Table~\ref{tab:componentBF}). 
+Since the data is inclusive between two- and three- mixture components, we use a mixture of two distributions to characterize the responses for computational simplicity. 
+
+
+\begin{center}
+  \begin{table}[h]
+    \centering
+    \pgfplotstabletypeset[sci zerofill,
+    col sep = comma,
+    every head row/.style={before row = \toprule, after row = \midrule},
+    every last row/.style={after row = \bottomrule},
+    columns/Model Comparison/.style={string type, column name={Comparison}, column type = l},
+    columns/bf/.style={column name={Bayes Factor}, dec sep align},
+    columns/logbf/.style={column name={log BF}, sci sep align, sci}]
+    {output_from_r/n_component_bf.csv}
+    \caption{Bayes Factors comparing different linking functions for the experimental data.}
+    \label{tab:componentBF}
+  \end{table}
+\end{center}
+
+
+Having determined the best linking function for the distribution of responses, we perform a Bayesian analysis to determine which---if any---of the results of our experimental conditions is equivalent to the results of the generic-only condition. 
+We do this by computing the marginal likelihood of the combined data set of the generic condition plus one of the other experimental conditions under the assumption that they are generated from the same distribution (i.e., the same two-component mixture-of-Betas model). 
+We compare this likelihood to that calculated by assuming the two conditions were generated by independent distributions (i.e, two different two-component mixture-of-Beta distributions). 
+The comparison of these marginal likelihoods gives us the Bayes Factor quantifying the evidence in support of the hypothesis that two conditions were generated from the same underlying distribution (i.e., the generic is worth n observations). 
+The results are shown in Table \ref{tab:nobsBF}).
+
+
+
+\begin{center}
+  \begin{table}[h]
+    \centering
+    \pgfplotstabletypeset[sci zerofill,
+    col sep = comma,
+    every head row/.style={before row = \toprule, after row = \midrule},
+    every last row/.style={after row = \bottomrule},
+    columns/condition/.style={string type, column name={Comparison}, column type = l},
+    columns/bf/.style={column name={Bayes Factor}, dec sep align},
+    columns/logbf/.style={column name={log BF}, sci sep align}]
+    {output_from_r/n_obs_bf.csv}
+    \caption{Bayes Factors in support of the hypothesis that the strength of generalization implied by a generic is equal to that of the experimental condition.}
+    \label{tab:nobsBF}
+  \end{table}
+\end{center}
 
 
 

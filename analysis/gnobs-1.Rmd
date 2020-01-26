@@ -604,6 +604,8 @@ write_csv(rs.wp.ais, path = "webppl/output/ais_allConds_nComponents_50k.csv")
 ```
 
 ```{r}
+rs.wp.ais <- read_csv(file = "webppl/output/ais_allConds_nComponents_50k.csv")
+
 rs.wp.ais %>%
   rowwise() %>%
   mutate(ll = exp(marg_ll)) %>%
@@ -618,14 +620,44 @@ rs.wp.ais %>%
 
 rs.wp.ais %>% 
   group_by(n_c, iter) %>%
-  summarize(marg_llh = sum(marg_ll)) %>% View()
+  summarize(marg_llh = sum(marg_ll)) %>% kable()
 ```
+
+#### Bayes Factors
+
+```{r}
+rs.wp.ais %>%
+  rowwise() %>%
+  mutate(ll = exp(marg_ll)) %>%
+  ungroup() %>%
+  group_by(condition, n_c) %>%
+  summarize(mean_ll = mean(ll),
+            log_mean_llh = log(mean_ll)) %>% # average likelihood over chains
+  ungroup() %>%
+  group_by(n_c) %>%
+  summarize(marg_llh = sum(log_mean_llh)) %>% # sum likelihoods over conditions
+  spread(n_c, marg_llh) %>%
+  gather(n_c, val, -`2`) %>%
+  mutate(log_bf = `2` - val,
+         bf = exp(log_bf)) %>%
+  select(n_c, bf, log_bf) %>%
+  mutate(n_c = paste("N = 2 vs. N = ", n_c, " Component", sep = "")) %>%
+  rename("Model Comparison" = n_c,
+         "Log BF" = log_bf,
+         "BF"= bf) %>%
+  write_csv(., path = "../writing/cogsci20/output_from_r/n_component_bf.csv")
+  
+
+```
+
+
 
 ### How many observations is one generic worth?
 
 Above, we have the marginal likelihoods for fitting 2 component Mixtures of Betas to each condition. Now we examine the marginal likelihoods for fitting a single 2-component Mixture-of-Betas to the generic condition + other condition. This will tell us how well the generic + [other] conditions are modeled by the same generative process.
 
 ```{r}
+
 n_c <- 2
 # steps = 25k --> 30s
 rs.wp.ais_2cond <- data.frame()
@@ -670,6 +702,8 @@ write_csv(rs.wp.ais_2cond, path = "webppl/output/ais_2conds_allConds_nComponents
 ```
 
 ```{r}
+rs.wp.ais_2cond <- read_csv(file = "webppl/output/ais_2conds_allConds_nComponents_250k.csv")
+
 rs.wp.ais_2cond %>%
   group_by(condition, n_c) %>%
   summarize(mean_marg_ll = mean(marg_ll)) -> rs.ml.same_distribution
@@ -697,7 +731,16 @@ left_join(
   rowwise() %>%
   mutate(log_bf = same_dist - diff_dist,
          bf_gen_equal_obs = exp(log_bf)) %>%
-  kable()
+  select(condition, bf_gen_equal_obs, log_bf) %>%
+  mutate(condition = factor(condition, levels = c("accidental", "2accidental", "3accidental", "4accidental",
+                                                  "pedagogical", "2pedagogical", "3pedagogical", "4pedagogical",
+                                                  "pedageneric"),
+                            labels = c("1 Accidental", "2 Accidental", "3 Accidental", "4 Accidental",
+                                       "1 Pedagogical", "2 Pedagogical", "3 Pedagogical", "4 Pedagogical",
+                                       "Generic + 1 Pedagogical"))) %>%
+  arrange(condition) %>%
+  #kable()  %>%
+  write_csv(., path = "../writing/cogsci20/output_from_r/n_obs_bf.csv")
 ```
 
 
