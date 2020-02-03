@@ -135,7 +135,7 @@ function make_slides(f) {
 		const man = paper.image('../_shared/images/man.png', 0,0,250,430);
 		const bubbleText = '(Click on the speech bubble when you are ready.)';
 
-		function demo(accidental, item, xcoord, pointerLeft, featureLabel, audioLabel) {
+		function demo(accidental, item, xcoord, pointerLeft, featureLabel, audioLabel, audioTimeout) {
 		    if (!accidental) {
 			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
 			pedagogical.play();
@@ -187,7 +187,7 @@ function make_slides(f) {
 		    setTimeout(function() {
 			$('#utterance').text(featureLabel);
 			audioLabel.play();
-		    }, accidental ? 2000 : 3000);
+		    }, audioTimeout);
 		}
 
 		function showPedagogical(item, xcoord, callback, pointerLeft, featureLabel, audioLabel) {
@@ -205,7 +205,7 @@ function make_slides(f) {
 			$('#instruct').text(bubbleText);
 			speech.click(function() {
 			    speech.remove();
-			    demo(false, item, xcoord, pointerLeft, featureLabel, audioLabel);
+			    demo(false, item, xcoord, pointerLeft, featureLabel, audioLabel, stim.sound ? 3000 : 2500);
 			    $('#instruct').hide();
 			    setTimeout(function() {
 				callback();
@@ -226,11 +226,11 @@ function make_slides(f) {
 			accidental.play();
 		    }
 		    setTimeout(function() {
-			demo(true, item, xcoord, false, featureLabel, audioLabel);
+			demo(true, item, xcoord, false, featureLabel, audioLabel, stim.sound ? 2000 : 1500);
 			setTimeout(function() {
 			    callback();
 			}, 4000);
-		    }, 1000);
+		    }, stim.sound ? 1000 : 2000);
 		}
 
 		function setNextItem(i, n, timeout1, timeout2, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord) {
@@ -316,7 +316,7 @@ function make_slides(f) {
 					pointerLeft = true;
 				    }
 				}
-				demo(false, demoItem, x, pointerLeft, stim.featureLabel, audioLabel);
+				demo(false, demoItem, x, pointerLeft, stim.featureLabel, audioLabel, stim.sound ? 3000 : 2000);
 				$('#instruct').hide();
 				setTimeout(function() {
 				    $('.button').show();
@@ -406,12 +406,12 @@ function make_slides(f) {
 			    } else {
 				x = 230;
 			    }
-			    demo(true, demoItem, x, false, stim.featureLabelAccidental, audioLabel);
+			    demo(true, demoItem, x, false, stim.featureLabelAccidental, audioLabel, stim.sound ? 1000 : 2000);
 			    setTimeout(function() {
 				$('.button').show();
-			    }, 3000);
-			}, 1000);
-		    }, 3000);
+			    }, 4000);
+			}, stim.sound ? 1500 : 2000);
+		    }, 4500);
 		} else if (stim.trialType == "2accidental") {
 		     const startCoords = {
 			"blicket": [270, 100],
@@ -466,7 +466,7 @@ function make_slides(f) {
 				}, stim.featureLabelAccidental, audioLabel);
 			    }, 3000);
 			}, stim.featureLabelAccidental, audioLabel);
-		    }, 3000);
+		    }, 4500);
 		} else if (stim.trialType == "3accidental") {
 		    const startCoords = {
 			"blicket": [270, 100],
@@ -525,7 +525,7 @@ function make_slides(f) {
 				}, stim.featureLabelAccidental, audioLabel);
 			    }, 3000);
 			}, stim.featureLabelAccidental, audioLabel);
-		    }, 4000);
+		    }, 4500);
 		} else if (stim.trialType == "2pedagogical") {
 		    const startCoords = {
 			"blicket": [270, 100],
