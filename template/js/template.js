@@ -117,7 +117,7 @@ function make_slides(f) {
 	    function speech_bubble(x, y) {
 		return "M"+x+","+y+"c22.108,0,40.03,12.475,40.03,27.862c0,15.387,-17.922,27.862,-40.03,27.862c-6.931,0,-13.449,-1.227,-19.134,-3.384c-11.22,4.224,-26.539,12.202,-26.539,12.202c0,0,9.989,-5.655,14.107,-12.521c1.052,-1.755,1.668,-3.595,2.021,-5.362c-6.51,-4.955,-10.485,-11.553,-10.485,-18.797c0,-15.387,17.922,-27.862,40.03,-27.862m0,2.22";
 	    }
-	    
+
 	    if (stim.type == "trial") {
 		$('#trial').show();
 		$('#response').hide();
@@ -165,7 +165,7 @@ function make_slides(f) {
 					    paper.pointer.animate({x:400, y:0}, 500, 'linear', function() {
 						paper.pointer.animate({x:400, y:100}, 500, 'linear', animatePointer);
 					    });
-					    
+
 					}
 					animatePointer();
 				    } else {
@@ -174,15 +174,15 @@ function make_slides(f) {
 					    paper.pointer.animate({x:650, y:0}, 500, 'linear', function() {
 						paper.pointer.animate({x:650, y:100}, 500, 'linear', animatePointer);
 					    });
-					    
+
 					}
 					animatePointer();
 				    }
-				    
+
 				}
 			    });
 			});
-			
+
 		    }
 		    setTimeout(function() {
 			$('#utterance').text(featureLabel);
@@ -270,7 +270,7 @@ function make_slides(f) {
 		    }
 		    return [x, item];
 		}
-		
+
 		if (stim.trialType == "pedagogical") {
 		    let demoItem;
 		    if (stim.singular.toLowerCase() === 'blicket') {
@@ -286,7 +286,7 @@ function make_slides(f) {
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
 
-		    
+
 		    setTimeout(function() {
 			$('#utterance').text('Now I have something to show you. Are you ready?');
 			$('#instruct').show();
@@ -424,11 +424,11 @@ function make_slides(f) {
 		    const labelCoords = [305, 50, 50, 25];
 		    const manCoord = 0;
 		    const pointerOffset = 80;
-		    
+
 		    const accidentalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Accidental.m4a');
 		    accidentalUtterance.play();
 		    $('.button').hide();
-		    
+
 		    $('#utterance').text('Oh! These are two '+stim.plural.toLowerCase()+'.');
 		    const demoItems = [];
 		    for (i=0;i<2;i++) {
@@ -455,7 +455,7 @@ function make_slides(f) {
 		    }
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
-		    
+
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showAccidental(nextItemData1[1], nextItemData1[0], function() {
@@ -482,7 +482,7 @@ function make_slides(f) {
 		    const pointerOffset = 80;
 		    accidentalUtterance.play();
 		    $('.button').hide();
-		    
+
 		    $('#utterance').text('Oh! These are three '+stim.plural.toLowerCase()+'.');
 		    const demoItems = [];
 		    for (i=0;i<3;i++) {
@@ -509,11 +509,11 @@ function make_slides(f) {
 		    }
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
-		    
+
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showAccidental(nextItemData1[1], nextItemData1[0], function() {
-			    const nextItemData2 = setNextItem(1, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord); 
+			    const nextItemData2 = setNextItem(1, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
 			    setTimeout(function() {
 				showAccidental(nextItemData2[1], nextItemData2[0], function() {
 				    const nextItemData3 = setNextItem(2, 3, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
@@ -538,7 +538,7 @@ function make_slides(f) {
 		    const labelCoords = [305, 50, 50, 25];
 		    const manCoord = 0;
 		    const pointerOffset = 100;
-		    
+
 		    const pedagogicalUtterance = new Audio('../_shared/audio/'+stim.plural.toLowerCase()+'Id.m4a');
 		    pedagogicalUtterance.play();
 		    $('#utterance').text('These are two '+stim.plural.toLowerCase()+'.');
@@ -554,7 +554,7 @@ function make_slides(f) {
 		    };
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
-		    
+
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
@@ -576,11 +576,11 @@ function make_slides(f) {
 		    const labelCoords = [305, 50, 50, 25];
 		    const manCoord = 0;
 		    const pointerOffset = 100;
-		    
+
 		    const pedagogicalUtterance = new Audio('../_shared/audio/3'+stim.plural.toLowerCase()+'Id.m4a');
 		    pedagogicalUtterance.play();
 		    $('.button').hide();
-		    
+
 		    $('#utterance').text('These are three '+stim.plural.toLowerCase()+'.');
 		    const demoItems = [];
 		    for (i=0;i<3;i++) {
@@ -592,7 +592,7 @@ function make_slides(f) {
 		    };
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
-		    
+
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
@@ -620,7 +620,7 @@ function make_slides(f) {
 		    const manCoord = 0;
 		    const pointerOffset = 100;
 		    $('.button').hide();
-		    
+
 		    $('#utterance').text('These are four '+stim.plural.toLowerCase()+'.');
 		    const demoItems = [];
 		    for (i=0;i<4;i++) {
@@ -632,7 +632,7 @@ function make_slides(f) {
 		    };
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
-		    
+
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
@@ -663,7 +663,7 @@ function make_slides(f) {
 		    const pointerOffset = 80;
 		    accidentalUtterance.play();
 		    $('.button').hide();
-		    
+
 		    $('#utterance').text('Oh! These are four '+stim.plural.toLowerCase()+'.');
 		    const demoItems = [];
 		    for (i=0;i<4;i++) {
@@ -690,11 +690,11 @@ function make_slides(f) {
 		    }
 
 		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
-		    
+
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showAccidental(nextItemData1[1], nextItemData1[0], function() {
-			    const nextItemData2 = setNextItem(1, 4, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord); 
+			    const nextItemData2 = setNextItem(1, 4, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
 			    setTimeout(function() {
 				showAccidental(nextItemData2[1], nextItemData2[0], function() {
 				    const nextItemData3 = setNextItem(2, 4, 2000, 3000, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
@@ -891,8 +891,19 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["accidental", "pedagogical", "2accidental", "2pedagogical", "3accidental", "3pedagogical", "4accidental", "4pedagogical"]); //can randomize between subject conditions here
-    exp.system = {
+
+	repeatWorker = false;
+  (function(){
+      var ut_id = "mht-genex-20200203";
+      if (UTWorkerLimitReached(ut_id)) {
+        $('.slide').empty();
+        repeatWorker = true;
+        alert("You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.");
+      }
+  })();
+
+  exp.condition = _.sample(["accidental", "pedagogical", "2accidental", "2pedagogical", "3accidental", "3pedagogical", "4accidental", "4pedagogical"]); //can randomize between subject conditions here
+  exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
 	screenH: screen.height,
@@ -924,12 +935,12 @@ function init() {
 	    drag_and_drop.objects[0],
 	),
 	drag_and_drop.biologics[0],
-	drag_and_drop.biologics[1]    
+	drag_and_drop.biologics[1]
     ])
 
     exp.trials_data = [];
     trials.forEach(function(trial) {
-	exp.trials_data = exp.trials_data.concat([ 
+	exp.trials_data = exp.trials_data.concat([
 	    _.extend(
 		{
 		    trialType: exp.condition,
