@@ -69,7 +69,7 @@ function make_slides(f) {
 		const man = paper.image('../_shared/images/man.png', 0,0,250,430);
 		const bubbleText = '(Click on the speech bubble when you are ready.)';
 
-		function demo(accidental, item, xcoord, pointerLeft, featureLabel) {
+		function demo(accidental, item, xcoord, pointerLeft, featureLabel, audioLabel) {
 		    if (!accidental) {
 			const pedagogical = new Audio('../_shared/audio/pedagogical.m4a');
 			pedagogical.play();
@@ -120,10 +120,11 @@ function make_slides(f) {
 		    }
 		    setTimeout(function() {
 			$('#utterance').text(featureLabel);
-		    }, 3000);
+			audioLabel.play();
+		    }, accidental ? 2000 : 3000);
 		}
 
-		function showPedagogical(item, xcoord, callback, pointerLeft, featureLabel) {
+		function showPedagogical(item, xcoord, callback, pointerLeft, featureLabel, audioLabel) {
 		    $('#utterance').text('Now I have something to show you. Are you ready?');
 		    $('#instruct').show();
 		    const readyPedagogical = new Audio('../_shared/audio/readyPedagogical.m4a');
@@ -138,28 +139,28 @@ function make_slides(f) {
 			$('#instruct').text(bubbleText);
 			speech.click(function() {
 			    speech.remove();
-			    demo(false, item, xcoord, pointerLeft, featureLabel);
+			    demo(false, item, xcoord, pointerLeft, featureLabel, audioLabel);
 			    $('#instruct').hide();
 			    setTimeout(function() {
 				callback();
-			    }, 4000);
+			    }, 6000);
 			});
 		    }, 4000);
 		}
 
-		function showAccidental(item, xcoord, callback, featureLabel) {
+		function showAccidental(item, xcoord, callback, featureLabel, audioLabel) {
 		    if (stim.sound) {
 			$('#utterance').text('Oops!');
 			const oops = new Audio('../_shared/audio/oops.m4a');
 			oops.play();
 		    }
 		    else {
-			$('#utterance').text("Oh! Look at that!");
-			const accidental = new Audio('../_shared/audio/accidental.m4a');
+			$('#utterance').text("Oh!");
+			const accidental = new Audio('../_shared/audio/accidentalShort.m4a');
 			accidental.play();
 		    }
 		    setTimeout(function() {
-			demo(true, item, xcoord, false, featureLabel);
+			demo(true, item, xcoord, false, featureLabel, audioLabel);
 			setTimeout(function() {
 			    callback();
 			}, 4000);
@@ -216,6 +217,10 @@ function make_slides(f) {
 		    const button = paper.path();
 		    const itemId = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Id.m4a');
 		    itemId.play();
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
+
+		    
 		    setTimeout(function() {
 			$('#utterance').text('Now I have something to show you. Are you ready?');
 			$('#instruct').show();
@@ -245,9 +250,11 @@ function make_slides(f) {
 					pointerLeft = true;
 				    }
 				}
-				demo(false, demoItem, x, pointerLeft, stim.featureLabel);
+				demo(false, demoItem, x, pointerLeft, stim.featureLabel, audioLabel);
 				$('#instruct').hide();
-				$('.button').show();
+				setTimeout(function() {
+				    $('.button').show();
+				}, 3000);
 			    });
 			}, 4000);
 		    }, 2000);
@@ -309,6 +316,8 @@ function make_slides(f) {
 		    const label = paper.set();
 		    label.push(paper.rect(305, 50, 50, 25).attr({"fill": '#fcfac2'}));
 		    label.push(paper.text(330, 65, stim.singular));
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
 		    setTimeout(function() {
 			if (stim.sound) {
 			    $('#utterance').text('Oops!');
@@ -316,8 +325,8 @@ function make_slides(f) {
 			    oops.play();
 			}
 			else {
-			    $('#utterance').text("Oh! Look at that!");
-			    const accidental = new Audio('../_shared/audio/accidental.m4a');
+			    $('#utterance').text("Oh!");
+			    const accidental = new Audio('../_shared/audio/accidentalShort.m4a');
 			    accidental.play();
 			}
 			cover.remove();
@@ -331,7 +340,10 @@ function make_slides(f) {
 			    } else {
 				x = 230;
 			    }
-			    demo(true, demoItem, x, false, stim.featureLabel);
+			    demo(true, demoItem, x, false, stim.featureLabelAccidental, audioLabel);
+			    setTimeout(function() {
+				$('.button').show();
+			    }, 3000);
 			}, 1000);
 		    }, 3000);
 		} else if (stim.trialType == "2accidental") {
@@ -375,6 +387,8 @@ function make_slides(f) {
 			}
 			coverSets.push(set);
 		    }
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
 		    
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
@@ -383,9 +397,9 @@ function make_slides(f) {
 			    setTimeout(function() {
 				showAccidental(nextItemData2[1], nextItemData2[0], function() {
 				    $('.button').show();
-				}, stim.featureLabel);
+				}, stim.featureLabelAccidental, audioLabel);
 			    }, 3000);
-			}, stim.featureLabel);
+			}, stim.featureLabelAccidental, audioLabel);
 		    }, 3000);
 		} else if (stim.trialType == "3accidental") {
 		    const startCoords = {
@@ -427,6 +441,8 @@ function make_slides(f) {
 			}
 			coverSets.push(set);
 		    }
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
 		    
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
@@ -438,11 +454,11 @@ function make_slides(f) {
 				    setTimeout(function() {
 					showAccidental(nextItemData3[1], nextItemData3[0], function() {
 					    $('.button').show();
-					}, stim.featureLabel);
+					}, stim.featureLabelAccidental, audioLabel);
 				    }, 3000);
-				}, stim.featureLabel);
+				}, stim.featureLabelAccidental, audioLabel);
 			    }, 3000);
-			}, stim.featureLabel);
+			}, stim.featureLabelAccidental, audioLabel);
 		    }, 4000);
 		} else if (stim.trialType == "2pedagogical") {
 		    const startCoords = {
@@ -470,6 +486,8 @@ function make_slides(f) {
 			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
 		    
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
@@ -477,8 +495,8 @@ function make_slides(f) {
 			    const nextItemData2 = setNextItem(1, 2, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord, stim.singular.toLowerCase());
 			    showPedagogical(nextItemData2[1], nextItemData2[0], function() {
 				$('.button').show();
-			    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
-			}, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
+			    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
+			}, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
 		    }, 3000);
 		} else if (stim.trialType == "3pedagogical") {
 		    const startCoords = {
@@ -506,6 +524,9 @@ function make_slides(f) {
 			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
+		    
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
@@ -514,9 +535,9 @@ function make_slides(f) {
 				const nextItemData3 = setNextItem(2, 3, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 				showPedagogical(nextItemData3[1], nextItemData3[0], function() {
 				    $('button').show();
-				}, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
-			    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
-			}, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
+				}, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
+			    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
+			}, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
 		    }, 3000);
 		} else if (stim.trialType == "4pedagogical") {
 		    const startCoords = {
@@ -543,6 +564,9 @@ function make_slides(f) {
 			    demoItems.push(paper.image('../_shared/images/'+stim.image, startCoords[stim.singular.toLowerCase()][0], startCoords[stim.singular.toLowerCase()][1]+i*offsetY, 80, 80).toBack());
 			}
 		    };
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'Pedagogical.m4a');
+		    
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 			showPedagogical(nextItemData1[1], nextItemData1[0], function() {
@@ -553,10 +577,10 @@ function make_slides(f) {
 				    const nextItemData4 = setNextItem(3, 4, 0, 0, demoItems, null, paper, startCoords, offsetX, pointerOffset, manCoord);
 				    showPedagogical(nextItemData4[1], nextItemData4[0], function() {
 					$('button').show();
-				    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
-				}, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
-			    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
-			}, stim.singular.toLowerCase() === 'fep', stim.featureLabel);
+				    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
+				}, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
+			    }, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
+			}, stim.singular.toLowerCase() === 'fep', stim.featureLabel, audioLabel);
 		    }, 3000);
 		} else if (stim.trialType == "4accidental") {
 		    const startCoords = {
@@ -598,6 +622,8 @@ function make_slides(f) {
 			}
 			coverSets.push(set);
 		    }
+
+		    const audioLabel = new Audio('../_shared/audio/'+stim.singular.toLowerCase()+'LabelAccidental.m4a');
 		    
 		    setTimeout(function() {
 			const nextItemData1 = setNextItem(0, 4, 0, 0, demoItems, coverSets, paper, startCoords, offsetX, pointerOffset, manCoord);
@@ -612,13 +638,13 @@ function make_slides(f) {
 					    setTimeout(function() {
 						showAccidental(nextItemData4[1], nextItemData4[0], function() {
 						    $('.button').show();
-						}, stim.featureLabel);
+						}, stim.featureLabelAccidental, audioLabel);
 					    }, 3000);
-					}, stim.featureLabel);
+					}, stim.featureLabelAccidental, audioLabel);
 				    }, 3000);
-				}, stim.featureLabel);
+				}, stim.featureLabelAccidental, audioLabel);
 			    }, 3000);
-			}, stim.featureLabel);
+			}, stim.featureLabelAccidental, audioLabel);
 		    }, 4500);
 		} else if (stim.trialType == "generic") {
 		    if (stim.sound) {
@@ -799,7 +825,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-    exp.condition = _.sample(["pedagogical", "accidental", "2pedagogical", "2accidental", "3pedagogical", "3accidental", "4pedagogical", "4accidental"]); //can randomize between subject conditions here
+    exp.condition = _.sample(["accidental", "pedagogical", "2accidental", "2pedagogical", "3accidental", "3pedagogical", "4accidental", "4pedagogical"]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
@@ -826,6 +852,7 @@ function init() {
 		distractors: drag_and_drop.objects.slice(1,4),
 		featureSingular: drag_and_drop.objects[0].sound+"s",
 		featureLabel: 'Squeaking.',
+		featureLabelAccidental: 'Listen to that! Squeaking.',
 	    },
 	    drag_and_drop.objects[0],
 	),

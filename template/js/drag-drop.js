@@ -439,6 +439,7 @@ var drag_and_drop = {
 	    featureSingular: 'has white wings',
 	    distractors: ['animaldistractor1.png', 'animaldistractor2.png', 'animaldistractor3.png'],
 	    featureLabel: 'White wings.',
+	    featureLabelAccidental: 'Look at that! White wings.',
 	},
 	{
 	    plural: "Daxes",
@@ -448,6 +449,7 @@ var drag_and_drop = {
 	    featureSingular: 'has a black center',
 	    distractors: ['plantdistractor1.png', 'plantdistractor2.png', 'plantdistractor3.png'],
 	    featureLabel: 'A black center.',
+	    featureLabelAccidental: 'Look at that! A black center.',
 	}
     ],
 
