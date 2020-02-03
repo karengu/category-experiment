@@ -902,7 +902,16 @@ function init() {
       }
   })();
 
-  exp.condition = _.sample(["accidental", "pedagogical", "2accidental", "2pedagogical", "3accidental", "3pedagogical", "4accidental", "4pedagogical"]); //can randomize between subject conditions here
+  exp.condition = _.sample([
+		"accidental",
+		"pedagogical"//,
+		// "2accidental",
+		// "2pedagogical",
+		// "3accidental",
+		// "3pedagogical",
+		// "4accidental",
+		// "4pedagogical"
+	]); //can randomize between subject conditions here
   exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
@@ -985,5 +994,5 @@ function init() {
 
     exp.go(); //show first slide
     USOnly();
-    uniqueTurker();
+    // uniqueTurker();
 }
