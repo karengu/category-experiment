@@ -12,7 +12,10 @@
     <!-- if you want to draw stuff: -->
     <script src="../_shared/js/raphael-min.js"></script>
     <script type="text/javascript">
-      function USOnly() {var accessKey = 'b487843addca6e9ec32e6ae28aeaa022';
+      function USOnly() {
+	  // checks to make sure the worker has a US IP address (AWS allows users to self-report location), called from init function of template.js
+	  // see geo.ipify.org for more info
+	  // URL must use HTTPS, since AWS requires self-hosted experiments to use HTTPS
 			 $.ajax({
 			     url: 'https://geo.ipify.org/api/v1?apiKey=at_nuIzsEIQJAft6sr1WH67UTfFDeMIO',
 			     dataType: 'jsonp',
@@ -20,26 +23,30 @@
 				 if (json.location.country != 'US') {
 				     var slides = document.getElementsByClassName('slide');
 				     for (i=0; i<slides.length; i++) {
+					 // hides all slides
 					 slides[i].style.display = 'none';
 				     }
-				     document.getElementsByClassName('progress')[0].style.display = 'none';
-				     document.getElementById('unique').innerText = "This HIT is only available to workers in the United States. Please click 'Return' to avoid any impact on your approval rating.";
+				     document.getElementsByClassName('progress')[0].style.display = 'none'; // hides progress bar
+				     document.getElementById('unique').innerText = "This HIT is only available to workers in the United States. Please click 'Return' to avoid any impact on your approval rating."; // displays error message
 				 }
 			     }
 			 });
 			}
     </script>
-    <script src="_shared/js/uniqueturker.js"></script>
+    <script src="../_shared/js/uniqueturker.js"></script>
     <script type="text/javascript">
       function uniqueTurker() {
+	  // checks to make sure the worker has not completed this task before, called from init function of template.js
+	  // see uniqueturker.myleott.com for more info
           var ut_id = "a926686853a963c1a6ebce41753ec6f2";
           if (UTWorkerLimitReached(ut_id)) {
               var slides = document.getElementsByClassName('slide');
               for (i=0; i<slides.length; i++) {
+		  // hides all slides
 		  slides[i].style.display = 'none';
 	      }
-	      document.getElementsByClassName('progress')[0].style.display = 'none';
-              document.getElementById('unique').innerText = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
+	      document.getElementsByClassName('progress')[0].style.display = 'none'; // hides progress bar
+              document.getElementById('unique').innerText = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating."; // displays error message
           }
       };
     </script>
@@ -141,15 +148,6 @@
       <div id="paperId"></div>
       <button onclick="_s.button()" id="demoButton" class="button">Continue</button>
       <p class="err">Please select a choice above.</p>
-    </div>
-
-    <div class="slide" id="attention_check">
-      <div>
-	<p>What was written on the note?</p>
-	<textarea id="attention_check_response" rows="2" cols="50"></textarea>
-      </div>
-      <button onclick="_s.button()" class="button">Continue</button>
-      <p class="err">Please answer the question.</p>
     </div>
 
     <div class="slide"  id="subj_info">
