@@ -1,0 +1,231 @@
+<html>
+
+  <head>
+    <title>Generics Exploration</title>
+
+    <!--JS-->
+
+    <!-- external general utilities -->
+    <script src="../_shared/js/jquery-1.11.1.min.js "></script>
+    <script src="../_shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../_shared/js/underscore-min.js"></script>
+    <!-- if you want to draw stuff: -->
+    <script src="../_shared/js/raphael-min.js"></script>
+    <script type="text/javascript">
+      function USOnly() {var accessKey = 'b487843addca6e9ec32e6ae28aeaa022';
+			 $.ajax({
+			     url: 'https://geo.ipify.org/api/v1?apiKey=at_nuIzsEIQJAft6sr1WH67UTfFDeMIO',
+			     dataType: 'jsonp',
+			     success: function(json) {
+				 if (json.location.country != 'US') {
+				     var slides = document.getElementsByClassName('slide');
+				     for (i=0; i<slides.length; i++) {
+					 slides[i].style.display = 'none';
+				     }
+				     document.getElementsByClassName('progress')[0].style.display = 'none';
+				     document.getElementById('unique').innerText = "This HIT is only available to workers in the United States. Please click 'Return' to avoid any impact on your approval rating.";
+				 }
+			     }
+			 });
+			}
+    </script>
+    <script src="https://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      function uniqueTurker() {
+          var ut_id = "a926686853a963c1a6ebce41753ec6f2";
+          if (UTWorkerLimitReached(ut_id)) {
+              var slides = document.getElementsByClassName('slide');
+              for (i=0; i<slides.length; i++) {
+		  slides[i].style.display = 'none';
+	      }
+	      document.getElementsByClassName('progress')[0].style.display = 'none';
+              document.getElementById('unique').innerText = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
+          }
+      };
+    </script>
+
+
+    <!-- cocolab experiment logic -->
+    <script src="../_shared/js/exp-V2.js"></script>
+    <script src="../_shared/js/stream-V2.js"></script>
+
+    <!-- cocolab general utilities -->
+    <script src="../_shared/js/mmturkey.js "></script>
+    <script src="../_shared/js/browserCheck.js"></script>
+    <script src="../_shared/js/utils.js"></script>
+    <!-- if you want to draw cute creatures (depends on raphael): -->
+    <script src="../_shared/js/ecosystem.js"></script>
+
+    <!-- experiment specific helper functions -->
+    <!-- <script src="js/local-utils.js"></script> -->
+    <script src="js/drag-drop.js"></script>
+
+    <!--CSS-->
+    <link href="../_shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../_shared/css/cocolab-style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/local-style.css" rel="stylesheet" type="text/css"/>
+
+    <!-- experiment file -->
+    <script src="js/gen-example-labeled.js"></script>
+
+  </head>
+
+  <body onload="init();">
+    <h1 id="unique"></h1>
+    <noscript>This task requires JavaScript.</noscript>
+
+    <div class="slide" id="i0" >
+      <img src="../_shared/images/cpl.png" id="cocologo"></img>
+      <p id="cocolab">MIT Computational Psycholinguistics Lab</p>
+      <p id="instruct-text">You will learn about new objects on an alien planet and be asked a few questions about them. The HIT should take ~<span id='2'>{{}}</span> minutes. Please pay attention, thanks!</p>
+      <button id="start_button" type="button">Start Experiment</button>
+      <p id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the MIT Computational Psycholinguistics Lab. If you have questions about this research, please contact Karen Gu, at <a href="mailto://karengu@mit.edu">karengu@mit.edu</a>, or MH Tessler, at tessler@mit.edu. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>
+      <div id="test_paper"></div>
+      <!-- <p id="credit">Image used from <a href='https://zalarieunique.ru'>https://zalarieunique.ru</a>.</p> -->
+    </div>
+
+     <div class="slide" id="botcaptcha">
+      <h3>Are you a bot?</h3>
+      <p id="story"></p>
+      <p id="question"></p>
+      <textarea id="listener-response" rows="1" cols="30"></textarea>
+
+      <button onclick="_s.button()" id="next">Continue</button>
+      <section class="answer-container">
+	<p class="text" id="error_incorrect" style="color: #7CB637">This is incorrect.</p>
+	<p class="text" id="error_2more" style="color: #7CB637">You have 2 more trials.</p>
+	<p class="text" id="error_1more" style="color: #7CB637">You have 1 more trial.</p>
+	<p class="text" id="error" style="color: #7CB637">Error: You failed to enter the correct response. Please return the HIT.</p>
+      </section>
+      <div id="fail">
+	You have failed the comprehension questions too many times. You are not permitted to complete the HIT. Please
+	click 'Return HIT' to avoid any impact on your approval rating. <br><br>
+	If you believe you are recieving this
+	message in error, please email <a href="mailto:karengu@mit.edu">karengu@mit.edu</a>.
+      </div>
+    </div>
+
+    <div class="slide" id="introduction">
+      <h3>Introduction</h3>
+      <p>You are an astronaut-scientist working on a recently discovered planet outside of the solar system. You have recently started a new job at a scientific laboratory. Your job is to catalogue and describe new kinds of plants, animals, and objects that have been discovered on the planet.</p>
+      <button onclick="_s.button()" id="intrButton">Continue</button>
+    </div>
+
+    <div class="slide" id="sound_check">
+      <p>Check that your sound is on. When you are ready, click the <b>Test</b> button. You will hear a word like "skyscraper". Enter the word you hear into the box below and click <b>Continue</b> when you are finished.</p>
+      <button onclick="_s.test_sound()">Test</button><br>
+      <input type="text" id="sound_response"></input><br><br><br>
+      <button onclick="_s.button()">Continue</button>
+      <p class="err">Please write the word you hear when clicking the Test button.</p>
+    </div>
+
+    <div class="slide" id="naming">
+      <p>Your fellow astronaut-scientists have already named some of the new things that have been discovered. Before you enter the lab, you learn the name for what you will be studying.</p>
+      <h3 id="naming_label"></h3>
+      <div class="naming_paper" id="naming_paper"></div>
+      <button onclick="_s.button()" id="naming_button">Continue</button>
+    </div>
+
+    <div class="slide" id="trials">
+      <div id="trial">
+	<p id="testStatement"></p>
+	<h3 id="utterance"></h3>
+	<p id="instruct"></p>
+	<div class="paper" id="paper"></div>
+      </div>
+      <div id="response">
+        <p class="prompt"></p>
+	<table id="slider_table" class="slider_table">
+	  <tr><td class="left">0%</td><td class="right">100%</td></tr>
+	  <tr><td colspan="2"><div id="single_slider" class="slider"></div></td></tr>
+	</table>
+      </div>
+      <button onclick="_s.button()" id="demoButton" class="button">Continue</button>
+      <p class="err">Please select a value on the bar.</p>
+    </div>
+    
+    <div class="slide" id="identification">
+      <p id="instructId"></p>
+      <div id="paperId"></div>
+      <button onclick="_s.button()" id="demoButton" class="button">Continue</button>
+      <p class="err">Please select a choice above.</p>
+    </div>
+
+    <div class="slide" id="attention_check">
+      <div>
+	<p>What was written on the note?</p>
+	<textarea id="attention_check_response" rows="2" cols="50"></textarea>
+      </div>
+      <button onclick="_s.button()" class="button">Continue</button>
+      <p class="err">Please answer the question.</p>
+    </div>
+
+    <div class="slide"  id="subj_info">
+      <div class="long_form">
+	<div class="subj_info_title">Additional information</div>
+	<p class="info">Answering these questions is optional, but will help us understand your answers.</p>
+	<p>Did you read the instructions and do you think you did the HIT correctly?</p>
+	<label><input type="radio"  name="assess" value="No"/>No</label>
+	<label><input type="radio"  name="assess" value="Yes"/>Yes</label>
+	<label><input type="radio"  name="assess" value="Confused"/>I was confused</label>
+
+	<p>Were there any problems or bugs in the experiment?</p>
+	<textarea id="problems" rows="2" cols="50"></textarea>
+
+	<p>What do you think is a fair price for the work you did?</p>
+	<textarea id="fairprice" rows="1" cols="10"></textarea>
+
+	<p>Gender:
+          <select id="gender">
+            <label><option value=""/></label>
+            <label><option value="Male"/>Male</label>
+            <label><option value="Female"/>Female</label>
+            <label><option value="Other"/>Other</label>
+          </select>
+	</p>
+
+	<p>Age: <input type="text" id="age"/></p>
+
+	<p>Level Of Education:
+          <select id="education">
+            <label><option value="-1"/></label>
+            <label><option value="0"/>Some High School</label>
+            <label><option value="1"/>Graduated High School</label>
+            <label><option value="2"/>Some College</label>
+            <label><option value="3"/>Graduated College</label>
+            <label><option value="4"/>Hold a higher degree</label>
+          </select>
+	</p>
+
+	<p>Native Language: <input type="text" id="language"/></p>
+	<label>(the language(s) spoken at home when you were a child)</label>
+
+	<p>Did you enjoy the hit?</p>
+	<select id="enjoyment">
+          <label><option value="-1"></option></label>
+          <label><option value="0">Worse than the Average HIT</option></label>
+          <label><option value="1" >An Average HIT</option></label>
+          <label><option value="2">Better than average HIT</option></label>
+	</select>
+
+	<p>We would be interested in any comments you have about this experiment. Please type them here:</p>
+	<textarea id="comments" rows="3" cols="50"></textarea>
+	<br/>
+	<button onclick="_s.submit()">Submit</button>
+      </div>
+    </div>
+
+    <div id="thanks" class="slide js" >
+      <p  class="big">Thanks for your time!</p>
+    </div>
+
+    <div class="progress">
+      <span>Progress:</span>
+      <div class="bar-wrapper">
+	<div class="bar" width="0%">
+	</div>
+      </div>
+    </div>
+
+  </body>
+</html>
