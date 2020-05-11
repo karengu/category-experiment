@@ -903,10 +903,10 @@ function init() {
   })();
 
   exp.condition = _.sample([
-		"accidental",
-		"pedagogical"//,
+		// "accidental",
+		// "pedagogical",
 		// "2accidental",
-		// "2pedagogical",
+		"2pedagogical",
 		// "3accidental",
 		// "3pedagogical",
 		// "4accidental",

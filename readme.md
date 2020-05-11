@@ -1,3 +1,20 @@
+Experiments are set to the 2 pedagogical condition by default. To change the condition, uncomment the appropriate lines beginning with the following in `gen-example.js` or `gen-example-labeled.js`:
+ `exp.condition = _.sample([`
+For example, to change to the 3 accidental condition, the code should look like the following:
+```
+exp.condition = _.sample([
+// "accidental",
+// "2accidental",
+"3accidental",
+// "4accidental",
+// "pedagogical",
+// "2pedagogical",
+// "3pedagogical",
+// "4pedagogical"
+]);
+```
+
+
 Inside the _shared are some helper js files, some libraries we call. Some of these are completely external, like jquery and raphael, some of them are written by members of the lab, like mmturkey and utils.
 
 Inside your javascript file for your own experiment, e.g. template.js, you'll write up the structure that the slides have. In template.js, the line

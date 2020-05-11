@@ -597,7 +597,16 @@ function make_slides(f) {
 
 /// init: called at the very beginning to set up slides ///
 function init() {
-    exp.condition = _.sample(["accidental", "2accidental", "3accidental", "4accidental", "pedagogical", "2pedagogical", "3pedagogical", "4pedagogical"]); //can randomize between subject conditions here
+    exp.condition = _.sample([
+	// "accidental",
+	// "2accidental",
+	// "3accidental",
+	// "4accidental",
+	// "pedagogical",
+	"2pedagogical",
+    // 	"3pedagogical",
+    // 	"4pedagogical"
+     ]); //can randomize between subject conditions here
     exp.system = {
 	Browser : BrowserDetect.browser,
 	OS : BrowserDetect.OS,
